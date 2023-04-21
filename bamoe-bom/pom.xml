@@ -931,30 +931,6 @@
         <classifier>sources</classifier>
       </dependency>
 
-      <dependency>
-        <groupId>org.kie.kogito</groupId>
-        <artifactId>kogito-addons-human-task-prediction-api</artifactId>
-        <version>${version.org.kogito}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.kie.kogito</groupId>
-        <artifactId>kogito-addons-human-task-prediction-api</artifactId>
-        <version>${version.org.kogito}</version>
-        <classifier>sources</classifier>
-      </dependency>
-
-      <dependency>
-        <groupId>org.kie.kogito</groupId>
-        <artifactId>kogito-addons-human-task-prediction-smile</artifactId>
-        <version>${version.org.kogito}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.kie.kogito</groupId>
-        <artifactId>kogito-addons-human-task-prediction-smile</artifactId>
-        <version>${version.org.kogito}</version>
-        <classifier>sources</classifier>
-      </dependency>
-
       <!-- drools -->
       <dependency>
         <groupId>org.kie.kogito</groupId>
