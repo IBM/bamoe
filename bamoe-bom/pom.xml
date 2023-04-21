@@ -1604,39 +1604,6 @@
         <classifier>sources</classifier>
       </dependency>
 
-      <!-- spring boot starter -->
-      <dependency>
-        <groupId>org.kie.kogito</groupId>
-        <artifactId>kogito-spring-boot-starter</artifactId>
-        <version>${version.org.kogito}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.kie.kogito</groupId>
-        <artifactId>kogito-rules-spring-boot-starter</artifactId>
-        <version>${version.org.kogito}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.kie.kogito</groupId>
-        <artifactId>kogito-processes-spring-boot-starter</artifactId>
-        <version>${version.org.kogito}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.kie.kogito</groupId>
-        <artifactId>kogito-processes-spring-boot-starter</artifactId>
-        <version>${version.org.kogito}</version>
-        <classifier>sources</classifier>
-      </dependency>
-      <dependency>
-        <groupId>org.kie.kogito</groupId>
-        <artifactId>kogito-decisions-spring-boot-starter</artifactId>
-        <version>${version.org.kogito}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.kie.kogito</groupId>
-        <artifactId>kogito-predictions-spring-boot-starter</artifactId>
-        <version>${version.org.kogito}</version>
-      </dependency>
-
       <!-- Quarkus extension -->
       <dependency>
         <groupId>org.kie.kogito</groupId>
