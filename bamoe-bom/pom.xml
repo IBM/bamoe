@@ -114,28 +114,6 @@
         <version>${version.org.kogito}</version>
         <classifier>sources</classifier>
       </dependency>
-      <dependency>
-        <groupId>org.kie.kogito</groupId>
-        <artifactId>kogito-addons-quarkus-camel</artifactId>
-        <version>${version.org.kogito}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.kie.kogito</groupId>
-        <artifactId>kogito-addons-quarkus-camel</artifactId>
-        <version>${version.org.kogito}</version>
-        <classifier>sources</classifier>
-      </dependency>
-      <dependency>
-        <groupId>org.kie.kogito</groupId>
-        <artifactId>kogito-addons-quarkus-camel-deployment</artifactId>
-        <version>${version.org.kogito}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.kie.kogito</groupId>
-        <artifactId>kogito-addons-quarkus-camel-deployment</artifactId>
-        <version>${version.org.kogito}</version>
-        <classifier>sources</classifier>
-      </dependency>
 
       <dependency>
         <groupId>org.kie.kogito</groupId>
