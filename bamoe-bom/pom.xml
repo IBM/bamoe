@@ -55,18 +55,6 @@
 
       <dependency>
         <groupId>org.kie.kogito</groupId>
-        <artifactId>jobs-service-api</artifactId>
-        <version>${version.org.kogito}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.kie.kogito</groupId>
-        <artifactId>jobs-service-api</artifactId>
-        <version>${version.org.kogito}</version>
-        <classifier>sources</classifier>
-      </dependency>
-
-      <dependency>
-        <groupId>org.kie.kogito</groupId>
         <artifactId>kogito-services</artifactId>
         <version>${version.org.kogito}</version>
       </dependency>
