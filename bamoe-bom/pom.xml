@@ -491,28 +491,6 @@
       </dependency>
       <dependency>
         <groupId>org.kie.kogito</groupId>
-        <artifactId>kogito-addons-quarkus-mail</artifactId>
-        <version>${version.org.kogito}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.kie.kogito</groupId>
-        <artifactId>kogito-addons-quarkus-mail</artifactId>
-        <version>${version.org.kogito}</version>
-        <classifier>sources</classifier>
-      </dependency>
-      <dependency>
-        <groupId>org.kie.kogito</groupId>
-        <artifactId>kogito-addons-quarkus-mail-deployment</artifactId>
-        <version>${version.org.kogito}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.kie.kogito</groupId>
-        <artifactId>kogito-addons-quarkus-mail-deployment</artifactId>
-        <version>${version.org.kogito}</version>
-        <classifier>sources</classifier>
-      </dependency>
-      <dependency>
-        <groupId>org.kie.kogito</groupId>
         <artifactId>kogito-addons-rest-exception-handler</artifactId>
         <version>${version.org.kogito}</version>
       </dependency>
