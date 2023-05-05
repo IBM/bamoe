@@ -412,39 +412,6 @@
       </dependency>
       <dependency>
         <groupId>org.kie.kogito</groupId>
-        <artifactId>kogito-addons-events-mongodb</artifactId>
-        <version>${version.org.kogito}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.kie.kogito</groupId>
-        <artifactId>kogito-addons-events-mongodb</artifactId>
-        <version>${version.org.kogito}</version>
-        <classifier>sources</classifier>
-      </dependency>
-      <dependency>
-        <groupId>org.kie.kogito</groupId>
-        <artifactId>kogito-addons-quarkus-events-mongodb</artifactId>
-        <version>${version.org.kogito}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.kie.kogito</groupId>
-        <artifactId>kogito-addons-quarkus-events-mongodb</artifactId>
-        <version>${version.org.kogito}</version>
-        <classifier>sources</classifier>
-      </dependency>
-      <dependency>
-        <groupId>org.kie.kogito</groupId>
-        <artifactId>kogito-addons-quarkus-events-mongodb-deployment</artifactId>
-        <version>${version.org.kogito}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.kie.kogito</groupId>
-        <artifactId>kogito-addons-quarkus-events-mongodb-deployment</artifactId>
-        <version>${version.org.kogito}</version>
-        <classifier>sources</classifier>
-      </dependency>
-      <dependency>
-        <groupId>org.kie.kogito</groupId>
         <artifactId>kogito-addons-process-management</artifactId>
         <version>${version.org.kogito}</version>
       </dependency>
