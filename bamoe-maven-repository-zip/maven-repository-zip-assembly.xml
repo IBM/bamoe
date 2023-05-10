@@ -13,6 +13,10 @@
         <include>**/drools/**</include>
         <include>**/kie/**</include>
       </includes>
+      <excludes>
+        <exclude>**/_remote.repositories</exclude>
+        <exclude>**/maven-metadata-local.xml</exclude>
+      </excludes>
     </fileSet>
   </fileSets>
 </assembly>
