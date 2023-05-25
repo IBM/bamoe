@@ -13,12 +13,19 @@
   <packaging>pom</packaging>
   <name>Business Automation Manager Open Editions product BOM</name>
 
-  <properties>
-    <version.org.kogito>2.0.0-SNAPSHOT</version.org.kogito>
-  </properties>
-
   <dependencyManagement>
     <dependencies>
+      <dependency>
+        <groupId>com.ibm.bamoe</groupId>
+        <artifactId>bamoe-ilmt-compliance-pamoe</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.ibm.bamoe</groupId>
+        <artifactId>bamoe-ilmt-compliance-dmoe</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+
       <dependency>
         <groupId>org.kie.kogito</groupId>
         <artifactId>kogito-api</artifactId>
