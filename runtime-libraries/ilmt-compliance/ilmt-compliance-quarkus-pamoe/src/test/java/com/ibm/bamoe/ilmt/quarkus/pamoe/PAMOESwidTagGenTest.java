@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.ibm.bamoe.ilmt.dmoe;
+package com.ibm.bamoe.ilmt.quarkus.pamoe;
 
 import io.quarkus.test.junit.QuarkusTest;
 import javax.inject.Inject;
@@ -27,10 +27,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @QuarkusTest
-public class DMOESwidTagGenTest {
+public class PAMOESwidTagGenTest {
 
     @Inject
-    DMOESwidTagGen swidFileGenerator;
+    PAMOESwidTagGen swidFileGenerator;
 
     @AfterEach
     public void cleanup() throws IOException {

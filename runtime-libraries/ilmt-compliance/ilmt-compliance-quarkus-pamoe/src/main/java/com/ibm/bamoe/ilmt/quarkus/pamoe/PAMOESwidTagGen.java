@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.ibm.bamoe.ilmt.pamoe;
+package com.ibm.bamoe.ilmt.quarkus.pamoe;
 
 import io.quarkus.runtime.Startup;
 
