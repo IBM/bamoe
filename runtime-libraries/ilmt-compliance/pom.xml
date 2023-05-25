@@ -7,7 +7,7 @@
     <groupId>com.ibm.bamoe</groupId>
     <artifactId>bamoe-build-parent</artifactId>
     <version>9.0-SNAPSHOT</version>
-    <relativePath>../bamoe-build-parent/pom.xml</relativePath>
+    <relativePath>../build-parent/pom.xml</relativePath>
   </parent>
 
   <packaging>pom</packaging>
@@ -16,9 +16,9 @@
   <name>Business Automation Manager Open Editions - ILMT Compliance</name>
 
   <modules>
-    <module>bamoe-ilmt-compliance-common</module>
-    <module>bamoe-ilmt-compliance-pamoe</module>
-    <module>bamoe-ilmt-compliance-dmoe</module>
+    <module>ilmt-compliance-common</module>
+    <module>ilmt-compliance-quarkus-pamoe</module>
+    <module>ilmt-compliance-quarkus-dmoe</module>
   </modules>
 
 </project>
