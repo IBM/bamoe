@@ -9,7 +9,7 @@
     <version>9.0-SNAPSHOT</version>
   </parent>
 
-  <artifactId>bamoe-ilmt-compliance-pamoe</artifactId>
+  <artifactId>bamoe-ilmt-compliance-quarkus-pamoe</artifactId>
   <name>Business Automation Manager Open Editions - ILMT Compliance PAMOE</name>
 
 
