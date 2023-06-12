@@ -3,7 +3,7 @@
   "version": "9.0.0",
   "description": "Author Decisions and Workflows using the DMN and BPMN open standards",
   "license": "Apache-2.0",
-  "publisher": "ibm",
+  "publisher": "IBM",
   "keywords": [],
   "homepage": "https://github.com/ibm/bamoe",
   "repository": {
