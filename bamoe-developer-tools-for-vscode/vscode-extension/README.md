@@ -1,8 +1,8 @@
-## BAMOE Developer Tools for VS Code
+## IBM BAMOE Developer Tools for VS Code
 
 ![vs-code-support](https://img.shields.io/badge/Visual%20Studio%20Code-1.66.0+-blue.svg)
 
-Create and edit BPMN, DMN and SceSim files.
+Create, edit and visualize business processes (BPMN), decisions (DMN) and test scenarios (SceSim).
 
 ## Features
 
