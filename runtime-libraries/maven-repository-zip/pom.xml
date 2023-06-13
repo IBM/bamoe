@@ -30,6 +30,14 @@
 
   <dependencies>
     <dependency>
+      <groupId>com.ibm.bamoe</groupId>
+      <artifactId>bamoe-ilmt-compliance-quarkus-pamoe</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.ibm.bamoe</groupId>
+      <artifactId>bamoe-ilmt-compliance-quarkus-dmoe</artifactId>
+    </dependency>
+    <dependency>
       <groupId>org.kie.kogito</groupId>
       <artifactId>kogito-api</artifactId>
     </dependency>
@@ -239,7 +247,6 @@
     <dependency>
       <groupId>org.kie.kogito</groupId>
       <artifactId>kogito-codegen-decisions</artifactId>
-
     </dependency>
     <dependency>
       <groupId>org.kie.kogito</groupId>
