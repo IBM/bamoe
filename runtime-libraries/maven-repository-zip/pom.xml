@@ -946,9 +946,7 @@
     </dependency>
     <dependency>
       <groupId>org.kie</groupId>
-      <artifactId>kie-dmn-feel
-      </groupId>
-      <artifactId>jar</artifactId>
+      <artifactId>kie-dmn-feel</artifactId>
     </dependency>
     <dependency>
       <groupId>org.kie</groupId>
