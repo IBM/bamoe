@@ -194,6 +194,12 @@
 
       <dependency>
         <groupId>org.kie.kogito</groupId>
+        <artifactId>kogito-addons-quarkus-common-reactive-messaging</artifactId>
+        <version>${version.org.kogito}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.kie.kogito</groupId>
         <artifactId>kogito-timer</artifactId>
         <version>${version.org.kogito}</version>
       </dependency>
