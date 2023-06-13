@@ -1,0 +1,36 @@
+{
+  "name": "bamoe-developer-tools",
+  "version": "9.0.0",
+  "description": "Author Decisions and Workflows using the DMN and BPMN open standards",
+  "license": "Apache-2.0",
+  "publisher": "IBM",
+  "keywords": [],
+  "homepage": "https://github.com/ibm/bamoe",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ibm/bamoe.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ibm/bamoe/issues"
+  },
+  "scripts": {
+    "build": "rm -rf dist && mkdir dist && npx vsce package --githubBranch $npm_package_version --no-dependencies -o ./dist/bamoe_developer_tools_for_vscode_$npm_package_version.vsix"
+  },
+  "engines": {
+    "vscode": "^1.66.0"
+  },
+  "displayName": "BAMOE Developer Tools",
+  "categories": [
+    "Other"
+  ],
+  "extensionDependencies": [
+    "kie-group.bpmn-vscode-extension",
+    "kie-group.dmn-vscode-extension"
+  ],
+  "icon": "icon.png",
+  "capabilities": {
+    "untrustedWorkspaces": {
+      "supported": false
+    }
+  }
+}
