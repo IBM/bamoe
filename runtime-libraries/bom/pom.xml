@@ -1102,6 +1102,70 @@
         <artifactId>drools-xml-support</artifactId>
         <version>${version.org.drools}</version>
       </dependency>
+
+      <!-- Drools KIE dependencies -->
+      <dependency>
+        <groupId>org.kie</groupId>
+        <artifactId>kie-api</artifactId>
+        <version>${version.org.drools}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.kie</groupId>
+        <artifactId>kie-dmn-api</artifactId>
+        <version>${version.org.drools}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.kie</groupId>
+        <artifactId>kie-dmn-backend</artifactId>
+        <version>${version.org.drools}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.kie</groupId>
+        <artifactId>kie-dmn-core</artifactId>
+        <version>${version.org.drools}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.kie</groupId>
+        <artifactId>kie-dmn-feel
+        </groupId>
+        <artifactId>jar</artifactId>
+        <version>${version.org.drools}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.kie</groupId>
+        <artifactId>kie-dmn-model</artifactId>
+        <version>${version.org.drools}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.kie</groupId>
+        <artifactId>kie-dmn-openapi</artifactId>
+        <version>${version.org.drools}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.kie</groupId>
+        <artifactId>kie-dmn-validation</artifactId>
+        <version>${version.org.drools}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.kie</groupId>
+        <artifactId>kie-internal</artifactId>
+        <version>${version.org.drools}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.kie</groupId>
+        <artifactId>kie-memory-compiler</artifactId>
+        <version>${version.org.drools}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.kie</groupId>
+        <artifactId>kie-util-maven-support</artifactId>
+        <version>${version.org.drools}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.kie</groupId>
+        <artifactId>kie-util-xml</artifactId>
+        <version>${version.org.drools}</version>
+      </dependency>
     </dependencies>
   </dependencyManagement>
 </project>
