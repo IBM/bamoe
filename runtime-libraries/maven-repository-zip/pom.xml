@@ -14,7 +14,7 @@
 
   <properties>
     <m2.repo.location>${settings.localRepository}</m2.repo.location>
-    <maven.repo.assembly.xml>maven-repository-zip-assembly.xml</maven.repo.assembly.xml>
+    <maven.repo.assembly.xml>maven-repository-zip-assembly-bamoe-only.xml</maven.repo.assembly.xml>
   </properties>
 
   <dependencyManagement>
