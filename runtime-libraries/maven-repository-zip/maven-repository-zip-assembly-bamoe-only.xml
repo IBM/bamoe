@@ -1,0 +1,23 @@
+<assembly xmlns="http://maven.apache.org/ASSEMBLY/2.1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/ASSEMBLY/2.1.1 https://maven.apache.org/xsd/assembly-2.1.1.xsd">
+  <id>maven-repo-zip-assembly-bamoe-only</id>
+  <formats>
+    <format>zip</format>
+  </formats>
+  <fileSets>
+    <fileSet>
+      <directory>${m2.repo.location}</directory>
+      <outputDirectory>/</outputDirectory>
+      <includes>
+        <include>**/bamoe/**</include>
+        <include>**/drools/**</include>
+        <include>**/kie/**</include>
+      </includes>
+      <excludes>
+        <exclude>**/_remote.repositories</exclude>
+        <exclude>**/maven-metadata**</exclude>
+        <exclude>**/resolver-status.properties</exclude>
+      </excludes>
+    </fileSet>
+  </fileSets>
+</assembly>
