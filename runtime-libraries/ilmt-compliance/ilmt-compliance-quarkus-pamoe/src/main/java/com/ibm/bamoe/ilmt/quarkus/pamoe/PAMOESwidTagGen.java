@@ -40,6 +40,6 @@ public class PAMOESwidTagGen extends SwidFileGenerator {
 
     @Override
     public String getResourceFileName() {
-        return "/ibm.com_IBM_Process_Automation_Manager_Open_Edition.swidtag";
+        return "/META-INF/ibm.com_IBM_Process_Automation_Manager_Open_Edition.swidtag";
     }
 }
