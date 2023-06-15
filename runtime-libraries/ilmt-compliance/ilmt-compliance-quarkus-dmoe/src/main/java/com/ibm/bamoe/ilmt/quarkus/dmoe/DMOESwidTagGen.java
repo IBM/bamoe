@@ -40,6 +40,6 @@ public class DMOESwidTagGen extends SwidFileGenerator {
 
     @Override
     public String getResourceFileName() {
-        return "/ibm.com_IBM_Decision_Manager_Open_Edition.swidtag";
+        return "/META-INF/ibm.com_IBM_Decision_Manager_Open_Edition.swidtag";
     }
 }
