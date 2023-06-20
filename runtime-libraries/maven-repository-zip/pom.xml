@@ -32,6 +32,12 @@
   <dependencies>
     <dependency>
       <groupId>com.ibm.bamoe</groupId>
+      <artifactId>bamoe-bom</artifactId>
+      <type>pom</type>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.ibm.bamoe</groupId>
       <artifactId>bamoe-ilmt-compliance-quarkus-pamoe</artifactId>
     </dependency>
     <dependency>
