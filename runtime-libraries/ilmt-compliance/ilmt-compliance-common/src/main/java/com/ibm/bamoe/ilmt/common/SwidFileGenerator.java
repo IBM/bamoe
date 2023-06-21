@@ -15,10 +15,7 @@
  */
 package com.ibm.bamoe.ilmt.common;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
@@ -39,23 +36,5 @@ public abstract class SwidFileGenerator {
 
     public abstract Path getFilePath();
 
-    public abstract String getResourceFileName();
-
-    public String getSwidContent() {
-        try (InputStream inputStream = getClass().getResourceAsStream(getResourceFileName());
-             BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream))) {
-
-            StringBuilder swidContent = new StringBuilder();
-            String line;
-
-            while ((line = reader.readLine()) != null) {
-                swidContent.append(line).append('\n');
-            }
-
-            return swidContent.toString();
-        } catch (IOException e) {
-            e.printStackTrace();
-            return "";
-        }
-    }
+    public abstract  String getSwidContent();
 }

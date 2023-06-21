@@ -29,7 +29,6 @@ import org.junit.jupiter.api.Test;
 public class SwidFileGeneratorTest {
 
     final Path swidFilePath = Paths.get("swid_file.xml");
-    final String templateFile = "/template.swidtag";
 
     @AfterEach
     void clean() throws IOException{
@@ -48,38 +47,11 @@ public class SwidFileGeneratorTest {
     
         public String getSwidContent() {
             return someContent;
-        }
-
-        @Override
-        public String getResourceFileName() {
-            return templateFile;
         }};
 
         swidFileGenerator.createSwidFile();
 
         assertTrue(Files.exists(swidFilePath), "SWID file should be generated");
         assertEquals(swidFileGenerator.getSwidContent(), someContent, "SWID file content should match expected content");
-    }
-
-    @Test
-    public void testTemplateBasedWriting() throws IOException {
-        final Path swidFilePath = Paths.get("swid_file.xml");
-
-        SwidFileGenerator swidFileGenerator = new SwidFileGenerator() {
-        @Override
-        public Path getFilePath() {
-            return swidFilePath;
-        }
-    
-        @Override
-        public String getResourceFileName() {
-            return templateFile;
-        }};
-
-        swidFileGenerator.createSwidFile();
-
-        String swidContent = Files.readString(swidFilePath);
-        assertTrue(Files.exists(swidFilePath), "SWID file should be generated");
-        assertEquals(swidFileGenerator.getSwidContent(), swidContent, "SWID file content should match expected content");
     }
 }

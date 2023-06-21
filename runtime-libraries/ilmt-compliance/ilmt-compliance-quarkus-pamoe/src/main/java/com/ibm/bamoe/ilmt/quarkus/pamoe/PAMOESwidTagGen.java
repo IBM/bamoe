@@ -39,7 +39,13 @@ public class PAMOESwidTagGen extends SwidFileGenerator {
     }
 
     @Override
-    public String getResourceFileName() {
-        return "/META-INF/ibm.com_IBM_Process_Automation_Manager_Open_Edition.swidtag";
+    public String getSwidContent() {
+        return "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" + //
+                "<SoftwareIdentity name=\"IBM Process Automation Manager Open Edition\" tagId=\"ibm.com-3d9d28f19d0f45fda113c07fb481e3ea-9.0.0\" version=\"9.0.0\" versionScheme=\"multipartnumeric\" xml:lang=\"en\" xmlns=\"http://standards.iso.org/iso/19770/-2/2015/schema.xsd\" xmlns:ds=\"http://www.w3.org/2000/09/xmldsig#\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://standards.iso.org/iso/19770/-2/2015-current/schema.xsd schema.xsd\">\n" + //
+                "    <Meta persistentId=\"3d9d28f19d0f45fda113c07fb481e3ea\"/>\n" + //
+                "    <Meta generator=\"4-1-20210113\"/>\n" + //
+                "    <Entity name=\"IBM\" regid=\"ibm.com\" role=\"licensor tagCreator softwareCreator\"/>\n" + //
+                "</SoftwareIdentity>";
     }
+
 }
