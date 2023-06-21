@@ -539,11 +539,6 @@
 
       <!-- for DevUI only -->
       <dependency>
-        <groupId>io.quarkiverse.embedded.postgresql</groupId>
-        <artifactId>quarkus-embedded-postgresql</artifactId>
-        <version>${version.io.quarkiverse.embedded.postgresql}</version>
-      </dependency>
-      <dependency>
         <groupId>org.kie.kogito</groupId>
         <artifactId>kogito-addons-quarkus-jobs-service-embedded</artifactId>
         <version>${version.org.kogito}</version>
