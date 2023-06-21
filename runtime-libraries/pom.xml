@@ -17,6 +17,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <version.org.kogito>2.0.0-SNAPSHOT</version.org.kogito>
     <version.org.drools>8.40.0-SNAPSHOT</version.org.drools>
+    <version.io.quarkiverse.embedded.postgresql>0.0.2</version.io.quarkiverse.embedded.postgresql>
   </properties>
 
   <profiles>
