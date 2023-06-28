@@ -14,6 +14,28 @@
   <artifactId>bamoe-build-parent</artifactId>
   <name>BAMOE - Build Parent</name>
 
+  <description>IBM BAMOE build parent pom file.</description>
+  <url>https://bamoe.university</url>
+  <licenses>
+    <license>
+      <name>The Apache Software License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+  <scm>
+    <url>https://github.com/ibm/bamoe</url>
+  </scm>
+  <organization>
+    <name>IBM Software - Automation - Digital Business Automation</name>
+    <url>http://www.ibm.com/</url>
+  </organization>
+  <developers>
+    <developer>
+      <name>BAMOE Team</name>
+    </developer>
+  </developers>
+
   <properties>
     <compiler-plugin.version>3.10.1</compiler-plugin.version>
     <quarkus.platform.artifact-id>quarkus-bom</quarkus.platform.artifact-id>
