@@ -13,6 +13,28 @@
   <packaging>pom</packaging>
   <name>Business Automation Manager Open Editions product BOM</name>
 
+  <description>IBM BAMOE product bom specifying supported scope of libraries.</description>
+  <url>https://bamoe.university</url>
+  <licenses>
+    <license>
+      <name>The Apache Software License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+  <scm>
+    <url>https://github.com/ibm/bamoe</url>
+  </scm>
+  <organization>
+    <name>IBM Software - Automation - Digital Business Automation</name>
+    <url>http://www.ibm.com/</url>
+  </organization>
+  <developers>
+    <developer>
+      <name>BAMOE Team</name>
+    </developer>
+  </developers>
+
   <dependencyManagement>
     <dependencies>
       <dependency>
