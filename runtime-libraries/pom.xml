@@ -6,7 +6,7 @@
 
   <groupId>com.ibm.bamoe</groupId>
   <artifactId>bamoe-runtime-libraries</artifactId>
-  <version>9.0-SNAPSHOT</version>
+  <version>9.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <name>BAMOE product Maven modules parent</name>
@@ -16,7 +16,7 @@
     <maven.compiler.target>11</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <version.org.kogito>2.0.0-SNAPSHOT</version.org.kogito>
-    <version.org.drools>8.40.0-SNAPSHOT</version.org.drools>
+    <version.org.drools>8.41.0-SNAPSHOT</version.org.drools>
   </properties>
 
   <profiles>
