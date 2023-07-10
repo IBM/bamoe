@@ -13,6 +13,7 @@
 
   <artifactId>bamoe-build-parent</artifactId>
   <name>BAMOE - Build Parent</name>
+  <description>IBM BAMOE build parent pom file.</description>
 
   <properties>
     <compiler-plugin.version>3.10.1</compiler-plugin.version>

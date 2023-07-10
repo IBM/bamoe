@@ -9,10 +9,11 @@
     <version>9.0-SNAPSHOT</version>
   </parent>
 
- <packaging>jar</packaging>
+  <packaging>jar</packaging>
 
   <artifactId>bamoe-ilmt-compliance-common</artifactId>
   <name>Business Automation Manager Open Editions - ILMT Compliance Common</name>
+  <description>IBM BAMOE ILMT compliance common library.</description>
 
   <dependencies>
     <dependency>

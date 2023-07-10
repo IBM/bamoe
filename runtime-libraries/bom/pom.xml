@@ -12,6 +12,7 @@
   <artifactId>bamoe-bom</artifactId>
   <packaging>pom</packaging>
   <name>Business Automation Manager Open Editions product BOM</name>
+  <description>IBM BAMOE product bom specifying supported scope of libraries.</description>
 
   <dependencyManagement>
     <dependencies>

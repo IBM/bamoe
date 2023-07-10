@@ -14,6 +14,7 @@
 
   <artifactId>bamoe-ilmt-compliance</artifactId>
   <name>Business Automation Manager Open Editions - ILMT Compliance</name>
+  <description>IBM BAMOE ILMT compliance libraries parent pom file.</description>
 
   <modules>
     <module>ilmt-compliance-common</module>
