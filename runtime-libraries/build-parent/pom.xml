@@ -23,6 +23,8 @@
     <surefire-plugin.version>3.0.0-M7</surefire-plugin.version>
     <jandex-plugin.version>3.0.5</jandex-plugin.version>
     <junit-jupiter.version>5.9.2</junit-jupiter.version>
+    <javadoc-plugin.version>3.5.0</javadoc-plugin.version>
+    <source-plugin.version>3.3.0</source-plugin.version>
   </properties>
 
   <dependencyManagement>
@@ -51,5 +53,35 @@
     </dependencies>
   </dependencyManagement>
 
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <version>${javadoc-plugin.version}</version>
+        <executions>
+          <execution>
+            <id>generate-javadoc-jar</id>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-source-plugin</artifactId>
+        <version>${source-plugin.version}</version>
+        <executions>
+          <execution>
+            <id>generate-source-jar</id>
+            <goals>
+              <goal>jar-no-fork</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
 
 </project>

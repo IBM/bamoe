@@ -38,11 +38,45 @@
     </dependency>
     <dependency>
       <groupId>com.ibm.bamoe</groupId>
+      <artifactId>bamoe-ilmt-compliance-common</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.ibm.bamoe</groupId>
+      <artifactId>bamoe-ilmt-compliance-common</artifactId>
+      <classifier>sources</classifier>
+    </dependency>
+    <dependency>
+      <groupId>com.ibm.bamoe</groupId>
+      <artifactId>bamoe-ilmt-compliance-common</artifactId>
+      <classifier>javadoc</classifier>
+    </dependency>
+    <dependency>
+      <groupId>com.ibm.bamoe</groupId>
       <artifactId>bamoe-ilmt-compliance-quarkus-pamoe</artifactId>
     </dependency>
     <dependency>
       <groupId>com.ibm.bamoe</groupId>
+      <artifactId>bamoe-ilmt-compliance-quarkus-pamoe</artifactId>
+      <classifier>sources</classifier>
+    </dependency>
+    <dependency>
+      <groupId>com.ibm.bamoe</groupId>
+      <artifactId>bamoe-ilmt-compliance-quarkus-pamoe</artifactId>
+      <classifier>javadoc</classifier>
+    </dependency>
+    <dependency>
+      <groupId>com.ibm.bamoe</groupId>
       <artifactId>bamoe-ilmt-compliance-quarkus-dmoe</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.ibm.bamoe</groupId>
+      <artifactId>bamoe-ilmt-compliance-quarkus-dmoe</artifactId>
+      <classifier>sources</classifier>
+    </dependency>
+    <dependency>
+      <groupId>com.ibm.bamoe</groupId>
+      <artifactId>bamoe-ilmt-compliance-quarkus-dmoe</artifactId>
+      <classifier>javadoc</classifier>
     </dependency>
     <dependency>
       <groupId>org.kie.kogito</groupId>

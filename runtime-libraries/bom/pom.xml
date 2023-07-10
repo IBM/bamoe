@@ -17,13 +17,54 @@
     <dependencies>
       <dependency>
         <groupId>com.ibm.bamoe</groupId>
+        <artifactId>bamoe-ilmt-compliance-common</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.ibm.bamoe</groupId>
+        <artifactId>bamoe-ilmt-compliance-common</artifactId>
+        <version>${project.version}</version>
+        <classifier>sources</classifier>
+      </dependency>
+      <dependency>
+        <groupId>com.ibm.bamoe</groupId>
+        <artifactId>bamoe-ilmt-compliance-common</artifactId>
+        <version>${project.version}</version>
+        <classifier>javadoc</classifier>
+      </dependency>
+      <dependency>
+        <groupId>com.ibm.bamoe</groupId>
         <artifactId>bamoe-ilmt-compliance-quarkus-pamoe</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.ibm.bamoe</groupId>
+        <artifactId>bamoe-ilmt-compliance-quarkus-pamoe</artifactId>
+        <version>${project.version}</version>
+        <classifier>sources</classifier>
+      </dependency>
+      <dependency>
+        <groupId>com.ibm.bamoe</groupId>
+        <artifactId>bamoe-ilmt-compliance-quarkus-pamoe</artifactId>
+        <version>${project.version}</version>
+        <classifier>javadoc</classifier>
+      </dependency>
+      <dependency>
+        <groupId>com.ibm.bamoe</groupId>
+        <artifactId>bamoe-ilmt-compliance-quarkus-dmoe</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>
         <groupId>com.ibm.bamoe</groupId>
         <artifactId>bamoe-ilmt-compliance-quarkus-dmoe</artifactId>
         <version>${project.version}</version>
+        <classifier>sources</classifier>
+      </dependency>
+      <dependency>
+        <groupId>com.ibm.bamoe</groupId>
+        <artifactId>bamoe-ilmt-compliance-quarkus-dmoe</artifactId>
+        <version>${project.version}</version>
+        <classifier>javadoc</classifier>
       </dependency>
 
       <dependency>
