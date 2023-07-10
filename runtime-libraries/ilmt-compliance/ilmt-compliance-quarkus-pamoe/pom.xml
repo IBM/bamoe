@@ -11,7 +11,7 @@
 
   <artifactId>bamoe-ilmt-compliance-quarkus-pamoe</artifactId>
   <name>Business Automation Manager Open Editions - ILMT Compliance PAMOE</name>
-
+  <description>IBM BAMOE ILMT compliance library for PAMOE use cases and applications.</description>
 
   <dependencies>
     <dependency>
