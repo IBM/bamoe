@@ -6,7 +6,7 @@
   <parent>
     <groupId>com.ibm.bamoe</groupId>
     <artifactId>bamoe-runtime-libraries</artifactId>
-    <version>9.0-SNAPSHOT</version>
+    <version>9.0.1-SNAPSHOT</version>
   </parent>
 
   <packaging>pom</packaging>
@@ -19,7 +19,7 @@
     <compiler-plugin.version>3.10.1</compiler-plugin.version>
     <quarkus.platform.artifact-id>quarkus-bom</quarkus.platform.artifact-id>
     <quarkus.platform.group-id>io.quarkus.platform</quarkus.platform.group-id>
-    <quarkus.platform.version>2.16.7.Final</quarkus.platform.version>
+    <quarkus.platform.version>2.16.12.Final</quarkus.platform.version>
     <skipITs>true</skipITs>
     <surefire-plugin.version>3.0.0-M7</surefire-plugin.version>
     <jandex-plugin.version>3.0.5</jandex-plugin.version>
