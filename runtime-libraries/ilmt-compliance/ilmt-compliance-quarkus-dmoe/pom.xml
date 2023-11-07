@@ -6,7 +6,7 @@
   <parent>
     <groupId>com.ibm.bamoe</groupId>
     <artifactId>bamoe-ilmt-compliance</artifactId>
-    <version>9.0-SNAPSHOT</version>
+    <version>9.0.1-SNAPSHOT</version>
   </parent>
 
   <artifactId>bamoe-ilmt-compliance-quarkus-dmoe</artifactId>
