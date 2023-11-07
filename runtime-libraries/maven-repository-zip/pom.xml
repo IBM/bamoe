@@ -6,7 +6,7 @@
   <parent>
     <groupId>com.ibm.bamoe</groupId>
     <artifactId>bamoe-runtime-libraries</artifactId>
-    <version>9.0-SNAPSHOT</version>
+    <version>9.0.1-SNAPSHOT</version>
   </parent>
 
   <artifactId>bamoe-maven-repository-zip</artifactId>
