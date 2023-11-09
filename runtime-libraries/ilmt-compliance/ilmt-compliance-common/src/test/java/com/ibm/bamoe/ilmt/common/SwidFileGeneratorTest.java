@@ -15,43 +15,87 @@
  */
 package com.ibm.bamoe.ilmt.common;
 
+import static com.github.stefanbirkner.systemlambda.SystemLambda.withEnvironmentVariable;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
 public class SwidFileGeneratorTest {
 
-    final Path swidFilePath = Paths.get("swid_file.xml");
+    final String someContent = "<test>";
 
-    @AfterEach
-    void clean() throws IOException{
-        Files.deleteIfExists(swidFilePath);
+    class TestSwidFileGenerator extends SwidFileGenerator {
+
+        @Override
+        public String getFileName() {
+            return "swid_file.xml";
+        }
+
+        @Override
+        public String getSwidContent() {
+            return someContent;
+        }
     }
 
     @Test
     public void testBasicContentWriting() throws IOException {
-        final String someContent = "<test>";
-
-        SwidFileGenerator swidFileGenerator = new SwidFileGenerator() {
-        @Override
-        public Path getFilePath() {
-            return swidFilePath;
-        }
-    
-        public String getSwidContent() {
-            return someContent;
-        }};
-
+        TestSwidFileGenerator swidFileGenerator = new TestSwidFileGenerator();
         swidFileGenerator.createSwidFile();
 
-        assertTrue(Files.exists(swidFilePath), "SWID file should be generated");
-        assertEquals(swidFileGenerator.getSwidContent(), someContent, "SWID file content should match expected content");
+        assertTrue(Files.exists(Paths.get(swidFileGenerator.getFileName())), "SWID file should be generated");
+        assertEquals(swidFileGenerator.getSwidContent(), someContent,
+                "SWID file content should match expected content");
     }
+
+    @Test
+    void testEnvVarInvalid() throws Exception {
+        TestSwidFileGenerator swidFileGenerator = new TestSwidFileGenerator();
+        withEnvironmentVariable("SWIDTAG_DIR", "invalid content here")
+                .execute(() -> {
+                    try {
+                        swidFileGenerator.createSwidFile();
+                        fail("swid file couldn't be generated - invalid value");
+                    } catch (RuntimeException ex) {
+                    }
+                });
+    }
+
+    @Test
+    void testEnvVarNoValue() throws Exception {
+        TestSwidFileGenerator swidFileGenerator = new TestSwidFileGenerator();
+
+        withEnvironmentVariable("SWIDTAG_DIR", "")
+                .execute(() -> {
+                    swidFileGenerator.createSwidFile();
+
+                    assertTrue(Files.exists(Paths.get(swidFileGenerator.getFileName())), "SWID file should be generated");
+                    assertEquals(swidFileGenerator.getSwidContent(), someContent,
+                            "SWID file content should match expected content");
+                });
+    }
+
+    @Test
+    void testEnvVarCorrect() throws Exception {
+        TestSwidFileGenerator swidFileGenerator = new TestSwidFileGenerator();
+
+        Path tempDir = Files.createTempDirectory("mytestPrefix");
+
+        withEnvironmentVariable("SWIDTAG_DIR", tempDir.toFile().getAbsolutePath())
+                .execute(() -> {
+                    System.out.println(System.getenv("SWIDTAG_DIR"));
+
+                    swidFileGenerator.createSwidFile();
+
+                    assertTrue(swidFileGenerator.getFilePath().equals(Paths.get(tempDir.toFile().getAbsolutePath(), swidFileGenerator.getFileName())));
+                    assertEquals(swidFileGenerator.getSwidContent(), someContent,
+                            "SWID file content should match expected content");
+                });
+    }    
 }

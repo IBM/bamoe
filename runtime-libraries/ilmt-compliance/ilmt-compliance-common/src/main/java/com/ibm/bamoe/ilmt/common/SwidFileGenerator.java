@@ -18,6 +18,7 @@ package com.ibm.bamoe.ilmt.common;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 
 public abstract class SwidFileGenerator {
 
@@ -34,7 +35,20 @@ public abstract class SwidFileGenerator {
         }
     }
 
-    public abstract Path getFilePath();
+    public Path getFilePath(){
+        final String swidTagDirString = getSwidTagDir();
+        if (swidTagDirString!= null && !swidTagDirString.isBlank()){
+            return Paths.get( swidTagDirString, getFileName());
+        }
 
-    public abstract  String getSwidContent();
+        return Paths.get(getFileName());
+    }
+
+    String getSwidTagDir() {
+        return System.getenv("SWIDTAG_DIR");
+    }
+
+    public abstract String getFileName();
+
+    public abstract String getSwidContent();
 }
