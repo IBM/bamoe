@@ -42,7 +42,8 @@ public class PAMOESwidTagGenTest {
         assertTrue(Files.exists(swidFileGenerator.getFilePath()), "SWID file should be generated");
 
         String swidContent = Files.readString(swidFileGenerator.getFilePath());
-        assertEquals(swidFileGenerator.getSwidContent(), swidContent, "SWID file content should match expected content");
+        assertEquals(swidFileGenerator.getSwidContent(), swidContent,
+                "SWID file content should match expected content");
     }
 
 }

@@ -1,6 +1,8 @@
 # This is a PAMOE ILMT compliance library that every PAMOE  project should use.
 
-This library will automatically create a swidtag file in the home directory of the hosting application.
+This library uses the system variable SWIDTAG_DIR to determine the directory for creating a swidtag file. If the SWIDTAG_DIR variable is set, the library will use the specified directory for swidtag file creation. In cases where SWIDTAG_DIR is not set the library will default to the home directory of the hosting application.
+
+It's important to note that if the SWIDTAG_DIR environment variable contains invalid content or an invalid path, the hosting application will fail to deploy.
 
 The swidtag file is an XML file content based on ISO/IEC 19770-2:2015 specification. Here’s an example of the swidtag file content:
 

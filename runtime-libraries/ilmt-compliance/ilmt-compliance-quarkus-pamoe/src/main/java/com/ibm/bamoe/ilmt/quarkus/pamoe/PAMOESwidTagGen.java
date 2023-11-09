@@ -22,9 +22,6 @@ import javax.enterprise.context.ApplicationScoped;
 
 import com.ibm.bamoe.ilmt.common.SwidFileGenerator;
 
-import java.nio.file.Path;
-import java.nio.file.Paths;
-
 @Startup
 @ApplicationScoped
 public class PAMOESwidTagGen extends SwidFileGenerator {
@@ -34,8 +31,8 @@ public class PAMOESwidTagGen extends SwidFileGenerator {
         super.createSwidFile();
     }
 
-    public Path getFilePath() {
-        return Paths.get( "ibm.com_IBM_Process_Automation_Manager_Open_Edition-9.0.0.swidtag");
+    public String getFileName() {
+        return "ibm.com_IBM_Process_Automation_Manager_Open_Edition-9.0.1.swidtag";
     }
 
     @Override
