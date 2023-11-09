@@ -24,6 +24,7 @@
     <surefire-plugin.version>3.0.0-M7</surefire-plugin.version>
     <jandex-plugin.version>3.0.5</jandex-plugin.version>
     <junit-jupiter.version>5.9.2</junit-jupiter.version>
+    <stefanbirkner.system-lambda.version>1.2.1</stefanbirkner.system-lambda.version>
     <javadoc-plugin.version>3.5.0</javadoc-plugin.version>
     <source-plugin.version>3.3.0</source-plugin.version>
   </properties>
@@ -42,6 +43,13 @@
         <groupId>org.junit.jupiter</groupId>
         <artifactId>junit-jupiter</artifactId>
         <version>${junit-jupiter.version}</version>
+        <scope>test</scope>
+      </dependency>
+
+      <dependency>
+        <groupId>com.github.stefanbirkner</groupId>
+        <artifactId>system-lambda</artifactId>
+        <version>${stefanbirkner.system-lambda.version}</version>
         <scope>test</scope>
       </dependency>
 
