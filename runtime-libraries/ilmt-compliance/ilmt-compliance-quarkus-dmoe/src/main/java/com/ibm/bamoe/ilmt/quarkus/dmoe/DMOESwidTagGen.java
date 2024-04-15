@@ -37,11 +37,11 @@ public class DMOESwidTagGen extends SwidFileGenerator {
 
     @Override
     public String getSwidContent() {
-        return "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>\n" + //
-                "<SoftwareIdentity xmlns=\"http://standards.iso.org/iso/19770/-2/2015/schema.xsd\" xmlns:ds=\"http://www.w3.org/2000/09/xmldsig#\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" name=\"IBM Decision Manager Open Edition\" tagId=\"ibm.com-a46f72acb4204f1c8b27228722103341-9.0.1\" version=\"9.0.1\" versionScheme=\"multipartnumeric\" xml:lang=\"en\" xsi:schemaLocation=\"http://standards.iso.org/iso/19770/-2/2015-current/schema.xsd schema.xsd\">\n" + //
-                "    <Meta persistentId=\"a46f72acb4204f1c8b27228722103341\"/>\n" + //
-                "    <Meta generator=\"4-1-20210113\"/>\n" + //
-                "    <Entity name=\"IBM\" regid=\"ibm.com\" role=\"licensor tagCreator softwareCreator\"/>\n" + //
+        return "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>\n" +
+                "<SoftwareIdentity xmlns=\"http://standards.iso.org/iso/19770/-2/2015/schema.xsd\" xmlns:ds=\"http://www.w3.org/2000/09/xmldsig#\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" name=\"IBM Decision Manager Open Edition\" tagId=\"ibm.com-a46f72acb4204f1c8b27228722103341-9.1.0\" version=\"9.1.0\" versionScheme=\"multipartnumeric\" xml:lang=\"en\" xsi:schemaLocation=\"http://standards.iso.org/iso/19770/-2/2015-current/schema.xsd schema.xsd\">\n" +
+                "    <Meta persistentId=\"a46f72acb4204f1c8b27228722103341\"/>\n" +
+                "    <Meta generator=\"4-1-20210113\"/>\n" +
+                "    <Entity name=\"IBM\" regid=\"ibm.com\" role=\"licensor tagCreator softwareCreator\"/>\n" +
                 "</SoftwareIdentity>";
     }
 }
