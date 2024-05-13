@@ -47,6 +47,7 @@
 
   <modules>
     <module>bom</module>
+    <module>techpreview-bom</module>
     <module>build-parent</module>
     <module>ilmt-compliance</module>
   </modules>
