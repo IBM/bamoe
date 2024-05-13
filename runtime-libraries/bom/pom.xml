@@ -925,25 +925,25 @@
 
       <!-- Quarkus DevUI addon -->
       <dependency>
-        <groupId>org.kie.kogito</groupId>
-        <artifactId>runtime-tools-quarkus-extension</artifactId>
-        <version>${version.org.kogito}</version>
+        <groupId>org.jbpm</groupId>
+        <artifactId>jbpm-quarkus-devui</artifactId>
+        <version>${version.org.kie.tools}</version>
       </dependency>
       <dependency>
-        <groupId>org.kie.kogito</groupId>
-        <artifactId>runtime-tools-quarkus-extension</artifactId>
-        <version>${version.org.kogito}</version>
+        <groupId>org.jbpm</groupId>
+        <artifactId>jbpm-quarkus-devui</artifactId>
+        <version>${version.org.kie.tools}</version>
         <classifier>sources</classifier>
       </dependency>
       <dependency>
-        <groupId>org.kie.kogito</groupId>
-        <artifactId>runtime-tools-quarkus-extension-deployment</artifactId>
-        <version>${version.org.kogito}</version>
+        <groupId>org.jbpm</groupId>
+        <artifactId>jbpm-quarkus-devui-deployment</artifactId>
+        <version>${version.org.kie.tools}</version>
       </dependency>
       <dependency>
-        <groupId>org.kie.kogito</groupId>
-        <artifactId>runtime-tools-quarkus-extension-deployment</artifactId>
-        <version>${version.org.kogito}</version>
+        <groupId>org.jbpm</groupId>
+        <artifactId>jbpm-quarkus-devui-deployment</artifactId>
+        <version>${version.org.kie.tools}</version>
         <classifier>sources</classifier>
       </dependency>
 
