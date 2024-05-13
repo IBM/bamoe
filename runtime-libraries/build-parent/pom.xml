@@ -27,6 +27,7 @@
     <stefanbirkner.system-lambda.version>1.2.1</stefanbirkner.system-lambda.version>
     <javadoc-plugin.version>3.5.0</javadoc-plugin.version>
     <source-plugin.version>3.3.0</source-plugin.version>
+    <jakarta.enterprise.cdi-api.version>4.1.0</jakarta.enterprise.cdi-api.version>
   </properties>
 
   <dependencyManagement>
@@ -59,6 +60,12 @@
         <version>${project.version}</version>
       </dependency>
 
+      <dependency>
+        <groupId>jakarta.enterprise</groupId>
+        <artifactId>jakarta.enterprise.cdi-api</artifactId>
+        <version>${jakarta.enterprise.cdi-api.version}</version>
+        <scope>provided</scope>
+      </dependency>
     </dependencies>
   </dependencyManagement>
 
