@@ -124,43 +124,43 @@
     </dependency>
 
     <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>kogito-addons-messaging</artifactId>
+      <groupId>org.kie</groupId>
+      <artifactId>kie-addons-messaging</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>kogito-addons-messaging</artifactId>
+      <groupId>org.kie</groupId>
+      <artifactId>kie-addons-messaging</artifactId>
       <classifier>sources</classifier>
     </dependency>
     <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>kogito-addons-marshallers-avro</artifactId>
+      <groupId>org.kie</groupId>
+      <artifactId>kie-addons-marshallers-avro</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>kogito-addons-marshallers-avro</artifactId>
+      <groupId>org.kie</groupId>
+      <artifactId>kie-addons-marshallers-avro</artifactId>
       <classifier>sources</classifier>
     </dependency>
     <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>kogito-addons-quarkus-marshallers-avro</artifactId>
+      <groupId>org.kie</groupId>
+      <artifactId>kie-addons-quarkus-marshallers-avro</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>kogito-addons-quarkus-marshallers-avro-deployment</artifactId>
+      <groupId>org.kie</groupId>
+      <artifactId>kie-addons-quarkus-marshallers-avro-deployment</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>kogito-addons-quarkus-marshallers-avro-deployment</artifactId>
+      <groupId>org.kie</groupId>
+      <artifactId>kie-addons-quarkus-marshallers-avro-deployment</artifactId>
       <classifier>sources</classifier>
     </dependency>
     <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>kogito-addons-knative-eventing</artifactId>
+      <groupId>org.kie</groupId>
+      <artifactId>kie-addons-knative-eventing</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>kogito-addons-knative-eventing</artifactId>
+      <groupId>org.kie</groupId>
+      <artifactId>kie-addons-knative-eventing</artifactId>
       <classifier>sources</classifier>
     </dependency>
 
@@ -175,55 +175,55 @@
     </dependency>
 
     <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>kogito-addons-quarkus-knative-eventing</artifactId>
+      <groupId>org.kie</groupId>
+      <artifactId>kie-addons-quarkus-knative-eventing</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>kogito-addons-quarkus-knative-eventing</artifactId>
+      <groupId>org.kie</groupId>
+      <artifactId>kie-addons-quarkus-knative-eventing</artifactId>
       <classifier>sources</classifier>
     </dependency>
     <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>kogito-addons-quarkus-knative-eventing-deployment</artifactId>
+      <groupId>org.kie</groupId>
+      <artifactId>kie-addons-quarkus-knative-eventing-deployment</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>kogito-addons-quarkus-knative-eventing-deployment</artifactId>
-      <classifier>sources</classifier>
-    </dependency>
-
-    <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>kogito-addons-quarkus-messaging</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>kogito-addons-quarkus-messaging</artifactId>
-      <classifier>sources</classifier>
-    </dependency>
-    <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>kogito-addons-quarkus-messaging-deployment</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>kogito-addons-quarkus-messaging-deployment</artifactId>
+      <groupId>org.kie</groupId>
+      <artifactId>kie-addons-quarkus-knative-eventing-deployment</artifactId>
       <classifier>sources</classifier>
     </dependency>
 
     <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>kogito-addons-quarkus-messaging-common</artifactId>
+      <groupId>org.kie</groupId>
+      <artifactId>kie-addons-quarkus-messaging</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>kogito-addons-quarkus-messaging-common</artifactId>
+      <groupId>org.kie</groupId>
+      <artifactId>kie-addons-quarkus-messaging</artifactId>
+      <classifier>sources</classifier>
+    </dependency>
+    <dependency>
+      <groupId>org.kie</groupId>
+      <artifactId>kie-addons-quarkus-messaging-deployment</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.kie</groupId>
+      <artifactId>kie-addons-quarkus-messaging-deployment</artifactId>
       <classifier>sources</classifier>
     </dependency>
 
     <dependency>
-      <groupId>org.kie.kogito</groupId>
+      <groupId>org.kie</groupId>
+      <artifactId>kie-addons-quarkus-messaging-common</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.kie</groupId>
+      <artifactId>kie-addons-quarkus-messaging-common</artifactId>
+      <classifier>sources</classifier>
+    </dependency>
+
+    <dependency>
+      <groupId>org.kie</groupId>
       <artifactId>kogito-addons-quarkus-common-reactive-messaging</artifactId>
     </dependency>
 
@@ -309,55 +309,55 @@
 
     <!-- Monitoring addon     -->
     <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>kogito-addons-monitoring-prometheus</artifactId>
+      <groupId>org.kie</groupId>
+      <artifactId>kie-addons-monitoring-prometheus</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>kogito-addons-monitoring-prometheus</artifactId>
+      <groupId>org.kie</groupId>
+      <artifactId>kie-addons-monitoring-prometheus</artifactId>
       <classifier>sources</classifier>
     </dependency>
     <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>kogito-addons-quarkus-monitoring-prometheus</artifactId>
+      <groupId>org.kie</groupId>
+      <artifactId>kie-addons-quarkus-monitoring-prometheus</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>kogito-addons-quarkus-monitoring-prometheus</artifactId>
+      <groupId>org.kie</groupId>
+      <artifactId>kie-addons-quarkus-monitoring-prometheus</artifactId>
       <classifier>sources</classifier>
     </dependency>
     <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>kogito-addons-quarkus-monitoring-prometheus-deployment</artifactId>
+      <groupId>org.kie</groupId>
+      <artifactId>kie-addons-quarkus-monitoring-prometheus-deployment</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>kogito-addons-quarkus-monitoring-prometheus-deployment</artifactId>
+      <groupId>org.kie</groupId>
+      <artifactId>kie-addons-quarkus-monitoring-prometheus-deployment</artifactId>
       <classifier>sources</classifier>
     </dependency>
 
     <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>kogito-addons-monitoring-core</artifactId>
+      <groupId>org.kie</groupId>
+      <artifactId>kie-addons-monitoring-core</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>kogito-addons-monitoring-core</artifactId>
+      <groupId>org.kie</groupId>
+      <artifactId>kie-addons-monitoring-core</artifactId>
       <classifier>sources</classifier>
     </dependency>
     <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>kogito-addons-monitoring-core</artifactId>
+      <groupId>org.kie</groupId>
+      <artifactId>kie-addons-monitoring-core</artifactId>
       <type>test-jar</type>
       <scope>test</scope>
     </dependency>
     <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>kogito-addons-quarkus-monitoring-core</artifactId>
+      <groupId>org.kie</groupId>
+      <artifactId>kie-addons-quarkus-monitoring-core</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>kogito-addons-quarkus-monitoring-core</artifactId>
+      <groupId>org.kie</groupId>
+      <artifactId>kie-addons-quarkus-monitoring-core</artifactId>
       <classifier>sources</classifier>
     </dependency>
 
@@ -373,158 +373,167 @@
     </dependency>
 
     <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>kogito-addons-quarkus-events-process</artifactId>
+      <groupId>org.kie</groupId>
+      <artifactId>kie-addons-quarkus-events-process</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>kogito-addons-quarkus-events-process</artifactId>
+      <groupId>org.kie</groupId>
+      <artifactId>kie-addons-quarkus-events-process</artifactId>
       <classifier>sources</classifier>
     </dependency>
     <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>kogito-addons-quarkus-events-process-deployment</artifactId>
+      <groupId>org.kie</groupId>
+      <artifactId>kie-addons-quarkus-events-process-deployment</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>kogito-addons-quarkus-events-process-deployment</artifactId>
+      <groupId>org.kie</groupId>
+      <artifactId>kie-addons-quarkus-events-process-deployment</artifactId>
       <classifier>sources</classifier>
     </dependency>
     <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>kogito-addons-process-management</artifactId>
+      <groupId>org.kie</groupId>
+      <artifactId>kie-addons-process-management</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>kogito-addons-process-management</artifactId>
+      <groupId>org.kie</groupId>
+      <artifactId>kie-addons-process-management</artifactId>
       <classifier>sources</classifier>
     </dependency>
     <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>kogito-addons-quarkus-process-management</artifactId>
+      <groupId>org.kie</groupId>
+      <artifactId>kie-addons-quarkus-process-management</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>kogito-addons-quarkus-process-management</artifactId>
+      <groupId>org.kie</groupId>
+      <artifactId>kie-addons-quarkus-process-management</artifactId>
       <classifier>sources</classifier>
     </dependency>
     <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>kogito-addons-quarkus-process-management-deployment</artifactId>
+      <groupId>org.kie</groupId>
+      <artifactId>kie-addons-quarkus-process-management-deployment</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>kogito-addons-quarkus-process-management-deployment</artifactId>
-      <classifier>sources</classifier>
-    </dependency>
-
-    <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>kogito-addons-source-files</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>kogito-addons-source-files</artifactId>
-      <classifier>sources</classifier>
-    </dependency>
-    <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>kogito-addons-quarkus-source-files</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>kogito-addons-quarkus-source-files</artifactId>
-      <classifier>sources</classifier>
-    </dependency>
-    <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>kogito-addons-quarkus-source-files-deployment</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>kogito-addons-quarkus-source-files-deployment</artifactId>
+      <groupId>org.kie</groupId>
+      <artifactId>kie-addons-quarkus-process-management-deployment</artifactId>
       <classifier>sources</classifier>
     </dependency>
 
     <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>kogito-addons-mail</artifactId>
+      <groupId>org.kie</groupId>
+      <artifactId>kie-addons-quarkus-source-files</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>kogito-addons-mail</artifactId>
+      <groupId>org.kie</groupId>
+      <artifactId>kie-addons-quarkus-source-files</artifactId>
       <classifier>sources</classifier>
     </dependency>
     <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>kogito-addons-rest-exception-handler</artifactId>
+      <groupId>org.kie</groupId>
+      <artifactId>kie-addons-quarkus-source-files-deployment</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>kogito-addons-rest-exception-handler</artifactId>
+      <groupId>org.kie</groupId>
+      <artifactId>kie-addons-quarkus-source-files-deployment</artifactId>
+      <classifier>sources</classifier>
+    </dependency>
+
+    <dependency>
+      <groupId>org.jbpm</groupId>
+      <artifactId>jbpm-addons-mail</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.jbpm</groupId>
+      <artifactId>jbpm-addons-mail</artifactId>
       <classifier>sources</classifier>
     </dependency>
     <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>kogito-addons-quarkus-rest-exception-handler</artifactId>
+      <groupId>org.kie</groupId>
+      <artifactId>kie-addons-rest-exception-handler</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>kogito-addons-quarkus-rest-exception-handler</artifactId>
+      <groupId>org.kie</groupId>
+      <artifactId>kie-addons-rest-exception-handler</artifactId>
+      <classifier>sources</classifier>
+    </dependency>
+    <dependency>
+      <groupId>org.kie</groupId>
+      <artifactId>kie-addons-quarkus-rest-exception-handler</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.kie</groupId>
+      <artifactId>kie-addons-quarkus-rest-exception-handler</artifactId>
       <classifier>sources</classifier>
     </dependency>
 
     <!-- Process SVG addon     -->
     <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>kogito-addons-process-svg</artifactId>
+      <groupId>org.kie</groupId>
+      <artifactId>kie-addons-process-svg</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>kogito-addons-process-svg</artifactId>
+      <groupId>org.kie</groupId>
+      <artifactId>kie-addons-process-svg</artifactId>
       <classifier>sources</classifier>
     </dependency>
     <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>kogito-addons-process-svg</artifactId>
+      <groupId>org.kie</groupId>
+      <artifactId>kie-addons-process-svg</artifactId>
       <type>test-jar</type>
     </dependency>
     <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>kogito-addons-quarkus-process-svg</artifactId>
+      <groupId>org.kie</groupId>
+      <artifactId>kie-addons-quarkus-process-svg</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>kogito-addons-quarkus-process-svg</artifactId>
+      <groupId>org.kie</groupId>
+      <artifactId>kie-addons-quarkus-process-svg</artifactId>
       <classifier>sources</classifier>
     </dependency>
     <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>kogito-addons-quarkus-process-svg-deployment</artifactId>
+      <groupId>org.kie</groupId>
+      <artifactId>kie-addons-quarkus-process-svg-deployment</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>kogito-addons-quarkus-process-svg-deployment</artifactId>
+      <groupId>org.kie</groupId>
+      <artifactId>kie-addons-quarkus-process-svg-deployment</artifactId>
       <classifier>sources</classifier>
     </dependency>
 
     <!-- for DevUI only -->
     <dependency>
-      <groupId>org.kie.kogito</groupId>
+      <groupId>org.kie</groupId>
       <artifactId>kogito-addons-quarkus-jobs-service-embedded</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.kie.kogito</groupId>
+      <groupId>org.kie</groupId>
       <artifactId>kogito-addons-quarkus-jobs-service-embedded</artifactId>
       <classifier>sources</classifier>
     </dependency>
     <dependency>
-      <groupId>org.kie.kogito</groupId>
+      <groupId>org.kie</groupId>
+      <artifactId>kogito-addons-quarkus-jobs-service-embedded-deployment</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.kie</groupId>
+      <artifactId>kogito-addons-quarkus-jobs-service-embedded-deployment</artifactId>
+      <classifier>sources</classifier>
+    </dependency>
+    <dependency>
+      <groupId>org.kie</groupId>
       <artifactId>kogito-addons-quarkus-data-index-inmemory</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.kie.kogito</groupId>
+      <groupId>org.kie</groupId>
       <artifactId>kogito-addons-quarkus-data-index-inmemory</artifactId>
+      <classifier>sources</classifier>
+    </dependency>
+    <dependency>
+      <groupId>org.kie</groupId>
+      <artifactId>kogito-addons-quarkus-data-index-inmemory-deployment</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.kie</groupId>
+      <artifactId>kogito-addons-quarkus-data-index-inmemory-deployment</artifactId>
       <classifier>sources</classifier>
     </dependency>
 
@@ -699,17 +708,17 @@
       <artifactId>kogito-quarkus-deployment</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>kogito-quarkus-decisions</artifactId>
+      <groupId>org.drools</groupId>
+      <artifactId>drools-quarkus-decisions</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>kogito-quarkus-decisions</artifactId>
+      <groupId>org.drools</groupId>
+      <artifactId>drools-quarkus-decisions</artifactId>
       <classifier>sources</classifier>
     </dependency>
     <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>kogito-quarkus-decisions-deployment</artifactId>
+      <groupId>org.drools</groupId>
+      <artifactId>drools-quarkus-decisions-deployment</artifactId>
       <exclusions>
         <!--
           Required for Gradle + Quarkus compat. See:
@@ -723,17 +732,17 @@
       </exclusions>
     </dependency>
     <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>kogito-quarkus-rules</artifactId>
+      <groupId>org.drools</groupId>
+      <artifactId>drools-quarkus-rules</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>kogito-quarkus-rules</artifactId>
+      <groupId>org.drools</groupId>
+      <artifactId>drools-quarkus-rules</artifactId>
       <classifier>sources</classifier>
     </dependency>
     <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>kogito-quarkus-rules-deployment</artifactId>
+      <groupId>org.drools</groupId>
+      <artifactId>drools-quarkus-rules-deployment</artifactId>
     </dependency>
 
     <dependency>
@@ -817,59 +826,59 @@
 
     <!-- event-driven decisions -->
     <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>kogito-addons-events-decisions</artifactId>
+      <groupId>org.kie</groupId>
+      <artifactId>kie-addons-events-decisions</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>kogito-addons-events-decisions</artifactId>
+      <groupId>org.kie</groupId>
+      <artifactId>kie-addons-events-decisions</artifactId>
       <classifier>sources</classifier>
     </dependency>
     <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>kogito-addons-quarkus-events-decisions</artifactId>
+      <groupId>org.kie</groupId>
+      <artifactId>kie-addons-quarkus-events-decisions</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>kogito-addons-quarkus-events-decisions</artifactId>
+      <groupId>org.kie</groupId>
+      <artifactId>kie-addons-quarkus-events-decisions</artifactId>
       <classifier>sources</classifier>
     </dependency>
     <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>kogito-addons-quarkus-events-decisions-deployment</artifactId>
+      <groupId>org.kie</groupId>
+      <artifactId>kie-addons-quarkus-events-decisions-deployment</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>kogito-addons-quarkus-events-decisions-deployment</artifactId>
+      <groupId>org.kie</groupId>
+      <artifactId>kie-addons-quarkus-events-decisions-deployment</artifactId>
       <classifier>sources</classifier>
     </dependency>
 
     <!-- event-driven rules -->
     <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>kogito-addons-events-rules</artifactId>
+      <groupId>org.drools</groupId>
+      <artifactId>drools-addons-events-rules</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>kogito-addons-events-rules</artifactId>
+      <groupId>org.drools</groupId>
+      <artifactId>drools-addons-events-rules</artifactId>
       <classifier>sources</classifier>
     </dependency>
     <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>kogito-addons-quarkus-events-rules</artifactId>
+      <groupId>org.drools</groupId>
+      <artifactId>drools-addons-quarkus-events-rules</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>kogito-addons-quarkus-events-rules</artifactId>
+      <groupId>org.drools</groupId>
+      <artifactId>drools-addons-quarkus-events-rules</artifactId>
       <classifier>sources</classifier>
     </dependency>
     <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>kogito-addons-quarkus-events-rules-deployment</artifactId>
+      <groupId>org.drools</groupId>
+      <artifactId>drools-addons-quarkus-events-rules-deployment</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>kogito-addons-quarkus-events-rules-deployment</artifactId>
+      <groupId>org.drools</groupId>
+      <artifactId>drools-addons-quarkus-events-rules-deployment</artifactId>
       <classifier>sources</classifier>
     </dependency>
 
