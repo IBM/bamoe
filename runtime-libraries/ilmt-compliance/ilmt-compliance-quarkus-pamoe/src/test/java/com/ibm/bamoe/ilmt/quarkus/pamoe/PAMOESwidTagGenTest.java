@@ -16,7 +16,7 @@
 package com.ibm.bamoe.ilmt.quarkus.pamoe;
 
 import io.quarkus.test.junit.QuarkusTest;
-import javax.inject.Inject;
+import jakarta.inject.Inject;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;

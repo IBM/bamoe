@@ -797,21 +797,21 @@
 
     <!-- Quarkus DevUI addon -->
     <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>runtime-tools-quarkus-extension</artifactId>
+      <groupId>org.jbpm</groupId>
+      <artifactId>jbpm-quarkus-devui</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>runtime-tools-quarkus-extension</artifactId>
+      <groupId>org.jbpm</groupId>
+      <artifactId>jbpm-quarkus-devui</artifactId>
       <classifier>sources</classifier>
     </dependency>
     <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>runtime-tools-quarkus-extension-deployment</artifactId>
+      <groupId>org.jbpm</groupId>
+      <artifactId>jbpm-quarkus-devui-deployment</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>runtime-tools-quarkus-extension-deployment</artifactId>
+      <groupId>org.jbpm</groupId>
+      <artifactId>jbpm-quarkus-devui-deployment</artifactId>
       <classifier>sources</classifier>
     </dependency>
 

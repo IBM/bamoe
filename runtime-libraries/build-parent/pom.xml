@@ -19,7 +19,7 @@
     <compiler-plugin.version>3.10.1</compiler-plugin.version>
     <quarkus.platform.artifact-id>quarkus-bom</quarkus.platform.artifact-id>
     <quarkus.platform.group-id>io.quarkus.platform</quarkus.platform.group-id>
-    <quarkus.platform.version>2.16.12.Final</quarkus.platform.version>
+    <quarkus.platform.version>3.8.4</quarkus.platform.version>
     <skipITs>true</skipITs>
     <surefire-plugin.version>3.0.0-M7</surefire-plugin.version>
     <jandex-plugin.version>3.0.5</jandex-plugin.version>
@@ -27,6 +27,7 @@
     <stefanbirkner.system-lambda.version>1.2.1</stefanbirkner.system-lambda.version>
     <javadoc-plugin.version>3.5.0</javadoc-plugin.version>
     <source-plugin.version>3.3.0</source-plugin.version>
+    <jakarta.enterprise.cdi-api.version>4.1.0</jakarta.enterprise.cdi-api.version>
   </properties>
 
   <dependencyManagement>
@@ -59,6 +60,12 @@
         <version>${project.version}</version>
       </dependency>
 
+      <dependency>
+        <groupId>jakarta.enterprise</groupId>
+        <artifactId>jakarta.enterprise.cdi-api</artifactId>
+        <version>${jakarta.enterprise.cdi-api.version}</version>
+        <scope>provided</scope>
+      </dependency>
     </dependencies>
   </dependencyManagement>
 

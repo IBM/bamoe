@@ -12,15 +12,16 @@
   <name>BAMOE product Maven modules parent</name>
 
   <properties>
-    <maven.compiler.source>11</maven.compiler.source>
-    <maven.compiler.target>11</maven.compiler.target>
+    <maven.compiler.source>17</maven.compiler.source>
+    <maven.compiler.target>17</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
     <nexus.staging.plugin.version>1.6.13</nexus.staging.plugin.version>
     <gpg.plugin.version>3.1.0</gpg.plugin.version>
 
-    <version.org.kogito>1.40.2-SNAPSHOT</version.org.kogito>
-    <version.org.drools>8.40.1-SNAPSHOT</version.org.drools>
+    <version.org.kie.tools>999.0.0-20240510-SNAPSHOT</version.org.kie.tools>
+    <version.org.kogito>999-20240509-SNAPSHOT</version.org.kogito>
+    <version.org.drools>999-20240509-SNAPSHOT</version.org.drools>
   </properties>
 
   <description>Runtime libraries for BAMOE.</description>
