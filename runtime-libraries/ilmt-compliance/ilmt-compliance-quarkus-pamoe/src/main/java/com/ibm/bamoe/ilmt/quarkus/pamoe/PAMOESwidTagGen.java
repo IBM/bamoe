@@ -17,8 +17,8 @@ package com.ibm.bamoe.ilmt.quarkus.pamoe;
 
 import io.quarkus.runtime.Startup;
 
-import javax.annotation.PostConstruct;
-import javax.enterprise.context.ApplicationScoped;
+import jakarta.annotation.PostConstruct;
+import jakarta.enterprise.context.ApplicationScoped;
 
 import com.ibm.bamoe.ilmt.common.SwidFileGenerator;
 
