@@ -154,23 +154,23 @@
       </dependency>
       <dependency>
         <groupId>org.kie</groupId>
-        <artifactId>kie-addons-knative-eventing</artifactId>
+        <artifactId>kogito-addons-knative-eventing</artifactId>
         <version>${version.org.kogito}</version>
       </dependency>
       <dependency>
         <groupId>org.kie</groupId>
-        <artifactId>kie-addons-knative-eventing</artifactId>
+        <artifactId>kogito-addons-knative-eventing</artifactId>
         <version>${version.org.kogito}</version>
         <classifier>sources</classifier>
       </dependency>
 
       <dependency>
-        <groupId>org.kie.kogito</groupId>
+        <groupId>org.kie</groupId>
         <artifactId>kogito-addons-quarkus-common-deployment</artifactId>
         <version>${version.org.kogito}</version>
       </dependency>
       <dependency>
-        <groupId>org.kie.kogito</groupId>
+        <groupId>org.kie</groupId>
         <artifactId>kogito-addons-quarkus-common-deployment</artifactId>
         <version>${version.org.kogito}</version>
         <classifier>sources</classifier>
@@ -255,11 +255,13 @@
       <dependency>
         <groupId>org.kie.kogito</groupId>
         <artifactId>kogito-maven-plugin</artifactId>
+        <type>maven-plugin</type>
         <version>${version.org.kogito}</version>
       </dependency>
       <dependency>
         <groupId>org.kie.kogito</groupId>
         <artifactId>kogito-maven-plugin</artifactId>
+        <type>maven-plugin</type>
         <version>${version.org.kogito}</version>
         <classifier>sources</classifier>
       </dependency>
@@ -564,30 +566,6 @@
       <dependency>
         <groupId>org.kie</groupId>
         <artifactId>kie-addons-quarkus-process-svg-deployment</artifactId>
-        <version>${version.org.kogito}</version>
-        <classifier>sources</classifier>
-      </dependency>
-
-      <!-- for DevUI only -->
-      <dependency>
-        <groupId>org.kie.kogito</groupId>
-        <artifactId>kogito-addons-quarkus-jobs-service-embedded</artifactId>
-        <version>${version.org.kogito}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.kie.kogito</groupId>
-        <artifactId>kogito-addons-quarkus-jobs-service-embedded</artifactId>
-        <version>${version.org.kogito}</version>
-        <classifier>sources</classifier>
-      </dependency>
-      <dependency>
-        <groupId>org.kie.kogito</groupId>
-        <artifactId>kogito-addons-quarkus-data-index-inmemory</artifactId>
-        <version>${version.org.kogito}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.kie.kogito</groupId>
-        <artifactId>kogito-addons-quarkus-data-index-inmemory</artifactId>
         <version>${version.org.kogito}</version>
         <classifier>sources</classifier>
       </dependency>
@@ -1264,6 +1242,52 @@
       <dependency>
         <groupId>org.jbpm</groupId>
         <artifactId>jbpm-quarkus-deployment</artifactId>
+        <version>${version.org.kogito}</version>
+        <classifier>sources</classifier>
+      </dependency>
+
+      <!-- for DevUI only -->
+      <dependency>
+        <groupId>org.kie</groupId>
+        <artifactId>kogito-addons-quarkus-jobs-service-embedded</artifactId>
+        <version>${version.org.kogito}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.kie</groupId>
+        <artifactId>kogito-addons-quarkus-jobs-service-embedded</artifactId>
+        <version>${version.org.kogito}</version>
+        <classifier>sources</classifier>
+      </dependency>
+      <dependency>
+        <groupId>org.kie</groupId>
+        <artifactId>kogito-addons-quarkus-jobs-service-embedded-deployment</artifactId>
+        <version>${version.org.kogito}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.kie</groupId>
+        <artifactId>kogito-addons-quarkus-jobs-service-embedded-deployment</artifactId>
+        <version>${version.org.kogito}</version>
+        <classifier>sources</classifier>
+      </dependency>
+      <dependency>
+        <groupId>org.kie</groupId>
+        <artifactId>kogito-addons-quarkus-data-index-inmemory</artifactId>
+        <version>${version.org.kogito}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.kie</groupId>
+        <artifactId>kogito-addons-quarkus-data-index-inmemory</artifactId>
+        <version>${version.org.kogito}</version>
+        <classifier>sources</classifier>
+      </dependency>
+      <dependency>
+        <groupId>org.kie</groupId>
+        <artifactId>kogito-addons-quarkus-data-index-inmemory-deployment</artifactId>
+        <version>${version.org.kogito}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.kie</groupId>
+        <artifactId>kogito-addons-quarkus-data-index-inmemory-deployment</artifactId>
         <version>${version.org.kogito}</version>
         <classifier>sources</classifier>
       </dependency>

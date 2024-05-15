@@ -45,6 +45,12 @@
     </dependency>
     <dependency>
       <groupId>com.ibm.bamoe</groupId>
+      <artifactId>bamoe-techpreview-bom</artifactId>
+      <type>pom</type>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.ibm.bamoe</groupId>
       <artifactId>bamoe-ilmt-compliance-common</artifactId>
     </dependency>
     <dependency>
@@ -156,20 +162,20 @@
     </dependency>
     <dependency>
       <groupId>org.kie</groupId>
-      <artifactId>kie-addons-knative-eventing</artifactId>
+      <artifactId>kogito-addons-knative-eventing</artifactId>
     </dependency>
     <dependency>
       <groupId>org.kie</groupId>
-      <artifactId>kie-addons-knative-eventing</artifactId>
+      <artifactId>kogito-addons-knative-eventing</artifactId>
       <classifier>sources</classifier>
     </dependency>
 
     <dependency>
-      <groupId>org.kie.kogito</groupId>
+      <groupId>org.kie</groupId>
       <artifactId>kogito-addons-quarkus-common-deployment</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.kie.kogito</groupId>
+      <groupId>org.kie</groupId>
       <artifactId>kogito-addons-quarkus-common-deployment</artifactId>
       <classifier>sources</classifier>
     </dependency>
@@ -240,10 +246,12 @@
     <dependency>
       <groupId>org.kie.kogito</groupId>
       <artifactId>kogito-maven-plugin</artifactId>
+      <type>maven-plugin</type>
     </dependency>
     <dependency>
       <groupId>org.kie.kogito</groupId>
       <artifactId>kogito-maven-plugin</artifactId>
+      <type>maven-plugin</type>
       <classifier>sources</classifier>
     </dependency>
 
@@ -556,36 +564,6 @@
     <dependency>
       <groupId>org.kie.kogito</groupId>
       <artifactId>kogito-dmn</artifactId>
-      <type>test-jar</type>
-      <scope>test</scope>
-    </dependency>
-
-    <!-- PMML -->
-    <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>kogito-pmml-api-dependencies</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>kogito-pmml-dependencies</artifactId>
-      <type>pom</type>
-    </dependency>
-    <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>kogito-pmml</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>kogito-pmml-openapi</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>kogito-pmml</artifactId>
-      <classifier>sources</classifier>
-    </dependency>
-    <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>kogito-pmml</artifactId>
       <type>test-jar</type>
       <scope>test</scope>
     </dependency>
@@ -1075,16 +1053,6 @@
       <artifactId>jbpm-with-drools-quarkus-deployment</artifactId>
     </dependency>
 
-    <!-- Kie Quarkus Predictions Extension -->
-    <dependency>
-      <groupId>org.kie</groupId>
-      <artifactId>kie-quarkus-predictions</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.kie</groupId>
-      <artifactId>kie-quarkus-predictions-deployment</artifactId>
-    </dependency>
-
     <!-- Quarkus Addons -->
     <dependency>
       <groupId>org.jbpm</groupId>
@@ -1162,10 +1130,6 @@
       <groupId>org.kie</groupId>
       <artifactId>kogito-addons-quarkus-jobs-knative-eventing-deployment</artifactId>
     </dependency>
-    <dependency>
-      <groupId>org.kie</groupId>
-      <artifactId>kogito-addons-knative-eventing</artifactId>
-    </dependency>
 
     <!-- Runtime Persistence -->
     <dependency>
@@ -1191,18 +1155,6 @@
     <dependency>
       <groupId>org.kie</groupId>
       <artifactId>kie-addons-quarkus-persistence-postgresql-deployment</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.kie</groupId>
-      <artifactId>kie-addons-persistence-rocksdb</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.kie</groupId>
-      <artifactId>kie-addons-quarkus-persistence-rocksdb</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.kie</groupId>
-      <artifactId>kie-addons-quarkus-persistence-rocksdb-deployment</artifactId>
     </dependency>
 
     <!-- Data Index Persistence -->
@@ -1233,162 +1185,6 @@
     <dependency>
       <groupId>org.kie</groupId>
       <artifactId>kogito-addons-quarkus-data-audit-jpa</artifactId>
-    </dependency>
-
-    <!-- Efesto -->
-    <dependency>
-      <groupId>org.kie</groupId>
-      <artifactId>efesto-common-api</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.kie</groupId>
-      <artifactId>efesto-common-core</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.kie</groupId>
-      <artifactId>efesto-compilation-manager-api</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.kie</groupId>
-      <artifactId>efesto-compilation-manager-core</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.kie</groupId>
-      <artifactId>efesto-runtime-manager-api</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.kie</groupId>
-      <artifactId>efesto-runtime-manager-core</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.kie</groupId>
-      <artifactId>efesto-common-utils</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.kie</groupId>
-      <artifactId>efesto-dependencies</artifactId>
-    </dependency>
-
-    <!-- Drools -->
-    <dependency>
-      <groupId>org.drools</groupId>
-      <artifactId>drools-quarkus-util-deployment</artifactId>
-    </dependency>
-
-    <!-- DRL -->
-    <dependency>
-      <groupId>org.kie</groupId>
-      <artifactId>kie-drl-compilation-common</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.kie</groupId>
-      <artifactId>kie-drl-api</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.kie</groupId>
-      <artifactId>kie-drl-map-input-runtime</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.kie</groupId>
-      <artifactId>kie-drl-runtime-common</artifactId>
-    </dependency>
-
-    <!-- PMML -->
-    <dependency>
-      <groupId>org.kie</groupId>
-      <artifactId>kie-pmml-api</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.kie</groupId>
-      <artifactId>kie-pmml-commons</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.kie</groupId>
-      <artifactId>kie-pmml-compiler-api</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.kie</groupId>
-      <artifactId>kie-pmml-compiler-core</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.kie</groupId>
-      <artifactId>kie-pmml-compiler-commons</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.kie</groupId>
-      <artifactId>kie-pmml-evaluator-api</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.kie</groupId>
-      <artifactId>kie-pmml-evaluator-core</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.kie</groupId>
-      <artifactId>kie-pmml-evaluator-utils</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.kie</groupId>
-      <artifactId>kie-pmml-models-drools-common</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.kie</groupId>
-      <artifactId>kie-pmml-models-regression-model</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.kie</groupId>
-      <artifactId>kie-pmml-models-regression-compiler</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.kie</groupId>
-      <artifactId>kie-pmml-models-regression-evaluator</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.kie</groupId>
-      <artifactId>kie-pmml-models-mining-model</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.kie</groupId>
-      <artifactId>kie-pmml-models-mining-compiler</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.kie</groupId>
-      <artifactId>kie-pmml-models-mining-evaluator</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.kie</groupId>
-      <artifactId>kie-pmml-models-clustering-model</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.kie</groupId>
-      <artifactId>kie-pmml-models-clustering-compiler</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.kie</groupId>
-      <artifactId>kie-pmml-models-clustering-evaluator</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.kie</groupId>
-      <artifactId>kie-pmml-models-drools-tree-model</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.kie</groupId>
-      <artifactId>kie-pmml-models-drools-tree-compiler</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.kie</groupId>
-      <artifactId>kie-pmml-models-drools-tree-evaluator</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.kie</groupId>
-      <artifactId>kie-pmml-models-drools-scorecard-model</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.kie</groupId>
-      <artifactId>kie-pmml-models-drools-scorecard-compiler</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.kie</groupId>
-      <artifactId>kie-pmml-models-drools-scorecard-evaluator</artifactId>
     </dependency>
 
     <!-- Kogito API Incubation -->
@@ -1439,28 +1235,6 @@
     <dependency>
       <groupId>org.kie.kogito</groupId>
       <artifactId>kogito-api-incubation-decisions</artifactId>
-    </dependency>
-
-    <!-- Kogito Serverless Workflow -->
-    <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>kogito-serverless-workflow-builder</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>kogito-serverless-workflow-executor-core</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>kogito-serverless-workflow-runtime</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>kogito-serverless-workflow-utils</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>kogito-jq-expression</artifactId>
     </dependency>
 
     <!-- Kogito Apps Persistence -->
