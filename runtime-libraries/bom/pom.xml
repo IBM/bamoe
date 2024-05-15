@@ -1219,6 +1219,54 @@
         <artifactId>kie-util-xml</artifactId>
         <version>${version.org.drools}</version>
       </dependency>
+
+      <!-- jBPM & Drools Quarkus Extension -->
+      <dependency>
+        <groupId>org.jbpm</groupId>
+        <artifactId>jbpm-with-drools-quarkus</artifactId>
+        <version>${version.org.kogito}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.jbpm</groupId>
+        <artifactId>jbpm-with-drools-quarkus</artifactId>
+        <version>${version.org.kogito}</version>
+        <classifier>sources</classifier>
+      </dependency>
+      <dependency>
+        <groupId>org.jbpm</groupId>
+        <artifactId>jbpm-with-drools-quarkus-deployment</artifactId>
+        <version>${version.org.kogito}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.jbpm</groupId>
+        <artifactId>jbpm-with-drools-quarkus-deployment</artifactId>
+        <version>${version.org.kogito}</version>
+        <classifier>sources</classifier>
+      </dependency>
+
+      <!-- jBPM Quarkus Extension -->
+      <dependency>
+        <groupId>org.jbpm</groupId>
+        <artifactId>jbpm-quarkus</artifactId>
+        <version>${version.org.kogito}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.jbpm</groupId>
+        <artifactId>jbpm-quarkus</artifactId>
+        <version>${version.org.kogito}</version>
+        <classifier>sources</classifier>
+      </dependency>
+      <dependency>
+        <groupId>org.jbpm</groupId>
+        <artifactId>jbpm-quarkus-deployment</artifactId>
+        <version>${version.org.kogito}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.jbpm</groupId>
+        <artifactId>jbpm-quarkus-deployment</artifactId>
+        <version>${version.org.kogito}</version>
+        <classifier>sources</classifier>
+      </dependency>
     </dependencies>
   </dependencyManagement>
 </project>
