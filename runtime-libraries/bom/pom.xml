@@ -759,22 +759,6 @@
 
       <!-- Quarkus extension -->
       <dependency>
-        <groupId>org.kie.kogito</groupId>
-        <artifactId>kogito-quarkus</artifactId>
-        <version>${version.org.kogito}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.kie.kogito</groupId>
-        <artifactId>kogito-quarkus</artifactId>
-        <version>${version.org.kogito}</version>
-        <classifier>sources</classifier>
-      </dependency>
-      <dependency>
-        <groupId>org.kie.kogito</groupId>
-        <artifactId>kogito-quarkus-deployment</artifactId>
-        <version>${version.org.kogito}</version>
-      </dependency>
-      <dependency>
         <groupId>org.drools</groupId>
         <artifactId>drools-quarkus-decisions</artifactId>
         <version>${version.org.kogito}</version>
@@ -860,22 +844,6 @@
       <dependency>
         <groupId>org.kie.kogito</groupId>
         <artifactId>kogito-quarkus-workflow-common-deployment</artifactId>
-        <version>${version.org.kogito}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.kie.kogito</groupId>
-        <artifactId>kogito-quarkus-processes</artifactId>
-        <version>${version.org.kogito}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.kie.kogito</groupId>
-        <artifactId>kogito-quarkus-processes</artifactId>
-        <version>${version.org.kogito}</version>
-        <classifier>sources</classifier>
-      </dependency>
-      <dependency>
-        <groupId>org.kie.kogito</groupId>
-        <artifactId>kogito-quarkus-processes-deployment</artifactId>
         <version>${version.org.kogito}</version>
       </dependency>
       <dependency>
@@ -1037,7 +1005,7 @@
       </dependency>
       <dependency>
         <groupId>org.drools</groupId>
-        <artifactId>drools-drl-quarkus-util-deployment</artifactId>
+        <artifactId>drools-quarkus-util-deployment</artifactId>
         <version>${version.org.drools}</version>
       </dependency>
       <dependency>

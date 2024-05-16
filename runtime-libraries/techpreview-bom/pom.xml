@@ -629,12 +629,12 @@
       </dependency>
       <dependency>
         <groupId>org.kie</groupId>
-        <artifactId>kogito-addons-quarkus-data-index-persistence-common</artifactId>
+        <artifactId>kogito-addons-quarkus-data-index-persistence-common-runtime</artifactId>
         <version>${version.org.kogito}</version>
       </dependency>
       <dependency>
         <groupId>org.kie</groupId>
-        <artifactId>kogito-addons-quarkus-data-index-persistence-common</artifactId>
+        <artifactId>kogito-addons-quarkus-data-index-persistence-common-runtime</artifactId>
         <version>${version.org.kogito}</version>
         <classifier>sources</classifier>
       </dependency>
