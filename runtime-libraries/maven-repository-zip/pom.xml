@@ -763,17 +763,7 @@
     </dependency>
     <dependency>
       <groupId>org.jbpm</groupId>
-      <artifactId>jbpm-quarkus-devui</artifactId>
-      <classifier>sources</classifier>
-    </dependency>
-    <dependency>
-      <groupId>org.jbpm</groupId>
       <artifactId>jbpm-quarkus-devui-deployment</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.jbpm</groupId>
-      <artifactId>jbpm-quarkus-devui-deployment</artifactId>
-      <classifier>sources</classifier>
     </dependency>
 
     <!-- event-driven decisions -->

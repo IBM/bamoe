@@ -866,20 +866,8 @@
       </dependency>
       <dependency>
         <groupId>org.jbpm</groupId>
-        <artifactId>jbpm-quarkus-devui</artifactId>
-        <version>${version.org.kie.tools}</version>
-        <classifier>sources</classifier>
-      </dependency>
-      <dependency>
-        <groupId>org.jbpm</groupId>
         <artifactId>jbpm-quarkus-devui-deployment</artifactId>
         <version>${version.org.kie.tools}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.jbpm</groupId>
-        <artifactId>jbpm-quarkus-devui-deployment</artifactId>
-        <version>${version.org.kie.tools}</version>
-        <classifier>sources</classifier>
       </dependency>
 
       <!-- event-driven decisions -->
