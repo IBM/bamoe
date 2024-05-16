@@ -53,6 +53,33 @@
     <module>ilmt-compliance</module>
   </modules>
 
+  <repositories>
+    <repository>
+      <id>apache-public</id>
+      <name>Apache Public Repository</name>
+      <url>https://repository.apache.org/content/groups/public/</url>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+    </repository>
+  </repositories>
+  <pluginRepositories>
+    <pluginRepository>
+      <id>apache-public</id>
+      <name>Apache Public Repository</name>
+      <url>https://repository.apache.org/content/groups/public/</url>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+    </pluginRepository>
+  </pluginRepositories>
+
   <profiles>
     <profile>
       <id>build-maven-repo</id>
