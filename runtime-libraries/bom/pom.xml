@@ -70,6 +70,12 @@
 
       <dependency>
         <groupId>org.kie.kogito</groupId>
+        <artifactId>kogito-ide-config</artifactId>
+        <version>${version.org.kogito}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.kie.kogito</groupId>
         <artifactId>kogito-api</artifactId>
         <version>${version.org.kogito}</version>
       </dependency>
