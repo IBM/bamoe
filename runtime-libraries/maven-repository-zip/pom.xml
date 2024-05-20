@@ -91,6 +91,12 @@
       <artifactId>bamoe-ilmt-compliance-quarkus-dmoe</artifactId>
       <classifier>javadoc</classifier>
     </dependency>
+
+    <dependency>
+      <groupId>org.kie.kogito</groupId>
+      <artifactId>kogito-ide-config</artifactId>
+    </dependency>
+
     <dependency>
       <groupId>org.kie.kogito</groupId>
       <artifactId>kogito-api</artifactId>
