@@ -375,6 +375,52 @@
         <classifier>sources</classifier>
       </dependency>
 
+      <dependency>
+        <groupId>org.kie</groupId>
+        <artifactId>kogito-addons-quarkus-job-http-recipient</artifactId>
+        <version>${version.org.kogito}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.kie</groupId>
+        <artifactId>kogito-addons-quarkus-job-http-recipient</artifactId>
+        <version>${version.org.kogito}</version>
+        <classifier>sources</classifier>
+      </dependency>
+      <dependency>
+        <groupId>org.kie</groupId>
+        <artifactId>kogito-addons-quarkus-job-http-recipient-deployment</artifactId>
+        <version>${version.org.kogito}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.kie</groupId>
+        <artifactId>kogito-addons-quarkus-job-http-recipient-deployment</artifactId>
+        <version>${version.org.kogito}</version>
+        <classifier>sources</classifier>
+      </dependency>
+
+      <dependency>
+        <groupId>org.kie</groupId>
+        <artifactId>kogito-addons-quarkus-job-sink-recipient</artifactId>
+        <version>${version.org.kogito}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.kie</groupId>
+        <artifactId>kogito-addons-quarkus-job-sink-recipient</artifactId>
+        <version>${version.org.kogito}</version>
+        <classifier>sources</classifier>
+      </dependency>
+      <dependency>
+        <groupId>org.kie</groupId>
+        <artifactId>kogito-addons-quarkus-job-sink-recipient-deployment</artifactId>
+        <version>${version.org.kogito}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.kie</groupId>
+        <artifactId>kogito-addons-quarkus-job-sink-recipient-deployment</artifactId>
+        <version>${version.org.kogito}</version>
+        <classifier>sources</classifier>
+      </dependency>
+
       <!-- Data Audit -->
       <dependency>
         <groupId>org.kie</groupId>
@@ -710,6 +756,17 @@
       <dependency>
         <groupId>org.kie</groupId>
         <artifactId>kogito-addons-jobs-management-common</artifactId>
+        <version>${version.org.kogito}</version>
+        <classifier>sources</classifier>
+      </dependency>
+      <dependency>
+        <groupId>org.kie.kogito</groupId>
+        <artifactId>job-recipient-common-http</artifactId>
+        <version>${version.org.kogito}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.kie.kogito</groupId>
+        <artifactId>job-recipient-common-http</artifactId>
         <version>${version.org.kogito}</version>
         <classifier>sources</classifier>
       </dependency>

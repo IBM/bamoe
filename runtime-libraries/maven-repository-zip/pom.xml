@@ -1100,6 +1100,22 @@
       <groupId>org.kie</groupId>
       <artifactId>kogito-addons-quarkus-jobs-knative-eventing-deployment</artifactId>
     </dependency>
+    <dependency>
+      <groupId>org.kie</groupId>
+      <artifactId>kogito-addons-quarkus-job-http-recipient</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.kie</groupId>
+      <artifactId>kogito-addons-quarkus-job-http-recipient-deployment</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.kie</groupId>
+      <artifactId>kogito-addons-quarkus-job-sink-recipient</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.kie</groupId>
+      <artifactId>kogito-addons-quarkus-job-sink-recipient-deployment</artifactId>
+    </dependency>
 
     <!-- Runtime Persistence -->
     <dependency>
@@ -1271,6 +1287,10 @@
     <dependency>
       <groupId>org.kie</groupId>
       <artifactId>kogito-addons-jobs-management-common</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.kie.kogito</groupId>
+      <artifactId>job-recipient-common-http</artifactId>
     </dependency>
 
     <!-- Data Audit -->
