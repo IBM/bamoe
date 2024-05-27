@@ -32,7 +32,7 @@ public class DMOESwidTagGen extends SwidFileGenerator {
     }
 
     public String getFileName() {
-        return "ibm.com_IBM_Decision_Manager_Open_Edition-9.0.1.swidtag";
+        return "ibm.com_IBM_Decision_Manager_Open_Edition-9.1.0.swidtag";
     }
 
     @Override
