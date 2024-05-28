@@ -17,7 +17,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
     <nexus.staging.plugin.version>1.6.13</nexus.staging.plugin.version>
-    <gpg.plugin.version>3.1.0</gpg.plugin.version>
+    <gpg.plugin.version>3.2.4</gpg.plugin.version>
 
     <version.org.kie.tools>999.0.0-20240510-SNAPSHOT</version.org.kie.tools>
     <version.org.kogito>999-20240509-SNAPSHOT</version.org.kogito>
@@ -134,6 +134,32 @@
               <nexusUrl>https://oss.sonatype.org/</nexusUrl>
               <autoReleaseAfterClose>false</autoReleaseAfterClose>
             </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+    <profile>
+      <id>signartifacts</id>
+      <activation>
+        <property>
+          <name>signartifacts</name>
+        </property>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-gpg-plugin</artifactId>
+            <version>${gpg.plugin.version}</version>
+            <executions>
+              <execution>
+                <id>sign-artifacts</id>
+                <phase>verify</phase>
+                <goals>
+                  <goal>sign</goal>
+                </goals>
+              </execution>
+            </executions>
           </plugin>
         </plugins>
       </build>
