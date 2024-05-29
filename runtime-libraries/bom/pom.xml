@@ -1160,6 +1160,25 @@
         <version>${version.org.drools}</version>
       </dependency>
 
+      <!-- Test Utils -->
+      <dependency>
+        <groupId>org.kie</groupId>
+        <artifactId>kie-dmn-test-resources</artifactId>
+        <version>${version.org.drools}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.kie.kogito</groupId>
+        <artifactId>kogito-test-utils</artifactId>
+        <version>${version.org.kogito}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.kie.kogito</groupId>
+        <artifactId>kogito-quarkus-test-utils</artifactId>
+        <version>${version.org.kogito}</version>
+      </dependency>
+
       <!-- jBPM & Drools Quarkus Extension -->
       <dependency>
         <groupId>org.jbpm</groupId>
