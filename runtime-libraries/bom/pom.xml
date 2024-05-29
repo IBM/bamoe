@@ -1166,6 +1166,13 @@
         <artifactId>kie-dmn-test-resources</artifactId>
         <version>${version.org.drools}</version>
       </dependency>
+      <dependency>
+        <groupId>org.kie</groupId>
+        <artifactId>kie-dmn-test-resources</artifactId>
+        <version>${version.org.drools}</version>
+        <type>test-jar</type>
+        <scope>test</scope>
+      </dependency>
 
       <dependency>
         <groupId>org.kie.kogito</groupId>
