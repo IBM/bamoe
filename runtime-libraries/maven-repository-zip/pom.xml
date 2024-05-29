@@ -38,6 +38,13 @@
   </dependencyManagement>
 
   <dependencies>
+    <!-- TEMPORARY -->
+    <dependency>
+      <groupId>org.optaplanner</groupId>
+      <artifactId>optaplanner-bom</artifactId>
+      <type>pom</type>
+    </dependency>
+    <!-- END TEMPORARY -->
     <dependency>
       <groupId>com.ibm.bamoe</groupId>
       <artifactId>bamoe-bom</artifactId>
@@ -1148,6 +1155,12 @@
     <dependency>
       <groupId>org.kie</groupId>
       <artifactId>kie-dmn-test-resources</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.kie</groupId>
+      <artifactId>kie-dmn-test-resources</artifactId>
+      <type>test-jar</type>
+      <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>org.kie.kogito</groupId>
