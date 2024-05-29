@@ -18,6 +18,7 @@
         <exclude>**/_remote.repositories</exclude>
         <exclude>**/maven-metadata**</exclude>
         <exclude>**/resolver-status.properties</exclude>
+        <exclude>**/*.lastUpdated</exclude>
       </excludes>
     </fileSet>
   </fileSets>
