@@ -20,6 +20,7 @@
       <dependency>
         <groupId>org.optaplanner</groupId>
         <artifactId>optaplanner-bom</artifactId>
+        <type>pom</type>
         <version>${version.org.kogito}</version>
       </dependency>
       <!-- END TEMPORARY -->
