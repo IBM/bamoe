@@ -38,13 +38,6 @@
   </dependencyManagement>
 
   <dependencies>
-    <!-- TEMPORARY -->
-    <dependency>
-      <groupId>org.optaplanner</groupId>
-      <artifactId>optaplanner-bom</artifactId>
-      <type>pom</type>
-    </dependency>
-    <!-- END TEMPORARY -->
     <dependency>
       <groupId>com.ibm.bamoe</groupId>
       <artifactId>bamoe-bom</artifactId>
@@ -254,6 +247,19 @@
     <dependency>
       <groupId>org.kie.kogito</groupId>
       <artifactId>kogito-timer</artifactId>
+      <classifier>sources</classifier>
+    </dependency>
+
+    <!-- Plugin for embedded more -->
+    <dependency>
+      <groupId>org.kie</groupId>
+      <artifactId>kie-maven-plugin</artifactId>
+      <type>maven-plugin</type>
+    </dependency>
+    <dependency>
+      <groupId>org.kie</groupId>
+      <artifactId>kie-maven-plugin</artifactId>
+      <type>maven-plugin</type>
       <classifier>sources</classifier>
     </dependency>
 
