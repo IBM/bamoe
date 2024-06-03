@@ -250,7 +250,7 @@
       <classifier>sources</classifier>
     </dependency>
 
-    <!-- Plugin for embedded more -->
+    <!-- Plugin for embedded mode -->
     <dependency>
       <groupId>org.kie</groupId>
       <artifactId>kie-maven-plugin</artifactId>
