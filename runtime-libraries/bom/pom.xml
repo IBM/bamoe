@@ -1156,6 +1156,12 @@
       </dependency>
       <dependency>
         <groupId>org.kie</groupId>
+        <artifactId>kie-dmn-test-resources</artifactId>
+        <version>${version.org.drools}</version>
+        <classifier>tests</classifier>
+      </dependency>
+      <dependency>
+        <groupId>org.kie</groupId>
         <artifactId>kie-internal</artifactId>
         <version>${version.org.drools}</version>
       </dependency>
