@@ -13,7 +13,6 @@
         <include>**/drools/**</include>
         <include>**/jbpm/**</include>
         <include>**/kie/**</include>
-        <include>**/optaplanner/**</include>
       </includes>
       <excludes>
         <exclude>**/_remote.repositories</exclude>

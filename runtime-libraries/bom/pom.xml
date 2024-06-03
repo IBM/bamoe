@@ -258,6 +258,21 @@
         <classifier>sources</classifier>
       </dependency>
 
+      <!-- Plugin for embedded mode -->
+      <dependency>
+        <groupId>org.kie</groupId>
+        <artifactId>kie-maven-plugin</artifactId>
+        <version>${version.org.kogito}</version>
+        <type>maven-plugin</type>
+      </dependency>
+      <dependency>
+        <groupId>org.kie</groupId>
+        <artifactId>kie-maven-plugin</artifactId>
+        <version>${version.org.kogito}</version>
+        <type>maven-plugin</type>
+        <classifier>sources</classifier>
+      </dependency>
+
       <dependency>
         <groupId>org.kie.kogito</groupId>
         <artifactId>kogito-maven-plugin</artifactId>
