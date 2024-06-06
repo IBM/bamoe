@@ -33,6 +33,23 @@ export function activate(context: vscode.ExtensionContext) {
   KieToolsVsCodeExtensions.startExtension({
     extensionName: "ibm.bamoe-developer-tools",
     context: context,
+    viewType: "bamoeDeveloperToolsNewWebviewEditorsDmn",
+    generateSvgCommandId: "extension.ibm.bamoe.generatePreviewSvgDmn",
+    silentlyGenerateSvgCommandId: "extension.ibm.bamoe.silentlyGenerateSvgDmn",
+    editorEnvelopeLocator: new EditorEnvelopeLocator("vscode", [
+      new EnvelopeMapping({
+        type: "dmn",
+        filePathGlob: "**/*.dmn",
+        resourcesPathPrefix: "",
+        envelopeContent: { type: EnvelopeContentType.PATH, path: "dist/webview/NewDmnEditorEnvelopeApp.js" },
+      }),
+    ]),
+    backendProxy: backendProxy,
+  });
+
+  KieToolsVsCodeExtensions.startExtension({
+    extensionName: "ibm.bamoe-developer-tools",
+    context: context,
     viewType: "bamoeDeveloperToolsWebviewEditorsDmnClassic",
     generateSvgCommandId: "extension.ibm.bamoe.classic.generatePreviewSvgDmn",
     silentlyGenerateSvgCommandId: "extension.ibm.bamoe.classic.silentlyGenerateSvgDmn",
@@ -57,23 +74,6 @@ export function activate(context: vscode.ExtensionContext) {
         filePathGlob: "**/*.scesim",
         resourcesPathPrefix: "dist/webview/editors/scesim",
         envelopeContent: { type: EnvelopeContentType.PATH, path: "dist/webview/SceSimEditorEnvelopeApp.js" },
-      }),
-    ]),
-    backendProxy: backendProxy,
-  });
-
-  KieToolsVsCodeExtensions.startExtension({
-    extensionName: "ibm.bamoe-developer-tools",
-    context: context,
-    viewType: "bamoeDeveloperToolsNewWebviewEditorsDmn",
-    generateSvgCommandId: "extension.ibm.bamoe.generatePreviewSvgDmn",
-    silentlyGenerateSvgCommandId: "extension.ibm.bamoe.silentlyGenerateSvgDmn",
-    editorEnvelopeLocator: new EditorEnvelopeLocator("vscode", [
-      new EnvelopeMapping({
-        type: "dmn",
-        filePathGlob: "**/*.dmn",
-        resourcesPathPrefix: "",
-        envelopeContent: { type: EnvelopeContentType.PATH, path: "dist/webview/NewDmnEditorEnvelopeApp.js" },
       }),
     ]),
     backendProxy: backendProxy,
