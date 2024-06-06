@@ -74,18 +74,6 @@
         "title": "BAMOE Developer Tools: Generate BPMN Editor preview SVG without any notification"
       },
       {
-        "command": "extension.ibm.bamoe.classic.generatePreviewSvgDmn",
-        "icon": {
-          "dark": "./static/svg-icon-dark.png",
-          "light": "./static/svg-icon-light.png"
-        },
-        "title": "BAMOE Developer Tools: Generate DMN Editor (classic) preview SVG"
-      },
-      {
-        "command": "extension.ibm.bamoe.classic.silentlyGenerateSvgDmn",
-        "title": "BAMOE Developer Tools: Generate DMN Editor (classic) preview SVG without any notification"
-      },
-      {
         "command": "extension.ibm.bamoe.generatePreviewSvgDmn",
         "icon": {
           "dark": "./static/svg-icon-dark.png",
@@ -96,6 +84,18 @@
       {
         "command": "extension.ibm.bamoe.silentlyGenerateSvgDmn",
         "title": "BAMOE Developer Tools: Generate DMN Editor preview SVG without any notification"
+      },
+      {
+        "command": "extension.ibm.bamoe.classic.generatePreviewSvgDmn",
+        "icon": {
+          "dark": "./static/svg-icon-dark.png",
+          "light": "./static/svg-icon-light.png"
+        },
+        "title": "BAMOE Developer Tools: Generate DMN Editor (classic) preview SVG"
+      },
+      {
+        "command": "extension.ibm.bamoe.classic.silentlyGenerateSvgDmn",
+        "title": "BAMOE Developer Tools: Generate DMN Editor (classic) preview SVG without any notification"
       }
     ],
     "configuration": {
@@ -142,6 +142,15 @@
         "viewType": "bamoeDeveloperToolsWebviewEditorsBpmn"
       },
       {
+        "displayName": "BAMOE DMN Editor",
+        "selector": [
+          {
+            "filenamePattern": "*.dmn"
+          }
+        ],
+        "viewType": "bamoeDeveloperToolsNewWebviewEditorsDmn"
+      },
+      {
         "displayName": "BAMOE DMN Editor (classic)",
         "selector": [
           {
@@ -158,15 +167,6 @@
           }
         ],
         "viewType": "bamoeDeveloperToolsWebviewEditorsSceSim"
-      },
-      {
-        "displayName": "BAMOE DMN Editor",
-        "selector": [
-          {
-            "filenamePattern": "*.dmn"
-          }
-        ],
-        "viewType": "bamoeDeveloperToolsNewWebviewEditorsDmn"
       }
     ],
     "javaExtensions": [
@@ -225,19 +225,19 @@
           "when": "false"
         },
         {
-          "command": "extension.ibm.bamoe.classic.generatePreviewSvgDmn",
-          "when": "activeCustomEditorId == bamoeDeveloperToolsWebviewEditorsDmnClassic"
-        },
-        {
-          "command": "extension.ibm.bamoe.classic.silentlyGenerateSvgDmn",
-          "when": "false"
-        },
-        {
           "command": "extension.ibm.bamoe.generatePreviewSvgDmn",
           "when": "activeCustomEditorId == bamoeDeveloperToolsNewWebviewEditorsDmn"
         },
         {
           "command": "extension.ibm.bamoe.silentlyGenerateSvgDmn",
+          "when": "false"
+        },
+        {
+          "command": "extension.ibm.bamoe.classic.generatePreviewSvgDmn",
+          "when": "activeCustomEditorId == bamoeDeveloperToolsWebviewEditorsDmnClassic"
+        },
+        {
+          "command": "extension.ibm.bamoe.classic.silentlyGenerateSvgDmn",
           "when": "false"
         }
       ],
@@ -248,23 +248,23 @@
           "when": "activeCustomEditorId == bamoeDeveloperToolsWebviewEditorsBpmn"
         },
         {
-          "command": "extension.ibm.bamoe.classic.generatePreviewSvgDmn",
-          "group": "navigation",
-          "when": "activeCustomEditorId == bamoeDeveloperToolsWebviewEditorsDmnClassic"
-        },
-        {
           "command": "extension.ibm.bamoe.generatePreviewSvgDmn",
           "group": "navigation",
           "when": "activeCustomEditorId == bamoeDeveloperToolsNewWebviewEditorsDmn"
+        },
+        {
+          "command": "extension.ibm.bamoe.classic.generatePreviewSvgDmn",
+          "group": "navigation",
+          "when": "activeCustomEditorId == bamoeDeveloperToolsWebviewEditorsDmnClassic"
         }
       ]
     }
   },
   "activationEvents": [
     "onCustomEditor:bamoeDeveloperToolsWebviewEditorsBpmn",
+    "onCustomEditor:bamoeDeveloperToolsNewWebviewEditorsDmn",
     "onCustomEditor:bamoeDeveloperToolsWebviewEditorsDmnClassic",
-    "onCustomEditor:bamoeDeveloperToolsWebviewEditorsSceSim",
-    "onCustomEditor:bamoeDeveloperToolsNewWebviewEditorsDmn"
+    "onCustomEditor:bamoeDeveloperToolsWebviewEditorsSceSim"
   ],
   "icon": "icon.png",
   "capabilities": {
