@@ -15,15 +15,15 @@ Create, edit and visualize business processes (BPMN), decisions (DMN) and test s
 
 ### Editing a new BPMN file
 
-![alt](https://github.com/ibm/bamoe-developer-tools-for-vscode/gifs/bpmn.gif?raw=true)
+![alt](https://github.com/ibm/bamoe/raw/main/bamoe-developer-tools-for-vscode/gifs/bpmn.gif)
 
 ### Editing a new DMN file
 
-![alt](https://github.com/ibm/bamoe-developer-tools-for-vscode/gifs/dmn.gif?raw=true)
+![alt](https://github.com/ibm/bamoe/raw/main/bamoe-developer-tools-for-vscode/gifs/dmn.gif)
 
 ### Editing a new DMN file (classic)
 
-![alt](https://github.com/ibm/bamoe-developer-tools-for-vscode/gifs/dmn-classic.gif?raw=true)
+![alt](https://github.com/ibm/bamoe/raw/main/bamoe-developer-tools-for-vscode/gifs/dmn-classic.gif)
 
 ### Settings
 
