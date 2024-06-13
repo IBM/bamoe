@@ -8,7 +8,7 @@ A web application that acts as a proxy to enable BAMOE Canvas to communicate, di
 Start up a new container with:
 
 ```bash
-$ docker run -p 8080:8080 -i --rm quay.io/bamoe/cors-proxy-image:9.1.0-ibm-0001
+$ docker run -p 8080:8080 -i --rm quay.io/bamoe/cors-proxy:9.1.0-ibm-0001
 ```
 
 The service will be up at http://localhost:8080
@@ -30,7 +30,7 @@ CORS_PROXY_VERBOSE=false
 or by passing the variables as arguments like
 
 ```bash
-$ docker run -p 8080:8080 -e CORS_PROXY_ORIGIN=* -e CORS_PROXY_VERBOSE=false -i --rm quay.io/bamoe/cors-proxy-image:9.1.0-ibm-0001
+$ docker run -p 8080:8080 -e CORS_PROXY_ORIGIN=* -e CORS_PROXY_VERBOSE=false -i --rm quay.io/bamoe/cors-proxy:9.1.0-ibm-0001
 ```
 
 ---
