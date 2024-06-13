@@ -265,5 +265,5 @@ BAMOE Canvas can be customized to show your own logo and/or branding by extendin
 BAMOE Canvas allows for the base image used on DMN Dev deployments to be customized. For example:
 
 ```docker
-ENV KIE_SANDBOX_DMN_DEV_DEPLOYMENT_BASE_IMAGE_URL="quay.io/bamoe/dmn-dev-deployment-base:9.0.1"
+ENV KIE_SANDBOX_DMN_DEV_DEPLOYMENT_BASE_IMAGE_URL="quay.io/kie-tools/dmn-dev-deployment-base-image:0.30.4"
 ```
