@@ -1,0 +1,1 @@
+> This image has been repurposed to a generic CORS proxy at `quay.io/bamoe/cors-proxy`, starting from version `9.1.0-ibm-0001`
