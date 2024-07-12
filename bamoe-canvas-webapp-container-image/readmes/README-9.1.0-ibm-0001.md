@@ -48,15 +48,7 @@ docker run -t -p 8080:8080 -i --rm quay.io/bamoe/canvas:9.1.0-ibm-0001
 2.  Enabling authentication with a GitHub Enterprise Server instance.
 
     ```
-      docker run -t -p 8080:8080 -e KIE_SANDBOX_AUTH_PROVIDERS='[{
-        "id":"github_at_my_company", \
-        "domain":"github.my-company.com", \
-        "supportedGitRemoteDomains":["github.my-company.com","gist.github.my-company.com"], \
-        "type":"github", \
-        "name":"GitHub @ MyCompany", \
-        "enabled":true, \
-        "group":"git" \
-      }]' -i --rm quay.io/bamoe/canvas:9.1.0-ibm-0001
+    docker run -t -p 8080:8080 -e KIE_SANDBOX_AUTH_PROVIDERS='[{ "id":"github_at_my_company", "domain":"github.my-company.com", "supportedGitRemoteDomains":["github.my-company.com","gist.github.my-company.com"], "type":"github", "name":"GitHub @ MyCompany", "enabled":true, "group":"git" }]' -i --rm quay.io/bamoe/canvas:9.1.0-ibm-0001
     ```
 
 3.  Requiring users to input a custom commit message on every commit.
@@ -65,7 +57,7 @@ docker run -t -p 8080:8080 -i --rm quay.io/bamoe/canvas:9.1.0-ibm-0001
     docker run -t -p 8080:8080 -e KIE_SANDBOX_REQUIRE_CUSTOM_COMMIT_MESSAGE='true' -i --rm quay.io/bamoe/canvas:9.1.0-ibm-0001
     ```
 
-4.  Requiring users to input a custom commit message on every commit and validate it via the example [Commit Message Validation Service](../../examples/commit-message-validation-service/README.md).
+4.  Requiring users to input a custom commit message on every commit and validate it via an [example Commit Message Validation Service from Apache KIE](https://github.com/apache/incubator-kie-tools/tree/main/examples/commit-message-validation-service).
 
     ```bash
     docker run -t -p 8080:8080 -e KIE_SANDBOX_REQUIRE_CUSTOM_COMMIT_MESSAGE='true' KIE_SANDBOX_CUSTOM_COMMIT_MESSAGE_VALIDATION_SERVICE_URL='http://localhost:8090/validate' -i --rm quay.io/bamoe/canvas:9.1.0-ibm-0001
@@ -74,15 +66,7 @@ docker run -t -p 8080:8080 -i --rm quay.io/bamoe/canvas:9.1.0-ibm-0001
 5.  Adding Accelerators available for your users.
 
     ```bash
-      docker run -t -p 8080:8080 -e KIE_SANDBOX_ACCELERATORS='[{ \
-        name: "Quarkus", \
-        iconUrl: "https://github.com/ibm/bamoe-canvas-quarkus-accelerator/raw/0.0.0/quarkus-logo.png", \
-        gitRepositoryUrl: "https://github.com/ibm/bamoe-canvas-quarkus-accelerator", \
-        gitRepositoryGitRef: "0.0.0", \
-        dmnDestinationFolder: "src/main/resources/dmn", \
-        bpmnDestinationFolder: "src/main/resources/bpmn", \
-        otherFilesDestinationFolder: "src/main/resources/others", \
-      }]' -i --rm quay.io/bamoe/canvas:9.1.0-ibm-0001
+docker run -t -p 8080:8080 -e KIE_SANDBOX_ACCELERATORS='[{ "name": "Quarkus", "iconUrl": "https://github.com/ibm/bamoe-canvas-quarkus-accelerator/raw/9.1.0-ibm-0001-quarkus-full/logo.png", "gitRepositoryUrl": "https://github.com/ibm/bamoe-canvas-quarkus-accelerator", "gitRepositoryGitRef": "9.1.0-ibm-0001-quarkus-full", "dmnDestinationFolder": "src/main/resources/dmn", "bpmnDestinationFolder": "src/main/resources/bpmn", "otherFilesDestinationFolder": "src/main/resources/others" }]' -i --rm quay.io/bamoe/canvas:9.1.0-ibm-0001
     ```
 
 6.  Write a custom `Containerfile/Dockerfile` from the image:
@@ -185,15 +169,15 @@ After creating yours you must define where resources should be placed inside the
 Having all of that, it's time to create the configuration required to add it to the **`KIE_SANDBOX_ACCELERATORS`** list env var.
 It looks like this:
 
-```js
+```json
 {
-    name: "Your Accelerator name",
-    iconUrl: "https://link.to/your/logo/image",
-    gitRepositoryUrl: "https://github.com/...",
-    gitRepositoryGitRef: "branchName",
-    dmnDestinationFolder: "path/to/place/dmn/files",
-    bpmnDestinationFolder: "path/to/place/bpmn/files",
-    otherFilesDestinationFolder: "path/to/place/other/files",
+    "name": "Your Accelerator name",
+    "iconUrl": "https://link.to/your/logo/image",
+    "gitRepositoryUrl": "https://github.com/...",
+    "gitRepositoryGitRef": "branchName",
+    "dmnDestinationFolder": "path/to/place/dmn/files",
+    "bpmnDestinationFolder": "path/to/place/bpmn/files",
+    "otherFilesDestinationFolder": "path/to/place/other/files"
 }
 ```
 
@@ -207,15 +191,15 @@ It looks like this:
 
 Here's an example of what it should look like:
 
-```js
+```json
 {
-    name: "Quarkus",
-    iconUrl: `https://github.com/ibm/bamoe-canvas-quarkus-accelerator/raw/0.0.0/quarkus-logo.png`,
-    gitRepositoryUrl: "https://github.com/ibm/bamoe-canvas-quarkus-accelerator",
-    gitRepositoryGitRef: "main,
-    dmnDestinationFolder: "src/main/resources/dmn",
-    bpmnDestinationFolder: "src/main/resources/bpmn",
-    otherFilesDestinationFolder: "src/main/resources/others",
+    "name": "Quarkus",
+    "iconUrl": "https://github.com/ibm/bamoe-canvas-quarkus-accelerator/raw/9.1.0-ibm-0001-quarkus-full/logo.png",
+    "gitRepositoryUrl": "https://github.com/ibm/bamoe-canvas-quarkus-accelerator",
+    "gitRepositoryGitRef": "9.1.0-ibm-0001-quarkus-full",
+    "dmnDestinationFolder": "src/main/resources/dmn",
+    "bpmnDestinationFolder": "src/main/resources/bpmn",
+    "otherFilesDestinationFolder": "src/main/resources/others"
 }
 ```
 
@@ -232,31 +216,31 @@ By default BPMN and DMN Editors will be enabled. To disable an editor simply del
 
 Here's an example of what it should look like:
 
-```js
-    {
-      extension: "bpmn",
-      filePathGlob: "**/*.bpmn?(2)",
-      editor: {
-        resourcesPathPrefix: "gwt-editors/bpmn",
-        path: "bpmn-envelope.html",
+```json
+    [{
+      "extension": "bpmn",
+      "filePathGlob": "**/*.bpmn?(2)",
+      "editor": {
+        "resourcesPathPrefix": "gwt-editors/bpmn",
+        "path": "bpmn-envelope.html"
       },
-      card: {
-        title: "Workflow",
-        description: "BPMN files are used to generate business workflows.",
-      },
+      "card": {
+        "title": "Workflow",
+        "description": "BPMN files are used to generate business workflows."
+      }
     },
     {
-      extension: "dmn",
-      filePathGlob: "**/*.dmn",
-      editor: {
-        resourcesPathPrefix: "",
-        path: "new-dmn-editor-envelope.html",
+      "extension": "dmn",
+      "filePathGlob": "**/*.dmn",
+      "editor": {
+        "resourcesPathPrefix": "",
+        "path": "new-dmn-editor-envelope.html"
       },
-      card: {
-        title: "Decision",
-        description: "DMN files are used to generate decision models",
-      },
-    }
+      "card": {
+        "title": "Decision",
+        "description": "DMN files are used to generate decision models"
+      }
+    }]
 ```
 
 ### Custom branding
@@ -273,5 +257,5 @@ BAMOE Canvas can be customized to show your own logo and/or branding by extendin
 BAMOE Canvas allows for the base image used on Dev deployments to be customized. For example:
 
 ```docker
-ENV KIE_SANDBOX_DEV_DEPLOYMENT_BASE_IMAGE_URL="quay.io/bamoe/canvas-dev-deployment-base:9.1.0-ibm-0001"
+ENV KIE_SANDBOX_DEV_DEPLOYMENT_BASE_IMAGE_URL="quay.io/bamoe/canvas-dev-deployment-base-image:9.1.0-ibm-0001"
 ```
