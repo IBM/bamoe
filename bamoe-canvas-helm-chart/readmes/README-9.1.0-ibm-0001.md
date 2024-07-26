@@ -166,48 +166,159 @@ $ helm install bamoe-canvas ./src --values new-values-file.yaml
 
 ## Configuration
 
-The following table lists the configurable parameters of the BAMOE Canvas chart and their default values.
+The following list displays all the configurable parameters of the BAMOE Canvas chart and their default values.
 
-| Key                                | Type   | Default                                                                                                                                                                                                                                                | Description                                                                                                                                     |
-| ---------------------------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| global.ingressSource               | string | `""`                                                                                                                                                                                                                                                   | Which ingress source is being used (none/"minikube"/"kubernetes"/"openshift") Obs.: For NOTES generation only                                   |
-| global.kubernetesClusterDomain     | string | `""`                                                                                                                                                                                                                                                   | If using Minikube or Kubernetes, set the cluster domain                                                                                         |
-| global.kubernetesIngressClass      | string | `""`                                                                                                                                                                                                                                                   | If using Minikube or Kubernetes, set the Ingress class (i.e: nginx)                                                                             |
-| global.openshiftRouteDomain        | string | `""`                                                                                                                                                                                                                                                   | If using OpenShift Routes, set the Route domain                                                                                                 |
-| fullnameOverride                   | string | `""`                                                                                                                                                                                                                                                   | Overrides charts full name                                                                                                                      |
-| nameOverride                       | string | `""`                                                                                                                                                                                                                                                   | Overrides charts name                                                                                                                           |
-| cors_proxy.autoscaling             | object | `{"enabled":false,"maxReplicas":100,"minReplicas":1,"targetCPUUtilizationPercentage":80}`                                                                                                                                                              | CORS Proxy HorizontalPodAutoscaler configuration (https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/)                   |
-| cors_proxy.fullnameOverride        | string | `""`                                                                                                                                                                                                                                                   | Overrides charts full name                                                                                                                      |
-| cors_proxy.image                   | object | `{"account":"bamoe","name":"cors-proxy","pullPolicy":"IfNotPresent","registry":"quay.io","tag":"9.1.0-ibm-0001"}`                                                                                                                                      | Image source configuration for the CORS Proxy image                                                                                             |
-| cors_proxy.imagePullSecrets        | list   | `[]`                                                                                                                                                                                                                                                   | Pull secrets used when pulling CORS Proxy image                                                                                                 |
-| cors_proxy.ingress                 | object | `{"annotations":{},"className":"{{ .Values.global.kubernetesIngressClass }}","enabled":false,"hosts":[{"host":"cors-proxy.{{ .Values.global.kubernetesClusterDomain }}","paths":[{"path":"/","pathType":"ImplementationSpecific"}]}],"tls":[]}`        | CORS Proxy Ingress configuration (https://kubernetes.io/docs/concepts/services-networking/ingress/)                                             |
-| cors_proxy.name                    | string | `"cors-proxy"`                                                                                                                                                                                                                                         | The CORS Proxy application name                                                                                                                 |
-| cors_proxy.nameOverride            | string | `""`                                                                                                                                                                                                                                                   | Overrides charts name                                                                                                                           |
-| cors_proxy.nodeSelector            | object | `{}`                                                                                                                                                                                                                                                   |                                                                                                                                                 |
-| cors_proxy.openshiftRoute          | object | `{"annotations":{},"enabled":false,"host":"cors-proxy.{{ .Values.global.openshiftRouteDomain }}","tls":{"insecureEdgeTerminationPolicy":"None","termination":"edge"}}`                                                                                 | CORS Proxy OpenShift Route configuration (https://docs.openshift.com/container-platform/4.14/networking/routes/route-configuration.html)        |
-| cors_proxy.service                 | object | `{"nodePort":"","port":8080,"type":"ClusterIP"}`                                                                                                                                                                                                       | CORS Proxy Service configuration (https://kubernetes.io/docs/concepts/services-networking/service/)                                             |
-| cors_proxy.serviceAccount          | object | `{"annotations":{},"create":true,"name":""}`                                                                                                                                                                                                           | CORS Proxy ServiceAccount configuration (https://kubernetes.io/docs/concepts/security/service-accounts/)                                        |
-| extended_services.autoscaling      | object | `{"enabled":false,"maxReplicas":100,"minReplicas":1,"targetCPUUtilizationPercentage":80}`                                                                                                                                                              | Extended Services HorizontalPodAutoscaler configuration (https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/)            |
-| extended_services.fullnameOverride | string | `""`                                                                                                                                                                                                                                                   | Overrides charts full name                                                                                                                      |
-| extended_services.image            | object | `{"account":"bamoe","name":"extended-services","pullPolicy":"IfNotPresent","registry":"quay.io","tag":"9.1.0-ibm-0001"}`                                                                                                                               | Image source configuration for the Extended Services image                                                                                      |
-| extended_services.imagePullSecrets | list   | `[]`                                                                                                                                                                                                                                                   | Pull secrets used when pulling Extended Services image                                                                                          |
-| extended_services.ingress          | object | `{"annotations":{},"className":"{{ .Values.global.kubernetesIngressClass }}","enabled":false,"hosts":[{"host":"extended-services.{{ .Values.global.kubernetesClusterDomain }}","paths":[{"path":"/","pathType":"ImplementationSpecific"}]}],"tls":[]}` | Extended Services Ingress configuration (https://kubernetes.io/docs/concepts/services-networking/ingress/)                                      |
-| extended_services.name             | string | `"extended-services"`                                                                                                                                                                                                                                  | The Extended Services application name                                                                                                          |
-| extended_services.nameOverride     | string | `""`                                                                                                                                                                                                                                                   | Overrides charts name                                                                                                                           |
-| extended_services.nodeSelector     | object | `{}`                                                                                                                                                                                                                                                   |                                                                                                                                                 |
-| extended_services.openshiftRoute   | object | `{"annotations":{},"enabled":false,"host":"extended-services.{{ .Values.global.openshiftRouteDomain }}","tls":{"insecureEdgeTerminationPolicy":"None","termination":"edge"}}`                                                                          | Extended Services OpenShift Route configuration (https://docs.openshift.com/container-platform/4.14/networking/routes/route-configuration.html) |
-| extended_services.service          | object | `{"nodePort":"","port":21345,"type":"ClusterIP"}`                                                                                                                                                                                                      | Extended Services Service configuration (https://kubernetes.io/docs/concepts/services-networking/service/)                                      |
-| extended_services.serviceAccount   | object | `{"annotations":{},"create":true,"name":""}`                                                                                                                                                                                                           | Extended Services ServiceAccount configuration (https://kubernetes.io/docs/concepts/security/service-accounts/)                                 |
-| kie_sandbox.autoscaling            | object | `{"enabled":false,"maxReplicas":100,"minReplicas":1,"targetCPUUtilizationPercentage":80}`                                                                                                                                                              | KIE Sandbox HorizontalPodAutoscaler configuration (https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/)                  |
-| kie_sandbox.env                    | list   | `[{"name":"KIE_SANDBOX_EXTENDED_SERVICES_URL","value":"http://127.0.0.1:21345"},{"name":"KIE_SANDBOX_CORS_PROXY_URL","value":"http://127.0.0.1:8081"}]`                                                                                                | Env variables for KIE Sandbox deployment                                                                                                        |
-| kie_sandbox.fullnameOverride       | string | `""`                                                                                                                                                                                                                                                   | Overrides charts full name                                                                                                                      |
-| kie_sandbox.image                  | object | `{"account":"bamoe","name":"canvas","pullPolicy":"IfNotPresent","registry":"quay.io","tag":"9.1.0-ibm-0001"}`                                                                                                                                          | Image source configuration for the KIE Sandbox image                                                                                            |
-| kie_sandbox.imagePullSecrets       | list   | `[]`                                                                                                                                                                                                                                                   | Pull secrets used when pulling KIE Sandbox image                                                                                                |
-| kie_sandbox.ingress                | object | `{"annotations":{},"className":"{{ .Values.global.kubernetesIngressClass }}","enabled":false,"hosts":[{"host":"kie-sandbox.{{ .Values.global.kubernetesClusterDomain }}","paths":[{"path":"/","pathType":"ImplementationSpecific"}]}],"tls":[]}`       | KIE Sandbox Ingress configuration (https://kubernetes.io/docs/concepts/services-networking/ingress/)                                            |
-| kie_sandbox.name                   | string | `"kie-sandbox"`                                                                                                                                                                                                                                        | The KIE Sandbox application name                                                                                                                |
-| kie_sandbox.nameOverride           | string | `""`                                                                                                                                                                                                                                                   | Overrides charts name                                                                                                                           |
-| kie_sandbox.openshiftRoute         | object | `{"annotations":{},"enabled":false,"host":"kie-sandbox.{{ .Values.global.openshiftRouteDomain }}","tls":{"insecureEdgeTerminationPolicy":"None","termination":"edge"}}`                                                                                | KIE Sandbox OpenShift Route configuration (https://docs.openshift.com/container-platform/4.14/networking/routes/route-configuration.html)       |
-| kie_sandbox.service                | object | `{"nodePort":"","port":8080,"type":"ClusterIP"}`                                                                                                                                                                                                       | KIE Sandbox Service configuration (https://kubernetes.io/docs/concepts/services-networking/service/)                                            |
-| kie_sandbox.serviceAccount         | object | `{"annotations":{},"create":true,"name":""}`                                                                                                                                                                                                           | KIE Sandbox ServiceAccount configuration (https://kubernetes.io/docs/concepts/security/service-accounts/)                                       |
-
----
+  - **global.ingressSource**
+    - type: `string`
+    - default: `""`
+    - description: Which ingress source is being used (none/"minikube"/"kubernetes"/"openshift") Obs.: For NOTES generation only
+  - **global.kubernetesClusterDomain**
+    - type: `string`
+    - default: `""`
+    - description: If using Minikube or Kubernetes, set the cluster domain
+  - **global.kubernetesIngressClass**
+    - type: `string`
+    - default: `""`
+    - description: If using Minikube or Kubernetes, set the Ingress class (i.e: nginx)
+  - **global.openshiftRouteDomain**
+    - type: `string`
+    - default: `""`
+    - description: If using OpenShift Routes, set the Route domain
+  - **fullnameOverride**
+    - type: `string`
+    - default: `""`
+    - description: Overrides charts full name
+  - **nameOverride**
+    - type: `string`
+    - default: `""`
+    - description: Overrides charts name
+  - **cors_proxy.autoscaling**
+    - type: `object`
+    - default: `{"enabled":false,"maxReplicas":100,"minReplicas":1,"targetCPUUtilizationPercentage":80}`
+    - description: CORS Proxy HorizontalPodAutoscaler configuration (https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/)
+  - **cors_proxy.fullnameOverride**
+    - type: `string`
+    - default: `""`
+    - description: Overrides charts full name
+  - **cors_proxy.image**
+    - type: `object`
+    - default: `{"account":"bamoe","name":"cors-proxy","pullPolicy":"IfNotPresent","registry":"quay.io","tag":"9.1.0-ibm-0001"}`
+    - description: Image source configuration for the CORS Proxy image
+  - **cors_proxy.imagePullSecrets**
+    - type: `list`
+    - default: `[]`
+    - description: Pull secrets used when pulling CORS Proxy image
+  - **cors_proxy.ingress**
+    - type: `object`
+    - default: `{"annotations":{},"className":"{{ .Values.global.kubernetesIngressClass }}","enabled":false,"hosts":[{"host":"cors-proxy.{{ .Values.global.kubernetesClusterDomain }}","paths":[{"path":"/","pathType":"ImplementationSpecific"}]}],"tls":[]}`
+    - description: CORS Proxy Ingress configuration (https://kubernetes.io/docs/concepts/services-networking/ingress/)
+  - **cors_proxy.name**
+    - type: `string`
+    - default: `"cors-proxy"`
+    - description: The CORS Proxy application name
+  - **cors_proxy.nameOverride**
+    - type: `string`
+    - default: `""`
+    - description: Overrides charts name
+  - **cors_proxy.nodeSelector**
+    - type: `object`
+    - default: `{}	`
+  - **cors_proxy.openshiftRoute**
+    - type: `object`
+    - default: `{"annotations":{},"enabled":false,"host":"cors-proxy.{{ .Values.global.openshiftRouteDomain }}","tls":{"insecureEdgeTerminationPolicy":"None","termination":"edge"}}`
+    - description: CORS Proxy OpenShift Route configuration (https://docs.openshift.com/container-platform/4.14/networking/routes/route-configuration.html)
+  - **cors_proxy.service**
+    - type: `object`
+    - default: `{"nodePort":"","port":8080,"type":"ClusterIP"}`
+    - description: CORS Proxy Service configuration (https://kubernetes.io/docs/concepts/services-networking/service/)
+  - **cors_proxy.serviceAccount**
+    - type: `object`
+    - default: `{"annotations":{},"create":true,"name":""}`
+    - description: CORS Proxy ServiceAccount configuration (https://kubernetes.io/docs/concepts/security/service-accounts/)
+  - **extended_services.autoscaling**
+    - type: `object`
+    - default: `{"enabled":false,"maxReplicas":100,"minReplicas":1,"targetCPUUtilizationPercentage":80}`
+    - description: Extended Services HorizontalPodAutoscaler configuration (https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/)
+  - **extended_services.fullnameOverride**
+    - type: `string`
+    - default: `""`
+    - description: Overrides charts full name
+  - **extended_services.image**
+    - type: `object`
+    - default: `{"account":"bamoe","name":"extended-services","pullPolicy":"IfNotPresent","registry":"quay.io","tag":"9.1.0-ibm-0001"}`
+    - description: Image source configuration for the Extended Services image
+  - **extended_services.imagePullSecrets**
+    - type: `list`
+    - default: `[]`
+    - description: Pull secrets used when pulling Extended Services image
+  - **extended_services.ingress**
+    - type: `object`
+    - default: `{"annotations":{},"className":"{{ .Values.global.kubernetesIngressClass }}","enabled":false,"hosts":[{"host":"extended-services.{{ .Values.global.kubernetesClusterDomain }}","paths":[{"path":"/","pathType":"ImplementationSpecific"}]}],"tls":[]}`
+    - description: Extended Services Ingress configuration (https://kubernetes.io/docs/concepts/services-networking/ingress/)
+  - **extended_services.name**
+    - type: `string`
+    - default: `"extended-services"`
+    - description: The Extended Services application name
+  - **extended_services.nameOverride**
+    - type: `string`
+    - default: `""`
+    - description: Overrides charts name
+  - **extended_services.nodeSelector**
+    - type: `object`
+    - default: `{}`
+  - **extended_services.openshiftRoute**
+    - type: `object`
+    - default: `{"annotations":{},"enabled":false,"host":"extended-services.{{ .Values.global.openshiftRouteDomain }}","tls":{"insecureEdgeTerminationPolicy":"None","termination":"edge"}}`
+    - description: Extended Services OpenShift Route configuration (https://docs.openshift.com/container-platform/4.14/networking/routes/route-configuration.html)
+  - **extended_services.service**
+    - type: `object`
+    - default: `{"nodePort":"","port":21345,"type":"ClusterIP"}`
+    - description: Extended Services Service configuration (https://kubernetes.io/docs/concepts/services-networking/service/)
+  - **extended_services.serviceAccount**
+    - type: `object`
+    - default: `{"annotations":{},"create":true,"name":""}`
+    - description: Extended Services ServiceAccount configuration (https://kubernetes.io/docs/concepts/security/service-accounts/)
+  - **kie_sandbox.autoscaling**
+    - type: `object`
+    - default: `{"enabled":false,"maxReplicas":100,"minReplicas":1,"targetCPUUtilizationPercentage":80}`
+    - description: KIE Sandbox HorizontalPodAutoscaler configuration (https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/)
+  - **kie_sandbox.env**
+    - type: `list`
+    - default: `[{"name":"KIE_SANDBOX_EXTENDED_SERVICES_URL","value":"http://127.0.0.1:21345"},{"name":"KIE_SANDBOX_CORS_PROXY_URL","value":"http://127.0.0.1:8081"}]`
+    - description: Env variables for KIE Sandbox deployment
+  - **kie_sandbox.fullnameOverride**
+    - type: `string`
+    - default: `""`
+    - description: Overrides charts full name
+  - **kie_sandbox.image**
+    - type: `object`
+    - default: `{"account":"bamoe","name":"canvas","pullPolicy":"IfNotPresent","registry":"quay.io","tag":"9.1.0-ibm-0001"}`
+    - description: Image source configuration for the KIE Sandbox image
+  - **kie_sandbox.imagePullSecrets**
+    - type: `list`
+    - default: `[]`
+    - description: Pull secrets used when pulling KIE Sandbox image
+  - **kie_sandbox.ingress**
+    - type: `object`
+    - default: `{"annotations":{},"className":"{{ .Values.global.kubernetesIngressClass }}","enabled":false,"hosts":[{"host":"kie-sandbox.{{ .Values.global.kubernetesClusterDomain }}","paths":[{"path":"/","pathType":"ImplementationSpecific"}]}],"tls":[]}`
+    - description: KIE Sandbox Ingress configuration (https://kubernetes.io/docs/concepts/services-networking/ingress/)
+  - **kie_sandbox.name**
+    - type: `string`
+    - default: `"kie-sandbox"`
+    - description: The KIE Sandbox application name
+  - **kie_sandbox.nameOverride**
+    - type: `string`
+    - default: `""`
+    - description: Overrides charts name
+  - **kie_sandbox.openshiftRoute**
+    - type: `object`
+    - default: `{"annotations":{},"enabled":false,"host":"kie-sandbox.{{ .Values.global.openshiftRouteDomain }}","tls":{"insecureEdgeTerminationPolicy":"None","termination":"edge"}}`
+    - description: KIE Sandbox OpenShift Route configuration (https://docs.openshift.com/container-platform/4.14/networking/routes/route-configuration.html)
+  - **kie_sandbox.service**
+    - type: `object`
+    - default: `{"nodePort":"","port":8080,"type":"ClusterIP"}`
+    - description: KIE Sandbox Service configuration (https://kubernetes.io/docs/concepts/services-networking/service/)
+  - **kie_sandbox.serviceAccount**
+    - type: `object`
+    - default: `{"annotations":{},"create":true,"name":""}`
+    - description: KIE Sandbox ServiceAccount configuration (https://kubernetes.io/docs/concepts/security/service-accounts/)
