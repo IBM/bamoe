@@ -1,0 +1,43 @@
+---
+kie-sandbox-helm-chart:
+  kie_sandbox:
+    env:
+    - name: "KIE_SANDBOX_EXTENDED_SERVICES_URL"
+      value: "http://extended-services.{{ .Values.global.kubernetesClusterDomain }}"
+    - name: "KIE_SANDBOX_CORS_PROXY_URL"
+      value: "http://cors-proxy.{{ .Values.global.kubernetesClusterDomain }}"
+    ingress:
+      enabled: true
+      hosts:
+      - host: "bamoe-canvas.{{ .Values.global.kubernetesClusterDomain }}"
+        paths:
+        - path: "/"
+          pathType: "ImplementationSpecific"
+    image:
+      registry: "quay.io"
+      account: "bamoe"
+      name: "canvas"
+      tag: "0.0.0"
+      pullPolicy: "IfNotPresent"
+  cors_proxy:
+    ingress:
+      enabled: true
+    image:
+      registry: "quay.io"
+      account: "bamoe"
+      name: "cors-proxy"
+      tag: "0.0.0"
+      pullPolicy: "IfNotPresent"
+  extended_services:
+    ingress:
+      enabled: true
+    image:
+      registry: "quay.io"
+      account: "bamoe"
+      name: "extended-services"
+      tag: "0.0.0"
+      pullPolicy: "IfNotPresent"
+global:
+  ingressSource: "minikube"
+  kubernetesIngressClass: "nginx"
+  kubernetesClusterDomain: "localhost"

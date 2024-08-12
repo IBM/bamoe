@@ -1,0 +1,10 @@
+---
+apiVersion: "v2"
+appVersion: "0.0.0"
+description: "A Helm chart to deploy BAMOE Canvas and related services on Kubernetes"
+name: "canvas-helm-chart"
+type: "application"
+version: "0.0.0"
+dependencies:
+- name: "kie-sandbox-helm-chart"
+  version: "0.0.0"
