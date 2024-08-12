@@ -4,6 +4,5 @@ ARG BAMOE_DOCKER_REGISTRY_ARG
 FROM --platform=linux/amd64 $BAMOE_DOCKER_REGISTRY_ARG/canvas-dev-deployment-dmn-form-webapp:$BAMOE_VERSION_INTERNAL_ARG
 
 # Custom branding.
-# These are put in place using the script BuildBamoeImage.java
 COPY ./.tmp/logo_reverse.svg /var/www/html/images/app_logo_rgb_fullcolor_reverse.svg
 COPY ./.tmp/favicon.svg /var/www/html/favicon.svg

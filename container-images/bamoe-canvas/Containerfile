@@ -68,7 +68,6 @@ ENV KIE_SANDBOX_REQUIRE_CUSTOM_COMMIT_MESSAGE=$KIE_SANDBOX_REQUIRE_CUSTOM_COMMIT
 #    rm /var/www/html/pmml-envelope.js
 
 # Custom branding.
-# These are put in place using the script BuildBamoeImage.java
 COPY ./.tmp/logo_reverse.svg /kie-sandbox/app/images/app_logo_rgb_fullcolor_reverse.svg
 COPY ./.tmp/logo_default.svg /kie-sandbox/app/images/app_logo_rgb_fullcolor_default.svg
 COPY ./.tmp/favicon.svg /kie-sandbox/app/favicon.svg
