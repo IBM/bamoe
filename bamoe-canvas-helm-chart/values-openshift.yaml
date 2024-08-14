@@ -1,0 +1,40 @@
+---
+kie-sandbox-helm-chart:
+  kie_sandbox:
+    env:
+    - name: "KIE_SANDBOX_EXTENDED_SERVICES_URL"
+      value: "https://extended-services.{{ .Values.global.openshiftRouteDomain }}"
+    - name: "KIE_SANDBOX_CORS_PROXY_URL"
+      value: "https://cors-proxy.{{ .Values.global.openshiftRouteDomain }}"
+    image:
+      registry: "quay.io"
+      account: "bamoe"
+      name: "canvas"
+      tag: "0.0.0"
+      pullPolicy: "IfNotPresent"
+    openshiftRoute:
+      enabled: true
+      host: "bamoe-canvas.{{ .Values.global.openshiftRouteDomain }}"
+  cors_proxy:
+    image:
+      registry: "quay.io"
+      account: "bamoe"
+      name: "cors-proxy"
+      tag: "0.0.0"
+      pullPolicy: "IfNotPresent"
+    openshiftRoute:
+      enabled: true
+      host: "cors-proxy.{{ .Values.global.openshiftRouteDomain }}"
+  extended_services:
+    image:
+      registry: "quay.io"
+      account: "bamoe"
+      name: "extended-services"
+      tag: "0.0.0"
+      pullPolicy: "IfNotPresent"
+    openshiftRoute:
+      enabled: true
+      host: "extended-services.{{ .Values.global.openshiftRouteDomain }}"
+global:
+  ingressSource: "openshift"
+  openshiftRouteDomain: "ocp-example.com"
