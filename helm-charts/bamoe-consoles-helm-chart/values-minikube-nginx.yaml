@@ -1,0 +1,29 @@
+---
+runtime-tools-consoles-helm-chart:
+  task-console:
+    ingress:
+      enabled: true
+      hosts:
+      - host: "task-console.{{ .Values.global.kubernetesClusterDomain }}"
+        paths:
+        - path: "/"
+          pathType: "ImplementationSpecific"
+    image:
+      registry: "quay.io"
+      account: "bamoe"
+      name: "task-console"
+      tag: "0.0.0"
+      pullPolicy: "IfNotPresent"
+  management-console:
+    ingress:
+      enabled: true
+    image:
+      registry: "quay.io"
+      account: "bamoe"
+      name: "management-console"
+      tag: "0.0.0"
+      pullPolicy: "IfNotPresent"
+global:
+  ingressSource: "minikube"
+  kubernetesIngressClass: "nginx"
+  kubernetesClusterDomain: "localhost"
