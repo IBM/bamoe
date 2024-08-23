@@ -134,9 +134,9 @@ REVISION: 1
 NOTES:
 1. CORS Proxy available at:
   https://cors-proxy.<YOUR_OCP_ROUTE_DOMAIN>
-1. Extended Services available at:
+2. Extended Services available at:
   https://extended-services.<YOUR_OCP_ROUTE_DOMAIN>
-1. BAMOE Canvas available at:
+3. BAMOE Canvas available at:
   https://bamoe-canvas.<YOUR_OCP_ROUTE_DOMAIN>
 ```
 
