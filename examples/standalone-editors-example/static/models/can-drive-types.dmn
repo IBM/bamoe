@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dmn:definitions xmlns:dmn="http://www.omg.org/spec/DMN/20180521/MODEL/" id="_D6E7B3B3-3131-40B6-99A0-95CC9D8F62B2" name="CanDriveTypes" typeLanguage="http://www.omg.org/spec/DMN/20180521/FEEL/" namespace="https://kiegroup.org/dmn/_B59AF9BC-F8E5-4D09-8187-BB7A4956662A">
+  <dmn:extensionElements/>
+  <dmn:itemDefinition id="_7199990C-1389-42D3-9395-2A7D30B17CBB" name="tPerson" isCollection="false">
+    <dmn:itemComponent id="_50C11BAB-29C2-4F91-B3D8-56CF9C12AF13" name="Country" isCollection="false">
+      <dmn:typeRef>Country</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_A1B345A1-3855-4C23-B9AE-6D3CBAE9C67E" name="Age" isCollection="false">
+      <dmn:typeRef>number</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_9E505C95-F94E-4EBD-932A-813AB1A25661" name="Passed the test" isCollection="false">
+      <dmn:typeRef>boolean</dmn:typeRef>
+    </dmn:itemComponent>
+  </dmn:itemDefinition>
+  <dmn:itemDefinition id="_D080A6C5-B0AB-41EA-B4B8-9950ED739D62" name="Country" isCollection="false">
+    <dmn:typeRef>string</dmn:typeRef>
+    <dmn:allowedValues kie:constraintType="enumeration"
+      xmlns:kie="http://www.drools.org/kie/dmn/1.2" id="_E797E6E0-4D65-4A13-B70E-30F7BEC9A4E0">
+      <dmn:text>"Brazil", "USA", "England"</dmn:text>
+    </dmn:allowedValues>
+  </dmn:itemDefinition>
+  <dmndi:DMNDI xmlns:dmndi="http://www.omg.org/spec/DMN/20180521/DMNDI/">
+    <dmndi:DMNDiagram id="_9DEBB572-4649-4F4C-A86E-4A0FA062B0ED" name="DRG">
+      <di:extension xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/">
+        <kie:ComponentsWidthsExtension xmlns:kie="http://www.drools.org/kie/dmn/1.2"/>
+      </di:extension>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</dmn:definitions>
