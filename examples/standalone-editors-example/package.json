@@ -1,0 +1,32 @@
+{
+  "name": "bamoe-standalone-editors-examples",
+  "version": "0.0.0",
+  "private": true,
+  "description": "A series of examples showing how to use the Standalone Editors libraries in different applications.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ibm/bamoe.git"
+  },
+  "scripts": {
+    "build": "rimraf dist && webpack --env dev",
+    "start": "webpack serve --host 0.0.0.0 --env dev"
+  },
+  "dependencies": {
+    "@ibm/bamoe-standalone-bpmn-and-dmn-editors-classic": "9.1.1-ibm-0002",
+    "@ibm/bamoe-standalone-dmn-editor": "9.1.1-ibm-0002"
+  },
+  "devDependencies": {
+    "copy-webpack-plugin": "^11.0.0",
+    "html-webpack-plugin": "^5.3.2",
+    "process": "^0.11.10",
+    "raw-loader": "^4.0.2",
+    "rimraf": "^3.0.2",
+    "ts-loader": "^9.4.2",
+    "typescript": "^5.5.3",
+    "webpack": "^5.94.0",
+    "webpack-bundle-analyzer": "^4.10.2",
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^4.15.1",
+    "webpack-merge": "^5.9.0"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "exclude": ["node_modules"],
+  "compilerOptions": {
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "removeComments": false,
+    "strictNullChecks": true,
+    "experimentalDecorators": true,
+    "downlevelIteration": true,
+    "skipLibCheck": true,
+    "outDir": "./dist",
+    "lib": ["dom", "es2019", "esnext", "DOM.Iterable"],
+    "target": "es2018",
+    "module": "ESNext",
+    "moduleResolution": "node"
+  },
+  "include": ["./src"]
+}
