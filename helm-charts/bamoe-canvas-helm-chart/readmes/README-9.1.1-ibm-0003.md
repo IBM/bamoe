@@ -15,7 +15,7 @@ BAMOE Canvas helm chart is a Helm chart based on the opensource KIE Sandbox helm
 To install the chart with the release name `bamoe-canvas`:
 
 ```console
-helm install bamoe-canvas oci://quay.io/bamoe/canvas-helm-chart --version=9.1.0-ibm-0001
+helm install bamoe-canvas oci://quay.io/bamoe/canvas-helm-chart --version=9.1.1-ibm-0003
 ```
 
 Following message should be displayed on your console.
@@ -55,7 +55,7 @@ Run above commands to forward container ports to your system ports. After this, 
 To install the chart with the release name `bamoe-canvas`:
 
 ```console
-$ helm pull oci://quay.io/bamoe/canvas-helm-chart --version=9.1.0-ibm-0001 --untar
+$ helm pull oci://quay.io/bamoe/canvas-helm-chart --version=9.1.1-ibm-0003 --untar
 $ helm install bamoe-canvas ./canvas-helm-chart --values ./canvas-helm-chart/values-minikube-nginx.yaml
 ```
 
@@ -83,7 +83,7 @@ Run the following commands:
 To install the chart with the release name `bamoe-canvas`:
 
 ```console
-$ helm pull oci://quay.io/bamoe/canvas-helm-chart --version=9.1.0-ibm-0001 --untar
+$ helm pull oci://quay.io/bamoe/canvas-helm-chart --version=9.1.1-ibm-0003 --untar
 $ helm install bamoe-canvas ./canvas-helm-chart --values ./canvas-helm-chart/values-kubernetes.yaml --set global.kubernetesClusterDomain="<YOUR_KUBERNETES_CLUSTER_DOMAIN>" --set global.kubernetesIngressClass="<YOUR_KUBERNETES_INGRESS_CLASS>"
 ```
 
@@ -119,7 +119,7 @@ If you don't have access rigths to this config, try creating a dummy Route resou
 To install the chart with the release name `bamoe-canvas`:
 
 ```console
-$ helm pull oci://quay.io/bamoe/canvas-helm-chart --version=9.1.0-ibm-0001 --untar
+$ helm pull oci://quay.io/bamoe/canvas-helm-chart --version=9.1.1-ibm-0003 --untar
 $ helm install bamoe-canvas ./canvas-helm-chart --values ./canvas-helm-chart/values-openshift.yaml --set global.openshiftRouteDomain="<YOUR_OCP_ROUTE_DOMAIN>"
 ```
 
@@ -202,7 +202,7 @@ The following list displays all the configurable parameters of the BAMOE Canvas 
     - description: Overrides charts full name
   - **cors_proxy.image**
     - type: `object`
-    - default: `{"account":"bamoe","name":"cors-proxy","pullPolicy":"IfNotPresent","registry":"quay.io","tag":"9.1.0-ibm-0001"}`
+    - default: `{"account":"bamoe","name":"cors-proxy","pullPolicy":"IfNotPresent","registry":"quay.io","tag":"9.1.1-ibm-0003"}`
     - description: Image source configuration for the CORS Proxy image
   - **cors_proxy.imagePullSecrets**
     - type: `list`
@@ -245,7 +245,7 @@ The following list displays all the configurable parameters of the BAMOE Canvas 
     - description: Overrides charts full name
   - **extended_services.image**
     - type: `object`
-    - default: `{"account":"bamoe","name":"extended-services","pullPolicy":"IfNotPresent","registry":"quay.io","tag":"9.1.0-ibm-0001"}`
+    - default: `{"account":"bamoe","name":"extended-services","pullPolicy":"IfNotPresent","registry":"quay.io","tag":"9.1.1-ibm-0003"}`
     - description: Image source configuration for the Extended Services image
   - **extended_services.imagePullSecrets**
     - type: `list`
@@ -292,7 +292,7 @@ The following list displays all the configurable parameters of the BAMOE Canvas 
     - description: Overrides charts full name
   - **kie_sandbox.image**
     - type: `object`
-    - default: `{"account":"bamoe","name":"canvas","pullPolicy":"IfNotPresent","registry":"quay.io","tag":"9.1.0-ibm-0001"}`
+    - default: `{"account":"bamoe","name":"canvas","pullPolicy":"IfNotPresent","registry":"quay.io","tag":"9.1.1-ibm-0003"}`
     - description: Image source configuration for the KIE Sandbox image
   - **kie_sandbox.imagePullSecrets**
     - type: `list`
