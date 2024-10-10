@@ -1,12 +1,4 @@
 --
--- PostgreSQL database dump
---
-
--- Dumped from database version 16.1
--- Dumped by pg_dump version 16.1
-
-
---
 -- Name: job_status; Type: TYPE; Schema: public; Owner: -
 --
 
@@ -126,9 +118,4 @@ CREATE INDEX job_details_created_idx ON job_details USING btree (created);
 --
 
 CREATE INDEX job_details_fire_time_idx ON job_details USING btree (fire_time);
-
-
---
--- PostgreSQL database dump complete
---
 
