@@ -1,12 +1,4 @@
 --
--- PostgreSQL database dump
---
-
--- Dumped from database version 16.1
--- Dumped by pg_dump version 16.1
-
-
---
 -- Name: audit_query; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -834,9 +826,4 @@ ALTER TABLE ONLY task_instance_assignment_users_log
 
 ALTER TABLE ONLY task_instance_deadline_notification_log
     ADD CONSTRAINT fk_task_instance_deadline_tid FOREIGN KEY (task_instance_deadline_log_id) REFERENCES task_instance_deadline_log(id);
-
-
---
--- PostgreSQL database dump complete
---
 

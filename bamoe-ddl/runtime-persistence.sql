@@ -1,12 +1,4 @@
 --
--- PostgreSQL database dump
---
-
--- Dumped from database version 16.1
--- Dumped by pg_dump version 16.1
-
-
---
 -- Name: business_key_mapping; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -108,9 +100,4 @@ CREATE INDEX idx_process_instances_process_id ON process_instances USING btree (
 
 ALTER TABLE ONLY business_key_mapping
     ADD CONSTRAINT fk_process_instances FOREIGN KEY (process_instance_id) REFERENCES process_instances(id) ON DELETE CASCADE;
-
-
---
--- PostgreSQL database dump complete
---
 

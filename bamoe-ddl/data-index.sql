@@ -1,12 +1,4 @@
 --
--- PostgreSQL database dump
---
-
--- Dumped from database version 16.1
--- Dumped by pg_dump version 16.1
-
-
---
 -- Name: attachments; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -734,9 +726,4 @@ ALTER TABLE ONLY tasks_potential_groups
 
 ALTER TABLE ONLY tasks_potential_users
     ADD CONSTRAINT fk_tasks_potential_users_tasks FOREIGN KEY (task_id) REFERENCES tasks(id) ON DELETE CASCADE;
-
-
---
--- PostgreSQL database dump complete
---
 
