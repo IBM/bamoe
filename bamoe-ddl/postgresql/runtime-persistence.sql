@@ -1,3 +1,11 @@
+--
+-- Runtime persistence uses below tables
+--
+-- business_key_mapping
+-- correlation_instances   composite business keys to locate a process without the process instance id
+-- process_instances       process state of live processes
+--
+
 CREATE TABLE business_key_mapping (
     business_key character(255) NOT NULL,
     process_instance_id character(36) NOT NULL

@@ -1,3 +1,23 @@
+--
+-- Data audit uses below tables
+--
+-- audit_query                                 store custom queries against data audit tables
+-- job_execution_log                           historical records of events of job execution
+-- process_instance_error_log                  historical record of process instance errors
+-- process_instance_node_log                   historical record of node instance executions
+-- process_instance_state_log                  historical record of node state changed during executions
+-- process_instance_state_roles_log            historical record of process instance state changed during execution
+-- process_instance_variable_log               historical record of varaible changes during process instance execution
+-- task_instance_assignment_log                historical record of assignments in user task instance
+-- task_instance_assignment_users_log          historical record of assignments in user task instance
+-- task_instance_attachment_log                historical record of user task instance attachments
+-- task_instance_comment_log                   historical record of user task instance comments
+-- task_instance_deadline_log                  historical record of user task instance deadlines change
+-- task_instance_deadline_notification_log     historical record of user task instance deadlines notifications
+-- task_instance_state_log                     historical record of user task instance state change
+-- task_instance_variable_log                  historical record of user task instance input/output variables change
+-- 
+
 CREATE TABLE audit_query (
     identifier character varying(255) NOT NULL,
     graph_ql_definition character varying(5000),

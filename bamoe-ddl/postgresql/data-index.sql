@@ -1,3 +1,30 @@
+--
+-- Data index uses below tables
+--
+-- attachments                 user task instance attachments
+-- comments                    user task instance comments
+-- definitions                 process definitions that has been deployed
+-- definitions_addons          addons those process definitions were deployed with
+-- definitions_annotations 
+-- definitions_metadata 
+-- definitions_nodes           last definitions of node executed by a process instnace 
+-- definitions_nodes_metadata 
+-- definitions_roles 
+-- jobs                        timers created by runtime
+-- kogito_data_cache 
+-- milestones                  special type of node that is completed through a condition (comes from cmmn)
+-- nodes                       nodes executed by the process instance
+-- processes                   last state of the process instance
+-- processes_addons            addons this process instance is being executed with
+-- processes_roles             roles this process instance requires
+-- tasks                       user task instance last state
+-- tasks_admin_groups          user task instance admin groups assigned
+-- tasks_admin_users           user task instance admin user assigned
+-- tasks_excluded_users        user task instance excluded users
+-- tasks_potential_groups      user task instance potential groups
+-- tasks_potential_users       user task instance potential users
+--
+
 CREATE TABLE attachments (
     id character varying(255) NOT NULL,
     content character varying(255),

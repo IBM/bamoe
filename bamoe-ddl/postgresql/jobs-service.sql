@@ -1,3 +1,11 @@
+--
+-- Jobs service uses below tables
+--
+-- job_details              details of job instance being created
+-- job_details_v1           <deprecated>
+-- job_service_management   used for clustering and to check lead instance
+--
+
 CREATE TYPE job_status AS ENUM (
     'ERROR',
     'EXECUTED',
