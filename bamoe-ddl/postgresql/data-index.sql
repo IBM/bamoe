@@ -7,7 +7,7 @@
 -- definitions_addons          addons those process definitions were deployed with
 -- definitions_annotations 
 -- definitions_metadata 
--- definitions_nodes           last definitions of node executed by a process instnace 
+-- definitions_nodes           last definitions of node executed by a process instance 
 -- definitions_nodes_metadata 
 -- definitions_roles 
 -- jobs                        timers created by runtime

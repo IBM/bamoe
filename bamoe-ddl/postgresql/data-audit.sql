@@ -5,9 +5,9 @@
 -- job_execution_log                           historical records of events of job execution
 -- process_instance_error_log                  historical record of process instance errors
 -- process_instance_node_log                   historical record of node instance executions
--- process_instance_state_log                  historical record of node state changed during executions
+-- process_instance_state_log                  historical record of node state change during executions
 -- process_instance_state_roles_log            historical record of process instance state changed during execution
--- process_instance_variable_log               historical record of varaible changes during process instance execution
+-- process_instance_variable_log               historical record of variable changes during process instance execution
 -- task_instance_assignment_log                historical record of assignments in user task instance
 -- task_instance_assignment_users_log          historical record of assignments in user task instance
 -- task_instance_attachment_log                historical record of user task instance attachments

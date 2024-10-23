@@ -3,7 +3,7 @@
 --
 -- business_key_mapping
 -- correlation_instances   composite business keys to locate a process without the process instance id
--- process_instances       process state of live processes
+-- process_instances       process state of alive processes
 --
 
 CREATE TABLE business_key_mapping (
