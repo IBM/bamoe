@@ -1,27 +1,26 @@
 --
--- Jobs service uses below tables
---
--- job_details              details of job instance being created
--- job_service_management   used for clustering and to check lead instance
+-- It contains all the required Table to correctly manage and persist Job Instances
 --
 
+-- TABLE job_details: Represents a Job Instance on the Job Service with its details
 CREATE TABLE job_details (
-    id character varying(50) NOT NULL,
-    correlation_id character varying(50),
-    status character varying(40),
+    id character varying(50) NOT NULL, -- the unique id internally on the job service
+    correlation_id character varying(50), -- the job id on the runtimes,
+    status character varying(40), -- the job status: 'ERROR' or 'EXECUTED' or 'SCHEDULED' or 'RETRY' or 'CANCELED'
     last_update timestamp with time zone,
     retries integer,
-    execution_counter integer,
-    scheduled_id character varying(40),
+    execution_counter integer, -- number of times the job was executed
+    scheduled_id character varying(40), -- the execution control on the scheduler (id on vertx.setTimer, quartzId...)
     priority integer,
-    recipient jsonb,
-    trigger jsonb,
+    recipient jsonb, -- http callback, event topic
+    trigger jsonb, -- when/how it should be executed
     fire_time timestamp with time zone,
     execution_timeout bigint,
     execution_timeout_unit character varying(40),
     created timestamp with time zone
 );
 
+-- TABLE job_service_management: used for clustering and to check lead instance
 CREATE TABLE job_service_management (
     id character varying(40) NOT NULL,
     last_heartbeat timestamp with time zone,
