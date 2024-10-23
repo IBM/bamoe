@@ -5,18 +5,6 @@
 -- job_service_management   used for clustering and to check lead instance
 --
 
-CREATE TYPE job_status AS ENUM (
-    'ERROR',
-    'EXECUTED',
-    'SCHEDULED',
-    'RETRY',
-    'CANCELED'
-);
-
-CREATE TYPE job_type AS ENUM (
-    'HTTP'
-);
-
 CREATE TABLE job_details (
     id character varying(50) NOT NULL,
     correlation_id character varying(50),
