@@ -11,7 +11,6 @@ BAMOE Consoles is a Helm chart based on the opensource KIE Runtime Tools Console
 ## Components
 
 - Management Console
-- Task Console
 
 ## Installing the Chart
 
@@ -39,12 +38,6 @@ In order to get BAMOE Consoles running you need to run these commands:
   export CONTAINER_PORT=$(kubectl get pod --namespace default $POD_NAME -o jsonpath="{.spec.containers[0].ports[0].containerPort}")
   echo "Management Console URL: http://127.0.0.1:8081"
   kubectl --namespace default port-forward $POD_NAME 8081:$CONTAINER_PORT
-
-2. Run the following commands in a separate terminal to port-forward Task Console application:
-  export POD_NAME=$(kubectl get pods --namespace default -l "app.kubernetes.io/component=task-console,app.kubernetes.io/instance=bamoe-consoles" -o jsonpath="{.items[0].metadata.name}")
-  export CONTAINER_PORT=$(kubectl get pod --namespace default $POD_NAME -o jsonpath="{.spec.containers[0].ports[0].containerPort}")
-  echo "Task Console URL: http://127.0.0.1:8080"
-  kubectl --namespace default port-forward $POD_NAME 8080:$CONTAINER_PORT
 ```
 
 Run above commands to forward container ports to your system ports. After this, BAMOE Canvas should be accessible via http://127.0.0.1:8080
@@ -73,7 +66,6 @@ Run the following commands:
   export MINIKUBE_IP=$(minikube ip)
   echo "\n# Minikube BAMOE Consoles Helm Chart hostnames" | sudo tee -a /etc/hosts
   echo "$MINIKUBE_IP management-console.local" | sudo tee -a /etc/hosts
-  echo "$MINIKUBE_IP task-console.local" | sudo tee -a /etc/hosts
 ```
 
 ### Kubernetes install
@@ -96,8 +88,6 @@ REVISION: 1
 NOTES:
 1. Management Console available at:
   http://management-console.<YOUR_KUBERNETES_CLUSTER_DOMAIN>
-2. Task Console available at:
-  http://task-console.<YOUR_KUBERNETES_CLUSTER_DOMAIN>
 ```
 
 ### OpenShift install
@@ -128,8 +118,6 @@ REVISION: 1
 NOTES:
 1. Management Console available at:
   https://management-console.<YOUR_OCP_ROUTE_DOMAIN>
-2. Task Console available at:
-  https://task-console.<YOUR_OCP_ROUTE_DOMAIN>
 ```
 
 ## Uninstalling the Chart
