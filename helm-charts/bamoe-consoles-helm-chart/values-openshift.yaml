@@ -1,15 +1,5 @@
 ---
 runtime-tools-consoles-helm-chart:
-  task-console:
-    image:
-      registry: "quay.io"
-      account: "bamoe"
-      name: "task-console"
-      tag: "0.0.0"
-      pullPolicy: "IfNotPresent"
-    openshiftRoute:
-      enabled: true
-      host: "task-console.{{ .Values.global.openshiftRouteDomain }}"
   management-console:
     image:
       registry: "quay.io"
