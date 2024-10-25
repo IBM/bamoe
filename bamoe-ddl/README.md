@@ -20,15 +20,15 @@ This check should be manually checked before any release.
 At the time of writing, the DDL Schema update is a manual process. 
 For perform the updates, here the steps:
 
-1. A PostgreSQL instance should be available on your local system
-2. Create a Database and apply the above patches form community SQL patch. The patches order MATTERS!
-3. As an alternative, you can rely on flyway to automatically create the Tables in you database. To do that, the steps are:
-   1. Clone the [kie-tools](https://github.com/apache/incubator-kie-tools) repository
-   2. Set `export KIE_TOOLS-BUILD__buildExamples=true`
-   3. Set `export KIE_TOOLS-BUILD__buildContainerImages=true`
-   4. Launch `pnpm -F @kie-tools-examples/jbpm-compact-architecture-example... build:dev`
-   5. Launch `pnpm -F @kie-tools-examples/jbpm-compact-architecture-example quarkus:dev`
-   6. Launch `pnpm -F @kie-tools-examples/jbpm-compact-architecture-example start`
-4. Export the DB using the following command: ```pg_dump -U <user> -d <db> -F p --no-owner --schema-only```
-5. Update the DDL according to the above results
-6. Re-run the updated DDLs to double-check their correctness.
+1. Import the community SQL patches in a local database instance. There are 2 ways to perform that: 
+   1. Create a local PostgreSQL Database and apply the above patches from the community SQL patch. The patches order MATTERS! 
+   2. As an alternative, you can rely on flyway to automatically create the Tables in you database. To do that, the steps are:
+      1. No need to have a PostgresSQL in your local system. The above process will automatically spin up a psql instance. You just need a running Docker daemon (Rancher Desktop)
+      2. Clone the [kie-tools](https://github.com/apache/incubator-kie-tools) repository
+      3. Set `export KIE_TOOLS-BUILD__buildExamples=true`
+      4. Set `export KIE_TOOLS-BUILD__buildContainerImages=true`
+      5. Launch `pnpm -F @kie-tools-examples/jbpm-compact-architecture-example... build:dev`
+      6. Launch `pnpm -F @kie-tools-examples/jbpm-compact-architecture-example start`
+2. Export the DB using the following command: ```pg_dump -U <user> -d <db> -F p --no-owner --schema-only```
+3. Update the DDL according to the above results
+4. Re-run the updated DDLs to double-check their correctness.
