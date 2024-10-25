@@ -121,69 +121,33 @@ ALTER TABLE ONLY jbpm_user_tasks_outputs
 ALTER TABLE ONLY jbpm_user_tasks_metadata
     ADD CONSTRAINT jbpm_user_tasks_metadata_pkey PRIMARY KEY (task_id, metadata_name);
 
+ALTER TABLE ONLY jbpm_user_tasks_potential_users
+    ADD CONSTRAINT fk_jbpm_user_fk_tasks_potential_users_tid FOREIGN KEY (task_id)  REFERENCES jbpm_user_tasks(id) ON DELETE CASCADE;
+
+ALTER TABLE ONLY jbpm_user_tasks_potential_groups
+    ADD CONSTRAINT fk_jbpm_user_tasks_potential_groups_tid FOREIGN KEY (task_id)  REFERENCES jbpm_user_tasks(id) ON DELETE CASCADE;
 
 
+ALTER TABLE ONLY jbpm_user_tasks_admin_users
+    ADD CONSTRAINT fk_jbpm_user_tasks_admin_users_tid FOREIGN KEY (task_id)  REFERENCES jbpm_user_tasks(id) ON DELETE CASCADE;
 
+ALTER TABLE ONLY jbpm_user_tasks_admin_groups
+    ADD CONSTRAINT fk_jbpm_user_tasks_admin_groups_tid FOREIGN KEY (task_id) REFERENCES jbpm_user_tasks(id) ON DELETE CASCADE;
 
+ALTER TABLE ONLY jbpm_user_tasks_excluded_users
+    ADD CONSTRAINT fk_jbpm_user_tasks_excluded_users_tid FOREIGN KEY (task_id) REFERENCES jbpm_user_tasks(id) ON DELETE CASCADE;
 
+ALTER TABLE ONLY jbpm_user_tasks_attachments
+    ADD CONSTRAINT fk_user_task_attachment_tid FOREIGN KEY (task_id) REFERENCES jbpm_user_tasks(id) ON DELETE CASCADE;
 
+ALTER TABLE ONLY jbpm_user_tasks_comments
+    ADD CONSTRAINT fk_user_task_comment_tid FOREIGN KEY (task_id) REFERENCES jbpm_user_tasks(id) ON DELETE CASCADE;
 
-alter table if exists jbpm_user_tasks_potential_users
-drop constraint if exists fk_jbpm_user_tasks_potential_users_tid cascade;
+ALTER TABLE ONLY jbpm_user_tasks_inputs
+    ADD CONSTRAINT fk_jbpm_user_tasks_inputs_tid FOREIGN KEY (task_id) REFERENCES jbpm_user_tasks(id) ON DELETE CASCADE;
 
-alter table if exists jbpm_user_tasks_potential_users
-    add constraint fk_jbpm_user_fk_tasks_potential_users_tid foreign key (task_id) references jbpm_user_tasks(id) on delete cascade;
+ALTER TABLE ONLY jbpm_user_tasks_outputs
+    ADD CONSTRAINT fk_jbpm_user_tasks_outputs_tid FOREIGN KEY (task_id) REFERENCES jbpm_user_tasks(id) ON DELETE CASCADE;
 
-alter table if exists jbpm_user_potential_groups
-drop constraint if exists fk_jbpm_user_tasks_potential_groups_tid cascade;
-
-alter table if exists jbpm_user_tasks_potential_groups
-    add constraint fk_jbpm_user_tasks_potential_groups_tid foreign key (task_id) references jbpm_user_tasks(id) on delete cascade;
-
-alter table if exists jbpm_user_tasks_admin_users
-drop constraint if exists fk_jbpm_user_tasks_admin_users_tid cascade;
-
-alter table if exists jbpm_user_tasks_admin_users
-    add constraint fk_jbpm_user_tasks_admin_users_tid foreign key (task_id) references jbpm_user_tasks(id) on delete cascade;
-
-alter table if exists jbpm_user_tasks_admin_groups
-drop constraint if exists fk_jbpm_user_tasks_admin_groups_tid cascade;
-
-alter table if exists jbpm_user_tasks_admin_groups
-    add constraint fk_jbpm_user_tasks_admin_groups_tid foreign key (task_id) references jbpm_user_tasks(id) on delete cascade;
-
-alter table if exists jbpm_user_tasks_excluded_users
-drop constraint if exists fk_jbpm_user_tasks_excluded_users_tid cascade;
-
-alter table if exists jbpm_user_tasks_excluded_users
-    add constraint fk_jbpm_user_tasks_excluded_users_tid foreign key (task_id) references jbpm_user_tasks(id) on delete cascade;
-
-alter table if exists jbpm_user_tasks_attachments
-drop constraint if exists fk_user_task_attachment_tid cascade;
-
-alter table if exists jbpm_user_tasks_attachments
-    add constraint fk_user_task_attachment_tid foreign key (task_id) references jbpm_user_tasks(id) on delete cascade;
-
-alter table if exists jbpm_user_tasks_comments
-drop constraint if exists fk_user_task_comment_tid cascade;
-
-alter table if exists jbpm_user_tasks_comments
-    add constraint fk_user_task_comment_tid foreign key (task_id) references jbpm_user_tasks(id) on delete cascade;
-
-alter table if exists jbpm_user_tasks_inputs
-drop constraint if exists fk_jbpm_user_tasks_inputs_tid cascade;
-
-alter table if exists jbpm_user_tasks_inputs
-    add constraint fk_jbpm_user_tasks_inputs_tid foreign key (task_id) references jbpm_user_tasks(id) on delete cascade;
-
-alter table if exists jbpm_user_tasks_outputs
-drop constraint if exists fk_jbpm_user_tasks_outputs_tid cascade;
-
-alter table if exists jbpm_user_tasks_outputs
-    add constraint fk_jbpm_user_tasks_outputs_tid foreign key (task_id) references jbpm_user_tasks(id) on delete cascade;
-
-alter table if exists jbpm_user_tasks_metadata
-drop constraint if exists fk_jbpm_user_tasks_metadata_tid cascade;
-
-alter table if exists jbpm_user_tasks_metadata
-    add constraint fk_jbpm_user_tasks_metadata_tid foreign key (task_id) references jbpm_user_tasks(id) on delete cascade;
+ALTER TABLE ONLY jbpm_user_tasks_metadata
+    ADD CONSTRAINT fk_jbpm_user_tasks_metadata_tid FOREIGN KEY (task_id) REFERENCES jbpm_user_tasks(id) ON DELETE CASCADE;
