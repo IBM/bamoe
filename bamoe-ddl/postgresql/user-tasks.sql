@@ -127,7 +127,6 @@ ALTER TABLE ONLY jbpm_user_tasks_potential_users
 ALTER TABLE ONLY jbpm_user_tasks_potential_groups
     ADD CONSTRAINT fk_jbpm_user_tasks_potential_groups_tid FOREIGN KEY (task_id)  REFERENCES jbpm_user_tasks(id) ON DELETE CASCADE;
 
-
 ALTER TABLE ONLY jbpm_user_tasks_admin_users
     ADD CONSTRAINT fk_jbpm_user_tasks_admin_users_tid FOREIGN KEY (task_id)  REFERENCES jbpm_user_tasks(id) ON DELETE CASCADE;
 
@@ -138,10 +137,10 @@ ALTER TABLE ONLY jbpm_user_tasks_excluded_users
     ADD CONSTRAINT fk_jbpm_user_tasks_excluded_users_tid FOREIGN KEY (task_id) REFERENCES jbpm_user_tasks(id) ON DELETE CASCADE;
 
 ALTER TABLE ONLY jbpm_user_tasks_attachments
-    ADD CONSTRAINT fk_user_task_attachment_tid FOREIGN KEY (task_id) REFERENCES jbpm_user_tasks(id) ON DELETE CASCADE;
+    ADD CONSTRAINT fk_user_tasks_attachments_tid FOREIGN KEY (task_id) REFERENCES jbpm_user_tasks(id) ON DELETE CASCADE;
 
 ALTER TABLE ONLY jbpm_user_tasks_comments
-    ADD CONSTRAINT fk_user_task_comment_tid FOREIGN KEY (task_id) REFERENCES jbpm_user_tasks(id) ON DELETE CASCADE;
+    ADD CONSTRAINT fk_user_tasks_comments_tid FOREIGN KEY (task_id) REFERENCES jbpm_user_tasks(id) ON DELETE CASCADE;
 
 ALTER TABLE ONLY jbpm_user_tasks_inputs
     ADD CONSTRAINT fk_jbpm_user_tasks_inputs_tid FOREIGN KEY (task_id) REFERENCES jbpm_user_tasks(id) ON DELETE CASCADE;
