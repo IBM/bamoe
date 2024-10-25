@@ -1,5 +1,5 @@
 --
--- It contains all the required Table to correctly manage and persist Job Instances
+-- It contains all the required Tables to correctly manage and persist Job Instances
 --
 
 -- TABLE job_details: Represents a Job Instance on the Job Service with its details
