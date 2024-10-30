@@ -15,38 +15,42 @@ Use the `settings.xml` on `~/.m2/repository` or any other directory you have con
 
 ```xml
 <settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 https://maven.apache.org/xsd/settings-1.0.0.xsd">
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 https://maven.apache.org/xsd/settings-1.0.0.xsd">
 
-    <activeProfile>ibm-bamoe-enterprise-maven-repository</activeProfile>
+    <profiles>
+        <profile>
+            <id>ibm-bamoe-enterprise-maven-repository</id>
+            <repositories>
+                <repository>
+                    <id>ibm-bamoe-enterprise-maven-repository</id>
+                    <url>http://localhost:9000/</url>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
+                </repository>
+            </repositories>
+            <pluginRepositories>
+                <pluginRepository>
+                    <id>ibm-bamoe-enterprise-maven-repository</id>
+                    <url>http://localhost:9000/</url>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
+                </pluginRepository>
+            </pluginRepositories>
+        </profile>
+    </profiles>
 
-    <profile>
-        <id>ibm-bamoe-enterprise-maven-repository</id>
-        <repositories>
-            <repository>
-                <id>ibm-bamoe-enterprise-maven-repository</id>
-                <url>http://localhost:9000/</url>
-                <releases>
-                    <enabled>true</enabled>
-                </releases>
-                <snapshots>
-                    <enabled>false</enabled>
-                </snapshots>
-            </repository>
-        </repositories>
-        <pluginRepositories>
-            <pluginRepository>
-                <id>ibm-bamoe-enterprise-maven-repository</id>
-                <url>http://localhost:9000/</url>
-                <releases>
-                    <enabled>true</enabled>
-                </releases>
-                <snapshots>
-                    <enabled>false</enabled>
-                </snapshots>
-            </pluginRepository>
-        </pluginRepositories>
-    </profile>
+    <activeProfiles>
+        <activeProfile>ibm-bamoe-enterprise-maven-repository</activeProfile>
+    </activeProfiles>
 
 </settings>
 ```
