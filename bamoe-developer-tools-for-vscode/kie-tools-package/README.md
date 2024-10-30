@@ -2,7 +2,7 @@
 
 ![vs-code-support](https://img.shields.io/badge/Visual%20Studio%20Code-1.66.0+-blue.svg)
 
-Create, edit and visualize business processes (BPMN), decisions (DMN) and test scenarios (SceSim).
+[IBM Business Automation Manager Open Editions](https://www.ibm.com/products/business-automation-manager-open-editions) (BAMOE) Developer Tools for VS Code lets you create, edit and visualize business processes (BPMN), decisions (DMN) and test scenarios (SceSim).
 
 ## Features
 
