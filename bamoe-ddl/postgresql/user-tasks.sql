@@ -1,8 +1,13 @@
 --
--- User tasks uses below tables
+-- User tasks subsystem tables
 --
 
--- TABLE jbpm_user_tasks
+-- TABLE jbpm_user_tasks: The entity that represents a User Task
+-- id: The User Task ID. The scope of this ID is valid on the User Tasks subsystem only. Can't be used at the Workflow Engine level
+-- user_task_id: The ID of the node associated with this User Task
+-- status: The status name
+-- termination_type: COMPLETED, ABORT, FAILED, EXITED, OBSOLETE, ERROR
+-- external_reference_id: The ID of the Work Item associated with this user task. Can be used at Workflow Engine lever to refer to this User Task
 CREATE TABLE jbpm_user_tasks (
     id varchar(50) NOT NULL,
     user_task_id varchar(255),
@@ -45,7 +50,8 @@ CREATE TABLE jbpm_user_tasks_excluded_users (
     user_id varchar(255) NOT NULL
 );
 
--- TABLE jbpm_user_tasks_attachments
+-- TABLE jbpm_user_tasks_attachments: An attachment is a reference to an external URIs containing information relevant to a related task, for example a screen snapshot.
+-- url: The uri related to this attachment
 CREATE TABLE jbpm_user_tasks_attachments (
     id varchar(50) NOT NULL,
     name varchar(255),
@@ -55,7 +61,8 @@ CREATE TABLE jbpm_user_tasks_attachments (
     task_id varchar(50) NOT NULL
 );
 
--- TABLE jbpm_user_tasks_comments
+-- TABLE jbpm_user_tasks_comments: A comment consists of a human readable text that will help to achieve a successful resolution of a task.
+-- comment: The comment related to this attachment
 CREATE TABLE jbpm_user_tasks_comments (
     id varchar(50) NOT NULL,
     updated_by varchar(255),
@@ -64,7 +71,7 @@ CREATE TABLE jbpm_user_tasks_comments (
     task_id varchar(50) NOT NULL
 );
 
--- TABLE jbpm_user_tasks_inputs
+-- TABLE jbpm_user_tasks_inputs: Input parameters of a task which are passed as a pair (name, value), to be consumed by a human
 CREATE TABLE jbpm_user_tasks_inputs (
     task_id varchar(50) NOT NULL,
     input_name varchar(255) NOT NULL,
@@ -72,7 +79,7 @@ CREATE TABLE jbpm_user_tasks_inputs (
     java_type varchar(255)
 );
 
--- TABLE jbpm_user_tasks_outputs
+-- TABLE jbpm_user_tasks_outputs: Output parameters of a User Task, which results in a set of properties in a pair (name, value) format.
 CREATE TABLE jbpm_user_tasks_outputs (
     task_id varchar(50) NOT NULL,
     output_name varchar(255) NOT NULL,
@@ -80,7 +87,7 @@ CREATE TABLE jbpm_user_tasks_outputs (
     java_type varchar(255)
 );
 
--- TABLE jbpm_user_tasks_metadata
+-- TABLE jbpm_user_tasks_metadata: Global properties related the User Task
 CREATE TABLE jbpm_user_tasks_metadata (
     task_id varchar(50),
     metadata_name varchar(255) NOT NULL,
