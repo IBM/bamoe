@@ -400,6 +400,35 @@
       <classifier>sources</classifier>
     </dependency>
 
+    <!--Kie Flyway Add-on -->
+    <dependency>
+      <groupId>org.kie</groupId>
+      <artifactId>kie-addons-flyway</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.kie</groupId>
+      <artifactId>kie-addons-flyway</artifactId>
+      <classifier>sources</classifier>
+    </dependency>
+    <dependency>
+      <groupId>org.kie</groupId>
+      <artifactId>kie-addons-quarkus-flyway</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.kie</groupId>
+      <artifactId>kie-addons-quarkus-flyway</artifactId>
+      <classifier>sources</classifier>
+    </dependency>
+    <dependency>
+      <groupId>org.kie</groupId>
+      <artifactId>kie-addons-quarkus-flyway-deployment</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.kie</groupId>
+      <artifactId>kie-addons-quarkus-flyway-deployment</artifactId>
+      <classifier>sources</classifier>
+    </dependency>
+
     <dependency>
       <groupId>org.kie</groupId>
       <artifactId>kie-addons-quarkus-events-process</artifactId>
@@ -614,12 +643,44 @@
     <!-- jbpm -->
     <dependency>
       <groupId>org.kie.kogito</groupId>
+      <artifactId>jbpm-deps-group-bpmn2-compiler</artifactId>
+      <type>pom</type>
+    </dependency>
+    <dependency>
+      <groupId>org.kie.kogito</groupId>
+      <artifactId>jbpm-deps-group-compiler</artifactId>
+      <type>pom</type>
+    </dependency>
+    <dependency>
+      <groupId>org.kie.kogito</groupId>
+      <artifactId>jbpm-deps-group-engine</artifactId>
+      <type>pom</type>
+    </dependency>
+    <dependency>
+      <groupId>org.kie.kogito</groupId>
       <artifactId>process-workitems</artifactId>
     </dependency>
     <dependency>
       <groupId>org.kie.kogito</groupId>
       <artifactId>process-workitems</artifactId>
       <classifier>sources</classifier>
+    </dependency>
+    <dependency>
+      <groupId>org.kie.kogito</groupId>
+      <artifactId>jbpm-flow-migration</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.kie.kogito</groupId>
+      <artifactId>jbpm-flow-migration</artifactId>
+      <classifier>sources</classifier>
+    </dependency>
+    <dependency>
+      <groupId>org.kie.kogito</groupId>
+      <artifactId>jbpm-usertask</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.kie.kogito</groupId>
+      <artifactId>jbpm-usertask-workitem</artifactId>
     </dependency>
     <dependency>
       <groupId>org.kie.kogito</groupId>
@@ -1072,6 +1133,39 @@
       <artifactId>jbpm-addons-quarkus-task-notification-deployment</artifactId>
     </dependency>
     <dependency>
+      <groupId>org.jbpm</groupId>
+      <artifactId>jbpm-addons-usertask-storage-jpa</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.jbpm</groupId>
+      <artifactId>jbpm-addons-usertask-storage-jpa</artifactId>
+      <classifier>sources</classifier>
+    </dependency>
+    <dependency>
+      <groupId>org.jbpm</groupId>
+      <artifactId>jbpm-addons-usertask-storage-jpa</artifactId>
+      <type>test-jar</type>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.jbpm</groupId>
+      <artifactId>jbpm-addons-quarkus-usertask-storage-jpa</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.jbpm</groupId>
+      <artifactId>jbpm-addons-quarkus-usertask-storage-jpa</artifactId>
+      <classifier>sources</classifier>
+    </dependency>
+    <dependency>
+      <groupId>org.jbpm</groupId>
+      <artifactId>jbpm-addons-quarkus-usertask-storage-jpa-deployment</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.jbpm</groupId>
+      <artifactId>jbpm-addons-quarkus-usertask-storage-jpa-deployment</artifactId>
+      <classifier>sources</classifier>
+    </dependency>
+    <dependency>
       <groupId>org.kie</groupId>
       <artifactId>kie-addons-quarkus-process-definitions</artifactId>
     </dependency>
@@ -1191,6 +1285,24 @@
       <groupId>org.kie</groupId>
       <artifactId>kogito-addons-quarkus-data-index-persistence-postgresql-deployment</artifactId>
     </dependency>
+    <dependency>
+      <groupId>org.kie</groupId>
+      <artifactId>kogito-addons-quarkus-data-index-persistence-jpa</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.kie</groupId>
+      <artifactId>kogito-addons-quarkus-data-index-persistence-jpa</artifactId>
+      <classifier>sources</classifier>
+    </dependency>
+    <dependency>
+      <groupId>org.kie</groupId>
+      <artifactId>kogito-addons-quarkus-data-index-persistence-jpa-deployment</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.kie</groupId>
+      <artifactId>kogito-addons-quarkus-data-index-persistence-jpa-deployment</artifactId>
+      <classifier>sources</classifier>
+    </dependency>
 
     <!-- Data Index Addon -->
     <dependency>
@@ -1201,6 +1313,24 @@
       <groupId>org.kie</groupId>
       <artifactId>kogito-addons-quarkus-data-index-postgresql-deployment</artifactId>
     </dependency>
+    <dependency>
+      <groupId>org.kie</groupId>
+      <artifactId>kogito-addons-quarkus-data-index-jpa</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.kie</groupId>
+      <artifactId>kogito-addons-quarkus-data-index-jpa</artifactId>
+      <classifier>sources</classifier>
+    </dependency>
+    <dependency>
+      <groupId>org.kie</groupId>
+      <artifactId>kogito-addons-quarkus-data-index-jpa-deployment</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.kie</groupId>
+      <artifactId>kogito-addons-quarkus-data-index-jpa-deployment</artifactId>
+      <classifier>sources</classifier>
+    </dependency>
 
     <!-- Jobs Service Addon-->
     <dependency>
@@ -1210,6 +1340,15 @@
     <dependency>
       <groupId>org.kie.kogito</groupId>
       <artifactId>jobs-service-postgresql-common</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.kie.kogito</groupId>
+      <artifactId>jobs-service-storage-jpa</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.kie.kogito</groupId>
+      <artifactId>jobs-service-storage-jpa</artifactId>
+      <classifier>sources</classifier>
     </dependency>
 
     <!-- Data Audit -->
@@ -1279,6 +1418,15 @@
     </dependency>
     <dependency>
       <groupId>org.kie.kogito</groupId>
+      <artifactId>persistence-commons-jpa-base</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.kie.kogito</groupId>
+      <artifactId>persistence-commons-jpa-base</artifactId>
+      <classifier>sources</classifier>
+    </dependency>
+    <dependency>
+      <groupId>org.kie.kogito</groupId>
       <artifactId>persistence-commons-jpa</artifactId>
     </dependency>
     <dependency>
@@ -1302,6 +1450,15 @@
     <dependency>
       <groupId>org.kie.kogito</groupId>
       <artifactId>data-index-storage-jpa-common</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.kie.kogito</groupId>
+      <artifactId>data-index-storage-jpa</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.kie.kogito</groupId>
+      <artifactId>data-index-storage-jpa</artifactId>
+      <classifier>sources</classifier>
     </dependency>
     <dependency>
       <groupId>org.kie</groupId>
