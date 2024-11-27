@@ -101,7 +101,7 @@ CREATE TABLE jbpm_user_tasks_deadline (
     task_id varchar(50) NOT NULL,
     notification_type varchar(255) NOT NULL,
     notification_value bytea,
-    java_type varchar(255),
+    java_type varchar(255)
 );
 
 -- TABLE jbpm_user_tasks_reassignment:
@@ -110,7 +110,7 @@ CREATE TABLE jbpm_user_tasks_reassignment (
     task_id varchar(50) NOT NULL,
     reassignment_type varchar(255) NOT NULL,
     reassignment_value bytea,
-    java_type varchar(255),
+    java_type varchar(255)
 );
 
 -- TABLE jbpm_user_tasks_deadline_timer:
@@ -119,7 +119,7 @@ CREATE TABLE jbpm_user_tasks_deadline_timer (
     notification_job_id varchar(255) NOT NULL,
     notification_type varchar(255) NOT NULL,
     notification_value bytea,
-    java_type varchar(255),
+    java_type varchar(255)
 );
 
 -- TABLE jbpm_user_tasks_reassignment_timer:
@@ -128,7 +128,7 @@ CREATE TABLE jbpm_user_tasks_reassignment_timer (
     reassignment_job_id varchar(255) NOT NULL,
     reassignment_type varchar(255) NOT NULL,
     reassignment_value bytea,
-    java_type varchar(255),
+    java_type varchar(255)
 );
 
 CREATE SEQUENCE jbpm_user_tasks_deadline_seq
