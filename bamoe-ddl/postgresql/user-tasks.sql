@@ -95,6 +95,58 @@ CREATE TABLE jbpm_user_tasks_metadata (
     java_type varchar(255)
 );
 
+-- TABLE jbpm_user_tasks_deadline:
+CREATE TABLE jbpm_user_tasks_deadline (
+    id int,
+    task_id varchar(50) NOT NULL,
+    notification_type varchar(255) NOT NULL,
+    notification_value bytea,
+    java_type varchar(255),
+);
+
+-- TABLE jbpm_user_tasks_reassignment:
+CREATE TABLE jbpm_user_tasks_reassignment (
+    id int,
+    task_id varchar(50) NOT NULL,
+    reassignment_type varchar(255) NOT NULL,
+    reassignment_value bytea,
+    java_type varchar(255),
+);
+
+-- TABLE jbpm_user_tasks_deadline_timer:
+CREATE TABLE jbpm_user_tasks_deadline_timer (
+    task_id varchar(50) NOT NULL,
+    notification_job_id varchar(255) NOT NULL,
+    notification_type varchar(255) NOT NULL,
+    notification_value bytea,
+    java_type varchar(255),
+);
+
+-- TABLE jbpm_user_tasks_reassignment_timer:
+CREATE TABLE jbpm_user_tasks_reassignment_timer (
+    task_id varchar(50) NOT NULL,
+    reassignment_job_id varchar(255) NOT NULL,
+    reassignment_type varchar(255) NOT NULL,
+    reassignment_value bytea,
+    java_type varchar(255),
+);
+
+CREATE SEQUENCE jbpm_user_tasks_deadline_seq
+    START WITH 1
+    INCREMENT BY 50
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+    OWNED BY jbpm_user_tasks_deadline.id;
+
+CREATE SEQUENCE jbpm_user_tasks_reassignment_seq
+    START WITH 1
+    INCREMENT BY 50
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+    OWNED BY jbpm_user_tasks_reassignment.id;
+
 ALTER TABLE ONLY jbpm_user_tasks
     ADD CONSTRAINT jbpm_user_tasks_pkey PRIMARY KEY (id);
 
@@ -128,6 +180,18 @@ ALTER TABLE ONLY jbpm_user_tasks_outputs
 ALTER TABLE ONLY jbpm_user_tasks_metadata
     ADD CONSTRAINT jbpm_user_tasks_metadata_pkey PRIMARY KEY (task_id, metadata_name);
 
+ALTER TABLE ONLY jbpm_user_tasks_deadline
+    ADD CONSTRAINT jbpm_user_tasks_deadline_pkey PRIMARY KEY (id);
+
+ALTER TABLE ONLY jbpm_user_tasks_reassignment
+    ADD CONSTRAINT jbpm_user_tasks_reassignment_pkey PRIMARY KEY (id);
+
+ALTER TABLE ONLY jbpm_user_tasks_deadline_timer
+    ADD CONSTRAINT jbpm_user_tasks_deadline_timer_pkey PRIMARY KEY (task_id, notification_job_id);
+
+ALTER TABLE ONLY jbpm_user_tasks_reassignment_timer
+    ADD CONSTRAINT jbpm_user_tasks_reassignment_timer_pkey PRIMARY KEY (task_id, reassignment_job_id);
+
 ALTER TABLE ONLY jbpm_user_tasks_potential_users
     ADD CONSTRAINT fk_jbpm_user_fk_tasks_potential_users_tid FOREIGN KEY (task_id)  REFERENCES jbpm_user_tasks(id) ON DELETE CASCADE;
 
@@ -157,3 +221,15 @@ ALTER TABLE ONLY jbpm_user_tasks_outputs
 
 ALTER TABLE ONLY jbpm_user_tasks_metadata
     ADD CONSTRAINT fk_jbpm_user_tasks_metadata_tid FOREIGN KEY (task_id) REFERENCES jbpm_user_tasks(id) ON DELETE CASCADE;
+
+ALTER TABLE ONLY jbpm_user_tasks_deadline
+    ADD CONSTRAINT fk_jbpm_user_tasks_deadline_tid FOREIGN KEY (task_id) REFERENCES jbpm_user_tasks(id) ON DELETE CASCADE;
+
+ALTER TABLE ONLY jbpm_user_tasks_reassignment
+    ADD CONSTRAINT fk_jbpm_user_tasks_reassignment_tid FOREIGN KEY (task_id) REFERENCES jbpm_user_tasks(id) ON DELETE CASCADE;
+
+ALTER TABLE ONLY jbpm_user_tasks_deadline_timer
+    ADD CONSTRAINT fk_jbpm_user_tasks_deadline_timer_tid FOREIGN KEY (task_id) REFERENCES jbpm_user_tasks(id) ON DELETE CASCADE;
+
+ALTER TABLE ONLY jbpm_user_tasks_reassignment_timer
+    ADD CONSTRAINT fk_jbpm_user_tasks_reassignment_timer_tid FOREIGN KEY (task_id) REFERENCES jbpm_user_tasks(id) ON DELETE CASCADE;
