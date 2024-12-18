@@ -183,7 +183,8 @@ CREATE TABLE tasks (
     root_process_instance_id character varying(255),
     started timestamp without time zone,
     state character varying(255),
-    external_reference_id character varying(4000)
+    external_reference_id character varying(4000),
+    sla_due_date timestamp without time zone
 );
 
 -- TABLE tasks_admin_groups: user task instance admin groups assigned
