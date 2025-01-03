@@ -208,7 +208,7 @@ CREATE TABLE task_instance_comment_log (
     process_instance_id character varying(255),
     user_task_definition_id character varying(255),
     user_task_instance_id character varying(255),
-    comment_content character varying(255),
+    comment_content character varying(1000),
     comment_id character varying(255),
     event_type integer
 );

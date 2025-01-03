@@ -67,7 +67,7 @@ CREATE TABLE jbpm_user_tasks_comments (
     id varchar(50) NOT NULL,
     updated_by varchar(255),
     updated_at timestamp(6),
-    comment varchar(255),
+    comment varchar(1000),
     task_id varchar(50) NOT NULL
 );
 

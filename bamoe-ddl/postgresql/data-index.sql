@@ -15,7 +15,7 @@ CREATE TABLE attachments (
 -- TABLE comments: user task instance comments
 CREATE TABLE comments (
     id character varying(255) NOT NULL,
-    content character varying(255),
+    content character varying(1000),
     updated_at timestamp without time zone,
     updated_by character varying(255),
     task_id character varying(255) NOT NULL
