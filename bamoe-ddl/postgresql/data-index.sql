@@ -230,10 +230,10 @@ ALTER TABLE ONLY definitions_annotations
     ADD CONSTRAINT definitions_annotations_pkey PRIMARY KEY (annotation, process_id, process_version);
 
 ALTER TABLE ONLY definitions_metadata
-    ADD CONSTRAINT definitions_metadata_pkey PRIMARY KEY (process_id, process_version, metadata_key);
+    ADD CONSTRAINT definitions_metadata_pkey PRIMARY KEY (process_id, process_version, meta_key);
 
 ALTER TABLE ONLY definitions_nodes_metadata
-    ADD CONSTRAINT definitions_nodes_metadata_pkey PRIMARY KEY (node_id, process_id, process_version, metadata_key);
+    ADD CONSTRAINT definitions_nodes_metadata_pkey PRIMARY KEY (node_id, process_id, process_version, meta_key);
 
 ALTER TABLE ONLY definitions_nodes
     ADD CONSTRAINT definitions_nodes_pkey PRIMARY KEY (id, process_id, process_version);
@@ -248,7 +248,7 @@ ALTER TABLE ONLY jobs
     ADD CONSTRAINT jobs_pkey PRIMARY KEY (id);
 
 ALTER TABLE ONLY kogito_data_cache
-    ADD CONSTRAINT kogito_data_cache_pkey PRIMARY KEY (cache_key, name);
+    ADD CONSTRAINT kogito_data_cache_pkey PRIMARY KEY (var_name, name);
 
 ALTER TABLE ONLY milestones
     ADD CONSTRAINT milestones_pkey PRIMARY KEY (id, process_instance_id);
