@@ -125,7 +125,8 @@ CREATE TABLE nodes (
     name character varying(255),
     node_id character varying(255),
     type character varying(255),
-    process_instance_id character varying(255) NOT NULL
+    process_instance_id character varying(255) NOT NULL,
+    sla_due_date timestamp without time zone
 );
 
 -- TABLE processes: last state of the process instance
@@ -147,7 +148,8 @@ CREATE TABLE processes (
     variables jsonb,
     version character varying(255),
     created_by character varying,
-    updated_by character varying
+    updated_by character varying,
+    sla_due_date timestamp without time zone
 );
 
 -- TABLE processes_addons: addons this process instance is being executed with
@@ -180,7 +182,9 @@ CREATE TABLE tasks (
     root_process_id character varying(255),
     root_process_instance_id character varying(255),
     started timestamp without time zone,
-    state character varying(255)
+    state character varying(255),
+    external_reference_id character varying(4000),
+    sla_due_date timestamp without time zone
 );
 
 -- TABLE tasks_admin_groups: user task instance admin groups assigned

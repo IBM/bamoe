@@ -29,6 +29,7 @@
     "@kie-tools-core/patternfly-base": "workspace:*",
     "@kie-tools-core/vscode-extension": "workspace:*",
     "@kie-tools/dmn-editor-envelope": "workspace:*",
+    "@kie-tools/form-code-generator-vscode-command": "workspace:*",
     "@kie-tools/kie-bc-editors": "workspace:*"
   },
   "devDependencies": {
@@ -93,6 +94,10 @@
       {
         "command": "extension.ibm.bamoe.classic.silentlyGenerateSvgDmn",
         "title": "BAMOE Developer Tools: Generate DMN Editor (classic) preview SVG without any notification"
+      },
+      {
+        "command": "extension.ibm.bamoe.bpmn.generateFormCodeForUserTasks",
+        "title": "BAMOE Developer Tools: Generate form code for User Tasks"
       }
     ],
     "configuration": {
