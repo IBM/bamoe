@@ -50,7 +50,7 @@ CREATE TABLE definitions_annotations (
 CREATE TABLE definitions_metadata (
     process_id character varying(255) NOT NULL,
     process_version character varying(255) NOT NULL,
-    metadata_value character varying(255),
+    meta_value character varying(255),
     name character varying(255) NOT NULL
 );
 
@@ -69,7 +69,7 @@ CREATE TABLE definitions_nodes_metadata (
     node_id character varying(255) NOT NULL,
     process_id character varying(255) NOT NULL,
     process_version character varying(255) NOT NULL,
-    metadata_value character varying(255),
+    meta_value character varying(255),
     name character varying(255) NOT NULL
 );
 
