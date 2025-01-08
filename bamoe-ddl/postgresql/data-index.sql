@@ -51,7 +51,7 @@ CREATE TABLE definitions_metadata (
     process_id character varying(255) NOT NULL,
     process_version character varying(255) NOT NULL,
     metadata_value character varying(255),
-    metadata_key character varying(255) NOT NULL
+    name character varying(255) NOT NULL
 );
 
 -- TABLE definitions_nodes: last definitions of node executed by a process instance
@@ -70,7 +70,7 @@ CREATE TABLE definitions_nodes_metadata (
     process_id character varying(255) NOT NULL,
     process_version character varying(255) NOT NULL,
     metadata_value character varying(255),
-    metadata_key character varying(255) NOT NULL
+    name character varying(255) NOT NULL
 );
 
 -- TABLE definitions_roles
@@ -103,8 +103,8 @@ CREATE TABLE jobs (
 
 -- TABLE jobs: kogito_data_cache
 CREATE TABLE kogito_data_cache (
-    cache_key character varying(255) NOT NULL,
-    name character varying(255) NOT NULL,
+    var_name character varying(255) NOT NULL,
+    cache_name character varying(255) NOT NULL,
     json_value jsonb
 );
 
