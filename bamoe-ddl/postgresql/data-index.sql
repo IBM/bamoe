@@ -248,7 +248,7 @@ ALTER TABLE ONLY jobs
     ADD CONSTRAINT jobs_pkey PRIMARY KEY (id);
 
 ALTER TABLE ONLY kogito_data_cache
-    ADD CONSTRAINT kogito_data_cache_pkey PRIMARY KEY (var_name, name);
+    ADD CONSTRAINT kogito_data_cache_pkey PRIMARY KEY (var_name, cache_name);
 
 ALTER TABLE ONLY milestones
     ADD CONSTRAINT milestones_pkey PRIMARY KEY (id, process_instance_id);
