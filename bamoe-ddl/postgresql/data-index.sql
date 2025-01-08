@@ -230,10 +230,10 @@ ALTER TABLE ONLY definitions_annotations
     ADD CONSTRAINT definitions_annotations_pkey PRIMARY KEY (annotation, process_id, process_version);
 
 ALTER TABLE ONLY definitions_metadata
-    ADD CONSTRAINT definitions_metadata_pkey PRIMARY KEY (process_id, process_version, meta_key);
+    ADD CONSTRAINT definitions_metadata_pkey PRIMARY KEY (process_id, process_version, name);
 
 ALTER TABLE ONLY definitions_nodes_metadata
-    ADD CONSTRAINT definitions_nodes_metadata_pkey PRIMARY KEY (node_id, process_id, process_version, meta_key);
+    ADD CONSTRAINT definitions_nodes_metadata_pkey PRIMARY KEY (node_id, process_id, process_version, name);
 
 ALTER TABLE ONLY definitions_nodes
     ADD CONSTRAINT definitions_nodes_pkey PRIMARY KEY (id, process_id, process_version);
