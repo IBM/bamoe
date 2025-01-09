@@ -41,7 +41,7 @@ CREATE TABLE definitions_addons (
 
 -- TABLE definitions_annotations
 CREATE TABLE definitions_annotations (
-    value character varying(255) NOT NULL,
+    annotation character varying(255) NOT NULL,
     process_id character varying(255) NOT NULL,
     process_version character varying(255) NOT NULL
 );
@@ -50,8 +50,8 @@ CREATE TABLE definitions_annotations (
 CREATE TABLE definitions_metadata (
     process_id character varying(255) NOT NULL,
     process_version character varying(255) NOT NULL,
-    value character varying(255),
-    key character varying(255) NOT NULL
+    meta_value character varying(255),
+    name character varying(255) NOT NULL
 );
 
 -- TABLE definitions_nodes: last definitions of node executed by a process instance
@@ -69,8 +69,8 @@ CREATE TABLE definitions_nodes_metadata (
     node_id character varying(255) NOT NULL,
     process_id character varying(255) NOT NULL,
     process_version character varying(255) NOT NULL,
-    value character varying(255),
-    key character varying(255) NOT NULL
+    meta_value character varying(255),
+    name character varying(255) NOT NULL
 );
 
 -- TABLE definitions_roles
@@ -103,8 +103,8 @@ CREATE TABLE jobs (
 
 -- TABLE jobs: kogito_data_cache
 CREATE TABLE kogito_data_cache (
-    key character varying(255) NOT NULL,
-    name character varying(255) NOT NULL,
+    var_name character varying(255) NOT NULL,
+    cache_name character varying(255) NOT NULL,
     json_value jsonb
 );
 
@@ -227,13 +227,13 @@ ALTER TABLE ONLY definitions_addons
     ADD CONSTRAINT definitions_addons_pkey PRIMARY KEY (process_id, process_version, addon);
 
 ALTER TABLE ONLY definitions_annotations
-    ADD CONSTRAINT definitions_annotations_pkey PRIMARY KEY (value, process_id, process_version);
+    ADD CONSTRAINT definitions_annotations_pkey PRIMARY KEY (annotation, process_id, process_version);
 
 ALTER TABLE ONLY definitions_metadata
-    ADD CONSTRAINT definitions_metadata_pkey PRIMARY KEY (process_id, process_version, key);
+    ADD CONSTRAINT definitions_metadata_pkey PRIMARY KEY (process_id, process_version, name);
 
 ALTER TABLE ONLY definitions_nodes_metadata
-    ADD CONSTRAINT definitions_nodes_metadata_pkey PRIMARY KEY (node_id, process_id, process_version, key);
+    ADD CONSTRAINT definitions_nodes_metadata_pkey PRIMARY KEY (node_id, process_id, process_version, name);
 
 ALTER TABLE ONLY definitions_nodes
     ADD CONSTRAINT definitions_nodes_pkey PRIMARY KEY (id, process_id, process_version);
@@ -248,7 +248,7 @@ ALTER TABLE ONLY jobs
     ADD CONSTRAINT jobs_pkey PRIMARY KEY (id);
 
 ALTER TABLE ONLY kogito_data_cache
-    ADD CONSTRAINT kogito_data_cache_pkey PRIMARY KEY (key, name);
+    ADD CONSTRAINT kogito_data_cache_pkey PRIMARY KEY (var_name, cache_name);
 
 ALTER TABLE ONLY milestones
     ADD CONSTRAINT milestones_pkey PRIMARY KEY (id, process_instance_id);
