@@ -30,7 +30,8 @@
     "@kie-tools-core/vscode-extension": "workspace:*",
     "@kie-tools/dmn-editor-envelope": "workspace:*",
     "@kie-tools/form-code-generator-vscode-command": "workspace:*",
-    "@kie-tools/kie-bc-editors": "workspace:*"
+    "@kie-tools/kie-bc-editors": "workspace:*",
+    "@kie-tools/scesim-editor-envelope": "workspace:*"
   },
   "devDependencies": {
     "@kie-tools-core/webpack-base": "workspace:*",
@@ -168,7 +169,16 @@
             "filenamePattern": "*.scesim"
           }
         ],
-        "viewType": "bamoeDeveloperToolsWebviewEditorsSceSim"
+        "viewType": "bamoeDeveloperToolsNewWebviewEditorsSceSim"
+      },
+      {
+        "displayName": "BAMOE Test Scenario Editor (classic)",
+        "selector": [
+          {
+            "filenamePattern": "*.scesim"
+          }
+        ],
+        "viewType": "bamoeDeveloperToolsWebviewEditorsScesimClassic"
       }
     ],
     "javaExtensions": [
@@ -266,6 +276,7 @@
     "onCustomEditor:bamoeDeveloperToolsWebviewEditorsBpmn",
     "onCustomEditor:bamoeDeveloperToolsNewWebviewEditorsDmn",
     "onCustomEditor:bamoeDeveloperToolsWebviewEditorsDmnClassic",
+    "onCustomEditor:bamoeDeveloperToolsNewWebviewEditorsScesim",
     "onCustomEditor:bamoeDeveloperToolsWebviewEditorsSceSim"
   ],
   "icon": "icon.png",
