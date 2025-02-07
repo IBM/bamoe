@@ -178,7 +178,7 @@
             "filenamePattern": "*.scesim"
           }
         ],
-        "viewType": "bamoeDeveloperToolsWebviewEditorsScesimClassic"
+        "viewType": "bamoeDeveloperToolsWebviewEditorsSceSimClassic"
       }
     ],
     "javaExtensions": [
@@ -277,7 +277,7 @@
     "onCustomEditor:bamoeDeveloperToolsNewWebviewEditorsDmn",
     "onCustomEditor:bamoeDeveloperToolsWebviewEditorsDmnClassic",
     "onCustomEditor:bamoeDeveloperToolsNewWebviewEditorsScesim",
-    "onCustomEditor:bamoeDeveloperToolsWebviewEditorsScesimClassic"
+    "onCustomEditor:bamoeDeveloperToolsWebviewEditorsSceSimClassic"
   ],
   "icon": "icon.png",
   "capabilities": {
