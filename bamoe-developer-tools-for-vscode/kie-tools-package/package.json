@@ -277,7 +277,7 @@
     "onCustomEditor:bamoeDeveloperToolsNewWebviewEditorsDmn",
     "onCustomEditor:bamoeDeveloperToolsWebviewEditorsDmnClassic",
     "onCustomEditor:bamoeDeveloperToolsNewWebviewEditorsScesim",
-    "onCustomEditor:bamoeDeveloperToolsWebviewEditorsSceSim"
+    "onCustomEditor:bamoeDeveloperToolsWebviewEditorsScesimClassic"
   ],
   "icon": "icon.png",
   "capabilities": {
