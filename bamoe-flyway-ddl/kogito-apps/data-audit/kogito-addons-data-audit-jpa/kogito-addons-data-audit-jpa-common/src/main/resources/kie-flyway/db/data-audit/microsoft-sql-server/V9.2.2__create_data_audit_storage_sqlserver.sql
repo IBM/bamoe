@@ -1,10 +1,3 @@
-USE bamoe;
-
---
--- Data audit uses below tables
---
-
--- TABLE audit_query: store custom queries against data audit tables
 CREATE TABLE audit_query (
     identifier character varying(255) NOT NULL,
     graph_ql_definition character varying(5000),
@@ -18,7 +11,6 @@ CREATE SEQUENCE job_execution_history_id_seq
     NO MAXVALUE
     CACHE 50;
 
--- TABLE job_execution_log: historical records of events of job execution
 CREATE TABLE job_execution_log (
     id bigint NOT NULL,
     event_date datetime2(6),
@@ -35,7 +27,6 @@ CREATE TABLE job_execution_log (
     status character varying(255)
 );
 
--- TABLE process_instance_error_log: historical record of process instance errors
 CREATE TABLE process_instance_error_log (
     id bigint NOT NULL,
     business_key character varying(255),
@@ -60,7 +51,6 @@ CREATE SEQUENCE process_instance_error_log_seq_id
     NO MAXVALUE
     CACHE 50;
 
--- TABLE process_instance_node_log: historical record of node instance executions
 CREATE TABLE process_instance_node_log (
     id bigint NOT NULL,
     business_key character varying(255),
@@ -92,7 +82,6 @@ CREATE SEQUENCE process_instance_node_log_id_seq
     NO MAXVALUE
     CACHE 50;
 
--- TABLE process_instance_state_log: historical record of node state change during executions
 CREATE TABLE process_instance_state_log (
     id bigint NOT NULL,
     business_key character varying(255),
@@ -119,13 +108,11 @@ CREATE SEQUENCE process_instance_state_log_id_seq
     NO MAXVALUE
     CACHE 50;
 
--- TABLE process_instance_state_roles_log: historical record of process instance state changed during execution
 CREATE TABLE process_instance_state_roles_log (
     process_instance_state_log_id bigint NOT NULL,
     role character varying(255)
 );
 
--- TABLE process_instance_variable_log: historical record of variable changes during process instance execution
 CREATE TABLE process_instance_variable_log (
     id bigint NOT NULL,
     business_key character varying(255),
@@ -150,7 +137,6 @@ CREATE SEQUENCE process_instance_variable_log_id_seq
     NO MAXVALUE
     CACHE 50;
 
--- TABLE  task_instance_assignment_log: historical record of assignments in user task instance
 CREATE TABLE task_instance_assignment_log (
     id bigint NOT NULL,
     business_key character varying(255),
@@ -171,13 +157,11 @@ CREATE SEQUENCE task_instance_assignment_log_id_seq
     NO MAXVALUE
     CACHE 50;
 
--- TABLE task_instance_assignment_users_log: historical record of assignments in user task instance
 CREATE TABLE task_instance_assignment_users_log (
     task_instance_assignment_log_id bigint NOT NULL,
     user_id character varying(255)
 );
 
--- TABLE task_instance_attachment_log: historical record of user task instance attachments
 CREATE TABLE task_instance_attachment_log (
     id bigint NOT NULL,
     business_key character varying(255),
@@ -200,7 +184,6 @@ CREATE SEQUENCE task_instance_attachment_log_id_seq
     NO MAXVALUE
     CACHE 50;
 
--- TABLE task_instance_comment_log: historical record of user task instance comments
 CREATE TABLE task_instance_comment_log (
     id bigint NOT NULL,
     business_key character varying(255),
@@ -222,7 +205,6 @@ CREATE SEQUENCE task_instance_comment_log_id_seq
     NO MAXVALUE
     CACHE 50;
 
--- TABLE task_instance_deadline_log: historical record of user task instance deadlines change
 CREATE TABLE task_instance_deadline_log (
     id bigint NOT NULL,
     business_key character varying(255),
@@ -242,7 +224,6 @@ CREATE SEQUENCE task_instance_deadline_log_id_seq
     NO MAXVALUE
     CACHE 50;
 
--- TABLE task_instance_deadline_notification_log: historical record of user task instance deadlines notifications
 CREATE TABLE task_instance_deadline_notification_log (
     task_instance_deadline_log_id bigint NOT NULL,
     property_value character varying(255),
@@ -273,7 +254,6 @@ CREATE SEQUENCE task_instance_state_log_id_seq
     NO MAXVALUE
     CACHE 50;
 
--- TABLE task_instance_variable_log: historical record of user task instance input/output variables change
 CREATE TABLE task_instance_variable_log (
     id bigint NOT NULL,
     business_key character varying(255),

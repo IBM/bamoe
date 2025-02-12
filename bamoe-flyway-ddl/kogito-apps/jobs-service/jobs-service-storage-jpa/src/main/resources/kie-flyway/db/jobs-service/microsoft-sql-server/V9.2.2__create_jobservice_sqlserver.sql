@@ -1,10 +1,3 @@
-USE bamoe;
-
---
--- It contains all the required Tables to correctly manage and persist Job Instances
---
-
--- TABLE job_details: Represents a Job Instance on the Job Service with its details
 CREATE TABLE job_details (
     id character varying(50) NOT NULL, -- the unique id internally on the job service
     correlation_id character varying(50), -- the job id on the runtimes,
@@ -22,7 +15,6 @@ CREATE TABLE job_details (
     created datetimeoffset
 );
 
--- TABLE job_service_management: used for clustering and to check lead instance
 CREATE TABLE job_service_management (
     id character varying(40) NOT NULL,
     last_heartbeat datetimeoffset,

@@ -1,4 +1,3 @@
-
 CREATE TABLE kogito_data_cache (
     var_name character varying(255) NOT NULL,
     cache_name character varying(255) NOT NULL,

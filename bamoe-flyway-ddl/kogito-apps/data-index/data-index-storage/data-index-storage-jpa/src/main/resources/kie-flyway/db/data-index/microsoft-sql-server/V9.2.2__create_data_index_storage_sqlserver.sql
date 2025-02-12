@@ -1,10 +1,3 @@
-
-
---
--- Data index uses below tables
---
-
--- TABLE attachments: user task instance attachments
 CREATE TABLE attachments (
     id character varying(255) NOT NULL,
     content character varying(255),
@@ -14,7 +7,6 @@ CREATE TABLE attachments (
     task_id character varying(255) NOT NULL
 );
 
--- TABLE comments: user task instance comments
 CREATE TABLE comments (
     id character varying(255) NOT NULL,
     content character varying(1000),
@@ -23,7 +15,6 @@ CREATE TABLE comments (
     task_id character varying(255) NOT NULL
 );
 
--- TABLE definitions: process definitions that has been deployed
 CREATE TABLE process_definitions (
     id character varying(255) NOT NULL,
     version character varying(255) NOT NULL,
@@ -34,21 +25,18 @@ CREATE TABLE process_definitions (
     description character varying(255)
 );
 
--- TABLE definitions_addons: addons those process definitions were deployed with
 CREATE TABLE definitions_addons (
     process_id character varying(255) NOT NULL,
     process_version character varying(255) NOT NULL,
     addon character varying(255) NOT NULL
 );
 
--- TABLE definitions_annotations
 CREATE TABLE definitions_annotations (
     annotation character varying(255) NOT NULL,
     process_id character varying(255) NOT NULL,
     process_version character varying(255) NOT NULL
 );
 
--- TABLE definitions_metadata
 CREATE TABLE definitions_metadata (
     process_id character varying(255) NOT NULL,
     process_version character varying(255) NOT NULL,
@@ -56,7 +44,6 @@ CREATE TABLE definitions_metadata (
     name character varying(255) NOT NULL
 );
 
--- TABLE definitions_nodes: last definitions of node executed by a process instance
 CREATE TABLE definitions_nodes (
     id character varying(255) NOT NULL,
     name character varying(255),
@@ -66,7 +53,6 @@ CREATE TABLE definitions_nodes (
     process_version character varying(255) NOT NULL
 );
 
--- TABLE definitions_nodes_metadata
 CREATE TABLE definitions_nodes_metadata (
     node_id character varying(255) NOT NULL,
     process_id character varying(255) NOT NULL,
@@ -75,14 +61,12 @@ CREATE TABLE definitions_nodes_metadata (
     name character varying(255) NOT NULL
 );
 
--- TABLE definitions_roles
 CREATE TABLE definitions_roles (
     process_id character varying(255) NOT NULL,
     process_version character varying(255) NOT NULL,
     role character varying(255) NOT NULL
 );
 
--- TABLE jobs: timers created by runtime
 CREATE TABLE jobs (
     id character varying(255) NOT NULL,
     callback_endpoint character varying(255),
@@ -103,7 +87,6 @@ CREATE TABLE jobs (
     status character varying(255)
 );
 
--- TABLE milestones: special type of node that is completed through a condition (comes from cmmn)
 CREATE TABLE milestones (
     id character varying(255) NOT NULL,
     process_instance_id character varying(255) NOT NULL,
@@ -111,7 +94,6 @@ CREATE TABLE milestones (
     status character varying(255)
 );
 
--- TABLE nodes: nodes executed by the process instance
 CREATE TABLE nodes (
     id character varying(255) NOT NULL,
     definition_id character varying(255),
@@ -124,7 +106,6 @@ CREATE TABLE nodes (
     sla_due_date datetimeoffset(6)
 );
 
--- TABLE processes: last state of the process instance
 CREATE TABLE processes (
     id character varying(255) NOT NULL,
     business_key character varying(255),
@@ -147,19 +128,16 @@ CREATE TABLE processes (
     sla_due_date datetimeoffset(6)
 );
 
--- TABLE processes_addons: addons this process instance is being executed with
 CREATE TABLE processes_addons (
     process_id character varying(255) NOT NULL,
     addon character varying(255) NOT NULL
 );
 
--- TABLE processes_roles: roles this process instance requires
 CREATE TABLE processes_roles (
     process_id character varying(255) NOT NULL,
     role character varying(255) NOT NULL
 );
 
--- TABLE tasks: user task instance last state
 CREATE TABLE tasks (
     id character varying(255) NOT NULL,
     actual_owner character varying(255),
@@ -182,31 +160,26 @@ CREATE TABLE tasks (
     sla_due_date datetimeoffset(6)
 );
 
--- TABLE tasks_admin_groups: user task instance admin groups assigned
 CREATE TABLE tasks_admin_groups (
     task_id character varying(255) NOT NULL,
     group_id character varying(255) NOT NULL
 );
 
--- TABLE tasks_admin_users: user task instance admin user assigned
 CREATE TABLE tasks_admin_users (
     task_id character varying(255) NOT NULL,
     user_id character varying(255) NOT NULL
 );
 
--- TABLE tasks_excluded_users: user task instance excluded users
 CREATE TABLE tasks_excluded_users (
     task_id character varying(255) NOT NULL,
     user_id character varying(255) NOT NULL
 );
 
--- TABLE tasks_potential_groups: user task instance potential groups
 CREATE TABLE tasks_potential_groups (
     task_id character varying(255) NOT NULL,
     group_id character varying(255) NOT NULL
 );
 
--- TABLE tasks_potential_users: user task instance potential users
 CREATE TABLE tasks_potential_users (
     task_id character varying(255) NOT NULL,
     user_id character varying(255) NOT NULL
