@@ -1,7 +1,8 @@
 CREATE TABLE audit_query (
     identifier character varying(255) NOT NULL,
     graph_ql_definition character varying(5000),
-    query character varying(5000)
+    query character varying(5000),
+    CONSTRAINT audit_query_pkey PRIMARY KEY (identifier)
 );
 
 CREATE SEQUENCE job_execution_history_id_seq
@@ -24,7 +25,8 @@ CREATE TABLE job_execution_log (
     repeat_limit integer,
     retries integer,
     scheduled_id character varying(255),
-    status character varying(255)
+    status character varying(255),
+    CONSTRAINT job_execution_log_pkey PRIMARY KEY (id)
 );
 
 CREATE TABLE process_instance_error_log (
@@ -41,7 +43,8 @@ CREATE TABLE process_instance_error_log (
     root_process_instance_id character varying(255),
     error_message character varying(255),
     node_definition_id character varying(255),
-    node_instance_id character varying(255)
+    node_instance_id character varying(255),
+    CONSTRAINT process_instance_error_log_pkey PRIMARY KEY (id)
 );
 
 CREATE SEQUENCE process_instance_error_log_seq_id
@@ -72,6 +75,7 @@ CREATE TABLE process_instance_node_log (
     node_type character varying(255),
     sla_due_date datetime2(6),
     work_item_id character varying(255),
+    CONSTRAINT process_instance_node_log_pkey PRIMARY KEY (id),
     CONSTRAINT process_instance_node_log_event_type_check CHECK (event_type IN ('ENTER', 'EXIT', 'ABORTED', 'ASYNC_ENTER', 'OBSOLETE', 'SKIPPED', 'ERROR', 'SLA_VIOLATION'))
 );
 
@@ -98,6 +102,7 @@ CREATE TABLE process_instance_state_log (
     outcome character varying(255),
     sla_due_date datetime2(6),
     state character varying(255),
+    CONSTRAINT process_instance_state_log_pkey PRIMARY KEY (id),
     CONSTRAINT process_instance_state_log_event_type_check CHECK (event_type IN ('ACTIVE', 'COMPLETED', 'SLA_VIOLATION', 'MIGRATED'))
 );
 
@@ -110,7 +115,8 @@ CREATE SEQUENCE process_instance_state_log_id_seq
 
 CREATE TABLE process_instance_state_roles_log (
     process_instance_state_log_id bigint NOT NULL,
-    role character varying(255)
+    role character varying(255),
+    CONSTRAINT fk_process_instance_state_pid FOREIGN KEY (process_instance_state_log_id) REFERENCES process_instance_state_log(id)
 );
 
 CREATE TABLE process_instance_variable_log (
@@ -127,7 +133,8 @@ CREATE TABLE process_instance_variable_log (
     root_process_instance_id character varying(255),
     variable_id character varying(255),
     variable_name character varying(255),
-    variable_value character varying(255)
+    variable_value character varying(255),
+    CONSTRAINT process_instance_variable_log_pkey PRIMARY KEY (id)
 );
 
 CREATE SEQUENCE process_instance_variable_log_id_seq
@@ -147,7 +154,8 @@ CREATE TABLE task_instance_assignment_log (
     user_task_definition_id character varying(255),
     user_task_instance_id character varying(255),
     assignment_type character varying(255),
-    task_name character varying(255)
+    task_name character varying(255),
+    CONSTRAINT task_instance_assignment_log_pkey PRIMARY KEY (id)
 );
 
 CREATE SEQUENCE task_instance_assignment_log_id_seq
@@ -159,7 +167,8 @@ CREATE SEQUENCE task_instance_assignment_log_id_seq
 
 CREATE TABLE task_instance_assignment_users_log (
     task_instance_assignment_log_id bigint NOT NULL,
-    user_id character varying(255)
+    user_id character varying(255),
+    CONSTRAINT fk_task_instance_assignment_log_tid FOREIGN KEY (task_instance_assignment_log_id) REFERENCES task_instance_assignment_log(id)
 );
 
 CREATE TABLE task_instance_attachment_log (
@@ -174,7 +183,8 @@ CREATE TABLE task_instance_attachment_log (
     attachment_id character varying(255),
     attachment_name character varying(255),
     attachment_uri character varying(255),
-    event_type integer
+    event_type integer,
+    CONSTRAINT task_instance_attachment_log_pkey PRIMARY KEY (id)
 );
 
 CREATE SEQUENCE task_instance_attachment_log_id_seq
@@ -195,7 +205,8 @@ CREATE TABLE task_instance_comment_log (
     user_task_instance_id character varying(255),
     comment_content character varying(1000),
     comment_id character varying(255),
-    event_type integer
+    event_type integer,
+    CONSTRAINT task_instance_comment_log_pkey PRIMARY KEY (id)
 );
 
 CREATE SEQUENCE task_instance_comment_log_id_seq
@@ -214,7 +225,8 @@ CREATE TABLE task_instance_deadline_log (
     process_instance_id character varying(255),
     user_task_definition_id character varying(255),
     user_task_instance_id character varying(255),
-    event_type character varying(255)
+    event_type character varying(255),
+    CONSTRAINT task_instance_deadline_log_pkey PRIMARY KEY (id)
 );
 
 CREATE SEQUENCE task_instance_deadline_log_id_seq
@@ -227,10 +239,11 @@ CREATE SEQUENCE task_instance_deadline_log_id_seq
 CREATE TABLE task_instance_deadline_notification_log (
     task_instance_deadline_log_id bigint NOT NULL,
     property_value character varying(255),
-    property_name character varying(255) NOT NULL
+    property_name character varying(255) NOT NULL,
+    CONSTRAINT task_instance_deadline_notification_log_pkey PRIMARY KEY (task_instance_deadline_log_id, property_name),
+    CONSTRAINT fk_task_instance_deadline_tid FOREIGN KEY (task_instance_deadline_log_id) REFERENCES task_instance_deadline_log(id)
 );
 
--- TABLE task_instance_state_log: historical record of user task instance state change
 CREATE TABLE task_instance_state_log (
     id bigint NOT NULL,
     business_key character varying(255),
@@ -244,7 +257,8 @@ CREATE TABLE task_instance_state_log (
     description character varying(255),
     event_type character varying(255),
     name character varying(255),
-    state character varying(255)
+    state character varying(255),
+    CONSTRAINT task_instance_state_log_pkey PRIMARY KEY (id)
 );
 
 CREATE SEQUENCE task_instance_state_log_id_seq
@@ -267,6 +281,7 @@ CREATE TABLE task_instance_variable_log (
     variable_name character varying(255),
     variable_type character varying(255),
     variable_value character varying(255),
+    CONSTRAINT task_instance_variable_log_pkey PRIMARY KEY (id),
     CONSTRAINT task_instance_variable_log_variable_type_check CHECK (variable_type IN ('INPUT', 'OUTPUT'))
 );
 
@@ -276,45 +291,6 @@ CREATE SEQUENCE task_instance_variable_log_id_seq
     NO MINVALUE
     NO MAXVALUE
     CACHE 50;
-
-ALTER TABLE audit_query
-    ADD CONSTRAINT audit_query_pkey PRIMARY KEY (identifier);
-
-ALTER TABLE job_execution_log
-    ADD CONSTRAINT job_execution_log_pkey PRIMARY KEY (id);
-
-ALTER TABLE process_instance_error_log
-    ADD CONSTRAINT process_instance_error_log_pkey PRIMARY KEY (id);
-
-ALTER TABLE process_instance_node_log
-    ADD CONSTRAINT process_instance_node_log_pkey PRIMARY KEY (id);
-
-ALTER TABLE process_instance_state_log
-    ADD CONSTRAINT process_instance_state_log_pkey PRIMARY KEY (id);
-
-ALTER TABLE process_instance_variable_log
-    ADD CONSTRAINT process_instance_variable_log_pkey PRIMARY KEY (id);
-
-ALTER TABLE task_instance_assignment_log
-    ADD CONSTRAINT task_instance_assignment_log_pkey PRIMARY KEY (id);
-
-ALTER TABLE task_instance_attachment_log
-    ADD CONSTRAINT task_instance_attachment_log_pkey PRIMARY KEY (id);
-
-ALTER TABLE task_instance_comment_log
-    ADD CONSTRAINT task_instance_comment_log_pkey PRIMARY KEY (id);
-
-ALTER TABLE task_instance_deadline_log
-    ADD CONSTRAINT task_instance_deadline_log_pkey PRIMARY KEY (id);
-
-ALTER TABLE task_instance_deadline_notification_log
-    ADD CONSTRAINT task_instance_deadline_notification_log_pkey PRIMARY KEY (task_instance_deadline_log_id, property_name);
-
-ALTER TABLE task_instance_state_log
-    ADD CONSTRAINT task_instance_state_log_pkey PRIMARY KEY (id);
-
-ALTER TABLE task_instance_variable_log
-    ADD CONSTRAINT task_instance_variable_log_pkey PRIMARY KEY (id);
 
 CREATE INDEX ix_jel_jid ON job_execution_log (job_id);
 
@@ -399,12 +375,3 @@ CREATE INDEX ix_utsl_pid ON task_instance_state_log (process_instance_id);
 CREATE INDEX ix_utsl_state ON task_instance_state_log (state);
 
 CREATE INDEX ix_utsl_utid ON task_instance_state_log (user_task_instance_id);
-
-ALTER TABLE process_instance_state_roles_log
-    ADD CONSTRAINT fk_process_instance_state_pid FOREIGN KEY (process_instance_state_log_id) REFERENCES process_instance_state_log(id);
-
-ALTER TABLE task_instance_assignment_users_log
-    ADD CONSTRAINT fk_task_instance_assignment_log_tid FOREIGN KEY (task_instance_assignment_log_id) REFERENCES task_instance_assignment_log(id);
-
-ALTER TABLE task_instance_deadline_notification_log
-    ADD CONSTRAINT fk_task_instance_deadline_tid FOREIGN KEY (task_instance_deadline_log_id) REFERENCES task_instance_deadline_log(id);
