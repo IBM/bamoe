@@ -12,24 +12,17 @@ CREATE TABLE job_details (
     fire_time datetimeoffset,
     execution_timeout bigint,
     execution_timeout_unit character varying(40),
-    created datetimeoffset
+    created datetimeoffset,
+    CONSTRAINT job_details_pkey1 PRIMARY KEY (id),
+    INDEX job_details_created_idx  (created)
 );
 
 CREATE TABLE job_service_management (
     id character varying(40) NOT NULL,
     last_heartbeat datetimeoffset,
-    token character varying(40)
+    token character varying(40),
+    CONSTRAINT job_service_management_pkey PRIMARY KEY (id),
+    CONSTRAINT job_service_management_token_key UNIQUE (token)
 );
-
-ALTER TABLE job_details
-    ADD CONSTRAINT job_details_pkey1 PRIMARY KEY (id);
-
-ALTER TABLE job_service_management
-    ADD CONSTRAINT job_service_management_pkey PRIMARY KEY (id);
-
-ALTER TABLE job_service_management
-    ADD CONSTRAINT job_service_management_token_key UNIQUE (token);
-
-CREATE INDEX job_details_created_idx ON job_details (created);
 
 CREATE INDEX job_details_fire_time_idx ON job_details (fire_time);
