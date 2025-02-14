@@ -6,5 +6,5 @@ declare const acquireVsCodeApi: any;
 EditorEnvelope.init({
   container: document.getElementById("envelope-app")!,
   bus: acquireVsCodeApi(),
-  editorFactory: new TestScenarioEditorFactory()
+  editorFactory: new TestScenarioEditorFactory(),
 });
