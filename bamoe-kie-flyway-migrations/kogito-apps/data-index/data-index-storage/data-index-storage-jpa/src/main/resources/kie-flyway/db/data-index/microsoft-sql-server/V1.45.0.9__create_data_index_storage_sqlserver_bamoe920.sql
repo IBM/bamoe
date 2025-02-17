@@ -225,7 +225,7 @@ CREATE TABLE tasks_potential_users (
     task_id character varying(255) NOT NULL,
     user_id character varying(255) NOT NULL,
     CONSTRAINT tasks_potential_users_pkey PRIMARY KEY (task_id, user_id),
-    ADD CONSTRAINT fk_tasks_potential_users_tasks FOREIGN KEY (task_id) REFERENCES tasks(id) ON DELETE CASCADE
+   CONSTRAINT fk_tasks_potential_users_tasks FOREIGN KEY (task_id) REFERENCES tasks(id) ON DELETE CASCADE
 );
 
 
