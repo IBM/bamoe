@@ -1,23 +1,3 @@
-CREATE TABLE attachments (
-    id character varying(255) NOT NULL,
-    content character varying(255),
-    name character varying(255),
-    updated_at datetimeoffset(6),
-    updated_by character varying(255),
-    task_id character varying(255) NOT NULL,
-    CONSTRAINT attachments_pkey PRIMARY KEY (id),
-    CONSTRAINT fk_attachments_tasks FOREIGN KEY (task_id) REFERENCES tasks(id) ON DELETE CASCADE,
-);
-
-CREATE TABLE comments (
-    id character varying(255) NOT NULL,
-    content character varying(1000),
-    updated_at datetimeoffset(6),
-    updated_by character varying(255),
-    task_id character varying(255) NOT NULL,
-    CONSTRAINT comments_pkey PRIMARY KEY (id),
-    CONSTRAINT fk_comments_tasks FOREIGN KEY (task_id) REFERENCES tasks(id) ON DELETE CASCADE
-);
 
 CREATE TABLE process_definitions (
     id character varying(255) NOT NULL,
@@ -189,6 +169,28 @@ CREATE TABLE tasks (
     external_reference_id character varying(4000),
     sla_due_date datetimeoffset(6),
     CONSTRAINT tasks_pkey PRIMARY KEY (id)
+);
+
+
+CREATE TABLE attachments (
+    id character varying(255) NOT NULL,
+    content character varying(255),
+    name character varying(255),
+    updated_at datetimeoffset(6),
+    updated_by character varying(255),
+    task_id character varying(255) NOT NULL,
+    CONSTRAINT attachments_pkey PRIMARY KEY (id),
+    CONSTRAINT fk_attachments_tasks FOREIGN KEY (task_id) REFERENCES tasks(id) ON DELETE CASCADE,
+);
+
+CREATE TABLE comments (
+    id character varying(255) NOT NULL,
+    content character varying(1000),
+    updated_at datetimeoffset(6),
+    updated_by character varying(255),
+    task_id character varying(255) NOT NULL,
+    CONSTRAINT comments_pkey PRIMARY KEY (id),
+    CONSTRAINT fk_comments_tasks FOREIGN KEY (task_id) REFERENCES tasks(id) ON DELETE CASCADE
 );
 
 CREATE TABLE tasks_admin_groups (
