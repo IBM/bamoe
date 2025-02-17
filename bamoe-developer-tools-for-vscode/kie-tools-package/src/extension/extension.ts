@@ -57,13 +57,27 @@ export function activate(context: vscode.ExtensionContext) {
   KieToolsVsCodeExtensions.startExtension({
     extensionName: "ibm.bamoe-developer-tools",
     context: context,
-    viewType: "bamoeDeveloperToolsWebviewEditorsSceSim",
+    viewType: "bamoeDeveloperToolsNewWebviewEditorsSceSim",
+    editorEnvelopeLocator: new EditorEnvelopeLocator("vscode", [
+      new EnvelopeMapping({
+        type: "scesim",
+        filePathGlob: "**/*.scesim",
+        resourcesPathPrefix: "",
+        envelopeContent: { type: EnvelopeContentType.PATH, path: "dist/webview/NewSceSimEditorEnvelopeApp.js" },
+      }),
+    ]),
+  });
+
+  KieToolsVsCodeExtensions.startExtension({
+    extensionName: "ibm.bamoe-developer-tools",
+    context: context,
+    viewType: "bamoeDeveloperToolsWebviewEditorsSceSimClassic",
     editorEnvelopeLocator: new EditorEnvelopeLocator("vscode", [
       new EnvelopeMapping({
         type: "scesim",
         filePathGlob: "**/*.scesim",
         resourcesPathPrefix: "dist/webview/editors/scesim",
-        envelopeContent: { type: EnvelopeContentType.PATH, path: "dist/webview/SceSimEditorEnvelopeApp.js" },
+        envelopeContent: { type: EnvelopeContentType.PATH, path: "dist/webview/ClassicSceSimEditorEnvelopeApp.js" },
       }),
     ]),
   });
