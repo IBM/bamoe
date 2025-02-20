@@ -7,6 +7,7 @@
     <groupId>com.ibm.bamoe</groupId>
     <artifactId>bamoe-build-parent</artifactId>
     <version>9.1.1-SNAPSHOT</version>
+    <relativePath>../build-parent/pom.xml</relativePath>
   </parent>
 
   <modelVersion>4.0.0</modelVersion>
