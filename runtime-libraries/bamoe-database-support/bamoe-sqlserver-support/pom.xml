@@ -14,13 +14,10 @@
     <dependency>
       <groupId>com.ibm.bamoe</groupId>
       <artifactId>bamoe-job-service-sqlserver-support</artifactId>
-      <version>${project.version}</version>
-
     </dependency>
     <dependency>
       <groupId>com.ibm.bamoe</groupId>
       <artifactId>bamoe-data-index-sqlserver-support</artifactId>
-      <version>${project.version}</version>
     </dependency>
   </dependencies>
 </project>
