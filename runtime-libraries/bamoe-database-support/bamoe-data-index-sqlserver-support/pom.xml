@@ -8,7 +8,6 @@
     <groupId>com.ibm.bamoe</groupId>
     <artifactId>bamoe-database-support</artifactId>
   </parent>
-  <version>9.1.1-SNAPSHOT</version>
   <artifactId>bamoe-data-index-sqlserver-support</artifactId>
   <name>BAMOE Data Index SQL Server Support</name>
 
