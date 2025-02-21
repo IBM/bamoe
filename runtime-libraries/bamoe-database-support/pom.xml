@@ -16,8 +16,6 @@
   <packaging>pom</packaging>
 
   <modules>
-    <module>bamoe-data-index-sqlserver-support</module>
-    <module>bamoe-job-service-sqlserver-support</module>
     <module>bamoe-sqlserver-support</module>
   </modules>
 </project>
