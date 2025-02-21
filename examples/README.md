@@ -14,7 +14,7 @@ For convenience, a top-level `pom.xml` is included. Running:
 
 ```bash
 # Maven 3.9.6 required.
-mvn clean package
+mvn clean package -DskipTests -DskipITs
 ```
 
 will build all Maven-based examples. For more details, like specific profiles or running Docker compose, please refer to each example individually.
