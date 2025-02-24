@@ -61,12 +61,6 @@
       </dependency>
 
       <dependency>
-        <groupId>com.ibm.bamoe</groupId>
-        <artifactId>bamoe-sqlserver-support</artifactId>
-        <version>${project.version}</version>
-      </dependency>
-
-      <dependency>
         <groupId>jakarta.enterprise</groupId>
         <artifactId>jakarta.enterprise.cdi-api</artifactId>
         <version>${jakarta.enterprise.cdi-api.version}</version>
