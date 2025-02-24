@@ -18,243 +18,219 @@
   ~ under the License.      
 -->
 <project
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
-  xmlns="http://maven.apache.org/POM/4.0.0"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+        xmlns="http://maven.apache.org/POM/4.0.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 >
-  <modelVersion>4.0.0</modelVersion>
-  <parent>
-    <groupId>org.apache</groupId>
-    <artifactId>apache</artifactId>
-    <version>32</version>
-  </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.apache</groupId>
+        <artifactId>apache</artifactId>
+        <version>32</version>
+    </parent>
 
-  <groupId>org.kie</groupId>
-  <artifactId>process-persistence</artifactId>
-  <version>1.0-SNAPSHOT</version>
+    <groupId>org.kie</groupId>
+    <artifactId>process-persistence</artifactId>
+    <version>1.0-SNAPSHOT</version>
 
-  <name>BAMOE :: Example :: Process Persistence</name>
-  <properties>
-    <maven.compiler.source>17</maven.compiler.source>
-    <maven.compiler.target>17</maven.compiler.target>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <name>BAMOE :: Example :: Process Persistence</name>
+    <properties>
+        <quarkus.platform.group-id>io.quarkus</quarkus.platform.group-id>
+        <quarkus.platform.artifact-id>quarkus-bom</quarkus.platform.artifact-id>
+        <quarkus.platform.version>3.15.3</quarkus.platform.version>
+        <quarkus-plugin.version>3.15.3</quarkus-plugin.version>
 
-    <!-- Config -->
-    <project.build.outputTimestamp>2024-01-12T00:00:00Z</project.build.outputTimestamp>
-    <maven.compiler.parameters>true</maven.compiler.parameters>
+        <kogito.bom.group-id>org.kie.kogito</kogito.bom.group-id>
+        <kogito.bom.artifact-id>kogito-bom</kogito.bom.artifact-id>
+        <kogito-apps.bom.artifact-id>kogito-apps-bom</kogito-apps.bom.artifact-id>
+        <version.org.kie.kogito>999-SNAPSHOT</version.org.kie.kogito>
 
-    <!-- Maven versions -->
-    <version.maven.artifact.plugin>3.4.1</version.maven.artifact.plugin>
-    <version.maven.compiler.plugin>3.13.0</version.maven.compiler.plugin>
-    <version.maven.resources.plugin>3.2.0</version.maven.resources.plugin>
-    <version.maven.failsafe.plugin>3.0.0-M7</version.maven.failsafe.plugin>
-    <version.maven.surefire.plugin>3.5.0</version.maven.surefire.plugin>
-    <version.maven.install.plugin>3.1.3</version.maven.install.plugin>
-    <version.maven.helper.plugin>3.2.0</version.maven.helper.plugin>
-    <version.maven.deploy.plugin>3.1.2</version.maven.deploy.plugin>
-    <version.maven.site.plugin>3.12.1</version.maven.site.plugin>
-    <version.maven.source.plugin>3.3.1</version.maven.source.plugin>
-    <version.maven.dependency.plugin>3.6.1</version.maven.dependency.plugin>
-    <version.maven.jar.plugin>3.4.1</version.maven.jar.plugin>
-    <version.maven.remote.resources.plugin>3.2.0</version.maven.remote.resources.plugin>
-    <version.maven.clean.plugin>3.4.0</version.maven.clean.plugin>
-    <version.codehaus.flatten.plugin>1.6.0</version.codehaus.flatten.plugin>
+        <version.com.ibm.bamoe>9.1.1-SNAPSHOT</version.com.ibm.bamoe>
+    </properties>
 
-    <!-- Apache KIE -->
-    <version.org.kie.kogito>999-SNAPSHOT</version.org.kie.kogito>
-    <version.kie.tools>0.0.0</version.kie.tools>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>${quarkus.platform.group-id}</groupId>
+                <artifactId>${quarkus.platform.artifact-id}</artifactId>
+                <version>${quarkus.platform.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>${kogito.bom.group-id}</groupId>
+                <artifactId>${kogito.bom.artifact-id}</artifactId>
+                <version>${version.org.kie.kogito}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>${kogito.bom.group-id}</groupId>
+                <artifactId>${kogito-apps.bom.artifact-id}</artifactId>
+                <version>${version.org.kie.kogito}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
-    <!-- Quarkus -->
-    <version.quarkus>3.15.3</version.quarkus>
-  </properties>
-
-  <dependencyManagement>
     <dependencies>
-      <!-- Apache KIE -->
-      <dependency>
-        <groupId>org.kie.kogito</groupId>
-        <artifactId>kogito-bom</artifactId>
-        <version>${version.org.kie.kogito}</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-      <dependency>
-        <groupId>org.kie.kogito</groupId>
-        <artifactId>kogito-kie-bom</artifactId>
-        <version>${version.org.kie.kogito}</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-      <dependency>
-        <groupId>org.kie.kogito</groupId>
-        <artifactId>kogito-apps-bom</artifactId>
-        <version>${version.org.kie.kogito}</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-resteasy</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-resteasy-jackson</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-smallrye-openapi</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-smallrye-health</artifactId>
+        </dependency>
 
-      <!-- Quarkus -->
-      <dependency>
-        <groupId>io.quarkus</groupId>
-        <artifactId>quarkus-bom</artifactId>
-        <version>${version.quarkus}</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
+        <dependency>
+            <groupId>org.jbpm</groupId>
+            <artifactId>jbpm-with-drools-quarkus</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.kie</groupId>
+            <artifactId>kie-addons-quarkus-process-management</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.kie</groupId>
+            <artifactId>kogito-addons-quarkus-jobs-management</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.kie</groupId>
+            <artifactId>kie-addons-quarkus-process-svg</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.kie</groupId>
+            <artifactId>kie-addons-quarkus-source-files</artifactId>
+        </dependency>
+
+        <!-- Persistence -->
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-agroal</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.kie</groupId>
+            <artifactId>kie-addons-quarkus-persistence-jdbc</artifactId>
+        </dependency>
+
+        <!-- User Task Persistence -->
+        <dependency>
+            <groupId>org.jbpm</groupId>
+            <artifactId>jbpm-addons-quarkus-usertask-storage-jpa</artifactId>
+        </dependency>
+
+        <!-- Data-Index Addon -->
+        <dependency>
+            <groupId>org.kie</groupId>
+            <artifactId>kogito-addons-quarkus-data-index-jpa</artifactId>
+        </dependency>
+
+        <!-- Jobs Service -->
+        <dependency>
+            <groupId>org.kie</groupId>
+            <artifactId>kogito-addons-quarkus-jobs</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.kie.kogito</groupId>
+            <artifactId>jobs-service-storage-jpa</artifactId>
+        </dependency>
+
+        <!-- Data Audit -->
+        <dependency>
+            <groupId>org.kie</groupId>
+            <artifactId>kogito-addons-quarkus-data-audit-jpa</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.kie</groupId>
+            <artifactId>kogito-addons-quarkus-data-audit</artifactId>
+        </dependency>
     </dependencies>
-  </dependencyManagement>
 
-  <dependencies>
-    <dependency>
-      <groupId>io.quarkus</groupId>
-      <artifactId>quarkus-resteasy</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>io.quarkus</groupId>
-      <artifactId>quarkus-resteasy-jackson</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>io.quarkus</groupId>
-      <artifactId>quarkus-smallrye-openapi</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>io.quarkus</groupId>
-      <artifactId>quarkus-smallrye-health</artifactId>
-    </dependency>
+    <profiles>
+        <profile>
+            <id>container</id>
+            <properties>
+                <quarkus.profile>container</quarkus.profile>
+            </properties>
+            <dependencies>
+                <dependency>
+                    <groupId>io.quarkus</groupId>
+                    <artifactId>quarkus-container-image-jib</artifactId>
+                </dependency>
+            </dependencies>
+        </profile>
+        <profile>
+            <id>h2</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <quarkus.profile>h2</quarkus.profile>
+            </properties>
+            <dependencies>
+                <dependency>
+                    <groupId>io.quarkus</groupId>
+                    <artifactId>quarkus-jdbc-h2</artifactId>
+                </dependency>
+            </dependencies>
+        </profile>
+        <profile>
+            <id>postgresql</id>
+            <properties>
+                <quarkus.profile>postgresql</quarkus.profile>
+            </properties>
+            <dependencies>
+                <dependency>
+                    <groupId>io.quarkus</groupId>
+                    <artifactId>quarkus-jdbc-postgresql</artifactId>
+                </dependency>
+            </dependencies>
+        </profile>
+        <profile>
+            <id>mssql</id>
+            <properties>
+                <quarkus.profile>mssql</quarkus.profile>
+            </properties>
+            <dependencies>
+                <dependency>
+                    <groupId>io.quarkus</groupId>
+                    <artifactId>quarkus-jdbc-mssql</artifactId>
+                </dependency>
+                <dependency>
+                    <groupId>com.ibm.bamoe</groupId>
+                    <artifactId>bamoe-sqlserver-support</artifactId>
+                    <version>${version.com.ibm.bamoe}</version>
+                </dependency>
+            </dependencies>
+        </profile>
+    </profiles>
 
-    <dependency>
-      <groupId>org.jbpm</groupId>
-      <artifactId>jbpm-with-drools-quarkus</artifactId>
-    </dependency>
-
-    <dependency>
-      <groupId>org.kie</groupId>
-      <artifactId>kie-addons-quarkus-process-management</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.kie</groupId>
-      <artifactId>kogito-addons-quarkus-jobs-management</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.kie</groupId>
-      <artifactId>kie-addons-quarkus-process-svg</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.kie</groupId>
-      <artifactId>kie-addons-quarkus-source-files</artifactId>
-    </dependency>
-
-    <!-- Persistence -->
-    <dependency>
-      <groupId>io.quarkus</groupId>
-      <artifactId>quarkus-agroal</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.kie</groupId>
-      <artifactId>kie-addons-quarkus-persistence-jdbc</artifactId>
-    </dependency>
-
-    <!-- User Task persistence -->
-    <dependency>
-      <groupId>org.jbpm</groupId>
-      <artifactId>jbpm-addons-quarkus-usertask-storage-jpa</artifactId>
-    </dependency>
-
-    <!-- Data-Index Addon -->
-    <dependency>
-      <groupId>org.kie</groupId>
-      <artifactId>kogito-addons-quarkus-data-index-jpa</artifactId>
-    </dependency>
-
-    <!-- Jobs Service -->
-    <dependency>
-      <groupId>org.kie</groupId>
-      <artifactId>kogito-addons-quarkus-jobs</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>jobs-service-storage-jpa</artifactId>
-    </dependency>
-
-    <!-- Data Audit -->
-    <dependency>
-      <groupId>org.kie</groupId>
-      <artifactId>kogito-addons-quarkus-data-audit-jpa</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.kie</groupId>
-      <artifactId>kogito-addons-quarkus-data-audit</artifactId>
-    </dependency>
-  </dependencies>
-
-  <profiles>
-    <profile>
-      <id>container</id>
-      <properties>
-        <quarkus.profile>container</quarkus.profile>
-      </properties>
-      <dependencies>
-        <dependency>
-          <groupId>io.quarkus</groupId>
-          <artifactId>quarkus-container-image-jib</artifactId>
-        </dependency>
-      </dependencies>
-    </profile>
-    <profile>
-      <id>h2</id>
-      <activation><activeByDefault>true</activeByDefault></activation>
-      <properties>
-        <quarkus.profile>h2</quarkus.profile>
-      </properties>
-      <dependencies>
-        <dependency>
-          <groupId>io.quarkus</groupId>
-          <artifactId>quarkus-jdbc-h2</artifactId>
-        </dependency>
-      </dependencies>
-    </profile>
-    <profile>
-      <id>postgresql</id>
-      <properties>
-        <quarkus.profile>postgresql</quarkus.profile>
-      </properties>
-      <dependencies>
-        <dependency>
-          <groupId>io.quarkus</groupId>
-          <artifactId>quarkus-jdbc-postgresql</artifactId>
-        </dependency>
-      </dependencies>
-    </profile>
-    <profile>
-      <id>mssql</id>
-      <properties>
-        <quarkus.profile>mssql</quarkus.profile>
-      </properties>
-      <dependencies>
-        <dependency>
-          <groupId>io.quarkus</groupId>
-          <artifactId>quarkus-jdbc-mssql</artifactId>
-        </dependency>
-      </dependencies>
-    </profile>
-  </profiles>
-
-  <build>
-    <finalName>${project.artifactId}</finalName>
-    <plugins>
-      <plugin>
-        <groupId>io.quarkus</groupId>
-        <artifactId>quarkus-maven-plugin</artifactId>
-        <version>${version.quarkus}</version>
-        <executions>
-          <execution>
-            <goals>
-              <goal>build</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-    </plugins>
-  </build>
+    <build>
+        <finalName>${project.artifactId}</finalName>
+        <plugins>
+            <plugin>
+                <groupId>io.quarkus</groupId>
+                <artifactId>quarkus-maven-plugin</artifactId>
+                <version>${quarkus-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>build</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 </project>

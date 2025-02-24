@@ -1,6 +1,6 @@
 #!/bin/sh
 
-PROFILE="postgresql"
+DB="postgresql"
 
 echo "This script requires this example's app to have been compiled with 'mvn clean package -Pcontainer,<db_type>'"
 echo "==="
@@ -9,14 +9,14 @@ PROJECT_VERSION=$(cd ../ && mvn help:evaluate -Dexpression=project.version -q -D
 
 if [ -n "$1" ]; then
   if [ "$1" = "postgresql" ] || [ "$1" = "mssql" ]; then
-    PROFILE="$1"
-    echo "Using profile '${PROFILE}'..."
+    DB="$1"
+    echo "Using database '${DB}'..."
   else
-    echo "Unknown docker profile '$1'. The supported profiles are: postgresql and mssql"
+    echo "Unknown database type '$1'. The supported databases are: postgresql and mssql"
     exit 1;
   fi
 else
-  echo "No profile specified. Using default profile '${PROFILE}'..."
+  echo "No database specified. Using default database '${DB}'..."
 fi
 
 echo "PROJECT_VERSION=${PROJECT_VERSION}" > ".env"
@@ -30,4 +30,4 @@ else
    exit 1
 fi
 
-docker compose -f docker-compose-${PROFILE}.yml up
+docker compose -f docker-compose-${DB}.yml up
