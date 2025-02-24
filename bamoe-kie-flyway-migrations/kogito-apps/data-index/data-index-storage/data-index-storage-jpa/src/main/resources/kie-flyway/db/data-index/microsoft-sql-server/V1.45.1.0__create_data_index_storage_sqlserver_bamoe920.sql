@@ -7,6 +7,7 @@ CREATE TABLE process_definitions (
     source varbinary(max),
     endpoint character varying(255),
     description character varying(255),
+    metadata varchar(max),
     CONSTRAINT definitions_pkey PRIMARY KEY (id, version)
 );
 
