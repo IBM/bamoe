@@ -8,6 +8,15 @@ To explore and run these examples, follow the instructions provided in each dire
 
 ---
 
+### Contributing
+
+- To share ideas, propose new features, or suggest enhancements, refer to https://ibm.biz/bamoe-ideas
+- To report a problem, please file a Support Ticket at https://www.ibm.com/mysupport
+- For casual discussions and to see what others have shared, visit [IBM Open Editions Community](https://community.ibm.com/community/user/automation/communities/community-home?CommunityKey=6c04b811-cff1-4f31-bb5c-0185982de671)
+
+
+---
+
 ### Building all Maven-based examples
 
 For convenience, a top-level `pom.xml` is included. Running:
