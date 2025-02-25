@@ -72,7 +72,7 @@
 
     <!-- Misc. -->
     <alphanetworkCompilerEnabled>false</alphanetworkCompilerEnabled>
-    <java.module.name>org.kie.kogito.examples.quarkus</java.module.name>
+    <java.module.name>com.ibm.bamoe.example</java.module.name>
     <quarkus.package.jar.type>fast-jar</quarkus.package.jar.type>    <!-- Override default to fast-jar packaging for forward-compatibility -->
   </properties>
 
