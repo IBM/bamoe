@@ -72,7 +72,7 @@
 
       <dependency>
         <groupId>com.ibm.bamoe</groupId>
-        <artifactId>bamoe-mssql-mappings</artifactId>
+        <artifactId>bamoe-database-support</artifactId>
         <version>${project.version}</version>
       </dependency>
 

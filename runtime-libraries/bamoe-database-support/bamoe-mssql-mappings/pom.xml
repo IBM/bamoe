@@ -8,7 +8,7 @@
     <groupId>com.ibm.bamoe</groupId>
     <artifactId>bamoe-database-support</artifactId>
   </parent>
-  <artifactId>bamoe-sqlserver-support</artifactId>
-  <name>BAMOE  SQL Server Support</name>
+  <artifactId>bamoe-mssql-mappings</artifactId>
+  <name>Business Automation Manager Open Editions - MS SQL Server Mappings</name>
 
 </project>

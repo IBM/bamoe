@@ -11,11 +11,11 @@
   </parent>
 
   <modelVersion>4.0.0</modelVersion>
-  <artifactId>bamoe-mssql-mappings</artifactId>
-  <name>Business Automation Manager Open Editions - MS SQL Server Mappings</name>
+  <artifactId>bamoe-database-support</artifactId>
+  <name>Business Automation Manager Open Editions - Database Support</name>
   <packaging>pom</packaging>
 
   <modules>
-    <module>bamoe-sqlserver-support</module>
+    <module>bamoe-mssql-mappings</module>
   </modules>
 </project>
