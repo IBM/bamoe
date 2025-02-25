@@ -68,9 +68,12 @@
     <failsafe.include>**/*IT.java</failsafe.include>
     <failsafe.exclude>**/Native*IT.java</failsafe.exclude>
     <tests.category></tests.category>
+    <tests.quarkus.http.port>0</tests.quarkus.http.port>     <!-- Port 0 means dynamic port -->
 
     <!-- Misc. -->
     <alphanetworkCompilerEnabled>false</alphanetworkCompilerEnabled>
+    <java.module.name>com.ibm.bamoe.example</java.module.name>
+    <quarkus.package.jar.type>fast-jar</quarkus.package.jar.type>    <!-- Override default to fast-jar packaging for forward-compatibility -->
   </properties>
 
   <modules>
