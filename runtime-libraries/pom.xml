@@ -50,7 +50,7 @@
     <module>bom</module>
     <module>techpreview-bom</module>
     <module>build-parent</module>
-    <module>bamoe-database-support</module>
+    <module>bamoe-mssql-mappings</module>
     <module>ilmt-compliance</module>
   </modules>
 
@@ -93,7 +93,7 @@
         <module>bom</module>
         <module>build-parent</module>
         <module>ilmt-compliance</module>
-        <module>bamoe-database-support</module>
+        <module>bamoe-mssql-mappings</module>
         <module>maven-repository-zip</module>
       </modules>
     </profile>
