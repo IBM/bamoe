@@ -16,19 +16,10 @@ ENV KIE_SANDBOX_REQUIRE_CUSTOM_COMMIT_MESSAGE=$KIE_SANDBOX_REQUIRE_CUSTOM_COMMIT
     KIE_SANDBOX_DEV_DEPLOYMENT_DMN_FORM_WEBAPP_IMAGE_URL=$KIE_SANDBOX_DEV_DEPLOYMENT_DMN_FORM_WEBAPP_IMAGE_URL_ARG \
     KIE_SANDBOX_ACCELERATORS="[ \
     { \
-        \"name\": \"Quarkus (Full)\", \
+        \"name\": \"Quarkus\", \
         \"iconUrl\": \"https://github.com/ibm/bamoe-canvas-quarkus-accelerator/raw/$BAMOE_VERSION_FINAL_ARG-quarkus-full/logo.png\", \
         \"gitRepositoryUrl\": \"https://github.com/ibm/bamoe-canvas-quarkus-accelerator\", \
         \"gitRepositoryGitRef\": \"$BAMOE_VERSION_FINAL_ARG-quarkus-full\", \
-        \"dmnDestinationFolder\": \"src/main/resources\", \
-        \"bpmnDestinationFolder\": \"src/main/resources\", \
-        \"otherFilesDestinationFolder\": \"src/main/resources\" \
-    }, \
-    { \
-        \"name\": \"Quarkus (DMN)\", \
-        \"iconUrl\": \"https://github.com/ibm/bamoe-canvas-quarkus-accelerator/raw/$BAMOE_VERSION_FINAL_ARG-quarkus-dmn/logo.png\", \
-        \"gitRepositoryUrl\": \"https://github.com/ibm/bamoe-canvas-quarkus-accelerator\", \
-        \"gitRepositoryGitRef\": \"$BAMOE_VERSION_FINAL_ARG-quarkus-dmn\", \
         \"dmnDestinationFolder\": \"src/main/resources\", \
         \"bpmnDestinationFolder\": \"src/main/resources\", \
         \"otherFilesDestinationFolder\": \"src/main/resources\" \
