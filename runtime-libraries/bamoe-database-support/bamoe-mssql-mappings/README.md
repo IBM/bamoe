@@ -1,4 +1,4 @@
-# BAMOE SQL Server Support
+# BAMOE SQL Server Mappings
 This module contains the necessary resources to make BAMOE applications that require persistence 
 correctly work in Microsoft SQL Server.
 
@@ -21,9 +21,10 @@ Depending on the dependencies configured in the application it may be required t
 To configure which mapping files should be imported you can use the quarkus.hibernate-orm.mapping-files to configure
 a comma-separated list containing which ORM  files to use.
 
+````
 Eg:
  quarkus.hibernate-orm.mapping-files=META-INF/bamoe-data-index-orm.xml,META-INF/bamoe-job-service-orm.xml
-
+````
 Note: 
  More about Quarkus Hibernate-ORM: https://es.quarkus.io/guides/hibernate-orm
 
