@@ -68,6 +68,16 @@
         <classifier>javadoc</classifier>
       </dependency>
 
+      <!-- Start of BAMOE database support-->
+
+      <dependency>
+        <groupId>com.ibm.bamoe</groupId>
+        <artifactId>bamoe-mssql-mappings</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+
+      <!-- End of BAMOE database support-->
+
       <dependency>
         <groupId>org.kie.kogito</groupId>
         <artifactId>kogito-ide-config</artifactId>
