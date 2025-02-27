@@ -26,157 +26,28 @@ generate the candidate's offer and timers to skip interviews.
 
 ---
 
-### The _"Hiring"_ Process (BPMN)
+## Configuration
 
-The process handles the following _Variables_:
+As mentioned earlier, this example can be run in quarkus development mode and in container mode. In dev mode, the 
+example could use `h2`, `postgresql` or `mssql`. In container mode it can use `postgresql` or `mssql`.
 
-| Variable          | Type                              | Tags         | Description                                       |
-| ----------------- | --------------------------------- | ------------ | ------------------------------------------------- |
-| **candidateData** | `org.kie.kogito.hr.CandidateData` | **input**    | The candidate data                                |
-| **offer**         | `org.kie.kogito.hr.Offer`         | **output**   | The generated candidate offer                     |
-| **hr_approval**   | `Boolean`                         | **internal** | Determines that HR department approves the hiring |
-| **it_approval**   | `Boolean`                         | **internal** | Determines that IT department approves the hiring |
+Each database is paired with a maven profile and a quarkus profile which are tied together. So in this example there 
+are four maven profiles `h2`, `postgresql`, `mssql` and `container` tied to quarkus profiles with similar 
+name. `h2`, `postgresql` and `mssql` profiles defines their own specific database dependencies and configurations.
+`container` profile defines the dependencies to pack the example as a docker image and configurations of the image.
 
----
+In dev mode, Quarkus provides us with a zero config database out of the box, a feature referred to as Dev Services.
+The only configuration that needs to be defined is `quarkus.datasource.db-kind` and the only main dependency required 
+is the corresponding jdbc driver. H2 runs in-process, whereas postgresql and mssql runs as containers. So you will 
+need Docker installed in order to use this feature. More information about Dev Services can be found 
+[here](https://quarkus.io/guides/databases-dev-services).
 
-<div style="text-align:center">
-   <figure>
-      <img width=75%  src="docs/images/hiring_diagram.png" alt="Hiring Process Diagram">
-      <br/>
-      <figcaption>Hiring Process Diagram</figcaption>
-   </figure>
-</div>
-
-The process starts receiving the `CandidateData` as an input and storing it into the `candidateData` variable, and if
-the candidate meets two minimal requirements, the process will continue and reach the **Generate base offer**, otherwise
-the candidate application will be denied and the process will complete without sending the `offer` to the candidate.
-
-The **Generate base offer** is a _Business Rule Task_ that will use the _New Hiring Offer_ decision defined in the
-`NewHiringOffer.dmn` to generate the an `Offer` based on the candidate experience and skills. The task takes the
-`candidateData` as an input and will produce an instance of `org.kie.kogito.hr.Offer` that will be stored in the `offer`
-variable.
-
-<div style="text-align:center">
-   <figure>
-      <img width=75%  src="docs/images/generate_offer_assignments.png" alt="Offer assignments">
-      <br/>
-      <figcaption><b>Generate base Offer</b> data assignments</figcaption>
-   </figure>
-</div>
-
-After the `offer` has been generated, the process will jump into the **HR Interview** _User Task_, where the candidate
-we'll be interviewed by the _HR_ department. The task takes the `candidateData` and `offer` as inputs and as an output
-will produce the `hr_approve` boolean and an updated `offer`.
-
-<div style="text-align:center">
-   <figure>
-      <img width=75%  src="docs/images/hr_interview_assignments.png" alt="HR Interview assignments">
-      <br/>
-      <figcaption><b>HR Interview</b> task data assignments</figcaption>
-   </figure>
-</div>
-
-The **HR Interview** _User Task_ also has a _Boundary Timer Event_ that will prevent the task to delay and will cancel
-the
-task after certain time (for example purpose just 3 minutes). This _Boundary Timer Event_ will schedule a Job in the
-Jobs Service
-that when trigger will notify the _Kogito Runtime_ to cancel the task and deny the application.
-
-If **HR Interview** successfully completed, the process will jump into the **IT Interview** _User Task_. Again the
-candidate
-we'll have a second interview with the _IT_ department. Again, this task will take the `candidateData` and `offer` as
-inputs
-but as an output will produce the `it_approve` boolean.
-
-<div style="text-align:center">
-   <figure>
-      <img width=75%  src="docs/images/it_interview_assignments.png" alt="IT Interview assignments">
-      <br/>
-      <figcaption><b>IT Interview</b> task data assignments</figcaption>
-   </figure>
-</div>
-
-Once both tasks are completed, if the candidate got the approvals from _HR_ & _IT_ (both `hr_interview` & `hr_interview`
-being true)
-the process will jump into the **Send Offer to Candidate** _Script Task_ that will notify the candidate about the offer
-and the process will end.
-
-> **NOTE:** for simplicity, all the _User Tasks_ in this example are assigned to the _jdoe_ user present in the Keycloak
-> configuration
-
-### The _"New Hiring Offer"_ Decision (DMN)
-
-This example makes use of the _New Hiring Offer_ DMN to generate a base offer for the `Candidate`. The DMN looks like
-this:
-
-In this simple DMN we have an `Offer` _Decision_, that will generate the candidate offer, which
-has a requirement of a `CandidateData` _Input Data_.
-
-<div style="text-align:center">
-   <figure>
-      <img width=55%  src="docs/images/new_hiring_offer_dmn.png" alt="DMN Diagram">
-      <br/>
-      <figcaption>New Hiring Offer DMN diagram</figcaption>
-   </figure>
-</div>
-
-The DMN defines the following data types (`tCandidateData` & `tOffer` ) matching the Java POJOs defined in the project
-(`CandidateData.java` & `Offer.java`):
-
-<div style="text-align:center">
-   <figure>
-      <img width=49%  src="docs/images/new_hiring_offer_dmn_types_tCandidateData.png" alt="DMN Type Definitions">
-      <img width=49%  src="docs/images/new_hiring_offer_dmn_types_tOffer.png" alt="DMN Type Definitions">
-      <br/>
-      <figcaption>New Hiring Offer DMN types</figcaption>
-   </figure>
-</div>
-
-As expected, `CandidateData` Input and `Offer` Decision have a `tCandidateData` type
-
-The `Offer` Decision uses the following _Boxed Expression_ to generate the `tOffer`:
-
-<div style="text-align:center">
-   <figure>
-      <img width=75%  src="docs/images/new_hiring_offer_dmn_decision.png" alt="DMN Decision">
-      <br/>
-      <figcaption><i>"New Hiring Offer"</i> DMN Decision</figcaption>
-   </figure>
-</div>
-
-### The Java models
-
-The **Hiring** process uses two POJOs to handle the process data, both of them can be found in the _org.kie.kogito.hr_
-package.
-
-The `CandidateData` POJO is the input of the process. It represents the person that wants to get the job.
-
-```java
-public class CandidateData {
-
-    private String name; // Name of the candidate
-    private String lastName; // Last name of the candidate
-    private String email; // Email of the candidate
-    private Integer experience; // Years of experience
-    private List<String> skills; // List of technical skills
-
-    // Constructors, setters, getters...
-}
-```
-
-The `Offer` POJO is the output of the process and represents the job offer that will be sent to the candidate.
-It will be automatically calculated during the process execution depending on the candidate years of experience &
-skills.
-
-```java
-public class Offer {
-
-    private String category; // Job category based on the candidate experience
-    private Integer salary; // Salary based on the candidate experience and skills
-
-    // Constructors, setters, getters...
-}
-```
+In container mode, the example is run as docker containers. First the example need to be packed into a docker image. 
+The configurations of the docker image is defined under the quarkus container profile. The `container` maven profile 
+is coupled with another maven database profile like `postgresql` or `mssql` to build the example's image. The image 
+is then used in a corresponding docker compose file which also includes the database and any other related database 
+services. The application can be started easily by using the [startContainer.sh](docker-compose/startContainers.sh) 
+script
 
 ---
 
