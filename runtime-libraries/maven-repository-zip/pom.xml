@@ -92,6 +92,34 @@
       <artifactId>bamoe-ilmt-compliance-quarkus-dmoe</artifactId>
       <classifier>javadoc</classifier>
     </dependency>
+    <dependency>
+      <groupId>com.ibm.bamoe</groupId>
+      <artifactId>bamoe-ilmt-compliance-springboot-pamoe</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.ibm.bamoe</groupId>
+      <artifactId>bamoe-ilmt-compliance-springboot-pamoe</artifactId>
+      <classifier>sources</classifier>
+    </dependency>
+    <dependency>
+      <groupId>com.ibm.bamoe</groupId>
+      <artifactId>bamoe-ilmt-compliance-springboot-pamoe</artifactId>
+      <classifier>javadoc</classifier>
+    </dependency>
+    <dependency>
+      <groupId>com.ibm.bamoe</groupId>
+      <artifactId>bamoe-ilmt-compliance-springboot-dmoe</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.ibm.bamoe</groupId>
+      <artifactId>bamoe-ilmt-compliance-springboot-dmoe</artifactId>
+      <classifier>sources</classifier>
+    </dependency>
+    <dependency>
+      <groupId>com.ibm.bamoe</groupId>
+      <artifactId>bamoe-ilmt-compliance-springboot-dmoe</artifactId>
+      <classifier>javadoc</classifier>
+    </dependency>
 
     <dependency>
       <groupId>org.kie.kogito</groupId>
