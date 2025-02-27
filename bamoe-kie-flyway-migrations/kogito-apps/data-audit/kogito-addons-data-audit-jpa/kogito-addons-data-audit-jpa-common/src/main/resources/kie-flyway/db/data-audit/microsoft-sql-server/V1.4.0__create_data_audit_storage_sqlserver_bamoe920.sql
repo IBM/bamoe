@@ -133,7 +133,7 @@ CREATE TABLE process_instance_variable_log (
     root_process_instance_id character varying(255),
     variable_id character varying(255),
     variable_name character varying(255),
-    variable_value character varying(255),
+    variable_value varchar(max),
     CONSTRAINT process_instance_variable_log_pkey PRIMARY KEY (id)
 );
 
@@ -280,7 +280,7 @@ CREATE TABLE task_instance_variable_log (
     variable_id character varying(255),
     variable_name character varying(255),
     variable_type character varying(255),
-    variable_value character varying(255),
+    variable_value varchar(max),
     CONSTRAINT task_instance_variable_log_pkey PRIMARY KEY (id),
     CONSTRAINT task_instance_variable_log_variable_type_check CHECK (variable_type IN ('INPUT', 'OUTPUT'))
 );

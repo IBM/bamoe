@@ -7,6 +7,7 @@ CREATE TABLE process_definitions (
     source varbinary(max),
     endpoint character varying(255),
     description character varying(255),
+    metadata varchar(max),
     CONSTRAINT definitions_pkey PRIMARY KEY (id, version)
 );
 
@@ -24,16 +25,6 @@ CREATE TABLE definitions_annotations (
     process_version character varying(255) NOT NULL,
     CONSTRAINT definitions_annotations_pkey PRIMARY KEY (annotation, process_id, process_version),
     CONSTRAINT fk_definitions_annotations FOREIGN KEY (process_id, process_version) REFERENCES process_definitions(id, version) ON DELETE CASCADE
-);
-
-CREATE TABLE definitions_metadata (
-    process_id character varying(255) NOT NULL,
-    process_version character varying(255) NOT NULL,
-    meta_value character varying(255),
-    name character varying(255) NOT NULL,
-    CONSTRAINT definitions_metadata_pkey PRIMARY KEY (process_id, process_version, name),
-    CONSTRAINT fk_definitions_metadata FOREIGN KEY (process_id, process_version) REFERENCES process_definitions(id, version) ON DELETE CASCADE
-
 );
 
 CREATE TABLE definitions_nodes (
@@ -236,8 +227,6 @@ CREATE INDEX idx_attachments_tid ON attachments (task_id)
 CREATE INDEX idx_definitions_addons_pid_pv ON definitions_addons (process_id, process_version);
 
 CREATE INDEX idx_definitions_annotations_pid_pv ON definitions_annotations (process_id, process_version);
-
-CREATE INDEX idx_definitions_metadata_pid_pv ON definitions_metadata (process_id, process_version);
 
 CREATE INDEX idx_definitions_nodes_metadata_pid_pv ON definitions_nodes_metadata (process_id, process_version);
 
