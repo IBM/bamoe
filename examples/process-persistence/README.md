@@ -17,8 +17,8 @@
 
 # Example :: Process Persistence
 
-This example depicts the usage of persistence configuration for various supported databases like H2, Postgresql and
-MS SQL. This application can be run in dev and container modes.
+This example depicts the usage of persistence configuration for various databases like H2, Postgresql and MS SQL. 
+This application can be run in dev and container modes.
 
 This example also showcases a basic implementation of a **Hiring** Process that drives a _Candidate_ through different
 interviews until they get hired. It features simple User Task orchestration including the use of DMN decisions to
@@ -188,14 +188,6 @@ public class Offer {
 - Environment variable JAVA_HOME set accordingly
 - Maven 3.9.6+ installed
 - Docker and Docker Compose to run the required example infrastructure.
-
-And when using native image compilation, you will also need:
-
-- GraalVM 20.3+ installed
-- Environment variable GRAALVM_HOME set accordingly
-- GraalVM native image needs as well native-image extension: https://www.graalvm.org/reference-manual/native-image/
-- Note that GraalVM native image compilation typically requires other packages (glibc-devel, zlib-devel and gcc) to be
-  installed too, please refer to GraalVM installation documentation for more details.
 
 ### Running as containers
 
