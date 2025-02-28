@@ -104,7 +104,7 @@
     <module>process-error-handling</module>
     <module>process-event-driven</module>
     <module>process-monitoring-quarkus</module>
-    <!-- <module>process-persistence</module> Upcoming example -->
+    <module>process-persistence</module>
     <module>process-postgresql-persistence-quarkus</module>
     <module>process-rest-service-call-quarkus</module>
     <module>process-rest-workitem-multi-quarkus</module>
