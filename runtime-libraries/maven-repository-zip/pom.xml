@@ -94,30 +94,30 @@
     </dependency>
     <dependency>
       <groupId>com.ibm.bamoe</groupId>
-      <artifactId>bamoe-ilmt-compliance-springboot-pamoe</artifactId>
+      <artifactId>bamoe-ilmt-compliance-spring-boot-pamoe</artifactId>
     </dependency>
     <dependency>
       <groupId>com.ibm.bamoe</groupId>
-      <artifactId>bamoe-ilmt-compliance-springboot-pamoe</artifactId>
+      <artifactId>bamoe-ilmt-compliance-spring-boot-pamoe</artifactId>
       <classifier>sources</classifier>
     </dependency>
     <dependency>
       <groupId>com.ibm.bamoe</groupId>
-      <artifactId>bamoe-ilmt-compliance-springboot-pamoe</artifactId>
+      <artifactId>bamoe-ilmt-compliance-spring-boot-pamoe</artifactId>
       <classifier>javadoc</classifier>
     </dependency>
     <dependency>
       <groupId>com.ibm.bamoe</groupId>
-      <artifactId>bamoe-ilmt-compliance-springboot-dmoe</artifactId>
+      <artifactId>bamoe-ilmt-compliance-spring-boot-dmoe</artifactId>
     </dependency>
     <dependency>
       <groupId>com.ibm.bamoe</groupId>
-      <artifactId>bamoe-ilmt-compliance-springboot-dmoe</artifactId>
+      <artifactId>bamoe-ilmt-compliance-spring-boot-dmoe</artifactId>
       <classifier>sources</classifier>
     </dependency>
     <dependency>
       <groupId>com.ibm.bamoe</groupId>
-      <artifactId>bamoe-ilmt-compliance-springboot-dmoe</artifactId>
+      <artifactId>bamoe-ilmt-compliance-spring-boot-dmoe</artifactId>
       <classifier>javadoc</classifier>
     </dependency>
 

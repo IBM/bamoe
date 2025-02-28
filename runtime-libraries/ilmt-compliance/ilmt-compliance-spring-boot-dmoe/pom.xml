@@ -10,9 +10,9 @@
         <version>9.1.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>bamoe-ilmt-compliance-springboot-pamoe</artifactId>
-    <name>Business Automation Manager Open Editions - ILMT Compliance PAMOE</name>
-    <description>IBM BAMOE ILMT compliance library for PAMOE use cases and applications.</description>
+    <artifactId>bamoe-ilmt-compliance-spring-boot-dmoe</artifactId>
+    <name>Business Automation Manager Open Editions - ILMT Compliance DMOE</name>
+    <description>IBM BAMOE ILMT compliance library for DMOE use cases and applications.</description>
 
     <dependencies>
         <dependency>
@@ -32,5 +32,5 @@
         </dependency>
 
     </dependencies>
-    
+
 </project>

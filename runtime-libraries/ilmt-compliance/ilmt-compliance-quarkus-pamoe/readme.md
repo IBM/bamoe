@@ -1,4 +1,4 @@
-# This is a PAMOE ILMT compliance library that every PAMOE  project should use.
+# This is a PAMOE ILMT compliance library that every PAMOE project should use.
 
 This library uses the system variable SWIDTAG_DIR to determine the directory for creating a swidtag file. If the SWIDTAG_DIR variable is set, the library will use the specified directory for swidtag file creation. In cases where SWIDTAG_DIR is not set the library will default to the home directory of the hosting application.
 

@@ -20,8 +20,8 @@
     <module>ilmt-compliance-common</module>
     <module>ilmt-compliance-quarkus-pamoe</module>
     <module>ilmt-compliance-quarkus-dmoe</module>
-    <module>ilmt-compliance-springboot-pamoe</module>
-    <module>ilmt-compliance-springboot-dmoe</module>
+    <module>ilmt-compliance-spring-boot-pamoe</module>
+    <module>ilmt-compliance-spring-boot-dmoe</module>
   </modules>
 
 </project>
