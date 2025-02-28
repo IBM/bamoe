@@ -22,7 +22,8 @@ This application can be run in dev and container modes.
 
 This example also showcases a basic implementation of a **Hiring** Process that drives a _Candidate_ through different
 interviews until they get hired. It features simple User Task orchestration including the use of DMN decisions to
-generate the candidate's offer and timers to skip interviews.
+generate the candidate's offer and timers to skip interviews. This example is based on `process-compact-architecture` 
+example. You could find more details about that example from its README.
 
 ---
 
