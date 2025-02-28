@@ -67,6 +67,40 @@
         <version>${project.version}</version>
         <classifier>javadoc</classifier>
       </dependency>
+      <dependency>
+        <groupId>com.ibm.bamoe</groupId>
+        <artifactId>bamoe-ilmt-compliance-spring-boot-pamoe</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.ibm.bamoe</groupId>
+        <artifactId>bamoe-ilmt-compliance-spring-boot-pamoe</artifactId>
+        <version>${project.version}</version>
+        <classifier>sources</classifier>
+      </dependency>
+      <dependency>
+        <groupId>com.ibm.bamoe</groupId>
+        <artifactId>bamoe-ilmt-compliance-spring-boot-pamoe</artifactId>
+        <version>${project.version}</version>
+        <classifier>javadoc</classifier>
+      </dependency>
+      <dependency>
+        <groupId>com.ibm.bamoe</groupId>
+        <artifactId>bamoe-ilmt-compliance-spring-boot-dmoe</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.ibm.bamoe</groupId>
+        <artifactId>bamoe-ilmt-compliance-spring-boot-dmoe</artifactId>
+        <version>${project.version}</version>
+        <classifier>sources</classifier>
+      </dependency>
+      <dependency>
+        <groupId>com.ibm.bamoe</groupId>
+        <artifactId>bamoe-ilmt-compliance-spring-boot-dmoe</artifactId>
+        <version>${project.version}</version>
+        <classifier>javadoc</classifier>
+      </dependency>
 
       <!-- Start of BAMOE database support-->
 
