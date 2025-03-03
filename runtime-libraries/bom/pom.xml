@@ -14,6 +14,11 @@
   <name>Business Automation Manager Open Editions product BOM</name>
   <description>IBM BAMOE product bom specifying supported scope of libraries.</description>
 
+  <properties>
+    <version.org.kie.kogito>999-SNAPSHOT</version.org.kie.kogito>
+    <kogito.bom.version>999-SNAPSHOT</kogito.bom.version>
+  </properties>
+
   <dependencyManagement>
     <dependencies>
       <dependency>
