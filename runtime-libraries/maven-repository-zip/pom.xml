@@ -1632,10 +1632,6 @@
     </dependency>
     <dependency>
       <groupId>org.kie</groupId>
-      <artifactId>kie-predictions-spring-boot-starter</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.kie</groupId>
       <artifactId>kie-addons-springboot-events-predictions</artifactId>
     </dependency>
     <dependency>
@@ -1652,6 +1648,10 @@
     </dependency>
     <dependency>
       <groupId>org.kie</groupId>
+      <artifactId>kie-addons-springboot-persistence-mongodb</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.kie</groupId>
       <artifactId>kie-addons-springboot-events-mongodb</artifactId>
     </dependency>
     <dependency>
@@ -1664,15 +1664,11 @@
     </dependency>
     <dependency>
       <groupId>org.kie</groupId>
-      <artifactId>kogito-addons-springboot-jobs-management</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.kie.kogito.examples</groupId>
-      <artifactId>dmn-springboot-resource-jar</artifactId>
+      <artifactId>kie-predictions-spring-boot-starter</artifactId>
     </dependency>
     <dependency>
       <groupId>org.kie</groupId>
-      <artifactId>kie-addons-springboot-persistence-mongodb</artifactId>
+      <artifactId>kogito-addons-springboot-jobs-management</artifactId>
     </dependency>
 
     <!-- End of BAMOE springboot support-->
