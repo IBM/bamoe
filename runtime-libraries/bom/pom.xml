@@ -2473,16 +2473,6 @@
       </dependency>
       <dependency>
         <groupId>org.kie</groupId>
-        <artifactId>kie-addons-springboot-persistence-mongodb</artifactId>
-          <version>${version.org.kogito}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.kie</groupId>
-        <artifactId>kie-addons-springboot-events-mongodb</artifactId>
-        <version>${version.org.kogito}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.kie</groupId>
         <artifactId>kie-addons-springboot-persistence-jdbc</artifactId>
         <version>${version.org.kogito}</version>
       </dependency>
