@@ -14,11 +14,6 @@
   <name>Business Automation Manager Open Editions product BOM</name>
   <description>IBM BAMOE product bom specifying supported scope of libraries.</description>
 
-  <properties>
-    <version.org.kie.kogito>999-SNAPSHOT</version.org.kie.kogito>
-    <kogito.bom.version>999-SNAPSHOT</kogito.bom.version>
-  </properties>
-
   <dependencyManagement>
     <dependencies>
       <dependency>
@@ -2398,107 +2393,118 @@
       <dependency>
         <groupId>org.drools</groupId>
         <artifactId>drools-decisions-spring-boot-starter</artifactId>
+        <version>${version.org.kogito}</version>
       </dependency>
       <dependency>
         <groupId>org.drools</groupId>
         <artifactId>drools-rules-spring-boot-starter</artifactId>
+        <version>${version.org.kogito}</version>
       </dependency>
       <dependency>
         <groupId>org.drools</groupId>
         <artifactId>drools-addons-springboot-events-rules</artifactId>
-      </dependency>
-      <dependency>
-        <groupId>org.infinispan</groupId>
-        <artifactId>infinispan-spring-boot3-starter-remote</artifactId>
+        <version>${version.org.kogito}</version>
       </dependency>
       <dependency>
         <groupId>org.jbpm</groupId>
         <artifactId>jbpm-spring-boot-starter</artifactId>
+        <version>${version.org.kogito}</version>
       </dependency>
       <dependency>
         <groupId>org.jbpm</groupId>
         <artifactId>jbpm-with-drools-spring-boot-starter</artifactId>
+        <version>${version.org.kogito}</version>
       </dependency>
       <!-- Comment to disable jobs service integration -->
       <dependency>
         <groupId>org.jbpm</groupId>
         <artifactId>jbpm-addons-springboot-task-management</artifactId>
+        <version>${version.org.kogito}</version>
       </dependency>
       <dependency>
         <groupId>org.jbpm</groupId>
         <artifactId>jbpm-addons-springboot-mail</artifactId>
+        <version>${version.org.kogito}</version>
       </dependency>
       <dependency>
         <groupId>org.jbpm</groupId>
         <artifactId>jbpm-addons-springboot-task-notification</artifactId>
+        <version>${version.org.kogito}</version>
       </dependency>
       <dependency>
         <groupId>org.kie</groupId>
         <artifactId>kie-addons-springboot-events-decisions</artifactId>
+        <version>${version.org.kogito}</version>
       </dependency>
       <dependency>
         <groupId>org.kie</groupId>
         <artifactId>kie-addons-springboot-tracing-decision</artifactId>
+        <version>${version.org.kogito}</version>
       </dependency>
       <dependency>
         <groupId>org.kie</groupId>
         <artifactId>kie-addons-springboot-monitoring-prometheus</artifactId>
+        <version>${version.org.kogito}</version>
       </dependency>
       <dependency>
         <groupId>org.kie</groupId>
         <artifactId>kie-addons-springboot-kubernetes</artifactId>
+        <version>${version.org.kogito}</version>
       </dependency>
       <dependency>
         <groupId>org.kie</groupId>
         <artifactId>kie-addons-springboot-events-predictions</artifactId>
+        <version>${version.org.kogito}</version>
       </dependency>
       <dependency>
         <groupId>org.kie</groupId>
         <artifactId>kie-addons-springboot-messaging</artifactId>
+        <version>${version.org.kogito}</version>
       </dependency>
       <dependency>
         <groupId>org.kie</groupId>
         <artifactId>kie-addons-springboot-process-management</artifactId>
+        <version>${version.org.kogito}</version>
       </dependency>
       <dependency>
         <groupId>org.kie</groupId>
         <artifactId>kie-addons-springboot-persistence-infinispan</artifactId>
+        <version>${version.org.kogito}</version>
       </dependency>
       <dependency>
         <groupId>org.kie</groupId>
         <artifactId>kie-addons-springboot-persistence-mongodb</artifactId>
+          <version>${version.org.kogito}</version>
       </dependency>
       <dependency>
         <groupId>org.kie</groupId>
         <artifactId>kie-addons-springboot-events-mongodb</artifactId>
+        <version>${version.org.kogito}</version>
       </dependency>
       <dependency>
         <groupId>org.kie</groupId>
         <artifactId>kie-addons-springboot-persistence-jdbc</artifactId>
+        <version>${version.org.kogito}</version>
       </dependency>
       <dependency>
         <groupId>org.kie</groupId>
         <artifactId>kie-addons-springboot-events-process-kafka</artifactId>
+        <version>${version.org.kogito}</version>
       </dependency>
       <dependency>
         <groupId>org.kie</groupId>
         <artifactId>kie-predictions-spring-boot-starter</artifactId>
+        <version>${version.org.kogito}</version>
       </dependency>
       <dependency>
         <groupId>org.kie</groupId>
         <artifactId>kogito-addons-springboot-jobs-management</artifactId>
-      </dependency>
-      <dependency>
-        <groupId>org.kie.kogito</groupId>
-        <artifactId>kogito-spring-boot-bom</artifactId>
-        <version>${kogito.bom.version}</version>
-        <type>pom</type>
-        <scope>import</scope>
+        <version>${version.org.kogito}</version>
       </dependency>
       <dependency>
         <groupId>org.kie.kogito</groupId>
         <artifactId>kogito-spring-boot-test-utils</artifactId>
-        <version>${version.org.kie.kogito}</version>
+        <version>${version.org.kogito}</version>
         <scope>test</scope>
       </dependency>
 
