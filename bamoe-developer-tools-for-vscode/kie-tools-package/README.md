@@ -34,7 +34,7 @@
 | `kogito.bpmn.svgFilePath`         | Where to save generated SVG files                         | ``${fileDirname}` or `src/main/resources/META-INF/processSVG` if BPMN model is inside `src/main/resources` |
 | `kogito.dmn.runOnSave`            | Execute a command on each save operation of the DMN file  | _empty_                                                                                                    |
 | `kogito.dmn.svgFilenameTemplate`  | Filename template to be used when generating SVG files    | `${fileBasenameNoExtension}.svg`                                                                           |
-| `kogito.dmn.svgFilePath`          | Where to save generated SVG files                         | `${fileDirname}` or `src/main/resources/META-INF/decisionSVG` if BPMN model is inside `src/main/resources` |
+| `kogito.dmn.svgFilePath`          | Where to save generated SVG files                         | `${fileDirname}` or `src/main/resources/META-INF/decisionSVG` if DMN model is inside `src/main/resources` |
 
 The `kogito.*.svgFilenameTemplate` and `kogito.*.svgFilePath` settings accept the following variables as tokens:
 
