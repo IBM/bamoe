@@ -201,9 +201,7 @@ This is the corresponding configuration
 These are the configurations of the resulting image. The `container` profile is used in tandem with a database profile 
 like `postgresql` or `mssql` to pack related database dependencies and configurations. The resulting image is then 
 used in a docker compose file to run all services including this example, database and any other database addon 
-services together as containers. The docker compose files are located [here](docker-compose). The application can be 
-started in container mode easily by using [this](docker-compose/startContainers.sh) script. More on using the script 
-in the later sections.
+services together as containers. The docker compose files are located [here](docker-compose).
 
 ---
 
@@ -220,7 +218,7 @@ in the later sections.
 
 First, build the example by running the following command in a terminal
 
-```shell
+```
 mvn clean package -Pcontainer,<dbtype>
 ```
 Current supported dbtypes in container mode are `postgresql` and `mssql`. So for e.g. to build the example using 
@@ -230,19 +228,24 @@ postgresql database configuration we can run the following command
 mvn clean package -Pcontainer,postgresql
 ```
 This will build this example's Quarkus application with the corresponding database configuration and create a Docker 
-image that will be used in the `docker-compose` template.
+image that will be used in the `docker compose` template.
 
-To execute the full example, run the following command inside the `docker-compose` folder
+Finally, to start the example using `docker compose`, run
 
-```shell
-# cd docker-compose
-sh startContainers.sh <dbtype>
 ```
-If we don't specify a dbtype `sh startContainers.sh`, database configurations of postgresql is used by default in 
-container mode.
+cd docker-compose
+docker compose -f docker-compose-<dbtype>.yml up
+```
+
+For e.g. to start the example with postgresql run
+
+```bash
+cd docker-compose
+docker compose -f docker-compose-postgresql.yml up
+```
 
 > **_IMPORTANT:_** if you are running this example on macOS and you are not using **Docker Desktop**, please append
-> the following entry in your `/etc/hosts` file to enable a good communication between al components.
+> the following entry in your `/etc/hosts` file to enable a good communication between all components.
 >
 > ```
 > 127.0.0.1 kubernetes.docker.internal
@@ -254,14 +257,17 @@ The development mode in this application currently supports three databases: `h2
 mode will embed all the needed Infrastructure Services (Database, Data-Index & Jobs Service) and won't require any 
 extra step. To start this example's app in Development mode with a specific database configuration, just run the 
 following command in a terminal
-```shell
+```
 mvn clean package quarkus:dev -P<dbtype>
 ```
 So for e.g. to start the example in dev mode using `postgresql` database configuration we can run the following command:
 ```shell
 mvn clean package quarkus:dev -Ppostgresql
 ```
-If we don't specify a profile `mvn clean package quarkus:dev`, database configurations of h2 is used by default in dev mode.
+If we don't specify a profile, database configurations of h2 is used by default in dev mode.
+```shell
+mvn clean package quarkus:dev
+```
 
 ---
 
