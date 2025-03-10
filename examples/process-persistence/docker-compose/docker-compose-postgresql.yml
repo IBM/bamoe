@@ -72,8 +72,8 @@ services:
       QUARKUS_DATASOURCE_USERNAME: kogito-user
       QUARKUS_DATASOURCE_PASSWORD: kogito-pass
       QUARKUS_DATASOURCE_DB_KIND: postgresql
-      KOGITO_JOBS_SERVICE_URL: http://${DOCKER_GATEWAY_HOST}:8080
-      KOGITO_SERVICE_URL: http://${DOCKER_GATEWAY_HOST}:8080
-      KOGITO_DATAINDEX_HTTP_URL: http://${DOCKER_GATEWAY_HOST}:8080
+      KOGITO_JOBS_SERVICE_URL: http://127.0.0.1:8080
+      KOGITO_SERVICE_URL: http://127.0.0.1:8080
+      KOGITO_DATAINDEX_HTTP_URL: http://127.0.0.1:8080
     extra_hosts:
-      - "${DOCKER_GATEWAY_HOST}:host-gateway"
+      - "127.0.0.1:host-gateway"
