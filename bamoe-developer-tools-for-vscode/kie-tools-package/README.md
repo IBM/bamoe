@@ -9,9 +9,10 @@
 - Create and edit BPMN (\*.bpmn) and BPMN2 (\*.bpmn2) files.
 - Create and edit DMN 1.1 and DMN 1.2 (\*.dmn) files using DMN Editor (classic).
 - Create and edit DMN 1.2, 1.3, 1.4, and 1.5 (\*.dmn) files using the DMN Editor.
-- Create and edit SceSim (\*.scesim) files with the Test Scenario Editor.
+- Create and edit Test Scenario (\*.scesim) files using the Test Scenario Editor (classic), compatible with DMN 1.1, and DMN 1.2.
+- Create and edit Test Scenario (\*.scesim) for DMN 1.5 using the Test Scenario Editor, compatible with DMN 1.2, 1.3, 1.4, and 1.5.
 - Native keyboard shortcuts (Press `shift+/` to display available combinations).
-- Export diagram to SVG (use the SVG icon on the top-right corner).
+- Export diagrams to SVG (use the SVG icon on the top-right corner).
 
 ### Editing a new BPMN file
 

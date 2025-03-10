@@ -17,7 +17,7 @@ ENV KIE_SANDBOX_REQUIRE_CUSTOM_COMMIT_MESSAGE=$KIE_SANDBOX_REQUIRE_CUSTOM_COMMIT
     KIE_SANDBOX_ACCELERATORS="[ \
     { \
         \"name\": \"Quarkus (Full)\", \
-        \"iconUrl\": \"https://github.com/ibm/bamoe-canvas-quarkus-accelerator/raw/$BAMOE_VERSION_FINAL_ARG-quarkus-full/logo.png\", \
+        \"iconUrl\": \"images/canvas_accelerator_logo_quarkus_full.png\", \
         \"gitRepositoryUrl\": \"https://github.com/ibm/bamoe-canvas-quarkus-accelerator\", \
         \"gitRepositoryGitRef\": \"$BAMOE_VERSION_FINAL_ARG-quarkus-full\", \
         \"dmnDestinationFolder\": \"src/main/resources\", \
@@ -26,7 +26,7 @@ ENV KIE_SANDBOX_REQUIRE_CUSTOM_COMMIT_MESSAGE=$KIE_SANDBOX_REQUIRE_CUSTOM_COMMIT
     }, \
     { \
         \"name\": \"Quarkus (DMN)\", \
-        \"iconUrl\": \"https://github.com/ibm/bamoe-canvas-quarkus-accelerator/raw/$BAMOE_VERSION_FINAL_ARG-quarkus-dmn/logo.png\", \
+        \"iconUrl\": \"images/canvas_accelerator_logo_quarkus_dmn.png\", \
         \"gitRepositoryUrl\": \"https://github.com/ibm/bamoe-canvas-quarkus-accelerator\", \
         \"gitRepositoryGitRef\": \"$BAMOE_VERSION_FINAL_ARG-quarkus-dmn\", \
         \"dmnDestinationFolder\": \"src/main/resources\", \
@@ -71,6 +71,8 @@ ENV KIE_SANDBOX_REQUIRE_CUSTOM_COMMIT_MESSAGE=$KIE_SANDBOX_REQUIRE_CUSTOM_COMMIT
 COPY ./.tmp/logo_reverse.svg /kie-sandbox/app/images/app_logo_rgb_fullcolor_reverse.svg
 COPY ./.tmp/logo_default.svg /kie-sandbox/app/images/app_logo_rgb_fullcolor_default.svg
 COPY ./.tmp/favicon.svg /kie-sandbox/app/favicon.svg
+COPY ./.tmp/canvas_accelerators_logo.png /kie-sandbox/app/images/canvas_accelerator_logo_quarkus_full.png
+COPY ./.tmp/canvas_accelerators_logo.png /kie-sandbox/app/images/canvas_accelerator_logo_quarkus_dmn.png
 
 
 # At this point, we don't need to repeat the original EXPOSE nor ENTRYPOINT statements, so all done!
