@@ -233,15 +233,19 @@ image that will be used in the `docker compose` template.
 Finally, to start the example using `docker compose`, run
 
 ```
-cd docker-compose
-docker compose -f docker-compose-<dbtype>.yml up
+docker compose -f ./docker-compose/docker-compose-<dbtype>.yml up
 ```
 
 For e.g. to start the example with postgresql run
 
 ```bash
-cd docker-compose
-docker compose -f docker-compose-postgresql.yml up
+docker compose -f ./docker-compose/docker-compose-postgresql.yml up
+```
+
+To stop and remove containers run
+
+```
+docker compose -f ./docker-compose/docker-compose-<dbtype>.yml down
 ```
 
 > **_IMPORTANT:_** if you are running this example on macOS and you are not using **Docker Desktop**, please append
