@@ -248,13 +248,6 @@ To stop and remove containers run
 docker compose -f ./docker-compose/docker-compose-<dbtype>.yml down
 ```
 
-> **_IMPORTANT:_** if you are running this example on macOS and you are not using **Docker Desktop**, please append
-> the following entry in your `/etc/hosts` file to enable a good communication between all components.
->
-> ```
-> 127.0.0.1 kubernetes.docker.internal
-> ```
-
 ### Running in Development mode
 
 The development mode in this application currently supports three databases: `h2`, `postgresql` and `mssql`. The dev 
