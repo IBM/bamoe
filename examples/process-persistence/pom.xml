@@ -26,7 +26,7 @@
     <groupId>com.ibm.bamoe</groupId>
     <artifactId>process-persistence</artifactId>
     <name>BAMOE :: Example :: Process Persistence</name>
-    <version>9.1.1-SNAPSHOT</version>
+    <version>999-SNAPSHOT</version>
 
     <properties>
         <quarkus.platform.group-id>io.quarkus</quarkus.platform.group-id>
@@ -201,7 +201,6 @@
                 <dependency>
                     <groupId>com.ibm.bamoe</groupId>
                     <artifactId>bamoe-mssql-mappings</artifactId>
-                    <version>${project.version}</version>
                 </dependency>
             </dependencies>
         </profile>
