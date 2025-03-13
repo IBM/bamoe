@@ -225,6 +225,8 @@
                     </execution>
                 </executions>
             </plugin>
+            <!-- This is to create a .env file in the docker-compose directory with PROJECT_VERSION details
+            which will be used in the docker compose files -->
             <plugin>
                 <artifactId>maven-antrun-plugin</artifactId>
                 <executions>
