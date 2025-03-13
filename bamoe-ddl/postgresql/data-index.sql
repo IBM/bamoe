@@ -29,7 +29,8 @@ CREATE TABLE definitions (
     type character varying(255),
     source bytea,
     endpoint character varying(255),
-    description character varying(255)
+    description character varying(255),
+    metadata jsonb
 );
 
 -- TABLE definitions_addons: addons those process definitions were deployed with
@@ -44,14 +45,6 @@ CREATE TABLE definitions_annotations (
     annotation character varying(255) NOT NULL,
     process_id character varying(255) NOT NULL,
     process_version character varying(255) NOT NULL
-);
-
--- TABLE definitions_metadata
-CREATE TABLE definitions_metadata (
-    process_id character varying(255) NOT NULL,
-    process_version character varying(255) NOT NULL,
-    meta_value character varying(255),
-    name character varying(255) NOT NULL
 );
 
 -- TABLE definitions_nodes: last definitions of node executed by a process instance
