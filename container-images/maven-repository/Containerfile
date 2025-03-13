@@ -1,5 +1,5 @@
 # Use the latest Red Hat UBI minimal image as a parent image
-FROM registry.access.redhat.com/ubi9/ubi-minimal:9.4
+FROM registry.access.redhat.com/ubi9/ubi-minimal:9.5
 
 # Argument for configuring the port
 ARG MAVEN_REPO_PORT=8080
