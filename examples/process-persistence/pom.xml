@@ -23,11 +23,11 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 >
     <modelVersion>4.0.0</modelVersion>
-    <groupId>org.kie</groupId>
+    <groupId>com.ibm.bamoe</groupId>
     <artifactId>process-persistence</artifactId>
-    <version>${version.org.kie.kogito}</version>
-
     <name>BAMOE :: Example :: Process Persistence</name>
+    <version>999-SNAPSHOT</version>
+
     <properties>
         <quarkus.platform.group-id>io.quarkus</quarkus.platform.group-id>
         <quarkus.platform.artifact-id>quarkus-bom</quarkus.platform.artifact-id>
@@ -36,10 +36,7 @@
 
         <kogito.bom.group-id>org.kie.kogito</kogito.bom.group-id>
         <kogito.bom.artifact-id>kogito-bom</kogito.bom.artifact-id>
-        <kogito-apps.bom.artifact-id>kogito-apps-bom</kogito-apps.bom.artifact-id>
         <version.org.kie.kogito>999-SNAPSHOT</version.org.kie.kogito>
-
-        <version.com.ibm.bamoe>9.1.1-SNAPSHOT</version.com.ibm.bamoe>
     </properties>
 
     <dependencyManagement>
@@ -60,7 +57,7 @@
             </dependency>
             <dependency>
                 <groupId>${kogito.bom.group-id}</groupId>
-                <artifactId>${kogito-apps.bom.artifact-id}</artifactId>
+                <artifactId>kogito-apps-bom</artifactId>
                 <version>${version.org.kie.kogito}</version>
                 <type>pom</type>
                 <scope>import</scope>
@@ -204,7 +201,6 @@
                 <dependency>
                     <groupId>com.ibm.bamoe</groupId>
                     <artifactId>bamoe-mssql-mappings</artifactId>
-                    <version>${version.com.ibm.bamoe}</version>
                 </dependency>
             </dependencies>
         </profile>
