@@ -1,10 +1,10 @@
-# BAMOE (monorepo)
-This is a repository for storing the code for product related to BAMOE artifacts.
+# IBM Business Automation Manager Open Editions
 
-# Requirements
-- Maven @ 3.9.6
+This repository hosts modules, packages, and utility files used for building IBM Business Automation Manager Open Editions (BAMOE) artifacts. 
 
-# Building from source
-- `mvn clean install -f runtime-libraries`
+---
 
+For more information about BAMOE, see: https://www.ibm.com/products/business-automation-manager-open-editions
+
+For BAMOE's documentation, visit: https://www.ibm.com/docs/ibamoe
 
