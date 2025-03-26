@@ -1,14 +1,8 @@
---
--- It contains all the required Tables used by runtime persistence.
---
-
--- TABLE business_key_mapping
 CREATE TABLE business_key_mapping (
     business_key VARCHAR2(255) NOT NULL,
     process_instance_id VARCHAR2(36) NOT NULL
 );
 
--- TABLE correlation_instances: composite business keys to locate a process without the process instance id
 CREATE TABLE correlation_instances (
     id VARCHAR2(36) NOT NULL,
     encoded_correlation_id VARCHAR2(36) NOT NULL,
@@ -17,7 +11,6 @@ CREATE TABLE correlation_instances (
     version NUMBER(19)
 );
 
--- TABLE process_instances: A process instance represents one specific instance of a process that is currently executing.
 CREATE TABLE process_instances (
     id VARCHAR2(36) NOT NULL,
     payload BLOB NOT NULL,

@@ -1,8 +1,4 @@
---
--- Data audit uses below tables
---
 
--- TABLE audit_query: store custom queries against data audit tables
 CREATE TABLE audit_query (
     identifier VARCHAR2(255) NOT NULL,
     graph_ql_definition VARCHAR2(5000),
@@ -14,7 +10,6 @@ CREATE SEQUENCE job_execution_history_id_seq
     INCREMENT BY 50
     CACHE 50;
 
--- TABLE job_execution_log: historical records of events of job execution
 CREATE TABLE job_execution_log (
     id NUMBER(19) NOT NULL,
     event_date timestamp(6),
@@ -31,7 +26,6 @@ CREATE TABLE job_execution_log (
     status VARCHAR2(255)
 );
 
--- TABLE process_instance_error_log: historical record of process instance errors
 CREATE TABLE process_instance_error_log (
     id NUMBER(19) NOT NULL,
     business_key VARCHAR2(255),
@@ -54,7 +48,6 @@ CREATE SEQUENCE process_instance_error_log_seq_id
     INCREMENT BY 50
     CACHE 50;
 
--- TABLE process_instance_node_log: historical record of node instance executions
 CREATE TABLE process_instance_node_log (
     id NUMBER(19) NOT NULL,
     business_key VARCHAR2(255),
@@ -84,7 +77,6 @@ CREATE SEQUENCE process_instance_node_log_id_seq
     INCREMENT BY 50
     CACHE 50;
 
--- TABLE process_instance_state_log: historical record of node state change during executions
 CREATE TABLE process_instance_state_log (
     id NUMBER(19) NOT NULL,
     business_key VARCHAR2(255),
@@ -109,13 +101,11 @@ CREATE SEQUENCE process_instance_state_log_id_seq
     INCREMENT BY 50
     CACHE 50;
 
--- TABLE process_instance_state_roles_log: historical record of process instance state changed during execution
 CREATE TABLE process_instance_state_roles_log (
     process_instance_state_log_id NUMBER(19) NOT NULL,
     role VARCHAR2(255)
 );
 
--- TABLE process_instance_variable_log: historical record of variable changes during process instance execution
 CREATE TABLE process_instance_variable_log (
     id NUMBER(19) NOT NULL,
     business_key VARCHAR2(255),
@@ -138,7 +128,6 @@ CREATE SEQUENCE process_instance_variable_log_id_seq
     INCREMENT BY 50
     CACHE 50;
 
--- TABLE  task_instance_assignment_log: historical record of assignments in user task instance
 CREATE TABLE task_instance_assignment_log (
     id NUMBER(19) NOT NULL,
     business_key VARCHAR2(255),
@@ -157,13 +146,11 @@ CREATE SEQUENCE task_instance_assignment_log_id_seq
     INCREMENT BY 50
     CACHE 50;
 
--- TABLE task_instance_assignment_users_log: historical record of assignments in user task instance
 CREATE TABLE task_instance_assignment_users_log (
     task_instance_assignment_log_id NUMBER(19) NOT NULL,
     user_id VARCHAR2(255)
 );
 
--- TABLE task_instance_attachment_log: historical record of user task instance attachments
 CREATE TABLE task_instance_attachment_log (
     id NUMBER(19) NOT NULL,
     business_key VARCHAR2(255),
@@ -184,7 +171,6 @@ CREATE SEQUENCE task_instance_attachment_log_id_seq
     INCREMENT BY 50
     CACHE 50;
 
--- TABLE task_instance_comment_log: historical record of user task instance comments
 CREATE TABLE task_instance_comment_log (
     id NUMBER(19) NOT NULL,
     business_key VARCHAR2(255),
@@ -204,7 +190,6 @@ CREATE SEQUENCE task_instance_comment_log_id_seq
     INCREMENT BY 50
     CACHE 50;
 
--- TABLE task_instance_deadline_log: historical record of user task instance deadlines change
 CREATE TABLE task_instance_deadline_log (
     id NUMBER(19) NOT NULL,
     business_key VARCHAR2(255),
@@ -222,14 +207,12 @@ CREATE SEQUENCE task_instance_deadline_log_id_seq
     INCREMENT BY 50
     CACHE 50;
 
--- TABLE task_instance_deadline_notification_log: historical record of user task instance deadlines notifications
 CREATE TABLE task_instance_deadline_notification_log (
     task_instance_deadline_log_id NUMBER(19) NOT NULL,
     property_value VARCHAR2(255),
     property_name VARCHAR2(255) NOT NULL
 );
 
--- TABLE task_instance_state_log: historical record of user task instance state change
 CREATE TABLE task_instance_state_log (
     id NUMBER(19) NOT NULL,
     business_key VARCHAR2(255),
@@ -251,7 +234,6 @@ CREATE SEQUENCE task_instance_state_log_id_seq
     INCREMENT BY 50
     CACHE 50;
 
--- TABLE task_instance_variable_log: historical record of user task instance input/output variables change
 CREATE TABLE task_instance_variable_log (
     id NUMBER(19) NOT NULL,
     business_key VARCHAR2(255),
