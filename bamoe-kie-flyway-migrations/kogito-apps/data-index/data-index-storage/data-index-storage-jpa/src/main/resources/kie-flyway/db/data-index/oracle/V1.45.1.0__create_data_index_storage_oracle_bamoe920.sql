@@ -1,8 +1,4 @@
---
--- Data index uses below tables
---
 
--- TABLE attachments: user task instance attachments
 CREATE TABLE attachments (
     id VARCHAR2(255) NOT NULL,
     content VARCHAR2(255),
@@ -12,7 +8,6 @@ CREATE TABLE attachments (
     task_id VARCHAR2(255) NOT NULL
 );
 
--- TABLE comments: user task instance comments
 CREATE TABLE comments (
     id VARCHAR2(255) NOT NULL,
     content VARCHAR2(1000),
@@ -21,7 +16,6 @@ CREATE TABLE comments (
     task_id VARCHAR2(255) NOT NULL
 );
 
--- TABLE definitions: process definitions that has been deployed
 CREATE TABLE definitions (
     id VARCHAR2(255) NOT NULL,
     version VARCHAR2(255) NOT NULL,
@@ -33,21 +27,18 @@ CREATE TABLE definitions (
     metadata JSON
 );
 
--- TABLE definitions_addons: addons those process definitions were deployed with
 CREATE TABLE definitions_addons (
     process_id VARCHAR2(255) NOT NULL,
     process_version VARCHAR2(255) NOT NULL,
     addon VARCHAR2(255) NOT NULL
 );
 
--- TABLE definitions_annotations
 CREATE TABLE definitions_annotations (
     annotation VARCHAR2(255) NOT NULL,
     process_id VARCHAR2(255) NOT NULL,
     process_version VARCHAR2(255) NOT NULL
 );
 
--- TABLE definitions_nodes: last definitions of node executed by a process instance
 CREATE TABLE definitions_nodes (
     id VARCHAR2(255) NOT NULL,
     name VARCHAR2(255),
@@ -57,7 +48,6 @@ CREATE TABLE definitions_nodes (
     process_version VARCHAR2(255) NOT NULL
 );
 
--- TABLE definitions_nodes_metadata
 CREATE TABLE definitions_nodes_metadata (
     node_id VARCHAR2(255) NOT NULL,
     process_id VARCHAR2(255) NOT NULL,
@@ -66,14 +56,12 @@ CREATE TABLE definitions_nodes_metadata (
     name VARCHAR2(255) NOT NULL
 );
 
--- TABLE definitions_roles
 CREATE TABLE definitions_roles (
     process_id VARCHAR2(255) NOT NULL,
     process_version VARCHAR2(255) NOT NULL,
     role VARCHAR2(255) NOT NULL
 );
 
--- TABLE jobs: timers created by runtime
 CREATE TABLE jobs (
     id VARCHAR2(255) NOT NULL,
     callback_endpoint VARCHAR2(255),
@@ -94,7 +82,6 @@ CREATE TABLE jobs (
     status VARCHAR2(255)
 );
 
--- TABLE milestones: special type of node that is completed through a condition (comes from cmmn)
 CREATE TABLE milestones (
     id VARCHAR2(255) NOT NULL,
     process_instance_id VARCHAR2(255) NOT NULL,
@@ -102,7 +89,6 @@ CREATE TABLE milestones (
     status VARCHAR2(255)
 );
 
--- TABLE nodes: nodes executed by the process instance
 CREATE TABLE nodes (
     id VARCHAR2(255) NOT NULL,
     definition_id VARCHAR2(255),
@@ -115,7 +101,6 @@ CREATE TABLE nodes (
     sla_due_date timestamp
 );
 
--- TABLE processes: last state of the process instance
 CREATE TABLE processes (
     id VARCHAR2(255) NOT NULL,
     business_key VARCHAR2(255),
@@ -138,19 +123,16 @@ CREATE TABLE processes (
     sla_due_date timestamp
 );
 
--- TABLE processes_addons: addons this process instance is being executed with
 CREATE TABLE processes_addons (
     process_id VARCHAR2(255) NOT NULL,
     addon VARCHAR2(255) NOT NULL
 );
 
--- TABLE processes_roles: roles this process instance requires
 CREATE TABLE processes_roles (
     process_id VARCHAR2(255) NOT NULL,
     role VARCHAR2(255) NOT NULL
 );
 
--- TABLE tasks: user task instance last state
 CREATE TABLE tasks (
     id VARCHAR2(255) NOT NULL,
     actual_owner VARCHAR2(255),
@@ -173,31 +155,26 @@ CREATE TABLE tasks (
     sla_due_date timestamp
 );
 
--- TABLE tasks_admin_groups: user task instance admin groups assigned
 CREATE TABLE tasks_admin_groups (
     task_id VARCHAR2(255) NOT NULL,
     group_id VARCHAR2(255) NOT NULL
 );
 
--- TABLE tasks_admin_users: user task instance admin user assigned
 CREATE TABLE tasks_admin_users (
     task_id VARCHAR2(255) NOT NULL,
     user_id VARCHAR2(255) NOT NULL
 );
 
--- TABLE tasks_excluded_users: user task instance excluded users
 CREATE TABLE tasks_excluded_users (
     task_id VARCHAR2(255) NOT NULL,
     user_id VARCHAR2(255) NOT NULL
 );
 
--- TABLE tasks_potential_groups: user task instance potential groups
 CREATE TABLE tasks_potential_groups (
     task_id VARCHAR2(255) NOT NULL,
     group_id VARCHAR2(255) NOT NULL
 );
 
--- TABLE tasks_potential_users: user task instance potential users
 CREATE TABLE tasks_potential_users (
     task_id VARCHAR2(255) NOT NULL,
     user_id VARCHAR2(255) NOT NULL
