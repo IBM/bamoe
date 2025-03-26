@@ -1,0 +1,38 @@
+ bigint ->NUMBER(19)
+ without time zone ->
+ No MINVALUE ->
+ NO MAXVALUE  ->
+ character  ->VARCHAR2
+ text ->CLOB
+ USING ->
+ character varying ->VARCHAR2
+ ONLY ->
+ jsonb ->JSON
+ bytea ->BLOB
+
+ 
+
+runtime-persistence, CREATE INDEX idx_correlation_instances_correlated_id ON correlation_instances (correlated_id);
+this index is not created as there is already an index using same column when
+ALTER TABLE correlation_instances
+    ADD CONSTRAINT correlation_instances_encoded_correlation_id_key UNIQUE (encoded_correlation_id);
+
+    CREATE SEQUENCE jbpm_user_tasks_deadline_seq
+    START WITH 1
+    INCREMENT BY 50
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+    OWNED BY jbpm_user_tasks_deadline.id;
+
+CREATE SEQUENCE jbpm_user_tasks_reassignment_seq
+    START WITH 1
+    INCREMENT BY 50
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+    OWNED BY jbpm_user_tasks_reassignment.id;
+
+
+    didnt added as  OWNED BY jbpm_user_tasks_reassignment.id; was not in oracle
+
