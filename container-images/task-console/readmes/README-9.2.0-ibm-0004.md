@@ -1,0 +1,1 @@
+> This image has been removed in 9.2.0-ibm-0004, since all its capabilities are now part of quay.io/bamoe/management-console.
