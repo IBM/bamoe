@@ -376,5 +376,24 @@
       </plugin>
     </plugins>
   </build>
-
+  <profiles>
+    <profile>
+      <id>native</id>
+      <properties>
+        <failsafe.include>**/Native*IT.java</failsafe.include>
+        <failsafe.exclude></failsafe.exclude>
+        <quarkus.native.enabled>true</quarkus.native.enabled>
+        <quarkus.package.type>native</quarkus.package.type>
+        <quarkus.native.native-image-xmx>8g</quarkus.native.native-image-xmx>
+        <!-- Native building needs a fixed port for tests -->
+        <tests.quarkus.http.port>8080</tests.quarkus.http.port>
+      </properties>
+      <activation>
+        <property>
+          <name>native</name>
+        </property>
+        <activeByDefault>false</activeByDefault>
+      </activation>
+    </profile>
+  </profiles>
 </project>
