@@ -17,7 +17,7 @@
 
 # Example :: Process Persistence
 
-This example depicts the usage of persistence configuration for various databases like H2, Postgresql and MS SQL. 
+This example depicts the usage of persistence configuration for various databases like H2, Postgresql, MS SQL and Oracle. 
 This application can be run in dev and container modes.
 
 This example also showcases a basic implementation of a **Hiring** Process that drives a _Candidate_ through different
@@ -30,11 +30,11 @@ example. You could find more details about that example from its README.
 ## Configuration
 
 As mentioned earlier, this example can be run in quarkus development mode and in container mode. In dev mode, the 
-example could use `h2`, `postgresql` or `mssql`. In container mode it can use `postgresql` or `mssql`.
+example could use `h2`, `postgresql`, `mssql` or `oracle`. In container mode it can use `postgresql`, `mssql` or `oracle`.
 
 Each database is paired with a maven profile and a quarkus profile which are tied together. So in this example there 
-are four maven profiles `h2`, `postgresql`, `mssql` and `container` tied to quarkus profiles with similar 
-name. `h2`, `postgresql` and `mssql` profiles defines their own specific database dependencies and configurations 
+are five maven profiles `h2`, `postgresql`, `mssql`, `oracle` and `container` tied to quarkus profiles with similar 
+name. `h2`, `postgresql`, `mssql` and `oracle` profiles defines their own specific database dependencies and configurations 
 whereas `container` profile defines the dependencies and configurations to pack the example as a docker image.
 
 In Dev mode, Quarkus provides us with a zero config database out of the box, a feature referred to as Dev Services.
@@ -159,14 +159,63 @@ The available orm's are:
 - META-INF/bamoe-data-index-orm.xml: This file remaps some entities from the data-index component.
 - META-INF/bamoe-job-service-orm.xml: This file remaps some entities from the job-service component.
 
+
+### Oracle
+
+This is the maven profile for Oracle
+```
+ <profile>
+    <id>oracle</id>
+        <properties>
+            <quarkus.profile>oracle</quarkus.profile>
+        </properties>
+        <dependencies>
+            <dependency>
+                <groupId>io.quarkus</groupId>
+                <artifactId>quarkus-jdbc-oracle</artifactId>
+            </dependency>
+            <dependency>
+                <groupId>com.oracle.database.jdbc</groupId>
+                <artifactId>ojdbc11</artifactId>
+                <version>21.7.0.0</version>
+            </dependency>
+            <dependency>
+                <groupId>com.oracle.database.security</groupId>
+                <artifactId>oraclepki</artifactId>
+            </dependency>
+            <dependency>
+                <groupId>com.ibm.bamoe</groupId>
+                <artifactId>bamoe-mssql-mappings</artifactId>
+            </dependency>
+        </dependencies>
+    </profile>
+```
+The dependencies needed are `oracle jdbc driver, ojdbc11, oraclepki` and `bamoe-oracle-mappings`.
+
+This is the configuration for Oracle
+```
+%oracle.quarkus.datasource.db-kind=oracle
+%oracle.quarkus.hibernate-orm.mapping-files=META-INF/bamoe-user-task-orm.xml,META-INF/bamoe-job-service-orm.xml
+%oracle.quarkus.datasource.jdbc.url=jdbc:oracle:thin:@//oracle:1521/FREE
+%oracle.quarkus.datasource.username=system
+%oracle.quarkus.datasource.password=Password123456
+%oracle.quarkus.datasource.jdbc.driver=oracle.jdbc.OracleDriver
+```
+
+The `bamoe-oracle-mappings` is a utility library to help Job Service and Data Audit storage work properly with 
+`Oracle`. It contains the hibernate orm.xml that will remap some of the JPA entities contained in both modules.
+
+The available orm's are:
+- META-INF/bamoe-user-task-orm.xml: This file remaps some entities from the jbpm-usertask-storage-jpa component.
+- META-INF/bamoe-job-service-orm.xml: This file remaps some entities from the job-service component.
+
+
 Depending on the dependencies configured in our application it may be required to configure the ORMs to be used.
 To configure which mapping files should be imported you can use the `quarkus.hibernate-orm.mapping-files` property to 
 configure a comma-separated list of ORM files to use.
 
-When running the example in Dev mode, Quarkus will start a `MS SQL Server` database container as a part of the Dev 
-Services. So make sure to install docker before running this example. In order to use mssql database as a Dev Service 
-it also requires us to have a [license acceptance file](src/main/resources/container-license-acceptance.txt). More on
-this [here](https://quarkus.io/version/3.15/guides/databases-dev-services#license_acceptance).
+When running the example in Dev mode, Quarkus will start a `Oracle` database container as a part of the Dev 
+Services. So make sure to install docker before running this example. 
 
 ### Container
 
@@ -221,7 +270,7 @@ First, build the example by running the following command in a terminal
 ```
 mvn clean package -Pcontainer,<dbtype>
 ```
-Current supported dbtypes in container mode are `postgresql` and `mssql`. So for e.g. to build the example using 
+Current supported dbtypes in container mode are `postgresql`, `mssql` and `oracle`. So for e.g. to build the example using 
 postgresql database configuration we can run the following command
 
 ```shell
@@ -239,7 +288,7 @@ docker compose -f ./docker-compose/docker-compose-<dbtype>.yml up
 For e.g. to start the example with postgresql run
 
 ```bash
-docker compose -f ./docker-compose/docker-compose-postgresql.yml up
+docker-compose -f ./docker-compose/docker-compose-oracle.yml up
 ```
 
 To stop and remove containers run
@@ -250,7 +299,7 @@ docker compose -f ./docker-compose/docker-compose-<dbtype>.yml down
 
 ### Running in Development mode
 
-The development mode in this application currently supports three databases: `h2`, `postgresql` and `mssql`. The dev 
+The development mode in this application currently supports three databases: `h2`, `postgresql`, `mssql` and `oracle`. The dev 
 mode will embed all the needed Infrastructure Services (Database, Data-Index & Jobs Service) and won't require any 
 extra step. To start this example's app in Development mode with a specific database configuration, just run the 
 following command in a terminal

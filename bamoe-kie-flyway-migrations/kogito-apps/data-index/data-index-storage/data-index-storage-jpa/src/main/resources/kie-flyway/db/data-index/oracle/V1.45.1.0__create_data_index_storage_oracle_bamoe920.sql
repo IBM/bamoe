@@ -24,7 +24,7 @@ CREATE TABLE definitions (
     source BLOB,
     endpoint VARCHAR2(255),
     description VARCHAR2(255),
-    metadata JSON
+    metadata CLOB
 );
 
 CREATE TABLE definitions_addons (
@@ -116,11 +116,12 @@ CREATE TABLE processes (
     root_process_instance_id VARCHAR2(255),
     start_time timestamp,
     state NUMBER(10),
-    variables JSON,
+    variables CLOB,
     version VARCHAR2(255),
     created_by CLOB,
     updated_by CLOB,
-    sla_due_date timestamp
+    sla_due_date timestamp,
+    node_instance_id VARCHAR2(255) 
 );
 
 CREATE TABLE processes_addons (
@@ -139,10 +140,10 @@ CREATE TABLE tasks (
     completed timestamp,
     description VARCHAR2(255),
     endpoint VARCHAR2(255),
-    inputs JSON,
+    inputs CLOB,
     last_update timestamp,
     name VARCHAR2(255),
-    outputs JSON,
+    outputs CLOB,
     priority VARCHAR2(255),
     process_id VARCHAR2(255),
     process_instance_id VARCHAR2(255),
@@ -334,3 +335,6 @@ ALTER TABLE tasks_potential_groups
 
 ALTER TABLE tasks_potential_users
     ADD CONSTRAINT fk_tasks_potential_users_tasks FOREIGN KEY (task_id) REFERENCES tasks(id) ON DELETE CASCADE;
+
+ALTER TABLE nodes ADD  (retrigger NUMBER(1) DEFAULT 0,error_message CLOB);
+ALTER TABLE processes ADD node_instance_id VARCHAR(255);

@@ -12,8 +12,8 @@ CREATE TABLE job_details (
     execution_counter integer, -- number of times the job was executed
     scheduled_id VARCHAR2(40), -- the execution control on the scheduler (id on vertx.setTimer, quartzId...)
     priority integer,
-    recipient JSON, -- http callback, event topic
-    job_trigger JSON, -- when/how it should be executed
+    recipient CLOB, -- http callback, event topic
+    job_trigger CLOB, -- when/how it should be executed
     fire_time timestamp with time zone,
     execution_timeout NUMBER(19),
     execution_timeout_unit VARCHAR2(40),

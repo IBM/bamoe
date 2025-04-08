@@ -5,8 +5,8 @@
 -- TABLE audit_query: store custom queries against data audit tables
 CREATE TABLE audit_query (
     identifier VARCHAR2(255) NOT NULL,
-    graph_ql_definition VARCHAR2(5000),
-    query VARCHAR2(5000)
+    graph_ql_definition CLOB,
+    query CLOB
 );
 
 CREATE SEQUENCE job_execution_history_id_seq

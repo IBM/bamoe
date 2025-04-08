@@ -30,7 +30,7 @@ CREATE TABLE definitions (
     source BLOB,
     endpoint VARCHAR2(255),
     description VARCHAR2(255),
-    metadata JSON
+    metadata CLOB
 );
 
 -- TABLE definitions_addons: addons those process definitions were deployed with
@@ -98,7 +98,7 @@ CREATE TABLE jobs (
 CREATE TABLE kogito_data_cache (
     var_name VARCHAR2(255) NOT NULL,
     cache_name VARCHAR2(255) NOT NULL,
-    json_value JSON
+    json_value CLOB
 );
 
 -- TABLE milestones: special type of node that is completed through a condition (comes from cmmn)
@@ -138,7 +138,7 @@ CREATE TABLE processes (
     root_process_instance_id VARCHAR2(255),
     start_time timestamp,
     state NUMBER(10),
-    variables JSON,
+    variables CLOB,
     version VARCHAR2(255),
     created_by CLOB,
     updated_by CLOB,
@@ -164,10 +164,10 @@ CREATE TABLE tasks (
     completed timestamp,
     description VARCHAR2(255),
     endpoint VARCHAR2(255),
-    inputs JSON,
+    inputs CLOB,
     last_update timestamp,
     name VARCHAR2(255),
-    outputs JSON,
+    outputs CLOB,
     priority VARCHAR2(255),
     process_id VARCHAR2(255),
     process_instance_id VARCHAR2(255),
