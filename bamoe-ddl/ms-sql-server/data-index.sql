@@ -279,6 +279,3 @@ CREATE INDEX idx_tasks_excluded_users_tid ON tasks_excluded_users (task_id);
 CREATE INDEX idx_tasks_potential_groups_tid ON tasks_potential_groups (task_id);
 
 CREATE INDEX idx_tasks_potential_users_tid ON tasks_potential_users (task_id);
-
-ALTER TABLE nodes ADD  (retrigger NUMBER(1) DEFAULT 0,error_message CLOB);
-ALTER TABLE processes ADD node_instance_id VARCHAR(255);

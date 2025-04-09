@@ -164,31 +164,32 @@ The available orm's are:
 
 This is the maven profile for Oracle
 ```
- <profile>
-    <id>oracle</id>
-        <properties>
-            <quarkus.profile>oracle</quarkus.profile>
-        </properties>
-        <dependencies>
-            <dependency>
-                <groupId>io.quarkus</groupId>
-                <artifactId>quarkus-jdbc-oracle</artifactId>
-            </dependency>
-            <dependency>
-                <groupId>com.oracle.database.jdbc</groupId>
-                <artifactId>ojdbc11</artifactId>
-                <version>21.7.0.0</version>
-            </dependency>
-            <dependency>
-                <groupId>com.oracle.database.security</groupId>
-                <artifactId>oraclepki</artifactId>
-            </dependency>
-            <dependency>
-                <groupId>com.ibm.bamoe</groupId>
-                <artifactId>bamoe-mssql-mappings</artifactId>
-            </dependency>
-        </dependencies>
-    </profile>
+  <profile>
+            <id>oracle</id>
+            <properties>
+                <quarkus.profile>oracle</quarkus.profile>
+            </properties>
+            <dependencies>
+                <dependency>
+                    <groupId>io.quarkus</groupId>
+                    <artifactId>quarkus-jdbc-oracle</artifactId>
+                </dependency>
+                <dependency>
+                    <groupId>com.oracle.database.jdbc</groupId>
+                    <artifactId>ojdbc11</artifactId>
+                    <version>21.7.0.0</version>
+                </dependency>
+                <dependency>
+                    <groupId>com.oracle.database.security</groupId>
+                    <artifactId>oraclepki</artifactId>
+                </dependency>
+                <dependency>
+                    <groupId>com.ibm.bamoe</groupId>
+                    <artifactId>bamoe-oracle-mappings</artifactId> 
+                    <version>${version}</version>
+                </dependency>
+            </dependencies>
+        </profile>
 ```
 The dependencies needed are `oracle jdbc driver, ojdbc11, oraclepki` and `bamoe-oracle-mappings`.
 
@@ -196,10 +197,6 @@ This is the configuration for Oracle
 ```
 %oracle.quarkus.datasource.db-kind=oracle
 %oracle.quarkus.hibernate-orm.mapping-files=META-INF/bamoe-user-task-orm.xml,META-INF/bamoe-job-service-orm.xml
-%oracle.quarkus.datasource.jdbc.url=jdbc:oracle:thin:@//oracle:1521/FREE
-%oracle.quarkus.datasource.username=system
-%oracle.quarkus.datasource.password=Password123456
-%oracle.quarkus.datasource.jdbc.driver=oracle.jdbc.OracleDriver
 ```
 
 The `bamoe-oracle-mappings` is a utility library to help Job Service and Data Audit storage work properly with 
@@ -238,17 +235,18 @@ The `quarkus-container-image-jib` library is used to package the example as a do
 
 This is the corresponding configuration
 ```
-%container,postgresql,mssql.quarkus.container-image.build=true
-%container,postgresql,mssql.quarkus.container-image.push=false
-%container,postgresql,mssql.quarkus.container-image.group=bamoe
-%container,postgresql,mssql.quarkus.container-image.registry=dev.local
-%container,postgresql,mssql.quarkus.container-image.tag=${project.version}
+%container,postgresql,mssql,oracle.quarkus.container-image.build=true
+%container,postgresql,mssql,oracle.quarkus.container-image.push=false
+%container,postgresql,mssql,oracle.quarkus.container-image.group=bamoe
+%container,postgresql,mssql,oracle.quarkus.container-image.registry=dev.local
+%container,postgresql,mssql,oracle.quarkus.container-image.tag=${project.version}
 %postgresql.quarkus.container-image.name=process-persistence-postgresql
 %mssql.quarkus.container-image.name=process-persistence-mssql
+%oracle.quarkus.container-image.name=process-persistence-oracle
 ```
 
 These are the configurations of the resulting image. The `container` profile is used in tandem with a database profile 
-like `postgresql` or `mssql` to pack related database dependencies and configurations. The resulting image is then 
+like `postgresql` or `mssql` or`oracle` to pack related database dependencies and configurations. The resulting image is then 
 used in a docker compose file to run all services including this example, database and any other database addon 
 services together as containers. The docker compose files are located [here](docker-compose).
 
@@ -288,7 +286,7 @@ docker compose -f ./docker-compose/docker-compose-<dbtype>.yml up
 For e.g. to start the example with postgresql run
 
 ```bash
-docker-compose -f ./docker-compose/docker-compose-oracle.yml up
+docker compose -f ./docker-compose/docker-compose-postgresql.yml up
 ```
 
 To stop and remove containers run

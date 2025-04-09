@@ -49,11 +49,3 @@ services:
       KOGITO_DATAINDEX_HTTP_URL: http://127.0.0.1:8080
       JAVA_DEBUG: true
       JAVA_DEBUG_PORT: "*:5005"
-
-
-# issues, JSON type
-# ORA-43853: JSON type cannot be used in non-automatic segment space management tablespace "SYSTEM"
-# alternative JSON to CLOB
-# make sure create a new tablespace with ASSM 
-
-

@@ -12,7 +12,7 @@ that will remap those entities for each individual BAMOE component that requires
 in the DB.
 
  The available orm's are:
--    META-INF/bamoe-job-service-orm.xml: This file remaps some entities from the data-index component.
+-    META-INF/bamoe-job-service-orm.xml: This file remaps some entities from the jbpm-usertask-storage-jpa component.
 -    META-INF/bamoe-user-task-orm.xml: This file remaps some entities from the user-task component.
 
 ### Configuration
@@ -23,7 +23,7 @@ a comma-separated list containing which ORM  files to use.
 
 ````
 Eg:
- quarkus.hibernate-orm.mapping-files=META-INF/bamoe-data-index-orm.xml,META-INF/bamoe-user-task-orm.xml
+ quarkus.hibernate-orm.mapping-files=META-INF/bamoe-job-service-ormxml,META-INF/bamoe-user-task-orm.xml
 ````
 Note: 
  More about Quarkus Hibernate-ORM: https://es.quarkus.io/guides/hibernate-orm
