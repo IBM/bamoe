@@ -16,6 +16,7 @@
   <packaging>pom</packaging>
 
   <modules>
+    <module>bamoe-mssql-mappings</module>
     <module>bamoe-oracle-mappings</module>
   </modules>
 </project>

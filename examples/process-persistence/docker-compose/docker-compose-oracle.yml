@@ -23,16 +23,10 @@ services:
     image: container-registry.oracle.com/database/free:latest-lite
     restart: no
     environment:
-      ACCEPT_EULA: "Y"
       ORACLE_PWD: "Password123456"
       ORACLE_USER: system
     ports:
       - "1521:1521" 
-    healthcheck:
-      test: ["CMD", "sqlplus", "-s", "system/Password123456@//oracle:1521/FREEPDB1", "<<<", "'exit'"]
-      interval: 10s
-      timeout: 5s
-      retries: 3
 
   process-persistence-service:
     container_name: process-persistence-service
