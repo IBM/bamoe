@@ -27,10 +27,3 @@ Eg:
 ````
 Note: 
  More about Quarkus Hibernate-ORM: https://es.quarkus.io/guides/hibernate-orm
-
-
-
-
-
-
-
