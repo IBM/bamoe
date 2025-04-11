@@ -217,3 +217,13 @@ ALTER TABLE jbpm_user_tasks_deadline_timer
 
 ALTER TABLE jbpm_user_tasks_reassignment_timer
     ADD CONSTRAINT fk_jbpm_user_tasks_reassignment_timer_tid FOREIGN KEY (task_id) REFERENCES jbpm_user_tasks(id) ON DELETE CASCADE;
+
+CREATE SEQUENCE jbpm_user_tasks_deadline_seq
+    START WITH 1
+    INCREMENT BY 50
+    CACHE 50;
+
+CREATE SEQUENCE jbpm_user_tasks_reassignment_seq
+    START WITH 1
+    INCREMENT BY 50
+    CACHE 50;
