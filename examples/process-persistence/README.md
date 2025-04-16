@@ -175,15 +175,6 @@ This is the maven profile for Oracle
                     <artifactId>quarkus-jdbc-oracle</artifactId>
                 </dependency>
                 <dependency>
-                    <groupId>com.oracle.database.jdbc</groupId>
-                    <artifactId>ojdbc11</artifactId>
-                    <version>21.7.0.0</version>
-                </dependency>
-                <dependency>
-                    <groupId>com.oracle.database.security</groupId>
-                    <artifactId>oraclepki</artifactId>
-                </dependency>
-                <dependency>
                     <groupId>com.ibm.bamoe</groupId>
                     <artifactId>bamoe-oracle-mappings</artifactId> 
                     <version>${version}</version>
@@ -191,7 +182,7 @@ This is the maven profile for Oracle
             </dependencies>
         </profile>
 ```
-The dependencies needed are `oracle jdbc driver, ojdbc11, oraclepki` and `bamoe-oracle-mappings`.
+The dependencies needed are `oracle jdbc driver` and `bamoe-oracle-mappings`.
 
 This is the configuration for Oracle
 ```
