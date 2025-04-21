@@ -17,24 +17,18 @@ CREATE TABLE job_details (
     fire_time timestamp with time zone,
     execution_timeout NUMBER(19),
     execution_timeout_unit VARCHAR2(40),
-    created timestamp with time zone
+    created timestamp with time zone,
+    CONSTRAINT job_details_pkey1 PRIMARY KEY (id)
 );
 
 -- TABLE job_service_management: used for clustering and to check lead instance
 CREATE TABLE job_service_management (
     id VARCHAR2(40) NOT NULL,
     last_heartbeat timestamp with time zone,
-    token VARCHAR2(40)
+    token VARCHAR2(40),
+    CONSTRAINT job_service_management_pkey PRIMARY KEY (id),
+    CONSTRAINT job_service_management_token_key UNIQUE (token)
 );
-
-ALTER TABLE job_details
-    ADD CONSTRAINT job_details_pkey1 PRIMARY KEY (id);
-
-ALTER TABLE job_service_management
-    ADD CONSTRAINT job_service_management_pkey PRIMARY KEY (id);
-
-ALTER TABLE job_service_management
-    ADD CONSTRAINT job_service_management_token_key UNIQUE (token);
 
 CREATE INDEX job_details_created_idx ON job_details (created);
 
