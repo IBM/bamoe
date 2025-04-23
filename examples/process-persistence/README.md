@@ -159,6 +159,10 @@ The available orm's are:
 - META-INF/bamoe-data-index-orm.xml: This file remaps some entities from the data-index component.
 - META-INF/bamoe-job-service-orm.xml: This file remaps some entities from the job-service component.
 
+Depending on the dependencies configured in our application it may be required to configure the ORMs to be used.
+To configure which mapping files should be imported you can use the `quarkus.hibernate-orm.mapping-files` property to 
+configure a comma-separated list of ORM files to use.
+
 When running the example in Dev mode, Quarkus will start a `MS SQL Server` database container as a part of the Dev 
 Services. So make sure to install docker before running this example. In order to use mssql database as a Dev Service 
 it also requires us to have a [license acceptance file](src/main/resources/container-license-acceptance.txt). More on
@@ -169,22 +173,22 @@ this [here](https://quarkus.io/version/3.15/guides/databases-dev-services#licens
 This is the maven profile for Oracle
 ```
   <profile>
-            <id>oracle</id>
-            <properties>
-                <quarkus.profile>oracle</quarkus.profile>
-            </properties>
-            <dependencies>
-                <dependency>
-                    <groupId>io.quarkus</groupId>
-                    <artifactId>quarkus-jdbc-oracle</artifactId>
-                </dependency>
-                <dependency>
-                    <groupId>com.ibm.bamoe</groupId>
-                    <artifactId>bamoe-oracle-mappings</artifactId> 
-                    <version>${version}</version>
-                </dependency>
-            </dependencies>
-        </profile>
+        <id>oracle</id>
+        <properties>
+            <quarkus.profile>oracle</quarkus.profile>
+        </properties>
+        <dependencies>
+            <dependency>
+                <groupId>io.quarkus</groupId>
+                <artifactId>quarkus-jdbc-oracle</artifactId>
+            </dependency>
+            <dependency>
+                <groupId>com.ibm.bamoe</groupId>
+                <artifactId>bamoe-oracle-mappings</artifactId> 
+                <version>${version}</version>
+            </dependency>
+        </dependencies>
+    </profile>
 ```
 The dependencies needed are `oracle jdbc driver` and `bamoe-oracle-mappings`.
 
@@ -200,7 +204,6 @@ The `bamoe-oracle-mappings` is a utility library to help Job Service and Data Au
 The available orm's are:
 - META-INF/bamoe-user-task-orm.xml: This file remaps some entities from the jbpm-usertask-storage-jpa component.
 - META-INF/bamoe-job-service-orm.xml: This file remaps some entities from the job-service component.
-
 
 Depending on the dependencies configured in our application it may be required to configure the ORMs to be used.
 To configure which mapping files should be imported you can use the `quarkus.hibernate-orm.mapping-files` property to 
