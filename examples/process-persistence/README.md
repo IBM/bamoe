@@ -159,6 +159,10 @@ The available orm's are:
 - META-INF/bamoe-data-index-orm.xml: This file remaps some entities from the data-index component.
 - META-INF/bamoe-job-service-orm.xml: This file remaps some entities from the job-service component.
 
+When running the example in Dev mode, Quarkus will start a `MS SQL Server` database container as a part of the Dev 
+Services. So make sure to install docker before running this example. In order to use mssql database as a Dev Service 
+it also requires us to have a [license acceptance file](src/main/resources/container-license-acceptance.txt). More on
+this [here](https://quarkus.io/version/3.15/guides/databases-dev-services#license_acceptance).
 
 ### Oracle
 
