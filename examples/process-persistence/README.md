@@ -152,7 +152,7 @@ This is the configuration for MS SQL Server
 %mssql.quarkus.hibernate-orm.mapping-files=META-INF/bamoe-data-index-orm.xml,META-INF/bamoe-job-service-orm.xml
 ```
 
-The `bamoe-mssql-mappings` is a utility library to help Job Service and Data Audit storage work properly with 
+The `bamoe-mssql-mappings` is a utility library to help Job Service and Data Index storage work properly with 
 `MS SQL Server`. It contains the hibernate orm.xml that will remap some of the JPA entities contained in both modules.
 
 The available orm's are:
@@ -198,7 +198,7 @@ This is the configuration for Oracle
 %oracle.quarkus.hibernate-orm.mapping-files=META-INF/bamoe-user-task-orm.xml,META-INF/bamoe-job-service-orm.xml
 ```
 
-The `bamoe-oracle-mappings` is a utility library to help Job Service and Data Audit storage work properly with 
+The `bamoe-oracle-mappings` is a utility library to help Job Service and User Task storage work properly with 
 `Oracle`. It contains the hibernate orm.xml that will remap some of the JPA entities contained in both modules.
 
 The available orm's are:
