@@ -17,7 +17,7 @@
 
 # Example :: Process Persistence
 
-This example depicts the usage of persistence configuration for various databases like H2, Postgresql and MS SQL. 
+This example depicts the usage of persistence configuration for various databases like H2, Postgresql, MS SQL and Oracle. 
 This application can be run in dev and container modes.
 
 This example also showcases a basic implementation of a **Hiring** Process that drives a _Candidate_ through different
@@ -30,11 +30,11 @@ example. You could find more details about that example from its README.
 ## Configuration
 
 As mentioned earlier, this example can be run in quarkus development mode and in container mode. In dev mode, the 
-example could use `h2`, `postgresql` or `mssql`. In container mode it can use `postgresql` or `mssql`.
+example could use `h2`, `postgresql`, `mssql` or `oracle`. In container mode it can use `postgresql`, `mssql` or `oracle`.
 
 Each database is paired with a maven profile and a quarkus profile which are tied together. So in this example there 
-are four maven profiles `h2`, `postgresql`, `mssql` and `container` tied to quarkus profiles with similar 
-name. `h2`, `postgresql` and `mssql` profiles defines their own specific database dependencies and configurations 
+are five maven profiles `h2`, `postgresql`, `mssql`, `oracle` and `container` tied to quarkus profiles with similar 
+name. `h2`, `postgresql`, `mssql` and `oracle` profiles defines their own specific database dependencies and configurations 
 whereas `container` profile defines the dependencies and configurations to pack the example as a docker image.
 
 In Dev mode, Quarkus provides us with a zero config database out of the box, a feature referred to as Dev Services.
@@ -152,7 +152,7 @@ This is the configuration for MS SQL Server
 %mssql.quarkus.hibernate-orm.mapping-files=META-INF/bamoe-data-index-orm.xml,META-INF/bamoe-job-service-orm.xml
 ```
 
-The `bamoe-mssql-mappings` is a utility library to help Job Service and Data Audit storage work properly with 
+The `bamoe-mssql-mappings` is a utility library to help Job Service and Data Index storage work properly with 
 `MS SQL Server`. It contains the hibernate orm.xml that will remap some of the JPA entities contained in both modules.
 
 The available orm's are:
@@ -167,6 +167,50 @@ When running the example in Dev mode, Quarkus will start a `MS SQL Server` datab
 Services. So make sure to install docker before running this example. In order to use mssql database as a Dev Service 
 it also requires us to have a [license acceptance file](src/main/resources/container-license-acceptance.txt). More on
 this [here](https://quarkus.io/version/3.15/guides/databases-dev-services#license_acceptance).
+
+### Oracle
+
+This is the maven profile for Oracle
+```
+  <profile>
+        <id>oracle</id>
+        <properties>
+            <quarkus.profile>oracle</quarkus.profile>
+        </properties>
+        <dependencies>
+            <dependency>
+                <groupId>io.quarkus</groupId>
+                <artifactId>quarkus-jdbc-oracle</artifactId>
+            </dependency>
+            <dependency>
+                <groupId>com.ibm.bamoe</groupId>
+                <artifactId>bamoe-oracle-mappings</artifactId> 
+                <version>${version}</version>
+            </dependency>
+        </dependencies>
+    </profile>
+```
+The dependencies needed are `oracle jdbc driver` and `bamoe-oracle-mappings`.
+
+This is the configuration for Oracle
+```
+%oracle.quarkus.datasource.db-kind=oracle
+%oracle.quarkus.hibernate-orm.mapping-files=META-INF/bamoe-user-task-orm.xml,META-INF/bamoe-job-service-orm.xml
+```
+
+The `bamoe-oracle-mappings` is a utility library to help Job Service and User Task storage work properly with 
+`Oracle`. It contains the hibernate orm.xml that will remap some of the JPA entities contained in both modules.
+
+The available orm's are:
+- META-INF/bamoe-user-task-orm.xml: This file remaps some entities from the jbpm-usertask-storage-jpa component.
+- META-INF/bamoe-job-service-orm.xml: This file remaps some entities from the job-service component.
+
+Depending on the dependencies configured in our application it may be required to configure the ORMs to be used.
+To configure which mapping files should be imported you can use the `quarkus.hibernate-orm.mapping-files` property to 
+configure a comma-separated list of ORM files to use.
+
+When running the example in Dev mode, Quarkus will start a `Oracle` database container as a part of the Dev 
+Services. So make sure to install docker before running this example. 
 
 ### Container
 
@@ -189,17 +233,18 @@ The `quarkus-container-image-jib` library is used to package the example as a do
 
 This is the corresponding configuration
 ```
-%container,postgresql,mssql.quarkus.container-image.build=true
-%container,postgresql,mssql.quarkus.container-image.push=false
-%container,postgresql,mssql.quarkus.container-image.group=bamoe
-%container,postgresql,mssql.quarkus.container-image.registry=dev.local
-%container,postgresql,mssql.quarkus.container-image.tag=${project.version}
+%container,postgresql,mssql,oracle.quarkus.container-image.build=true
+%container,postgresql,mssql,oracle.quarkus.container-image.push=false
+%container,postgresql,mssql,oracle.quarkus.container-image.group=bamoe
+%container,postgresql,mssql,oracle.quarkus.container-image.registry=dev.local
+%container,postgresql,mssql,oracle.quarkus.container-image.tag=${project.version}
 %postgresql.quarkus.container-image.name=process-persistence-postgresql
 %mssql.quarkus.container-image.name=process-persistence-mssql
+%oracle.quarkus.container-image.name=process-persistence-oracle
 ```
 
 These are the configurations of the resulting image. The `container` profile is used in tandem with a database profile 
-like `postgresql` or `mssql` to pack related database dependencies and configurations. The resulting image is then 
+like `postgresql` or `mssql` or`oracle` to pack related database dependencies and configurations. The resulting image is then 
 used in a docker compose file to run all services including this example, database and any other database addon 
 services together as containers. The docker compose files are located [here](docker-compose).
 
@@ -221,7 +266,7 @@ First, build the example by running the following command in a terminal
 ```
 mvn clean package -Pcontainer,<dbtype>
 ```
-Current supported dbtypes in container mode are `postgresql` and `mssql`. So for e.g. to build the example using 
+Current supported dbtypes in container mode are `postgresql`, `mssql` and `oracle`. So for e.g. to build the example using 
 postgresql database configuration we can run the following command
 
 ```shell
@@ -250,7 +295,7 @@ docker compose -f ./docker-compose/docker-compose-<dbtype>.yml down
 
 ### Running in Development mode
 
-The development mode in this application currently supports three databases: `h2`, `postgresql` and `mssql`. The dev 
+The development mode in this application currently supports three databases: `h2`, `postgresql`, `mssql` and `oracle`. The dev 
 mode will embed all the needed Infrastructure Services (Database, Data-Index & Jobs Service) and won't require any 
 extra step. To start this example's app in Development mode with a specific database configuration, just run the 
 following command in a terminal

@@ -204,6 +204,23 @@
                 </dependency>
             </dependencies>
         </profile>
+         <profile>
+            <id>oracle</id>
+            <properties>
+                <quarkus.profile>oracle</quarkus.profile>
+            </properties>
+            <dependencies>
+                <dependency>
+                    <groupId>io.quarkus</groupId>
+                    <artifactId>quarkus-jdbc-oracle</artifactId>
+                </dependency>
+                <dependency>
+                    <groupId>com.ibm.bamoe</groupId>
+                    <artifactId>bamoe-oracle-mappings</artifactId> 
+                    <version>${version}</version>
+                </dependency>
+            </dependencies>
+        </profile>
     </profiles>
 
     <build>
