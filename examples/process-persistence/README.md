@@ -297,16 +297,7 @@ docker compose -f ./docker-compose/docker-compose-<dbtype>.yml down
 
 The development mode in this application currently supports only `h2` database. The dev 
 mode will embed all the needed Infrastructure Services (Database, Data-Index & Jobs Service) and won't require any 
-extra step. To start this example's app in Development mode with a specific database configuration, just run the 
-following command in a terminal
-```
-mvn clean package quarkus:dev -P<dbtype>
-```
-So for e.g. to start the example in dev mode using `h2` database configuration we can run the following command:
-```shell
-mvn clean package quarkus:dev -Ph2
-```
-If we don't specify a profile, database configurations of h2 is used by default in dev mode.
+extra step. To start this example's app in Development mode , just run the following command in a terminal
 ```shell
 mvn clean package quarkus:dev
 ```
