@@ -32,5 +32,7 @@ EXPOSE $MAVEN_REPO_PORT
 # Change to a non root user
 USER 1000
 
+HEALTHCHECK --interval=1m --timeout=5s CMD curl -f http://localhost:$MAVEN_REPO_PORT/ || exit 1
+
 # Start httpd when the container launches
 CMD ["httpd", "-D", "FOREGROUND"]
