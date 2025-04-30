@@ -87,11 +87,6 @@
             <groupId>org.jbpm</groupId>
             <artifactId>jbpm-with-drools-quarkus</artifactId>
         </dependency>
-        <!-- Dev service- h2 dependency-->
-        <dependency>
-            <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-jdbc-h2</artifactId>
-        </dependency>
         <dependency>
             <groupId>org.kie</groupId>
             <artifactId>kie-addons-quarkus-process-management</artifactId>
@@ -117,6 +112,10 @@
         <dependency>
             <groupId>org.kie</groupId>
             <artifactId>kie-addons-quarkus-persistence-jdbc</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-jdbc-h2</artifactId>
         </dependency>
 
         <!-- User Task Persistence -->
@@ -182,6 +181,7 @@
                 <dependency>
                     <groupId>com.ibm.bamoe</groupId>
                     <artifactId>bamoe-mssql-mappings</artifactId>
+                    <version>${version}</version>
                 </dependency>
                 <dependency>
                     <groupId>io.quarkus</groupId>
