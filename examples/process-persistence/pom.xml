@@ -87,7 +87,11 @@
             <groupId>org.jbpm</groupId>
             <artifactId>jbpm-with-drools-quarkus</artifactId>
         </dependency>
-
+        <!-- Dev service- h2 dependency-->
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-jdbc-h2</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.kie</groupId>
             <artifactId>kie-addons-quarkus-process-management</artifactId>
@@ -150,33 +154,6 @@
 
     <profiles>
         <profile>
-            <id>container</id>
-            <properties>
-                <quarkus.profile>container</quarkus.profile>
-            </properties>
-            <dependencies>
-                <dependency>
-                    <groupId>io.quarkus</groupId>
-                    <artifactId>quarkus-container-image-jib</artifactId>
-                </dependency>
-            </dependencies>
-        </profile>
-        <profile>
-            <id>h2</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-            <properties>
-                <quarkus.profile>h2</quarkus.profile>
-            </properties>
-            <dependencies>
-                <dependency>
-                    <groupId>io.quarkus</groupId>
-                    <artifactId>quarkus-jdbc-h2</artifactId>
-                </dependency>
-            </dependencies>
-        </profile>
-        <profile>
             <id>postgresql</id>
             <properties>
                 <quarkus.profile>postgresql</quarkus.profile>
@@ -185,6 +162,10 @@
                 <dependency>
                     <groupId>io.quarkus</groupId>
                     <artifactId>quarkus-jdbc-postgresql</artifactId>
+                </dependency>
+                <dependency>
+                    <groupId>io.quarkus</groupId>
+                    <artifactId>quarkus-container-image-jib</artifactId>
                 </dependency>
             </dependencies>
         </profile>
@@ -202,6 +183,10 @@
                     <groupId>com.ibm.bamoe</groupId>
                     <artifactId>bamoe-mssql-mappings</artifactId>
                 </dependency>
+                <dependency>
+                    <groupId>io.quarkus</groupId>
+                    <artifactId>quarkus-container-image-jib</artifactId>
+                </dependency>
             </dependencies>
         </profile>
          <profile>
@@ -218,6 +203,10 @@
                     <groupId>com.ibm.bamoe</groupId>
                     <artifactId>bamoe-oracle-mappings</artifactId> 
                     <version>${version}</version>
+                </dependency>
+                <dependency>
+                    <groupId>io.quarkus</groupId>
+                    <artifactId>quarkus-container-image-jib</artifactId>
                 </dependency>
             </dependencies>
         </profile>

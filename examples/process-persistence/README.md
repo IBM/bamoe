@@ -18,7 +18,7 @@
 # Example :: Process Persistence
 
 This example depicts the usage of persistence configuration for various databases like H2, Postgresql, MS SQL and Oracle. 
-This application can be run in dev and container modes.
+This application can be run in dev and in container modes.
 
 This example also showcases a basic implementation of a **Hiring** Process that drives a _Candidate_ through different
 interviews until they get hired. It features simple User Task orchestration including the use of DMN decisions to
@@ -30,17 +30,32 @@ example. You could find more details about that example from its README.
 ## Configuration
 
 As mentioned earlier, this example can be run in quarkus development mode and in container mode. In dev mode, the 
-example could use `h2`, `postgresql`, `mssql` or `oracle`. In container mode it can use `postgresql`, `mssql` or `oracle`.
+example uses `h2` database by default. In container mode it can use `postgresql`, `mssql` or `oracle` databases.
 
-Each database is paired with a maven profile and a quarkus profile which are tied together. So in this example there 
-are five maven profiles `h2`, `postgresql`, `mssql`, `oracle` and `container` tied to quarkus profiles with similar 
-name. `h2`, `postgresql`, `mssql` and `oracle` profiles defines their own specific database dependencies and configurations 
-whereas `container` profile defines the dependencies and configurations to pack the example as a docker image.
+The databases `postgresql`, `mssql`, `oracle` are paired with a maven profile and a quarkus profile which are tied together. 
+So in this example there are three maven profiles  `postgresql`, `mssql`  and `oracle` tied to quarkus profiles with similar 
+name. The `postgresql`, `mssql` and `oracle` profiles defines their own specific database dependencies and configurations 
+whereas the `container` dependency is configured by adding the `quarkus-container-image-jib` dependency to all the db profiles 
+which packs the example as a docker image.
 
 In Dev mode, Quarkus provides us with a zero config database out of the box, a feature referred to as Dev Services.
-The only configuration that needs to be defined is `quarkus.datasource.db-kind` and the only main dependency required 
-is the corresponding jdbc driver. Don’t configure a database URL, username and password if you intend to use Dev 
-Services. If you would still like to customize the database properties, you can refer 
+The only configuration that needs to be defined is `dev.quarkus.datasource.db-kind=h2` and the only main dependency required 
+is the corresponding jdbc driver which is included along with the common dependencies. Don’t configure a database URL, username and password if you intend to use Dev 
+Services. So H2 is the default database for dev mode. The only dependency needed is h2 jdbc driver.
+
+This is the configuration for H2
+```
+%dev.quarkus.datasource.db-kind=h2
+%dev.quarkus.datasource.devservices.properties.NON_KEYWORDS=VALUE,KEY
+
+```
+`quarkus.datasource.devservices.properties.NON_KEYWORDS=VALUE,KEY` is a generic property that is usually added
+to the database connection url. The flyway scripts defines tables with columns names like `key` and `value`. But
+these are reserved words when working with H2. So this property effectively allows to create columns with these
+names without any problems. 
+The H2 database runs in-process.
+
+If you would still like to customize the database properties, you can refer 
 [this](https://quarkus.io/version/3.15/guides/databases-dev-services#configuration-reference). More information about 
 Dev Services can be found [here](https://quarkus.io/version/3.15/guides/databases-dev-services).
 
@@ -59,42 +74,6 @@ implementation with integration with transaction and security.
 
 Let's take a look at each profile and the configurations in detail.
 
-### H2
-
-This is the maven profile for H2
-
-```
-<profile>
-    <id>h2</id>
-    <activation>
-        <activeByDefault>true</activeByDefault>
-    </activation>
-    <properties>
-        <quarkus.profile>h2</quarkus.profile>
-    </properties>
-    <dependencies>
-        <dependency>
-            <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-jdbc-h2</artifactId>
-        </dependency>
-    </dependencies>
-</profile>
-```
-So H2 is the default database if we don't specify any profile. The only dependency needed is h2 jdbc driver.
-
-This is the configuration for H2
-```
-%h2.quarkus.datasource.db-kind=h2
-%h2.quarkus.datasource.devservices.properties.NON_KEYWORDS=VALUE,KEY
-```
-
-`quarkus.datasource.devservices.properties.NON_KEYWORDS=VALUE,KEY` is a generic property that is usually added 
-to the database connection url. The flyway scripts defines tables with columns names like `key` and `value`. But 
-these are reserved words when working with H2. So this property effectively allows to create columns with these 
-names without any problems.
-
-The H2 database runs in-process.
-
 ### Postgresql
 
 This is the maven profile for Postgresql
@@ -109,18 +88,16 @@ This is the maven profile for Postgresql
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-jdbc-postgresql</artifactId>
         </dependency>
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-container-image-jib</artifactId>
+        </dependency>
     </dependencies>
 </profile>
 ```
-The only dependency needed is postgresql jdbc driver.
-
-This is the configuration for Postgresql
-```
-%postgresql.quarkus.datasource.db-kind=postgresql
-```
-
-When running the example in Dev mode, Quarkus will stat a `Postgresql` database container as a part of the Dev
-Services. So make sure to install docker before running this example.
+The dependency needed are postgresql jdbc driver and `quarkus-container-image-jib`.
+The `quarkus-container-image-jib` is an extension for the Quarkus framework that enables 
+building container images using Jib and helps to build the optimized container images directly.
 
 ### MS SQL Server
 
@@ -141,19 +118,17 @@ This is the maven profile for MS SQL Server
             <artifactId>bamoe-mssql-mappings</artifactId>
             <version>${version.com.ibm.bamoe}</version>
         </dependency>
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-container-image-jib</artifactId>
+        </dependency>
     </dependencies>
 </profile>
 ```
-The dependencies needed are mssql jdbc driver and `bamoe-mssql-mappings`.
-
-This is the configuration for MS SQL Server
-```
-%mssql.quarkus.datasource.db-kind=mssql
-%mssql.quarkus.hibernate-orm.mapping-files=META-INF/bamoe-data-index-orm.xml,META-INF/bamoe-job-service-orm.xml
-```
+The dependencies needed are mssql jdbc driver , `bamoe-mssql-mappings` and `quarkus-container-image-jib`.
 
 The `bamoe-mssql-mappings` is a utility library to help Job Service and Data Index storage work properly with 
-`MS SQL Server`. It contains the hibernate orm.xml that will remap some of the JPA entities contained in both modules.
+`MS SQL Server`. It contains the Hibernate orm.xml that will remap some of the JPA entities contained in both modules.
 
 The available orm's are:
 - META-INF/bamoe-data-index-orm.xml: This file remaps some entities from the data-index component.
@@ -163,10 +138,6 @@ Depending on the dependencies configured in our application it may be required t
 To configure which mapping files should be imported you can use the `quarkus.hibernate-orm.mapping-files` property to 
 configure a comma-separated list of ORM files to use.
 
-When running the example in Dev mode, Quarkus will start a `MS SQL Server` database container as a part of the Dev 
-Services. So make sure to install docker before running this example. In order to use mssql database as a Dev Service 
-it also requires us to have a [license acceptance file](src/main/resources/container-license-acceptance.txt). More on
-this [here](https://quarkus.io/version/3.15/guides/databases-dev-services#license_acceptance).
 
 ### Oracle
 
@@ -187,19 +158,17 @@ This is the maven profile for Oracle
                 <artifactId>bamoe-oracle-mappings</artifactId> 
                 <version>${version}</version>
             </dependency>
+            <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-container-image-jib</artifactId>
+        </dependency>
         </dependencies>
     </profile>
 ```
-The dependencies needed are `oracle jdbc driver` and `bamoe-oracle-mappings`.
-
-This is the configuration for Oracle
-```
-%oracle.quarkus.datasource.db-kind=oracle
-%oracle.quarkus.hibernate-orm.mapping-files=META-INF/bamoe-user-task-orm.xml,META-INF/bamoe-job-service-orm.xml
-```
+The dependencies needed are `oracle jdbc driver` , `bamoe-oracle-mappings` and `quarkus-container-image-jib`.
 
 The `bamoe-oracle-mappings` is a utility library to help Job Service and User Task storage work properly with 
-`Oracle`. It contains the hibernate orm.xml that will remap some of the JPA entities contained in both modules.
+`Oracle`. It contains the Hibernate orm.xml that will remap some of the JPA entities contained in both modules.
 
 The available orm's are:
 - META-INF/bamoe-user-task-orm.xml: This file remaps some entities from the jbpm-usertask-storage-jpa component.
@@ -209,44 +178,14 @@ Depending on the dependencies configured in our application it may be required t
 To configure which mapping files should be imported you can use the `quarkus.hibernate-orm.mapping-files` property to 
 configure a comma-separated list of ORM files to use.
 
-When running the example in Dev mode, Quarkus will start a `Oracle` database container as a part of the Dev 
-Services. So make sure to install docker before running this example. 
-
 ### Container
 
-This is the container maven profile
-```
-<profile>
-    <id>container</id>
-    <properties>
-        <quarkus.profile>container</quarkus.profile>
-    </properties>
-    <dependencies>
-        <dependency>
-            <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-container-image-jib</artifactId>
-        </dependency>
-    </dependencies>
-</profile>
-```
 The `quarkus-container-image-jib` library is used to package the example as a docker image.
-
-This is the corresponding configuration
-```
-%container,postgresql,mssql,oracle.quarkus.container-image.build=true
-%container,postgresql,mssql,oracle.quarkus.container-image.push=false
-%container,postgresql,mssql,oracle.quarkus.container-image.group=bamoe
-%container,postgresql,mssql,oracle.quarkus.container-image.registry=dev.local
-%container,postgresql,mssql,oracle.quarkus.container-image.tag=${project.version}
-%postgresql.quarkus.container-image.name=process-persistence-postgresql
-%mssql.quarkus.container-image.name=process-persistence-mssql
-%oracle.quarkus.container-image.name=process-persistence-oracle
-```
-
-These are the configurations of the resulting image. The `container` profile is used in tandem with a database profile 
-like `postgresql` or `mssql` or`oracle` to pack related database dependencies and configurations. The resulting image is then 
-used in a docker compose file to run all services including this example, database and any other database addon 
-services together as containers. The docker compose files are located [here](docker-compose).
+The `container` related dependency `quarkus-container-image-jib` library is added in the corresponding 
+database profile like `postgresql` or `mssql`or`oracle` to pack related database dependencies and configurations. 
+The resulting image is then used in a docker compose file to run all services including this example, 
+database and any other database addon services together as containers.
+The docker compose files are located [here](docker-compose).
 
 ---
 
@@ -264,13 +203,13 @@ services together as containers. The docker compose files are located [here](doc
 First, build the example by running the following command in a terminal
 
 ```
-mvn clean package -Pcontainer,<dbtype>
+mvn clean package -P<dbtype>
 ```
 Current supported dbtypes in container mode are `postgresql`, `mssql` and `oracle`. So for e.g. to build the example using 
 postgresql database configuration we can run the following command
 
 ```shell
-mvn clean package -Pcontainer,postgresql
+mvn clean package -Ppostgresql
 ```
 This will build this example's Quarkus application with the corresponding database configuration and create a Docker 
 image that will be used in the `docker compose` template.
