@@ -32,41 +32,18 @@ example. You could find more details about that example from its README.
 As mentioned earlier, this example can be run in quarkus development mode and in container mode. In dev mode, the 
 example uses `h2` database. In container mode it can use `postgresql`, `mssql` or `oracle` databases.
 
-The databases `postgresql`, `mssql`, `oracle` are paired with a maven profile and a quarkus profile which are tied together. 
-So in this example there are three maven profiles `postgresql`,`mssql` and `oracle` tied to quarkus profiles with similar 
-name.The `postgresql`,`mssql` and `oracle` profiles defines their own specific database dependencies and configurations.
-
-In Dev mode, Quarkus provides us with a zero config database out of the box, a feature referred to as Dev Services.
-The only main dependency required is the corresponding jdbc driver. Don’t configure a database URL, 
-username and password if you intend to use Dev Services.
-
-Below are the dependency & configurations needed for H2 in dev mode.
-
+The databases `h2`, `postgresql`, `mssql`, `oracle` are paired with a maven profile and a quarkus profile which are tied together.
 ```
-<dependency>
-    <groupId>io.quarkus</groupId>
-    <artifactId>quarkus-jdbc-h2</artifactId>
-</dependency>
+<profile>
+    <id>postgresql</id>   <!-- THIS IS THE MAVEN PROFILE NAME -->
+    <properties>
+         <quarkus.profile>postgresql</quarkus.profile>  <!-- SETTING THE QUARKUS PROFILE NAME TO BE USED IN APPLICATION.PROPERTIES -->
+    </properties>
+<profile>   
 ```
-
-```
-%dev.quarkus.datasource.db-kind=h2
-%dev.quarkus.datasource.devservices.properties.NON_KEYWORDS=VALUE,KEY
-```
-
-`quarkus.datasource.devservices.properties.NON_KEYWORDS=VALUE,KEY` is a generic property that is usually added
-to the database connection url. The flyway scripts defines tables with columns names like `key` and `value`. But
-these are reserved words when working with H2. So this property effectively allows to create columns with these
-names without any problems. 
-The H2 database runs in-process.
-
-If you would still like to customize the database properties, you can refer 
-[this](https://quarkus.io/version/3.15/guides/databases-dev-services#configuration-reference). More information about 
-Dev Services can be found [here](https://quarkus.io/version/3.15/guides/databases-dev-services).
-
-If you like to use your own database you could add necessary datasource properties from 
-[here](https://quarkus.io/version/3.15/guides/datasource#jdbc-configuration). When you add a direct datasource 
-property, Quarkus does not start a Dev Service database but instead will look for a user provided database.
+So in this example the maven profiles `postgresql`,`mssql` and `oracle` tied to quarkus profiles with similar 
+name and `h2` database is defined by the profile `dev`. 
+The `dev`,`postgresql`,`mssql` and `oracle` profiles defines their own specific database dependencies and configurations.
 
 One of the common dependency across various database profile is Agroal. It is an advanced datasource connection pool 
 implementation with integration with transaction and security.
@@ -78,6 +55,53 @@ implementation with integration with transaction and security.
 ```
 
 Let's take a look at each profile and the configurations in detail.
+
+### Dev
+
+In Dev mode, Quarkus provides us with a zero config database out of the box, a feature referred to as Dev Services.
+The only main dependency required is the corresponding jdbc driver. Don’t configure a database URL,
+username and password if you intend to use Dev Services.
+
+Below are the dependency & configurations needed for H2 in dev profile.
+
+```
+ <profile>
+     <id>dev</id>
+        <activation>
+            <activeByDefault>true</activeByDefault>
+        </activation>
+        <properties>
+            <quarkus.profile>dev</quarkus.profile>
+        </properties>
+        <dependencies>
+            <dependency>
+                <groupId>io.quarkus</groupId>
+                <artifactId>quarkus-jdbc-h2</artifactId>
+            </dependency>
+        </dependencies>
+ </profile>
+```
+The only dependency needed for H2  is the `quarkus-jdbc-h2` driver.
+
+Below are the configurations needed for H2.
+```
+%dev.quarkus.datasource.db-kind=h2
+%dev.quarkus.datasource.devservices.properties.NON_KEYWORDS=VALUE,KEY
+```
+The `%dev.quarkus.datasource.db-kind` configuration property is used to explicitly specify the type of database to connect. 
+`quarkus.datasource.devservices.properties.NON_KEYWORDS=VALUE,KEY` is a generic property that is usually added
+to the database connection url. The flyway scripts defines tables with columns names like `key` and `value`. But
+these are reserved words when working with H2. So this property effectively allows to create columns with these
+names without any problems.
+The H2 database runs in-process.
+
+If you would still like to customize the database properties, you can refer
+[this](https://quarkus.io/version/3.15/guides/databases-dev-services#configuration-reference). More information about
+Dev Services can be found [here](https://quarkus.io/version/3.15/guides/databases-dev-services).
+
+If you like to use your own database you could add necessary datasource properties from
+[here](https://quarkus.io/version/3.15/guides/datasource#jdbc-configuration). When you add a direct datasource
+property, Quarkus does not start a Dev Service database but instead will look for a user provided database.
 
 ### Postgresql
 
@@ -100,24 +124,16 @@ This is the maven profile for Postgresql
     </dependencies>
 </profile>
 ```
-The dependency needed are postgresql jdbc driver and `quarkus-container-image-jib`.
+The only dependency needed for postgres is the postgresql jdbc driver.
 The `quarkus-container-image-jib` is an extension for the Quarkus framework that enables
 building container images using Jib and helps to build the optimized container images directly.
 
-These are the configurations for Postgresql
+Below are the database configuration required for the Postgresql
 ```
 %postgresql.quarkus.datasource.db-kind=postgresql
-
-%postgresql.quarkus.container-image.build=true
-%postgresql.quarkus.container-image.push=false
-%postgresql.quarkus.container-image.group=bamoe
-%postgresql.quarkus.container-image.registry=dev.local
-%postgresql.quarkus.container-image.tag=${project.version}
-%postgresql.quarkus.container-image.name=process-persistence-postgresql
 ```
 The `%postgresql.quarkus.datasource.db-kind` configuration property is used to explicitly specify the type of database to connect.
-Different properties configured using the `postgresql.quarkus.container-image` define image-related settings like
-group, registry, tag & name needed to build the image.
+
 
 ### MS SQL Server
 
@@ -145,34 +161,30 @@ This is the maven profile for MS SQL Server
     </dependencies>
 </profile>
 ```
-The dependencies needed are mssql jdbc driver , `bamoe-mssql-mappings` and `quarkus-container-image-jib`.
+The dependency needed by Mssql are the following,  the `quarkus-jdbc-mssql` is the jdbc driver and the `bamoe-mssql-mappings` is required to 
+database-specific mappings to ensure the persistence layer works correctly with that database's dialect and limitations. 
+The `quarkus-container-image-jib` is an extension for the Quarkus framework that enables building container 
+images using Jib and helps to build the optimized container images directly.
 
-The `bamoe-mssql-mappings` is a utility library to help Job Service and Data Index storage work properly with 
+The database configuration required for Mssql are mentioned below.
+```
+%mssql.quarkus.datasource.db-kind=mssql
+```
+The `%mssql.quarkus.datasource.db-kind` configuration property is used to explicitly specify the type of database to connect.
+
+The `bamoe-mssql-mappings` is a utility library to help Job Service and Data Index storage work properly with
 `MS SQL Server`. It contains the Hibernate orm.xml that will remap some of the JPA entities contained in both modules.
 
+```
+mssql.quarkus.hibernate-orm.mapping-files=META-INF/bamoe-data-index-orm.xml,META-INF/bamoe-job-service-orm.xml
+```
 The available orm's are:
 - META-INF/bamoe-data-index-orm.xml: This file remaps some entities from the data-index component.
 - META-INF/bamoe-job-service-orm.xml: This file remaps some entities from the job-service component.
 
 Depending on the dependencies configured in our application it may be required to configure the ORMs to be used.
-To configure which mapping files should be imported you can use the `quarkus.hibernate-orm.mapping-files` property to 
+To configure which mapping files should be imported you can use the `quarkus.hibernate-orm.mapping-files` property to
 configure a comma-separated list of ORM files to use.
-
-These are the configurations required for Mssql
-```
-%mssql.quarkus.datasource.db-kind=mssql
-
-%mssql.quarkus.container-image.build=true
-%mssql.quarkus.container-image.push=false
-%mssql.quarkus.container-image.group=bamoe
-%mssql.quarkus.container-image.registry=dev.local
-%mssql.quarkus.container-image.tag=${project.version}
-%mssql.quarkus.container-image.name=process-persistence-mssql
-
-```
-The `%mssql.quarkus.datasource.db-kind` configuration property is used to explicitly specify the type of database to connect.
-Different properties configured using the `mssql.quarkus.container-image` define image-related settings like
-group, registry, tag & name needed to build the image.
 
 
 ### Oracle
@@ -201,11 +213,23 @@ This is the maven profile for Oracle
         </dependencies>
     </profile>
 ```
-The dependencies needed are `oracle jdbc driver` , `bamoe-oracle-mappings` and `quarkus-container-image-jib`.
+The dependencies needed are  the `quarkus-jdbc-oracle` , oracle jdbc driver and the `bamoe-oracle-mappings` is to database-specific mappings to ensure the
+persistence layer (usually JPA/Hibernate)works correctly with that database's dialect and limitations.
+The `quarkus-container-image-jib` is an extension for the Quarkus framework that enables
+building container images using Jib and helps to build the optimized container images directly.
+
+Below are the db configurations details for Oracle
+```
+%oracle.quarkus.datasource.db-kind=oracle
+```
+The `%oracle.quarkus.datasource.db-kind` configuration property is used to explicitly specify the type of database to connect.
 
 The `bamoe-oracle-mappings` is a utility library to help Job Service and User Task storage work properly with 
 `Oracle`. It contains the Hibernate orm.xml that will remap some of the JPA entities contained in both modules.
 
+```
+%oracle.quarkus.hibernate-orm.mapping-files=META-INF/bamoe-user-task-orm.xml,META-INF/bamoe-job-service-orm.xml
+```
 The available orm's are:
 - META-INF/bamoe-user-task-orm.xml: This file remaps some entities from the jbpm-usertask-storage-jpa component.
 - META-INF/bamoe-job-service-orm.xml: This file remaps some entities from the job-service component.
@@ -214,22 +238,47 @@ Depending on the dependencies configured in our application it may be required t
 To configure which mapping files should be imported you can use the `quarkus.hibernate-orm.mapping-files` property to 
 configure a comma-separated list of ORM files to use.
 
-These are the configurations required for Oracle
-```
-%oracle.quarkus.datasource.db-kind=oracle
+ Let's have a look into the  container specific configurations required for each profiles:
 
+### Postgresql
+
+Different properties configured using the `postgresql.quarkus.container-image` define image-related settings like
+group, registry, tag & name needed to build the image.
+
+```
+%postgresql.quarkus.container-image.build=true
+%postgresql.quarkus.container-image.push=false
+%postgresql.quarkus.container-image.group=bamoe
+%postgresql.quarkus.container-image.registry=dev.local
+%postgresql.quarkus.container-image.tag=${project.version}
+%postgresql.quarkus.container-image.name=process-persistence-postgresql
+```
+
+### MS SQL Server
+Different properties configured using the `mssql.quarkus.container-image` define image-related settings like
+group, registry, tag & name needed to build the image.
+
+```
+%mssql.quarkus.container-image.build=true
+%mssql.quarkus.container-image.push=false
+%mssql.quarkus.container-image.group=bamoe
+%mssql.quarkus.container-image.registry=dev.local
+%mssql.quarkus.container-image.tag=${project.version}
+%mssql.quarkus.container-image.name=process-persistence-mssql
+```
+
+### Oracle
+Different properties configured using the `oracle.quarkus.container-image` define image-related settings like
+group, registry, tag & name needed to build the image.
+
+```
 %oracle.quarkus.container-image.build=true
 %oracle.quarkus.container-image.push=false
 %oracle.quarkus.container-image.group=bamoe
 %oracle.quarkus.container-image.registry=dev.local
 %oracle.quarkus.container-image.tag=${project.version}
 %oracle.quarkus.container-image.name=process-persistence-oracle
-
 ```
-The `%oracle.quarkus.datasource.db-kind` configuration property is used to explicitly specify the type of database to connect.
-Different properties configured using the `oracle.quarkus.container-image` define image-related settings like
-group, registry, tag & name needed to build the image.
-
 
 ---
 

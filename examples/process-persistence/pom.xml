@@ -114,10 +114,6 @@
             <groupId>org.kie</groupId>
             <artifactId>kie-addons-quarkus-persistence-jdbc</artifactId>
         </dependency>
-        <dependency>
-            <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-jdbc-h2</artifactId>
-        </dependency>
 
         <!-- User Task Persistence -->
         <dependency>
@@ -153,6 +149,21 @@
     </dependencies>
 
     <profiles>
+        <profile>
+            <id>dev</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <quarkus.profile>dev</quarkus.profile>
+            </properties>
+            <dependencies>
+                <dependency>
+                    <groupId>io.quarkus</groupId>
+                    <artifactId>quarkus-jdbc-h2</artifactId>
+                </dependency>
+            </dependencies>
+        </profile>
         <profile>
             <id>postgresql</id>
             <properties>
