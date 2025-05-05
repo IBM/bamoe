@@ -108,6 +108,7 @@ CREATE TABLE processes (
     created_by character varying(max),
     updated_by character varying(max),
     sla_due_date datetimeoffset(6),
+    node_instance_id character varying(255),
     CONSTRAINT processes_pkey PRIMARY KEY (id)
 );
 
@@ -132,6 +133,8 @@ CREATE TABLE nodes (
     type character varying(255),
     process_instance_id character varying(255) NOT NULL,
     sla_due_date datetimeoffset(6),
+    retrigger BIT default 0,
+    error_message character varying(max),
     CONSTRAINT nodes_pkey PRIMARY KEY (id),
     CONSTRAINT fk_nodes_process FOREIGN KEY (process_instance_id) REFERENCES processes(id) ON DELETE CASCADE
 );
