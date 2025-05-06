@@ -272,7 +272,6 @@ group, registry, tag & name needed to build the image.
 %oracle.quarkus.container-image.name=process-persistence-oracle
 ```
 ---
-
 ## Running
 
 ### Prerequisites
