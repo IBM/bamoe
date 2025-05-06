@@ -134,6 +134,17 @@ Below are the database configuration required for the Postgresql
 ```
 The `%postgresql.quarkus.datasource.db-kind` configuration property is used to explicitly specify the type of database to connect.
 
+Different properties configured using the `postgresql.quarkus.container-image` define image-related settings like
+group, registry, tag & name needed to build the image.
+
+```
+%postgresql.quarkus.container-image.build=true
+%postgresql.quarkus.container-image.push=false
+%postgresql.quarkus.container-image.group=bamoe
+%postgresql.quarkus.container-image.registry=dev.local
+%postgresql.quarkus.container-image.tag=${project.version}
+%postgresql.quarkus.container-image.name=process-persistence-postgresql
+```
 
 ### MS SQL Server
 
@@ -186,6 +197,17 @@ Depending on the dependencies configured in our application it may be required t
 To configure which mapping files should be imported you can use the `quarkus.hibernate-orm.mapping-files` property to
 configure a comma-separated list of ORM files to use.
 
+Different properties configured using the `mssql.quarkus.container-image` define image-related settings like
+group, registry, tag & name needed to build the image.
+
+```
+%mssql.quarkus.container-image.build=true
+%mssql.quarkus.container-image.push=false
+%mssql.quarkus.container-image.group=bamoe
+%mssql.quarkus.container-image.registry=dev.local
+%mssql.quarkus.container-image.tag=${project.version}
+%mssql.quarkus.container-image.name=process-persistence-mssql
+```
 
 ### Oracle
 
@@ -238,36 +260,6 @@ Depending on the dependencies configured in our application it may be required t
 To configure which mapping files should be imported you can use the `quarkus.hibernate-orm.mapping-files` property to 
 configure a comma-separated list of ORM files to use.
 
- Let's have a look into the  container specific configurations required for each profiles:
-
-### Postgresql
-
-Different properties configured using the `postgresql.quarkus.container-image` define image-related settings like
-group, registry, tag & name needed to build the image.
-
-```
-%postgresql.quarkus.container-image.build=true
-%postgresql.quarkus.container-image.push=false
-%postgresql.quarkus.container-image.group=bamoe
-%postgresql.quarkus.container-image.registry=dev.local
-%postgresql.quarkus.container-image.tag=${project.version}
-%postgresql.quarkus.container-image.name=process-persistence-postgresql
-```
-
-### MS SQL Server
-Different properties configured using the `mssql.quarkus.container-image` define image-related settings like
-group, registry, tag & name needed to build the image.
-
-```
-%mssql.quarkus.container-image.build=true
-%mssql.quarkus.container-image.push=false
-%mssql.quarkus.container-image.group=bamoe
-%mssql.quarkus.container-image.registry=dev.local
-%mssql.quarkus.container-image.tag=${project.version}
-%mssql.quarkus.container-image.name=process-persistence-mssql
-```
-
-### Oracle
 Different properties configured using the `oracle.quarkus.container-image` define image-related settings like
 group, registry, tag & name needed to build the image.
 
@@ -279,7 +271,6 @@ group, registry, tag & name needed to build the image.
 %oracle.quarkus.container-image.tag=${project.version}
 %oracle.quarkus.container-image.name=process-persistence-oracle
 ```
-
 ---
 
 ## Running
