@@ -119,9 +119,7 @@ CREATE TABLE nodes (
     node_id character varying(255),
     type character varying(255),
     process_instance_id character varying(255) NOT NULL,
-    sla_due_date timestamp without time zone,
-    retrigger boolean default false;
-    error_message varchar(65535);
+    sla_due_date timestamp without time zone
 );
 
 -- TABLE processes: last state of the process instance
@@ -363,4 +361,3 @@ ALTER TABLE ONLY tasks_potential_groups
 
 ALTER TABLE ONLY tasks_potential_users
     ADD CONSTRAINT fk_tasks_potential_users_tasks FOREIGN KEY (task_id) REFERENCES tasks(id) ON DELETE CASCADE;
-
