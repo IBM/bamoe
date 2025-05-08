@@ -90,8 +90,8 @@ Below are the configurations needed for H2.
 ```
 The `%dev.quarkus.datasource.db-kind` configuration property is used to explicitly specify the type of database to connect. 
 `quarkus.datasource.devservices.properties.NON_KEYWORDS=VALUE,KEY` is a generic property that is usually added
-to the database connection url. The flyway scripts defines tables with columns names like `key` and `value`. But
-these are reserved words when working with H2. So this property effectively allows to create columns with these
+to the database connection url. The flyway scripts define tables with columns names like `key` and `value`. But
+these are reserved words when working with H2. So this property effectively allows creating columns with these
 names without any problems.
 The H2 database runs in-process.
 
