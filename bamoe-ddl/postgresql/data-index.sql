@@ -142,8 +142,7 @@ CREATE TABLE processes (
     version character varying(255),
     created_by character varying,
     updated_by character varying,
-    sla_due_date timestamp without time zone,
-    node_instance_id varchar(255)
+    sla_due_date timestamp without time zone
 );
 
 -- TABLE processes_addons: addons this process instance is being executed with
