@@ -5,6 +5,8 @@ FROM registry.access.redhat.com/ubi9/ubi-minimal:9.5
 ARG MAVEN_REPO_PORT=8080
 ARG MAVEN_REPO_FOLDER
 
+ENV MAVEN_REPO_PORT=$MAVEN_REPO_PORT
+
 # Install required packages: httpd and unzip, clean up after installation
 RUN microdnf --disableplugin=subscription-manager -y install httpd \
   && microdnf --disableplugin=subscription-manager clean all
@@ -31,6 +33,8 @@ EXPOSE $MAVEN_REPO_PORT
 
 # Change to a non root user
 USER 1000
+
+HEALTHCHECK --interval=1m --timeout=5s CMD curl -f http://localhost:$MAVEN_REPO_PORT/ || exit 1
 
 # Start httpd when the container launches
 CMD ["httpd", "-D", "FOREGROUND"]
