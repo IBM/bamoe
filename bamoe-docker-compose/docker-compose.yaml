@@ -1,0 +1,32 @@
+services:
+  bamoe_canvas:
+    container_name: bamoe_canvas
+    image: "quay.io/bamoe/canvas:9.2.1-ibm-0004"
+    ports:
+      - 9090:8080
+    environment:
+      KIE_SANDBOX_EXTENDED_SERVICES_URL: "http://localhost:21345"
+      KIE_SANDBOX_CORS_PROXY_URL: "http://localhost:7081"
+    depends_on:
+      - bamoe_extended_services
+      - bamoe_cors_proxy
+  bamoe_extended_services:
+    container_name: bamoe_extended_services
+    image: "quay.io/bamoe/extended-services:9.2.1-ibm-0004"
+    ports:
+      - 21345:21345
+  bamoe_cors_proxy:
+    container_name: bamoe_cors_proxy
+    image: "quay.io/bamoe/cors-proxy:9.2.1-ibm-0004"
+    ports:
+      - 7081:8080
+  bamoe_maven_repository:
+    container_name: bamoe_maven_repository
+    image: "quay.io/bamoe/maven-repository:9.2.1-ibm-0004"
+    ports:
+      - 9999:8080
+  bamoe_management_console:
+    container_name: bamoe_management_console
+    image: "quay.io/bamoe/management_console:9.2.1-ibm-0004"
+    ports:
+      - 9091:8080
