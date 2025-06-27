@@ -27,6 +27,6 @@ services:
       - 9999:8080
   bamoe_management_console:
     container_name: bamoe_management_console
-    image: "quay.io/bamoe/management_console:9.2.1-ibm-0005"
+    image: "quay.io/bamoe/management-console:9.2.1-ibm-0005"
     ports:
       - 9091:8080
