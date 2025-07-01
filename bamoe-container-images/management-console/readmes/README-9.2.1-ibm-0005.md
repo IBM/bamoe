@@ -7,8 +7,8 @@ The Task Console was integrated into BAMOE Management Console and all its functi
 ## Run
 
 ```bash
-docker run -t -p 8081:8080 -i --rm quay.io/bamoe/management-console:9.2.1-ibm-0005
-# BAMOE Management Console will be up at http://localhost:8081
+docker run -t -p 9091:8080 -i --rm quay.io/bamoe/management-console:9.2.1-ibm-0005
+# BAMOE Management Console will be up at http://localhost:9091
 ```
 
 ## Customization
@@ -24,13 +24,13 @@ docker run -t -p 8081:8080 -i --rm quay.io/bamoe/management-console:9.2.1-ibm-00
 1. Using a different Client ID.
 
    ```bash
-   docker run -t -p 8081:8080 -e RUNTIME_TOOLS_MANAGEMENT_CONSOLE_OIDC_CLIENT_CLIENT_ID=<my_value> -i --rm quay.io/bamoe/management-console:9.2.1-ibm-0005
+   docker run -t -p 9091:8080 -e RUNTIME_TOOLS_MANAGEMENT_CONSOLE_OIDC_CLIENT_CLIENT_ID=<my_value> -i --rm quay.io/bamoe/management-console:9.2.1-ibm-0005
    ```
 
 2. Setting pre-defined Business Services
 
    ```bash
-   docker run -t -p 8080:8080 -e RUNTIME_TOOLS_MANAGEMENT_CONSOLE_MANAGED_BUSINESS_SERVICES='[{ "name":"Unauthenticated 8081", "businessServiceUrl":"http://localhost:8081" }, { "name":"Unauthenticated 8082", "businessServiceUrl":"http://localhost:8082" }, { "name":"Authenticated 8091", "businessServiceUrl":"http://localhost:8091/my-subpath" }, { "name":"Authenticated 8092", "businessServiceUrl":"http://localhost:8092" }]' -i --rm quay.io/bamoe/management-console:main
+   docker run -t -p 9091:8080 -e RUNTIME_TOOLS_MANAGEMENT_CONSOLE_MANAGED_BUSINESS_SERVICES='[{ "name":"Unauthenticated 8081", "businessServiceUrl":"http://localhost:8081" }, { "name":"Unauthenticated 8082", "businessServiceUrl":"http://localhost:8082" }, { "name":"Authenticated 8091", "businessServiceUrl":"http://localhost:8091/my-subpath" }, { "name":"Authenticated 8092", "businessServiceUrl":"http://localhost:8092" }]' -i --rm quay.io/bamoe/management-console:9.2.1-ibm-0005
    ```
 
 3. Write a custom `Containerfile/Dockerfile` from the image:
