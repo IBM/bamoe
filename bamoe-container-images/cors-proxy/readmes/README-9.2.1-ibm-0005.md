@@ -8,10 +8,11 @@ A web application that acts as a proxy to enable BAMOE Canvas to communicate, di
 Start up a new container with:
 
 ```bash
-docker run -p 8080:8080 -i --rm quay.io/bamoe/cors-proxy:9.2.1-ibm-0005
+docker run -p 7081:8080 -i --rm quay.io/bamoe/cors-proxy:9.2.1-ibm-0005
+# CORS Proxy will be up at http://localhost:7081
 ```
 
-The service will be up at http://localhost:8080
+
 
 ### Container configuration
 
@@ -30,7 +31,7 @@ CORS_PROXY_VERBOSE=false
 or by passing the variables as arguments like
 
 ```bash
-docker run -p 8080:8080 -i --rm -e CORS_PROXY_ORIGIN=* -e CORS_PROXY_VERBOSE=false quay.io/bamoe/cors-proxy:9.2.1-ibm-0005
+docker run -p 7081:8080 -i --rm -e CORS_PROXY_ORIGIN=* -e CORS_PROXY_VERBOSE=false quay.io/bamoe/cors-proxy:9.2.1-ibm-0005
 ```
 
 ## Running with an external proxy
@@ -38,7 +39,7 @@ docker run -p 8080:8080 -i --rm -e CORS_PROXY_ORIGIN=* -e CORS_PROXY_VERBOSE=fal
 When starting the container, pass the `HTTP_PROXY`/`HTTPS_PROXY` environment variable pointing to the URL of your proxy service:
 
 ```bash
-docker run -p 8080:8080 -i --rm -e HTTPS_PROXY=<YOUR_PROXY_URL> quay.io/bamoe/cors-proxy:9.2.1-ibm-0005
+docker run -p 7081:8080 -i --rm -e HTTPS_PROXY=<YOUR_PROXY_URL> quay.io/bamoe/cors-proxy:9.2.1-ibm-0005
 ```
 
 ---
