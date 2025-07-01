@@ -5,8 +5,8 @@ BAMOE Canvas is a web application based on the opensource KIE Sandbox project th
 ## Run
 
 ```bash
-docker run -t -p 8080:8080 -i --rm quay.io/bamoe/canvas:9.2.1-ibm-0005
-# BAMOE Canvas will be up at http://localhost:8080
+docker run -t -p 9090:8080 -i --rm quay.io/bamoe/canvas:9.2.1-ibm-0005
+# BAMOE Canvas will be up at http://localhost:9090
 ```
 
 ## Customization
@@ -42,31 +42,31 @@ docker run -t -p 8080:8080 -i --rm quay.io/bamoe/canvas:9.2.1-ibm-0005
 1.  Using a different Extended Services deployment.
 
     ```bash
-    docker run -t -p 8080:8080 -e KIE_SANDBOX_EXTENDED_SERVICES_URL=<my_value> -i --rm quay.io/bamoe/canvas:9.2.1-ibm-0005
+    docker run -t -p 9090:8080 -e KIE_SANDBOX_EXTENDED_SERVICES_URL=<my_value> -i --rm quay.io/bamoe/canvas:9.2.1-ibm-0005
     ```
 
 2.  Enabling authentication with a GitHub Enterprise Server instance.
 
     ```
-    docker run -t -p 8080:8080 -e KIE_SANDBOX_AUTH_PROVIDERS='[{ "id":"github_at_my_company", "domain":"github.my-company.com", "supportedGitRemoteDomains":["github.my-company.com","gist.github.my-company.com"], "type":"github", "name":"GitHub @ MyCompany", "enabled":true, "group":"git" }]' -i --rm quay.io/bamoe/canvas:9.2.1-ibm-0005
+    docker run -t -p 9090:8080 -e KIE_SANDBOX_AUTH_PROVIDERS='[{ "id":"github_at_my_company", "domain":"github.my-company.com", "supportedGitRemoteDomains":["github.my-company.com","gist.github.my-company.com"], "type":"github", "name":"GitHub @ MyCompany", "enabled":true, "group":"git" }]' -i --rm quay.io/bamoe/canvas:9.2.1-ibm-0005
     ```
 
 3.  Requiring users to input a custom commit message on every commit.
 
     ```bash
-    docker run -t -p 8080:8080 -e KIE_SANDBOX_REQUIRE_CUSTOM_COMMIT_MESSAGE='true' -i --rm quay.io/bamoe/canvas:9.2.1-ibm-0005
+    docker run -t -p 9090:8080 -e KIE_SANDBOX_REQUIRE_CUSTOM_COMMIT_MESSAGE='true' -i --rm quay.io/bamoe/canvas:9.2.1-ibm-0005
     ```
 
 4.  Requiring users to input a custom commit message on every commit and validate it via an [example Commit Message Validation Service from Apache KIE](https://github.com/apache/incubator-kie-tools/tree/main/examples/commit-message-validation-service).
 
     ```bash
-    docker run -t -p 8080:8080 -e KIE_SANDBOX_REQUIRE_CUSTOM_COMMIT_MESSAGE='true' KIE_SANDBOX_CUSTOM_COMMIT_MESSAGE_VALIDATION_SERVICE_URL='http://localhost:8090/validate' -i --rm quay.io/bamoe/canvas:9.2.1-ibm-0005
+    docker run -t -p 9090:8080 -e KIE_SANDBOX_REQUIRE_CUSTOM_COMMIT_MESSAGE='true' KIE_SANDBOX_CUSTOM_COMMIT_MESSAGE_VALIDATION_SERVICE_URL='http://localhost:8090/validate' -i --rm quay.io/bamoe/canvas:9.2.1-ibm-0005
     ```
 
 5.  Adding Accelerators available for your users.
 
     ```bash
-docker run -t -p 8080:8080 -e KIE_SANDBOX_ACCELERATORS='[{ "name": "Quarkus", "iconUrl": "https://github.com/ibm/bamoe-canvas-quarkus-accelerator/raw/9.2.1-ibm-0005-quarkus-full/logo.png", "gitRepositoryUrl": "https://github.com/ibm/bamoe-canvas-quarkus-accelerator", "gitRepositoryGitRef": "9.2.1-ibm-0005-quarkus-full", "dmnDestinationFolder": "src/main/resources/dmn", "bpmnDestinationFolder": "src/main/resources/bpmn", "otherFilesDestinationFolder": "src/main/resources/others" }]' -i --rm quay.io/bamoe/canvas:9.2.1-ibm-0005
+docker run -t -p 9090:8080 -e KIE_SANDBOX_ACCELERATORS='[{ "name": "Quarkus", "iconUrl": "https://github.com/ibm/bamoe-canvas-quarkus-accelerator/raw/9.2.1-ibm-0005-quarkus-full/logo.png", "gitRepositoryUrl": "https://github.com/ibm/bamoe-canvas-quarkus-accelerator", "gitRepositoryGitRef": "9.2.1-ibm-0005-quarkus-full", "dmnDestinationFolder": "src/main/resources/dmn", "bpmnDestinationFolder": "src/main/resources/bpmn", "otherFilesDestinationFolder": "src/main/resources/others" }]' -i --rm quay.io/bamoe/canvas:9.2.1-ibm-0005
     ```
 
 6.  Write a custom `Containerfile/Dockerfile` from the image:
