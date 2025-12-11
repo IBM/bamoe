@@ -1,4 +1,4 @@
-# BAMOE MCP Server
+# BAMOE MCP Server (Tech Preview)
 Exposes Business Services as tools to external AI agents using the [MCP protocol](https://modelcontextprotocol.io/). BAMOE MCP Server is currently a tech preview and may contain bugs.
 
 ## Run
@@ -9,7 +9,7 @@ docker run -it --rm\
   quay.io/bamoe/mcp-server:9.3.1-ibm-0006
 ```
 
-BAMOE MCP Server will start on `http://localhost:8084`, automatically registering Business Services running on both `http://localhost:8080` and `http://localhost:8081`. Connecting your AI agents to `http://localhost:8084` via MCP allows your AI agent to trigger Processes and evaluate Decisions and Rules.
+BAMOE MCP Server (Tech Preview) will start on `http://localhost:8084`, automatically registering Business Services running on both `http://localhost:8080` and `http://localhost:8081`. Connecting your AI agents to `http://localhost:8084` via MCP allows your AI agent to trigger Processes and evaluate Decisions and Rules.
 
 ## Environment variables
 
