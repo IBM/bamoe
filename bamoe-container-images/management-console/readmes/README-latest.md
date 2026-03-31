@@ -1,8 +1,6 @@
 # BAMOE Management Console (9.4.0-ibm-0006)
 
-A web application that is able to connect to multiple running Processes applications and lets users check more details about Process instances, like the path an instance has already gone though, or the jobs that an instance is waiting on. Process instances can also be filtered by multiple attributes, and it is possible to see Process definitions too.
-
-The Task Console was integrated into BAMOE Management Console and all its functionalities are accessible via the `Tasks` menu.
+BAMOE Management Console is a web application used for viewing the state of all available Business Services and managing and interacting with Process Instances
 
 ## Run
 
