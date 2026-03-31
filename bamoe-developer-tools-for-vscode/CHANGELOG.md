@@ -1,3 +1,16 @@
+# 9.4.0
+- General bug fixes for the BPMN Editor.
+
+# 9.3.1
+- Added support for AI Agent tasks in the BPMN Editor.
+- Added auth provider for Langflow to validate AI Agent tasks.
+- Added translations for multiple languages, including French, Japanese, Korean, and Simplified Chinese.
+
+# 9.3.0
+- The new BPMN Editor is now the default. Fallback to the classic editor with the "Reopen with..." command and select `BAMOE BPMN Editor (Classic)`.
+- Added support for Gen AI tasks in the BPMN Editor.
+- Added auth providers for OpenAI, Ollama, and watson.x to validate Gen AI tasks.
+
 # 9.2.1
 - Accelerators are now available as commands, making it easier to create new Business Service projects, based on the built-in Accelerators, or your custom ones.
 - Static validation for BPMN and DMN models is now available in the Problems tab, powered by BAMOE Extended Services (same as BAMOE Canvas).
