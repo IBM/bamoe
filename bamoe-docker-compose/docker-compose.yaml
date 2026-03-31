@@ -17,7 +17,7 @@ services:
       - 21345:21345
   bamoe_cors_proxy:
     container_name: bamoe_cors_proxy
-    image: "quay.io/bamoe/cors-proxy:9.3.1-ibm-0006"
+    image: "quay.io/bamoe/cors-proxy:9.4.0-ibm-0006"
     ports:
       - 7081:8080
   bamoe_maven_repository:
