@@ -1,4 +1,4 @@
-# BAMOE CORS proxy (9.4.0-ibm-0006)
+# BAMOE CORS Proxy (9.4.0-ibm-0006)
 
 A web application that acts as a proxy to enable BAMOE Canvas to communicate, directly from the browser, with Git and cloud providers. Some Git providers (like `github.com` and `bitbucket.org`) do not allow requests coming from any webpage, and the is true for some OpenShift and Kubernetes installations. Since BAMOE Canvas features an in-browser Git subsystem and Dev deployments to the configured cloud providers, when doing Git operations (like `clone`, `fetch`, `push`, `pull`), or cloud operations like "Deploy", we go through this proxy to work around that fact.
 
