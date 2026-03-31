@@ -20,4 +20,4 @@ The following containers will be up:
 
 And all invocations of Maven (`mvn`) for that Terminal window will be able to download content from BAMOE Maven repository.
 
-See [Getting started → Initial Business Service project setup and walkthrough](https://www.ibm.com/docs/en/ibamoe/9.2.x?topic=started-initial-business-service-project-setup-walkthrough) to start your first project with BAMOE.
+See [Getting started → Setting up a Business Services project](https://www.ibm.com/docs/en/ibamoe/9.4.0?topic=started-initial-business-service-project-setup) to start your first project with BAMOE.
