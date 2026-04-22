@@ -1,4 +1,4 @@
-# DMOE Dev Environment Helm Chart (9.4.0-ibm-0006)
+# PAMOE Dev Environment Helm Chart (9.4.0-ibm-0006)
 
 This chart can be used to deploy BAMOE Canvas, Extended Services, CORS Proxy, and the Maven Repository container images on a [Kubernetes](https://kubernetes.io) cluster using the [Helm](https://helm.sh) package manager.
 
@@ -19,7 +19,7 @@ First, you may need to get the default OpenShift domain for your routes with thi
 $ oc get ingresses.config cluster --output jsonpath={.spec.domain}
 ```
 
-If you don't have access rigths to this config, try creating a dummy Route resource and checking its domain.
+If you don't have access rights to this config, try creating a dummy Route resource and checking its domain.
 
 To install the chart with the release name `bamoe-dev`:
 
