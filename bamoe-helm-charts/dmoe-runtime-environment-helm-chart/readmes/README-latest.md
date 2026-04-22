@@ -17,7 +17,7 @@ First, you may need to get the default OpenShift domain for your routes with thi
 $ oc get ingresses.config cluster --output jsonpath={.spec.domain}
 ```
 
-If you don't have access rigths to this config, try creating a dummy Route resource and checking its domain.
+If you don't have access rights to this config, try creating a dummy Route resource and checking its domain.
 
 To install the chart with the release name `dmoe-runtime`:
 
