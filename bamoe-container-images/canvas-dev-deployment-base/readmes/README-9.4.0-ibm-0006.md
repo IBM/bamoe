@@ -1,11 +1,11 @@
-# BAMOE Canvas Dev Deployment Base (9.4.1-ibm-0002)
+# BAMOE Canvas Dev Deployment Base (9.4.0-ibm-0006)
 
 Docker image with Java and Maven, as well as the dev-deployment-upload-service binary installed and ready to be used.
 
 ## Run
 
 ```bash
-docker run -it --rm -e DEV_DEPLOYMENT__UPLOAD_SERVICE_API_KEY=<string> quay.io/bamoe/canvas-dev-deployment-base:9.4.1-ibm-0002 <cmd>
+docker run -it --rm -e DEV_DEPLOYMENT__UPLOAD_SERVICE_API_KEY=<string> quay.io/bamoe/canvas-dev-deployment-base:9.4.0-ibm-0006 <cmd>
 ```
 
 This image doesn't run any services, and is only used to provide a basis for other Dev Deployment images that want a starting point, taking advantaged of the included `dev-deployment-upload-service`.

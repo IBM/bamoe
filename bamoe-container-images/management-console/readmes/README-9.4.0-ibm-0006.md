@@ -1,11 +1,11 @@
-# BAMOE Management Console (9.4.1-ibm-0002)
+# BAMOE Management Console (9.4.0-ibm-0006)
 
 BAMOE Management Console is a web application used for viewing the state of all available Business Services and managing and interacting with Process Instances
 
 ## Run
 
 ```bash
-docker run -t -p 9091:8080 -i --rm quay.io/bamoe/management-console:9.4.1-ibm-0002
+docker run -t -p 9091:8080 -i --rm quay.io/bamoe/management-console:9.4.0-ibm-0006
 # BAMOE Management Console will be up at http://localhost:9091
 ```
 
@@ -24,19 +24,19 @@ docker run -t -p 9091:8080 -i --rm quay.io/bamoe/management-console:9.4.1-ibm-00
 1. Using a different Client ID.
 
    ```bash
-   docker run -t -p 9091:8080 -e RUNTIME_TOOLS_MANAGEMENT_CONSOLE_OIDC_CLIENT_CLIENT_ID=<my_value> -i --rm quay.io/bamoe/management-console:9.4.1-ibm-0002
+   docker run -t -p 9091:8080 -e RUNTIME_TOOLS_MANAGEMENT_CONSOLE_OIDC_CLIENT_CLIENT_ID=<my_value> -i --rm quay.io/bamoe/management-console:9.4.0-ibm-0006
    ```
 
 2. Setting pre-defined Business Services
 
    ```bash
-   docker run -t -p 9091:8080 -e RUNTIME_TOOLS_MANAGEMENT_CONSOLE_MANAGED_BUSINESS_SERVICES='[{ "name":"Unauthenticated 8081", "businessServiceUrl":"http://localhost:8081" }, { "name":"Unauthenticated 8082", "businessServiceUrl":"http://localhost:8082" }, { "name":"Authenticated 8091", "businessServiceUrl":"http://localhost:8091/my-subpath" }, { "name":"Authenticated 8092", "businessServiceUrl":"http://localhost:8092" }]' -i --rm quay.io/bamoe/management-console:9.4.1-ibm-0002
+   docker run -t -p 9091:8080 -e RUNTIME_TOOLS_MANAGEMENT_CONSOLE_MANAGED_BUSINESS_SERVICES='[{ "name":"Unauthenticated 8081", "businessServiceUrl":"http://localhost:8081" }, { "name":"Unauthenticated 8082", "businessServiceUrl":"http://localhost:8082" }, { "name":"Authenticated 8091", "businessServiceUrl":"http://localhost:8091/my-subpath" }, { "name":"Authenticated 8092", "businessServiceUrl":"http://localhost:8092" }]' -i --rm quay.io/bamoe/management-console:9.4.0-ibm-0006
    ```
 
 3. Write a custom `Containerfile/Dockerfile` from the image:
 
    ```docker
-   FROM quay.io/bamoe/management-console:9.4.1-ibm-0002
+   FROM quay.io/bamoe/management-console:9.4.0-ibm-0006
 
    ENV RUNTIME_TOOLS_MANAGEMENT_CONSOLE_APP_NAME=<my_app_name>
    ENV RUNTIME_TOOLS_MANAGEMENT_CONSOLE_OIDC_CLIENT_CLIENT_ID=<my_client_id>
@@ -107,5 +107,5 @@ In this case, if running on a different port is not an option, both environment 
 Example:
 
 ```shell
-docker run -d -p 9091:8080 -e RUNTIME_TOOLS_MANAGEMENT_CONSOLE_BASE_PATH=bamoe-management-console -e RUNTIME_TOOLS_MANAGEMENT_CONSOLE_USE_APACHE_HTTPD_BASE_PATH_ALIAS=true quay.io/bamoe/management-console:9.4.1-ibm-0002
+docker run -d -p 9091:8080 -e RUNTIME_TOOLS_MANAGEMENT_CONSOLE_BASE_PATH=bamoe-management-console -e RUNTIME_TOOLS_MANAGEMENT_CONSOLE_USE_APACHE_HTTPD_BASE_PATH_ALIAS=true quay.io/bamoe/management-console:9.4.0-ibm-0006
 ```
