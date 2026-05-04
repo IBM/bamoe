@@ -66,7 +66,7 @@ docker run -t -p 9090:8080 -i --rm quay.io/bamoe/canvas:9.4.1-ibm-0002
 5.  Adding Accelerators available for your users.
 
     ```bash
-docker run -t -p 9090:8080 -e KIE_SANDBOX_ACCELERATORS='[{ "name": "Quarkus", "iconUrl": "https://github.com/ibm/bamoe-canvas-quarkus-accelerator/raw/9.4.1-ibm-0002-workflows-quarkus-maven/logo.png", "gitRepositoryUrl": "https://github.com/ibm/bamoe-canvas-quarkus-accelerator", "gitRepositoryGitRef": "9.4.1-ibm-0002-workflows-quarkus-maven", "dmnDestinationFolder": "src/main/resources/dmn", "bpmnDestinationFolder": "src/main/resources/bpmn", "scesimDestinationFolder": "src/test/resources/scesim", "otherFilesDestinationFolder": "src/main/resources/others" }]' -i --rm quay.io/bamoe/canvas:9.4.1-ibm-0002
+    docker run -t -p 9090:8080 -e KIE_SANDBOX_ACCELERATORS='[{ "name": "Quarkus", "iconUrl": "https://github.com/ibm/bamoe-canvas-quarkus-accelerator/raw/9.4.1-ibm-0002-workflows-quarkus-maven/logo.png", "gitRepositoryUrl": "https://github.com/ibm/bamoe-canvas-quarkus-accelerator", "gitRepositoryGitRef": "9.4.1-ibm-0002-workflows-quarkus-maven", "dmnDestinationFolder": "src/main/resources/dmn", "bpmnDestinationFolder": "src/main/resources/bpmn", "scesimDestinationFolder": "src/test/resources/scesim", "otherFilesDestinationFolder": "src/main/resources/others" }]' -i --rm quay.io/bamoe/canvas:9.4.1-ibm-0002
     ```
 
 6.  Write a custom `Containerfile/Dockerfile` from the image:
