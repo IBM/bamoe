@@ -48,7 +48,7 @@ docker run -t -p 9090:8080 -i --rm quay.io/bamoe/canvas:9.4.1-ibm-0002
 2.  Enabling authentication with a GitHub Enterprise Server instance.
 
     ```
-    docker run -t -p 9090:8080 -e KIE_SANDBOX_AUTH_PROVIDERS='[{ "id":"github_at_my_company", "domain":"github.my-company.com", "supportedGitRemoteDomains":["github.my-company.com","gist.github.my-company.com"], "type":"github", "name":"GitHub @ MyCompany", "enabled":true, "group":"git" }, {"id":"watsonx","iconPath":"images/watsonx-logo.svg","type":"watsonx","name":"watsonx","enabled":true,"group":"ai"}] -i --rm quay.io/bamoe/canvas:9.4.1-ibm-0002
+    docker run -t -p 9090:8080 -e KIE_SANDBOX_ACCELERATORS='[{ "name": "Quarkus", "iconUrl": "https://github.com/ibm/bamoe-canvas-quarkus-accelerator/raw/9.4.1-ibm-0002-workflows-quarkus-maven/logo.png", "gitRepositoryUrl": "https://github.com/ibm/bamoe-canvas-quarkus-accelerator", "gitRepositoryGitRef": "9.4.1-ibm-0002-workflows-quarkus-maven", "dmnDestinationFolder": "src/main/resources/dmn", "bpmnDestinationFolder": "src/main/resources/bpmn", "scesimDestinationFolder": "src/test/resources/scesim", "otherFilesDestinationFolder": "src/main/resources/others" }]' -i --rm quay.io/bamoe/canvas:9.4.1-ibm-0002
     ```
 
 3.  Requiring users to input a custom commit message on every commit.
