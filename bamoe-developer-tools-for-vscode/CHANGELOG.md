@@ -1,3 +1,6 @@
+# 9.4.1
+- General bug fixes for the BPMN Editor.
+
 # 9.4.0
 - General bug fixes for the BPMN Editor.
 
