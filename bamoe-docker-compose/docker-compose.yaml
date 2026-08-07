@@ -12,7 +12,7 @@ services:
       - bamoe_cors_proxy
   bamoe_extended_services:
     container_name: bamoe_extended_services
-    image: "quay.io/bamoe/extended-services:9.4.2-ibm-0002"
+    image: "quay.io/bamoe/extended-services:9.5.1-ibm-0002"
     ports:
       - 21345:21345
   bamoe_cors_proxy:
