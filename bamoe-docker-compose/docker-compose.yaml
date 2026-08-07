@@ -24,7 +24,7 @@ services:
       CORS_PROXY_ALLOWED_ORIGINS: "http://localhost:9090"
   bamoe_maven_repository:
     container_name: bamoe_maven_repository
-    image: "quay.io/bamoe/maven-repository:9.4.2-ibm-0002"
+    image: "quay.io/bamoe/maven-repository:9.5.1-ibm-0002"
     ports:
       - 9999:8080
   bamoe_management_console:
