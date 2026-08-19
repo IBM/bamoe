@@ -1,4 +1,4 @@
-# BAMOE CORS Proxy (9.5.0-ibm-0005)
+# BAMOE CORS Proxy (9.4.2-ibm-0002)
 
 A web application that acts as a proxy to enable BAMOE Canvas to communicate, directly from the browser, with Git and cloud providers. Some Git providers (like `github.com` and `bitbucket.org`) do not allow requests coming from any webpage, and this is true for some OpenShift and Kubernetes installations. Since BAMOE Canvas features an in-browser Git subsystem and Dev deployments to the configured cloud providers, when doing Git operations (like `clone`, `fetch`, `push`, `pull`), or cloud operations like "Deploy", we go through this proxy to work around that fact.
 
@@ -8,7 +8,7 @@ A web application that acts as a proxy to enable BAMOE Canvas to communicate, di
 Start up a new container with:
 
 ```bash
-docker run -p 7081:8080 -i --rm -e CORS_PROXY_ALLOWED_ORIGINS=<your_canvas_url> quay.io/bamoe/cors-proxy:9.5.0-ibm-0005
+docker run -p 7081:8080 -i --rm -e CORS_PROXY_ALLOWED_ORIGINS=<your_canvas_url> quay.io/bamoe/cors-proxy:9.4.2-ibm-0002
 # CORS Proxy will be up at http://localhost:7081
 ```
 
@@ -33,7 +33,7 @@ CORS_PROXY_VERBOSE=false
 or by passing the variables as arguments like
 
 ```bash
-docker run -p 7081:8080 -i --rm -e CORS_PROXY_ALLOWED_ORIGINS=<your_canvas_url> -e CORS_PROXY_ALLOWED_HOSTS=https://github.com,https://bitbucket.org,https://console.my-openshift-cluster.com -e CORS_PROXY_VERBOSE=false quay.io/bamoe/cors-proxy:9.5.0-ibm-0005
+docker run -p 7081:8080 -i --rm -e CORS_PROXY_ALLOWED_ORIGINS=<your_canvas_url> -e CORS_PROXY_ALLOWED_HOSTS=https://github.com,https://bitbucket.org,https://console.my-openshift-cluster.com -e CORS_PROXY_VERBOSE=false quay.io/bamoe/cors-proxy:9.4.2-ibm-0002
 ```
 
 ## Running with an external proxy
@@ -41,7 +41,7 @@ docker run -p 7081:8080 -i --rm -e CORS_PROXY_ALLOWED_ORIGINS=<your_canvas_url> 
 When starting the container, pass the `HTTP_PROXY`/`HTTPS_PROXY` environment variable pointing to the URL of your proxy service:
 
 ```bash
-docker run -p 7081:8080 -i --rm -e CORS_PROXY_ALLOWED_ORIGINS=<your_canvas_url> -e HTTPS_PROXY=<YOUR_PROXY_URL> quay.io/bamoe/cors-proxy:9.5.0-ibm-0005
+docker run -p 7081:8080 -i --rm -e CORS_PROXY_ALLOWED_ORIGINS=<your_canvas_url> -e HTTPS_PROXY=<YOUR_PROXY_URL> quay.io/bamoe/cors-proxy:9.4.2-ibm-0002
 ```
 
 ---

@@ -1,4 +1,4 @@
-# BAMOE Canvas Dev Deployment Quarkus Blank App (9.5.0-ibm-0005)
+# BAMOE Canvas Dev Deployment Quarkus Blank App (9.4.2-ibm-0002)
 
 This image is ready to be used for Dev deployments on BAMOE Canvas.
 It starts the `dev-deployment-upload-service` and then places the uploaded files inside a blank Quarkus app.
@@ -7,7 +7,7 @@ These files can be Decisions (`.dmn`) or Processes (`.bpmn`), all of them will b
 ## Run
 
 ```bash
-docker run -t -p 8080:8080 -i --rm -e DEV_DEPLOYMENT__UPLOAD_SERVICE_API_KEY=<string> quay.io/bamoe/canvas-dev-deployment-quarkus-blank-app:9.5.0-ibm-0005
+docker run -t -p 8080:8080 -i --rm -e DEV_DEPLOYMENT__UPLOAD_SERVICE_API_KEY=<string> quay.io/bamoe/canvas-dev-deployment-quarkus-blank-app:9.4.2-ibm-0002
 # BAMOE Dev Deployment Quarkus Blank App will be up at http://localhost:8080
 ```
 

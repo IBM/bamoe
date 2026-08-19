@@ -65,7 +65,7 @@ while IFS= read -r readmes_dir; do
     echo "Created: $latest_file (copy of $base_versioned_file)"
     
     # Update the contents of README-latest.md replacing base-version with new-version
-    sed -i "s/$BASE_VERSION/$NEW_VERSION/g" "$latest_file"
+    sed -i '' "s/$BASE_VERSION/$NEW_VERSION/g" "$latest_file"
     echo "Updated: $latest_file ($BASE_VERSION -> $NEW_VERSION)"
     echo ""
   else
