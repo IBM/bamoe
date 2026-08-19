@@ -1,4 +1,4 @@
-# BAMOE Data Cleanup Tool (9.5.0-ibm-0005)
+# BAMOE Data Cleanup Tool (9.4.2-ibm-0002)
 
 The **BAMOE Data Cleanup Tool** is a command-line utility packaged as a container image that helps manage historical data growth in BAMOE subsystems (`data-index` and `data-audit`).
 It connects to your database, deletes data from eligible process instances based on your configuration, and then terminates.
@@ -44,7 +44,7 @@ docker run --rm \
   -e QUARKUS_DATASOURCE_JDBC_URL=jdbc:postgresql://db:5432/mydb \
   -e BAMOE_DATA_CLEANUP_TOOL_OLDER_THAN_PERIOD=30 \
   -e BAMOE_DATA_CLEANUP_TOOL_ACCEPT=true \
-  quay.io/bamoe/data-cleanup-tool:9.5.0-ibm-0005
+  quay.io/bamoe/data-cleanup-tool:9.4.2-ibm-0002
 ```
 
 **Run in Kubernetes as a Job:**

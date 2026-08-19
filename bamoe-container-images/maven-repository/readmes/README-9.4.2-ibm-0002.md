@@ -1,11 +1,11 @@
-# BAMOE Maven Repository (9.5.0-ibm-0005)
+# BAMOE Maven Repository (9.4.2-ibm-0002)
 
 A static web server that serves as a Maven Repository for downloading Maven artifacts containing the multiple modules that compose BAMOE runtime libraries.
 
 ## Run
 
 ```bash
-docker run -t -p 9999:8080 -i --rm quay.io/bamoe/maven-repository:9.5.0-ibm-0005
+docker run -t -p 9999:8080 -i --rm quay.io/bamoe/maven-repository:9.4.2-ibm-0002
 # BAMOE Maven Repository will be up at http://localhost:9999
 ```
 

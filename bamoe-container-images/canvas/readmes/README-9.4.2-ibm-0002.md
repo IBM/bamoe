@@ -1,11 +1,11 @@
-# BAMOE Canvas (9.5.0-ibm-0005)
+# BAMOE Canvas (9.4.2-ibm-0002)
 
 BAMOE Canvas is a web application based on the opensource KIE Sandbox project that enables authoring, testing, and deploying Decisions and Processes for Business Automation solutions. It features in-browser Git capabilities, making it possible to work with any Git repository, most notably GitHub and Bitbucket repositories. Decisions can be deployed to OpenShift and Kubernetes clusters.
 
 ## Run
 
 ```bash
-docker run -t -p 9090:8080 -i --rm quay.io/bamoe/canvas:9.5.0-ibm-0005
+docker run -t -p 9090:8080 -i --rm quay.io/bamoe/canvas:9.4.2-ibm-0002
 # BAMOE Canvas will be up at http://localhost:9090
 ```
 
@@ -42,37 +42,37 @@ docker run -t -p 9090:8080 -i --rm quay.io/bamoe/canvas:9.5.0-ibm-0005
 1.  Using a different Extended Services deployment.
 
     ```bash
-    docker run -t -p 9090:8080 -e KIE_SANDBOX_EXTENDED_SERVICES_URL=<my_value> -i --rm quay.io/bamoe/canvas:9.5.0-ibm-0005
+    docker run -t -p 9090:8080 -e KIE_SANDBOX_EXTENDED_SERVICES_URL=<my_value> -i --rm quay.io/bamoe/canvas:9.4.2-ibm-0002
     ```
 
 2.  Enabling authentication with a GitHub Enterprise Server instance.
 
     ```
-    docker run -t -p 9090:8080 -e KIE_SANDBOX_AUTH_PROVIDERS='[{ "id":"github_at_my_company", "domain":"github.my-company.com", "supportedGitRemoteDomains":["github.my-company.com","gist.github.my-company.com"], "type":"github", "name":"GitHub @ MyCompany", "enabled":true, "group":"git" }, {"id":"watsonx","iconPath":"images/watsonx-logo.svg","type":"watsonx","name":"watsonx","enabled":true,"group":"ai"}] -i --rm quay.io/bamoe/canvas:9.5.0-ibm-0005
+    docker run -t -p 9090:8080 -e KIE_SANDBOX_AUTH_PROVIDERS='[{ "id":"github_at_my_company", "domain":"github.my-company.com", "supportedGitRemoteDomains":["github.my-company.com","gist.github.my-company.com"], "type":"github", "name":"GitHub @ MyCompany", "enabled":true, "group":"git" }, {"id":"watsonx","iconPath":"images/watsonx-logo.svg","type":"watsonx","name":"watsonx","enabled":true,"group":"ai"}] -i --rm quay.io/bamoe/canvas:9.4.2-ibm-0002
     ```
 
 3.  Requiring users to input a custom commit message on every commit.
 
     ```bash
-    docker run -t -p 9090:8080 -e KIE_SANDBOX_REQUIRE_CUSTOM_COMMIT_MESSAGE='true' -i --rm quay.io/bamoe/canvas:9.5.0-ibm-0005
+    docker run -t -p 9090:8080 -e KIE_SANDBOX_REQUIRE_CUSTOM_COMMIT_MESSAGE='true' -i --rm quay.io/bamoe/canvas:9.4.2-ibm-0002
     ```
 
 4.  Requiring users to input a custom commit message on every commit and validate it via an [example Commit Message Validation Service from Apache KIE](https://github.com/apache/incubator-kie-tools/tree/main/examples/commit-message-validation-service).
 
     ```bash
-    docker run -t -p 9090:8080 -e KIE_SANDBOX_REQUIRE_CUSTOM_COMMIT_MESSAGE='true' KIE_SANDBOX_CUSTOM_COMMIT_MESSAGE_VALIDATION_SERVICE_URL='http://localhost:8090/validate' -i --rm quay.io/bamoe/canvas:9.5.0-ibm-0005
+    docker run -t -p 9090:8080 -e KIE_SANDBOX_REQUIRE_CUSTOM_COMMIT_MESSAGE='true' KIE_SANDBOX_CUSTOM_COMMIT_MESSAGE_VALIDATION_SERVICE_URL='http://localhost:8090/validate' -i --rm quay.io/bamoe/canvas:9.4.2-ibm-0002
     ```
 
 5.  Adding Accelerators available for your users.
 
     ```bash
-    docker run -t -p 9090:8080 -e KIE_SANDBOX_ACCELERATORS='[{ "name": "Quarkus", "iconUrl": "https://github.com/ibm/bamoe-canvas-quarkus-accelerator/raw/9.5.0-ibm-0005-workflows-quarkus-maven/logo.png", "gitRepositoryUrl": "https://github.com/ibm/bamoe-canvas-quarkus-accelerator", "gitRepositoryGitRef": "9.5.0-ibm-0005-workflows-quarkus-maven", "dmnDestinationFolder": "src/main/resources/dmn", "bpmnDestinationFolder": "src/main/resources/bpmn", "scesimDestinationFolder": "src/test/resources/scesim", "otherFilesDestinationFolder": "src/main/resources/others" }]' -i --rm quay.io/bamoe/canvas:9.5.0-ibm-0005
+    docker run -t -p 9090:8080 -e KIE_SANDBOX_ACCELERATORS='[{ "name": "Quarkus", "iconUrl": "https://github.com/ibm/bamoe-canvas-quarkus-accelerator/raw/9.4.2-ibm-0002-workflows-quarkus-maven/logo.png", "gitRepositoryUrl": "https://github.com/ibm/bamoe-canvas-quarkus-accelerator", "gitRepositoryGitRef": "9.4.2-ibm-0002-workflows-quarkus-maven", "dmnDestinationFolder": "src/main/resources/dmn", "bpmnDestinationFolder": "src/main/resources/bpmn", "scesimDestinationFolder": "src/test/resources/scesim", "otherFilesDestinationFolder": "src/main/resources/others" }]' -i --rm quay.io/bamoe/canvas:9.4.2-ibm-0002
     ```
 
 6.  Write a custom `Containerfile/Dockerfile` from the image:
 
     ```docker
-    FROM quay.io/bamoe/canvas:9.5.0-ibm-0005
+    FROM quay.io/bamoe/canvas:9.4.2-ibm-0002
 
     ENV KIE_SANDBOX_EXTENDED_SERVICES_URL=<my_value>
     ENV KIE_SANDBOX_CORS_PROXY_URL=<my_value>
@@ -196,9 +196,9 @@ Here's an example of what it should look like:
 ```json
 {
     "name": "Quarkus",
-    "iconUrl": "https://github.com/ibm/bamoe-canvas-quarkus-accelerator/raw/9.5.0-ibm-0005-workflows-quarkus-maven/logo.png",
+    "iconUrl": "https://github.com/ibm/bamoe-canvas-quarkus-accelerator/raw/9.4.2-ibm-0002-workflows-quarkus-maven/logo.png",
     "gitRepositoryUrl": "https://github.com/ibm/bamoe-canvas-quarkus-accelerator",
-    "gitRepositoryGitRef": "9.5.0-ibm-0005-workflows-quarkus-maven",
+    "gitRepositoryGitRef": "9.4.2-ibm-0002-workflows-quarkus-maven",
     "dmnDestinationFolder": "src/main/resources/dmn",
     "bpmnDestinationFolder": "src/main/resources/bpmn",
     "scesimDestinationFolder": "src/test/resources/scesim",
@@ -260,5 +260,5 @@ BAMOE Canvas can be customized to show your own logo and/or branding by extendin
 BAMOE Canvas allows for the base image used on Dev deployments to be customized. For example:
 
 ```docker
-ENV KIE_SANDBOX_DEV_DEPLOYMENT_BASE_IMAGE_URL="quay.io/bamoe/canvas-dev-deployment-base:9.5.0-ibm-0005"
+ENV KIE_SANDBOX_DEV_DEPLOYMENT_BASE_IMAGE_URL="quay.io/bamoe/canvas-dev-deployment-base:9.4.2-ibm-0002"
 ```

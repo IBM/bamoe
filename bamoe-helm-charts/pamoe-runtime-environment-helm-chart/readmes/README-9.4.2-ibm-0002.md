@@ -1,4 +1,4 @@
-# PAMOE Runtime Environment Helm Chart (9.5.0-ibm-0005)
+# PAMOE Runtime Environment Helm Chart (9.4.2-ibm-0002)
 
 This chart can be used to deploy BAMOE Management Console and the MCP Server container images on a [Kubernetes](https://kubernetes.io) cluster using the [Helm](https://helm.sh) package manager.
 
@@ -22,7 +22,7 @@ If you don't have access rights to this config, try creating a dummy Route resou
 To install the chart with the release name `pamoe-runtime`:
 
 ```console
-helm pull oci://quay.io/bamoe/pamoe-runtime-environment-helm-chart --version=9.5.0-ibm-0005 --untar
+helm pull oci://quay.io/bamoe/pamoe-runtime-environment-helm-chart --version=9.4.2-ibm-0002 --untar
 helm install pamoe-runtime ./pamoe-runtime-environment-helm-chart --values ./pamoe-runtime-environment-helm-chart/values-openshift.yaml --set global.openshiftRouteDomain="<YOUR_OCP_ROUTE_DOMAIN>"
 ```
 
@@ -31,7 +31,7 @@ helm install pamoe-runtime ./pamoe-runtime-environment-helm-chart --values ./pam
 To install the chart with the release name `pamoe-runtime`:
 
 ```console
-helm pull oci://quay.io/bamoe/pamoe-runtime-environment-helm-chart --version=9.5.0-ibm-0005 --untar
+helm pull oci://quay.io/bamoe/pamoe-runtime-environment-helm-chart --version=9.4.2-ibm-0002 --untar
 helm install pamoe-runtime ./pamoe-runtime-environment-helm-chart --values ./pamoe-runtime-environment-helm-chart/values-kubernetes.yaml --set global.kubernetesClusterDomain="<YOUR_KUBERNETES_CLUSTER_DOMAIN>" --set global.kubernetesIngressClass="<YOUR_KUBERNETES_INGRESS_CLASS>"
 ```
 
@@ -40,7 +40,7 @@ helm install pamoe-runtime ./pamoe-runtime-environment-helm-chart --values ./pam
 To install the chart with the release name `pamoe-runtime`:
 
 ```console
-helm pull oci://quay.io/bamoe/pamoe-runtime-environment-helm-chart --version=9.5.0-ibm-0005 --untar
+helm pull oci://quay.io/bamoe/pamoe-runtime-environment-helm-chart --version=9.4.2-ibm-0002 --untar
 helm install pamoe-runtime ./pamoe-runtime-environment-helm-chart --values ./pamoe-runtime-environment-helm-chart/values-minikube-nginx.yaml
 ```
 
@@ -49,7 +49,7 @@ helm install pamoe-runtime ./pamoe-runtime-environment-helm-chart --values ./pam
 To install the chart with the release name `pamoe-runtime`:
 
 ```console
-helm install pamoe-runtime oci://quay.io/bamoe/pamoe-runtime-environment-helm-chart --version=9.5.0-ibm-0005
+helm install pamoe-runtime oci://quay.io/bamoe/pamoe-runtime-environment-helm-chart --version=9.4.2-ibm-0002
 ```
 
 ## Uninstalling the Chart
@@ -90,7 +90,7 @@ The following table lists the configurable parameters of this helm chart and the
 | management_console.enabled                   | bool   | `true`                                                                                                                                                                                                                                                  | Enable or disable Management Console installation                                                                                                |
 | management_console.env                       | object | `{}`                                                                                                                                                                                                                                                    | Custom environment variables added to the Management Console Deployment                                                                          |
 | management_console.fullnameOverride          | string | `""`                                                                                                                                                                                                                                                    | Overrides charts full name                                                                                                                       |
-| management_console.image                     | object | `{"account":"bamoe","name":"management-console","pullPolicy":"IfNotPresent","registry":"quay.io","tag":"9.5.0-ibm-0005"}`                                                                                                                               | Image source configuration for the Management Console image                                                                                      |
+| management_console.image                     | object | `{"account":"bamoe","name":"management-console","pullPolicy":"IfNotPresent","registry":"quay.io","tag":"9.4.2-ibm-0002"}`                                                                                                                               | Image source configuration for the Management Console image                                                                                      |
 | management_console.imagePullSecrets          | list   | `[]`                                                                                                                                                                                                                                                    | Pull secrets used when pulling Management Console image                                                                                          |
 | management_console.ingress                   | object | `{"annotations":{},"className":"{{ .Values.global.kubernetesIngressClass }}","enabled":false,"hosts":[{"host":"management-console.{{ .Values.global.kubernetesClusterDomain }}","paths":[{"path":"/","pathType":"ImplementationSpecific"}]}],"tls":[]}` | Management Console Ingress configuration (https://kubernetes.io/docs/concepts/services-networking/ingress/)                                      |
 | management_console.managedBusinessServices   | list   | `[]`                                                                                                                                                                                                                                                    | Overrides the List of Business Services that are automatically connected to the Management Console                                               |
@@ -110,7 +110,7 @@ The following table lists the configurable parameters of this helm chart and the
 | mcp_server.chargedProductAnnotations         | object | `{"productID":"{{ .Values.global.chargedProductValues.productID }}","productMetric":"{{ .Values.global.chargedProductValues.productMetric }}","productName":"{{ .Values.global.chargedProductValues.productName }}"}`                                   | Charged product annotations for ILMT tracking These values are populated from global.chargedProductValues                                        |
 | mcp_server.env                               | object | `{}`                                                                                                                                                                                                                                                    | Env variables for BAMOE MCP Server deployment                                                                                                    |
 | mcp_server.fullnameOverride                  | string | `""`                                                                                                                                                                                                                                                    | Overrides charts full name                                                                                                                       |
-| mcp_server.image                             | object | `{"account":"bamoe","name":"mcp-server","pullPolicy":"IfNotPresent","registry":"quay.io","tag":"9.5.0-ibm-0005"}`                                                                                                                                       | Image source configuration for the MCP Server image                                                                                              |
+| mcp_server.image                             | object | `{"account":"bamoe","name":"mcp-server","pullPolicy":"IfNotPresent","registry":"quay.io","tag":"9.4.2-ibm-0002"}`                                                                                                                                       | Image source configuration for the MCP Server image                                                                                              |
 | mcp_server.imagePullSecrets                  | list   | `[]`                                                                                                                                                                                                                                                    | Pull secrets used when pulling MCP Server image                                                                                                  |
 | mcp_server.ingress                           | object | `{"annotations":{},"className":"{{ .Values.global.kubernetesIngressClass }}","enabled":false,"hosts":[{"host":"mcp-server.{{ .Values.global.kubernetesClusterDomain }}","paths":[{"path":"/","pathType":"ImplementationSpecific"}]}],"tls":[]}`         | MCP Server Ingress configuration (https://kubernetes.io/docs/concepts/services-networking/ingress/)                                              |
 | mcp_server.name                              | string | `"mcp-server"`                                                                                                                                                                                                                                          | The MCP Server application name                                                                                                                  |
