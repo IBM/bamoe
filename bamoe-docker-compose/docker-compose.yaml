@@ -1,7 +1,7 @@
 services:
   bamoe_canvas:
     container_name: bamoe_canvas
-    image: "quay.io/bamoe/canvas:9.5.1-ibm-0002"
+    image: "quay.io/bamoe/canvas:9.5.2-ibm-0002"
     ports:
       - 9090:8080
     environment:
